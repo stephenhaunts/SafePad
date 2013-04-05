@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Safe Pad Client Library", "Safe Pad Client Library\Safe Pad Client Library.csproj", "{2A0B09D8-ABB5-4B6C-876C-D215D568BF62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Safe Pad", "Safe Pad\Safe Pad.csproj", "{3479FDA5-52FE-4465-8E0C-BE533E4D3B3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Safe Pad.Tests.Unit", "Safe Pad.Tests.Unit\Safe Pad.Tests.Unit.csproj", "{AD3C641F-344D-4CAA-B03B-31095C052C43}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7FC5FB0F-09E1-4084-9C99-7EE0A82D2D01}"
+	ProjectSection(SolutionItems) = preProject
+		CodeAnalysis.ruleset = CodeAnalysis.ruleset
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://hauntedhouse.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Safe\u0020Pad\u0020Client\u0020Library\\Safe\u0020Pad\u0020Client\u0020Library.csproj
+		SccProjectName1 = Safe\u0020Pad\u0020Client\u0020Library
+		SccLocalPath1 = Safe\u0020Pad\u0020Client\u0020Library
+		SccProjectUniqueName2 = Safe\u0020Pad\\Safe\u0020Pad.csproj
+		SccProjectName2 = Safe\u0020Pad
+		SccLocalPath2 = Safe\u0020Pad
+		SccProjectUniqueName3 = Safe\u0020Pad.Tests.Unit\\Safe\u0020Pad.Tests.Unit.csproj
+		SccProjectName3 = Safe\u0020Pad.Tests.Unit
+		SccLocalPath3 = Safe\u0020Pad.Tests.Unit
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A0B09D8-ABB5-4B6C-876C-D215D568BF62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A0B09D8-ABB5-4B6C-876C-D215D568BF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A0B09D8-ABB5-4B6C-876C-D215D568BF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A0B09D8-ABB5-4B6C-876C-D215D568BF62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3479FDA5-52FE-4465-8E0C-BE533E4D3B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3479FDA5-52FE-4465-8E0C-BE533E4D3B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3479FDA5-52FE-4465-8E0C-BE533E4D3B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3479FDA5-52FE-4465-8E0C-BE533E4D3B3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD3C641F-344D-4CAA-B03B-31095C052C43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD3C641F-344D-4CAA-B03B-31095C052C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD3C641F-344D-4CAA-B03B-31095C052C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD3C641F-344D-4CAA-B03B-31095C052C43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
