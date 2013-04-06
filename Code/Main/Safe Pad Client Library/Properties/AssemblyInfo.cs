@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Safe Pad Client Library")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Dollar Financial (UK) Ltd")]
+[assembly: AssemblyCompany("Haunted House Software")]
 [assembly: AssemblyProduct("Safe Pad Client Library")]
-[assembly: AssemblyCopyright("Copyright © Dollar Financial (UK) Ltd 2013")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

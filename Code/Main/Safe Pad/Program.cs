@@ -15,7 +15,6 @@ namespace HauntedHouseSoftware.SecureNotePad
             Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
             
             if (args.Length >= 1)
             {
@@ -25,7 +24,6 @@ namespace HauntedHouseSoftware.SecureNotePad
             {
                 form = new MainForm();
             }
-
 
             Application.Run(form);
         }
