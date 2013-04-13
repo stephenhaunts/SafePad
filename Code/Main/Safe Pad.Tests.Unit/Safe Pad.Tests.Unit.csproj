@@ -57,6 +57,7 @@
     <Compile Include="CryptoProviders\AESTests.cs" />
     <Compile Include="CryptoProviders\SecureHashTests.cs" />
     <Compile Include="DomainObjects\DocumentTests.cs" />
+    <Compile Include="DomainObjects\FileFormat\LoaderFactoryTests.cs" />
     <Compile Include="DomainObjects\PasswordTests.cs" />
     <Compile Include="DomainObjects\GZipCompressionTests.cs" />
     <Compile Include="DomainObjects\ByteHelpersTests.cs" />
