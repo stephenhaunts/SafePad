@@ -298,53 +298,53 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
             document.Save(null);
         }
 
-        [TestMethod]        
-        public void LoadDecryptsDataCallsDecrypt3Times()
-        {
-            IAES aes;
-            ISecureHash hash;
-            IPassword password;
-            IFileProxy fileProxy;
-            ICompression compression;
-            TestStubsForDocument(out aes, out hash, out password, out fileProxy, out compression);
+        //[TestMethod]        
+        //public void LoadDecryptsDataCallsDecrypt3Times()
+        //{
+        //    IAES aes;
+        //    ISecureHash hash;
+        //    IPassword password;
+        //    IFileProxy fileProxy;
+        //    ICompression compression;
+        //    TestStubsForDocument(out aes, out hash, out password, out fileProxy, out compression);
 
-            var document = new DocumentOverload(aes, hash, compression, password, fileProxy);
-            document.Load("test.scp");
+        //    var document = new DocumentOverload(aes, hash, compression, password, fileProxy);
+        //    document.Load("test.scp");
 
-            Assert.AreEqual(3, ((TestAES)aes).DecryptCounter);
-        }
+        //    Assert.AreEqual(3, ((TestAES)aes).DecryptCounter);
+        //}
 
-        [TestMethod]
-        public void LoadDecryptsDataCallsDecompress1Time()
-        {
-            IAES aes;
-            ISecureHash hash;
-            IPassword password;
-            IFileProxy fileProxy;
-            ICompression compression;
-            TestStubsForDocument(out aes, out hash, out password, out fileProxy, out compression);
+        //[TestMethod]
+        //public void LoadDecryptsDataCallsDecompress1Time()
+        //{
+        //    IAES aes;
+        //    ISecureHash hash;
+        //    IPassword password;
+        //    IFileProxy fileProxy;
+        //    ICompression compression;
+        //    TestStubsForDocument(out aes, out hash, out password, out fileProxy, out compression);
 
-            var document = new DocumentOverload(aes, hash, compression, password, fileProxy);
-            document.Load("test.scp");
+        //    var document = new DocumentOverload(aes, hash, compression, password, fileProxy);
+        //    document.Load("test.scp");
 
-            Assert.AreEqual(1, ((TestCompression)compression).DecompressCounter);
-        }
+        //    Assert.AreEqual(1, ((TestCompression)compression).DecompressCounter);
+        //}
 
-        [TestMethod]
-        public void LoadDecryptsDataCallsSecureHash1Time()
-        {
-            IAES aes;
-            ISecureHash hash;
-            IPassword password;
-            IFileProxy fileProxy;
-            ICompression compression;
-            TestStubsForDocument(out aes, out hash, out password, out fileProxy, out compression);
+        //[TestMethod]
+        //public void LoadDecryptsDataCallsSecureHash1Time()
+        //{
+        //    IAES aes;
+        //    ISecureHash hash;
+        //    IPassword password;
+        //    IFileProxy fileProxy;
+        //    ICompression compression;
+        //    TestStubsForDocument(out aes, out hash, out password, out fileProxy, out compression);
 
-            var document = new DocumentOverload(aes, hash, compression, password, fileProxy);
-            document.Load("test.scp");
+        //    var document = new DocumentOverload(aes, hash, compression, password, fileProxy);
+        //    document.Load("test.scp");
 
-            Assert.AreEqual(1, ((TestSecureHash)hash).ComputeHashCounter);
-        }
+        //    Assert.AreEqual(1, ((TestSecureHash)hash).ComputeHashCounter);
+        //}
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]

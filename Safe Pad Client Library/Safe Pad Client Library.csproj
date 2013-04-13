@@ -52,6 +52,10 @@
     <Compile Include="CryptoProviders\ISecureHash.cs" />
     <Compile Include="CryptoProviders\SecureHash.cs" />
     <Compile Include="DomainObjects\ByteHelpers.cs" />
+    <Compile Include="DomainObjects\FileFormat\IFileFormatLoader.cs" />
+    <Compile Include="DomainObjects\FileFormat\ILoaderFactory.cs" />
+    <Compile Include="DomainObjects\FileFormat\LoaderFactory.cs" />
+    <Compile Include="DomainObjects\FileFormat\Version10.cs" />
     <Compile Include="DomainObjects\GZipCompression.cs" />
     <Compile Include="DomainObjects\Document.cs" />
     <Compile Include="DomainObjects\FileProxy.cs" />
@@ -64,6 +68,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
