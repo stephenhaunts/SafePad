@@ -1,7 +1,10 @@
 Version 1.1
 ------------
 
-- Added loader factory to support older versions of the file format to make it backwards compatible. 
-  If you save a file in an older file format, it will be saved in the latest format.
+[X] - Added loader factory to support older versions of the file format to make it backwards compatible. 
+      If you save a file in an older file format, it will be saved in the latest format.
 
-- Add a font selector and font size selector to the main toolbar.
+[X] - Add a font selector and font size selector to the main toolbar.
+
+[ ] - Save window state to XML file.
+
