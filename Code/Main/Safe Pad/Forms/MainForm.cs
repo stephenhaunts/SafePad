@@ -27,7 +27,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         public MainForm()
         {
             InitializeComponent();
-            PopulateFontDropDown();         
+            PopulateFontDropDown();
+            UpdateFontDropDownWithFontSelection();
             Text = String.Format("{0} : {1}", ApplicationName, _documentName);
         }
 
@@ -354,6 +355,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private void AboutToolStripMenuItem1Click(object sender, EventArgs e)
         {
             AboutBox();
-        }        
+        }
+
+        private void toolStripFontSelector_Click(object sender, EventArgs e)
+        {
+
+        } 
     }
 }

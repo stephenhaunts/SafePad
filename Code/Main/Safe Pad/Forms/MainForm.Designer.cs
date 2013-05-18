@@ -100,6 +100,7 @@
             this.redoButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripFontSelector = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripFontSizeSelector = new System.Windows.Forms.ToolStripComboBox();
             this.boldButton = new System.Windows.Forms.ToolStripButton();
             this.italicButton = new System.Windows.Forms.ToolStripButton();
             this.underlineButton = new System.Windows.Forms.ToolStripButton();
@@ -749,6 +750,7 @@
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(26, 26);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripFontSelector,
+            this.toolStripFontSizeSelector,
             this.boldButton,
             this.italicButton,
             this.underlineButton,
@@ -763,11 +765,12 @@
             this.toolStrip1.Location = new System.Drawing.Point(3, 33);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(448, 33);
+            this.toolStrip1.Size = new System.Drawing.Size(525, 33);
             this.toolStrip1.TabIndex = 1;
             // 
             // toolStripFontSelector
             // 
+            this.toolStripFontSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.toolStripFontSelector.Items.AddRange(new object[] {
             "Calibre",
             "Helvetica",
@@ -776,6 +779,33 @@
             this.toolStripFontSelector.Size = new System.Drawing.Size(121, 33);
             this.toolStripFontSelector.DropDown += new System.EventHandler(this.toolStripFontSelector_DropDown);
             this.toolStripFontSelector.SelectedIndexChanged += new System.EventHandler(this.toolStripFontSelector_SelectedIndexChanged);
+            this.toolStripFontSelector.Click += new System.EventHandler(this.toolStripFontSelector_Click);
+            // 
+            // toolStripFontSizeSelector
+            // 
+            this.toolStripFontSizeSelector.DropDownWidth = 70;
+            this.toolStripFontSizeSelector.Items.AddRange(new object[] {
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "14",
+            "16",
+            "18",
+            "20",
+            "22",
+            "24",
+            "26",
+            "28",
+            "36",
+            "48",
+            "72"});
+            this.toolStripFontSizeSelector.Name = "toolStripFontSizeSelector";
+            this.toolStripFontSizeSelector.Size = new System.Drawing.Size(75, 33);
+            this.toolStripFontSizeSelector.SelectedIndexChanged += new System.EventHandler(this.toolStripFontSizeSelector_SelectedIndexChanged);
+            this.toolStripFontSizeSelector.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripFontSizeSelector_KeyDown);
+            this.toolStripFontSizeSelector.TextChanged += new System.EventHandler(this.toolStripFontSizeSelector_TextChanged);
             // 
             // boldButton
             // 
@@ -1007,6 +1037,7 @@
         private System.Windows.Forms.ToolStripMenuItem newDocumentWindowToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripComboBox toolStripFontSelector;
+        private System.Windows.Forms.ToolStripComboBox toolStripFontSizeSelector;
     }
 }
 

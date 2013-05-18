@@ -298,6 +298,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private void UpdateFontDropDownWithFontSelection()
         {
             string selectedFontName = richTextBox.SelectionFont.Name;
+            toolStripFontSizeSelector.Text = richTextBox.SelectionFont.Size.ToString();
 
             int count = 0;
 
@@ -338,6 +339,26 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void toolStripFontSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
+            UpdateFontInRichTextBox();        
+        }
+
+        private void toolStripFontSizeSelector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateFontInRichTextBox();
+        }
+
+        private void toolStripFontSizeSelector_KeyDown(object sender, KeyEventArgs e)
+        {
+            UpdateFontInRichTextBox();
+        }
+
+        private void toolStripFontSizeSelector_TextChanged(object sender, EventArgs e)
+        {
+            UpdateFontInRichTextBox();
+        }
+
+        private void UpdateFontInRichTextBox()
+        {
             string selectedFontName = (string)toolStripFontSelector.Items[toolStripFontSelector.SelectedIndex];
 
             if (string.IsNullOrEmpty(selectedFontName))
@@ -356,7 +377,29 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
             });
 
-            richTextBox.SelectionFont = new Font(fontFamily, richTextBox.SelectionFont.Size, richTextBox.SelectionFont.Style);
+            float fontSize = 12.0f;
+
+            try
+            {
+                if (toolStripFontSizeSelector.SelectedIndex > 0)
+                {
+                    fontSize = float.Parse((string)toolStripFontSizeSelector.Items[toolStripFontSizeSelector.SelectedIndex]);
+                }
+                else
+                {
+                    fontSize = float.Parse(toolStripFontSizeSelector.Text);
+                }
+            }
+            catch (FormatException){}
+
+            if (richTextBox.SelectionFont == null)
+            {
+                richTextBox.SelectionFont = new Font(fontFamily, fontSize);
+            }
+            else
+            {
+                richTextBox.SelectionFont = new Font(fontFamily, fontSize, richTextBox.SelectionFont.Style);
+            }
         } 
     }
 }
