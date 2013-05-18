@@ -14,7 +14,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             Text = String.Format("{0} : {1}", ApplicationName, _documentName);
             Visible = true;
             richTextBox.Visible = true;
-
+            PopulateFontDropDown();         
             LoadDocument(fileName);
         }
 
@@ -27,6 +27,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         public MainForm()
         {
             InitializeComponent();
+            PopulateFontDropDown();         
             Text = String.Format("{0} : {1}", ApplicationName, _documentName);
         }
 
@@ -322,6 +323,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private void RichTextBoxKeyDown(object sender, KeyEventArgs e)
         {
             UpdateFontStyleButtons();
+            UpdateFontDropDownWithFontSelection();
         }
 
         private void NewDocumentToolStripMenuItemClick(object sender, EventArgs e)
@@ -352,8 +354,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private void AboutToolStripMenuItem1Click(object sender, EventArgs e)
         {
             AboutBox();
-        }
-
-    
+        }        
     }
 }

@@ -3,14 +3,14 @@ using HauntedHouseSoftware.SecureNotePad.CryptoProviders;
 
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
 {
-    public class Version10 : IFileFormatLoader
+    public class Version10Loader : IFileFormatLoader
     {
         private readonly IAES _aes;
         private readonly ISecureHash _secureHash;
         private readonly IPassword _password;
         private readonly ICompression _compression;
 
-        public Version10(IPassword password)
+        public Version10Loader(IPassword password)
         {
             if (password == null)
             {

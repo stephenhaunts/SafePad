@@ -291,6 +291,72 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private void RichTextBoxClick(object sender, EventArgs e)
         {
             UpdateFontStyleButtons();
+
+            UpdateFontDropDownWithFontSelection();
         }
+
+        private void UpdateFontDropDownWithFontSelection()
+        {
+            string selectedFontName = richTextBox.SelectionFont.Name;
+
+            int count = 0;
+
+            foreach (string font in toolStripFontSelector.Items)
+            {
+                if (String.Compare(font, selectedFontName, true) == 0)
+                {
+                    toolStripFontSelector.SelectedIndex = count;
+                }
+                count++;
+            }
+        }
+
+        private void toolStripFontSelector_DropDown(object sender, EventArgs e)
+        {
+            PopulateFontDropDown();
+        }
+
+        private void PopulateFontDropDown()
+        {
+            toolStripFontSelector.Items.Clear();
+
+            int count = 0;
+
+            Array.ForEach(FontFamily.Families, font =>
+            {
+                toolStripFontSelector.Items.Add(font.Name);
+
+                if (String.Compare(richTextBox.SelectionFont.Name, font.Name, true) == 0)
+                {
+                    toolStripFontSelector.SelectedIndex = count;
+                }
+                count++;
+            });
+
+            toolStripFontSelector.Invalidate();
+        }
+
+        private void toolStripFontSelector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedFontName = (string)toolStripFontSelector.Items[toolStripFontSelector.SelectedIndex];
+
+            if (string.IsNullOrEmpty(selectedFontName))
+            {
+                return;
+            }
+
+            FontFamily fontFamily = null;
+
+            Array.ForEach(FontFamily.Families, font =>
+            {
+                if (String.Compare(selectedFontName, font.Name, true) == 0)
+                {
+                    fontFamily = font;
+                }
+
+            });
+
+            richTextBox.SelectionFont = new Font(fontFamily, richTextBox.SelectionFont.Size, richTextBox.SelectionFont.Style);
+        } 
     }
 }

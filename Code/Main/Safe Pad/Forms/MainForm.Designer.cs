@@ -99,6 +99,7 @@
             this.undoButton = new System.Windows.Forms.ToolStripButton();
             this.redoButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripFontSelector = new System.Windows.Forms.ToolStripComboBox();
             this.boldButton = new System.Windows.Forms.ToolStripButton();
             this.italicButton = new System.Windows.Forms.ToolStripButton();
             this.underlineButton = new System.Windows.Forms.ToolStripButton();
@@ -178,8 +179,8 @@
             this.newToolStripMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.New_Document;
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.Window;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.newToolStripMenuItem.Text = "New";            
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.newToolStripMenuItem.Text = "New";
             // 
             // newDocumentToolStripMenuItem
             // 
@@ -204,7 +205,7 @@
             this.loadToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.Window;
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.loadToolStripMenuItem.Text = "L&oad";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.LoadToolStripMenuItemClick);
             // 
@@ -214,21 +215,21 @@
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.Window;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.saveToolStripMenuItem.Text = "S&ave";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItemClick);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(140, 6);
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Print_Document;
             this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.Window;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.printToolStripMenuItem.Text = "Print Preview";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.PrintToolStripMenuItemClick);
             // 
@@ -236,19 +237,19 @@
             // 
             this.printToolStripMenuItem1.Name = "printToolStripMenuItem1";
             this.printToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.printToolStripMenuItem1.Size = new System.Drawing.Size(143, 22);
             this.printToolStripMenuItem1.Text = "Print";
             this.printToolStripMenuItem1.Click += new System.EventHandler(this.PrintToolStripMenuItem1Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(140, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
             // 
@@ -747,6 +748,7 @@
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(26, 26);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripFontSelector,
             this.boldButton,
             this.italicButton,
             this.underlineButton,
@@ -761,8 +763,19 @@
             this.toolStrip1.Location = new System.Drawing.Point(3, 33);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(294, 33);
+            this.toolStrip1.Size = new System.Drawing.Size(448, 33);
             this.toolStrip1.TabIndex = 1;
+            // 
+            // toolStripFontSelector
+            // 
+            this.toolStripFontSelector.Items.AddRange(new object[] {
+            "Calibre",
+            "Helvetica",
+            "Ariel"});
+            this.toolStripFontSelector.Name = "toolStripFontSelector";
+            this.toolStripFontSelector.Size = new System.Drawing.Size(121, 33);
+            this.toolStripFontSelector.DropDown += new System.EventHandler(this.toolStripFontSelector_DropDown);
+            this.toolStripFontSelector.SelectedIndexChanged += new System.EventHandler(this.toolStripFontSelector_SelectedIndexChanged);
             // 
             // boldButton
             // 
@@ -993,6 +1006,7 @@
         private System.Windows.Forms.ContextMenuStrip notifyIconContextMenu;
         private System.Windows.Forms.ToolStripMenuItem newDocumentWindowToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripComboBox toolStripFontSelector;
     }
 }
 
