@@ -33,7 +33,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.FileFormat
             var password = new Password("password", "password2");
             var fileFormatLoader = loader.GetFileLoader(stream, password);
 
-            Assert.AreEqual(typeof(Version10), fileFormatLoader.GetType());
+            Assert.AreEqual(typeof(Version10Loader), fileFormatLoader.GetType());
         }
 
         [TestMethod]

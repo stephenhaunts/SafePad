@@ -55,7 +55,7 @@
     <Compile Include="DomainObjects\FileFormat\IFileFormatLoader.cs" />
     <Compile Include="DomainObjects\FileFormat\ILoaderFactory.cs" />
     <Compile Include="DomainObjects\FileFormat\LoaderFactory.cs" />
-    <Compile Include="DomainObjects\FileFormat\Version10.cs" />
+    <Compile Include="DomainObjects\FileFormat\Version10Loader.cs" />
     <Compile Include="DomainObjects\GZipCompression.cs" />
     <Compile Include="DomainObjects\Document.cs" />
     <Compile Include="DomainObjects\FileProxy.cs" />

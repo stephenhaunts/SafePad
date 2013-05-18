@@ -19,7 +19,9 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
            switch(GetVersionNumber(byteStream))
            {
                case "1.0":
-                   return new Version10(password);                   
+                   return new Version10Loader(password);
+               default:
+                   break;                   
            }
 
            throw new InvalidOperationException("The file is not a supported file format version.");
@@ -29,8 +31,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
        {
            var versionNumber = ByteHelpers.CreateSpecialByteArray(2);
            Buffer.BlockCopy(byteStream, 0, versionNumber, 0, 2);
-          
-           var version = versionNumber[0] + "." + versionNumber[1];
+
+           var version = String.Format("{0}.{1}", versionNumber[0], versionNumber[1]);
            
            return version;
        }
