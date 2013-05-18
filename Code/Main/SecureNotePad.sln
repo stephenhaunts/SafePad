@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Safe Pad.Tests.Unit", "Safe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7FC5FB0F-09E1-4084-9C99-7EE0A82D2D01}"
 	ProjectSection(SolutionItems) = preProject
+		ChangeLog.txt = ChangeLog.txt
 		CodeAnalysis.ruleset = CodeAnalysis.ruleset
 	EndProjectSection
 EndProject
@@ -16,7 +17,7 @@ Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
 		SccNumberOfProjects = 4
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://hauntedhouse.visualstudio.com/defaultcollection
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs31
 		SccLocalPath0 = .
 		SccProjectUniqueName1 = Safe\u0020Pad\u0020Client\u0020Library\\Safe\u0020Pad\u0020Client\u0020Library.csproj
 		SccProjectName1 = Safe\u0020Pad\u0020Client\u0020Library
