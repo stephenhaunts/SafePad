@@ -288,13 +288,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                             MessageBoxDefaultButton.Button1);
         }
 
-        private void RichTextBoxClick(object sender, EventArgs e)
-        {
-            UpdateFontStyleButtons();
-
-            UpdateFontDropDownWithFontSelection();
-        }
-
         private void UpdateFontDropDownWithFontSelection()
         {
             string selectedFontName = richTextBox.SelectionFont.Name;
@@ -310,11 +303,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 }
                 count++;
             }
-        }
-
-        private void toolStripFontSelector_DropDown(object sender, EventArgs e)
-        {
-            PopulateFontDropDown();
         }
 
         private void PopulateFontDropDown()
@@ -337,26 +325,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             toolStripFontSelector.Invalidate();
         }
 
-        private void toolStripFontSelector_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdateFontInRichTextBox();        
-        }
-
-        private void toolStripFontSizeSelector_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdateFontInRichTextBox();
-        }
-
-        private void toolStripFontSizeSelector_KeyDown(object sender, KeyEventArgs e)
-        {
-            UpdateFontInRichTextBox();
-        }
-
-        private void toolStripFontSizeSelector_TextChanged(object sender, EventArgs e)
-        {
-            UpdateFontInRichTextBox();
-        }
-
         private void UpdateFontInRichTextBox()
         {
             string selectedFontName = (string)toolStripFontSelector.Items[toolStripFontSelector.SelectedIndex];
@@ -366,6 +334,25 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 return;
             }
 
+            FontFamily fontFamily = GetFontFamilyNameFromDropDownList(selectedFontName);
+            float fontSize = ApplyFontSizeToSelection();
+            ApplyFontToSelection(fontFamily, fontSize);
+        }
+
+        private void ApplyFontToSelection(FontFamily fontFamily, float fontSize)
+        {
+            if (richTextBox.SelectionFont == null)
+            {
+                richTextBox.SelectionFont = new Font(fontFamily, fontSize);
+            }
+            else
+            {
+                richTextBox.SelectionFont = new Font(fontFamily, fontSize, richTextBox.SelectionFont.Style);
+            }
+        }
+
+        private static FontFamily GetFontFamilyNameFromDropDownList(string selectedFontName)
+        {
             FontFamily fontFamily = null;
 
             Array.ForEach(FontFamily.Families, font =>
@@ -376,7 +363,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 }
 
             });
+            return fontFamily;
+        }
 
+        private float ApplyFontSizeToSelection()
+        {
             float fontSize = 12.0f;
 
             try
@@ -390,16 +381,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                     fontSize = float.Parse(toolStripFontSizeSelector.Text);
                 }
             }
-            catch (FormatException){}
-
-            if (richTextBox.SelectionFont == null)
-            {
-                richTextBox.SelectionFont = new Font(fontFamily, fontSize);
-            }
-            else
-            {
-                richTextBox.SelectionFont = new Font(fontFamily, fontSize, richTextBox.SelectionFont.Style);
-            }
+            catch (FormatException) { }
+            return fontSize;
         } 
     }
 }
