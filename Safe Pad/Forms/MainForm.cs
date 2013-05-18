@@ -357,9 +357,36 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             AboutBox();
         }
 
-        private void toolStripFontSelector_Click(object sender, EventArgs e)
+        private void RichTextBoxClick(object sender, EventArgs e)
         {
+            UpdateFontStyleButtons();
+            UpdateFontDropDownWithFontSelection();
+        }
 
-        } 
+        private void toolStripFontSelector_DropDown(object sender, EventArgs e)
+        {
+            PopulateFontDropDown();
+        }
+
+        private void toolStripFontSelector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateFontInRichTextBox();
+        }
+
+        private void toolStripFontSizeSelector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateFontInRichTextBox();
+        }
+
+        private void toolStripFontSizeSelector_KeyDown(object sender, KeyEventArgs e)
+        {
+            UpdateFontInRichTextBox();
+        }
+
+        private void toolStripFontSizeSelector_TextChanged(object sender, EventArgs e)
+        {
+            UpdateFontInRichTextBox();
+        }
+
     }
 }

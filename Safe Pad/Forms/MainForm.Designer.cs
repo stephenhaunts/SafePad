@@ -778,8 +778,7 @@
             this.toolStripFontSelector.Name = "toolStripFontSelector";
             this.toolStripFontSelector.Size = new System.Drawing.Size(121, 33);
             this.toolStripFontSelector.DropDown += new System.EventHandler(this.toolStripFontSelector_DropDown);
-            this.toolStripFontSelector.SelectedIndexChanged += new System.EventHandler(this.toolStripFontSelector_SelectedIndexChanged);
-            this.toolStripFontSelector.Click += new System.EventHandler(this.toolStripFontSelector_Click);
+            this.toolStripFontSelector.SelectedIndexChanged += new System.EventHandler(this.toolStripFontSelector_SelectedIndexChanged);            
             // 
             // toolStripFontSizeSelector
             // 
