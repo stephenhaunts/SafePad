@@ -161,6 +161,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal static System.Drawing.Bitmap Italic1 {
             get {
                 object obj = ResourceManager.GetObject("Italic1", resourceCulture);

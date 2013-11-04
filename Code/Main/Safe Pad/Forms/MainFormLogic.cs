@@ -26,25 +26,39 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void SaveDocument()
         {
-            if (NewDocument(true) == false)
-            {
-                return;
+            MemoryStream userInput = null;
+
+            try
+            {                
+                if (NewDocument(true) == false)
+                {
+                    return;
+                }
+
+                if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
+
+                userInput = new MemoryStream();
+                richTextBox.SaveFile(userInput, RichTextBoxStreamType.RichText);
+                byte[] list = userInput.GetBuffer();
+                _currentDocument.EncodedData = list;
+                _currentDocument.Save(saveFileDialog.FileName);
+
+                _documentName = saveFileDialog.FileName;
+                Text = String.Format("{0} : {1}", ApplicationName, _documentName);
             }
-
-            if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
-
-            var userInput = new MemoryStream();
-            richTextBox.SaveFile(userInput, RichTextBoxStreamType.RichText);
-            byte[] list = userInput.GetBuffer();
-            _currentDocument.EncodedData = list;
-            _currentDocument.Save(saveFileDialog.FileName);
-
-            _documentName = saveFileDialog.FileName;
-            Text = String.Format("{0} : {1}", ApplicationName, _documentName);
+            finally
+            {
+                if (userInput != null)
+                {
+                    userInput.Dispose();
+                }
+            }                       
         }
 
         private void LoadDocument(string fileName)
-        {            
+        {
+            MemoryStream toLoad = null;
+
             try
             {
                 if (NewDocument(false) == false)
@@ -61,13 +75,12 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                     return;
                 }
 
-                var toLoad = new MemoryStream();
+                toLoad = new MemoryStream();
                 var bytesToLoad = _currentDocument.EncodedData;
                 toLoad.Write(bytesToLoad, 0, bytesToLoad.Length);
                 toLoad.Position = 0;
 
-                richTextBox.LoadFile(toLoad, RichTextBoxStreamType.RichText);
-                toLoad.Close();
+                richTextBox.LoadFile(toLoad, RichTextBoxStreamType.RichText);                
 
                 _documentName = fileName;
                 Text = String.Format("{0} : {1}", ApplicationName, _documentName);
@@ -83,6 +96,13 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             catch (ArgumentNullException)
             {
                 MessageBox.Show(Resources.MainForm_LoadDocument_Error_Loading_Document, Resources.MainForm_LoadDocument_Error_Loading_Document, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (toLoad != null)
+                {
+                    toLoad.Dispose();                   
+                }
             }
         }
 
@@ -152,6 +172,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
         private void PrintDocumentPrintPage(object sender, PrintPageEventArgs e)
         {
             try
@@ -274,7 +295,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
         }
 
-        private bool IsProcessOpen(string name)
+        private static bool IsProcessOpen(string name)
         {
             return Process.GetProcesses().Any(clsProcess => clsProcess.ProcessName.Contains(name));
         }
@@ -297,7 +318,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
             foreach (string font in toolStripFontSelector.Items)
             {
-                if (String.Compare(font, selectedFontName, true) == 0)
+                if (String.Compare(font, selectedFontName, StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     toolStripFontSelector.SelectedIndex = count;
                 }
@@ -315,7 +336,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             {
                 toolStripFontSelector.Items.Add(font.Name);
 
-                if (String.Compare(richTextBox.SelectionFont.Name, font.Name, true) == 0)
+                if (String.Compare(richTextBox.SelectionFont.Name, font.Name, StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     toolStripFontSelector.SelectedIndex = count;
                 }
@@ -327,28 +348,21 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void UpdateFontInRichTextBox()
         {
-            string selectedFontName = (string)toolStripFontSelector.Items[toolStripFontSelector.SelectedIndex];
+            var selectedFontName = (string)toolStripFontSelector.Items[toolStripFontSelector.SelectedIndex];
 
             if (string.IsNullOrEmpty(selectedFontName))
             {
                 return;
             }
 
-            FontFamily fontFamily = GetFontFamilyNameFromDropDownList(selectedFontName);
-            float fontSize = ApplyFontSizeToSelection();
+            var fontFamily = GetFontFamilyNameFromDropDownList(selectedFontName);
+            var fontSize = ApplyFontSizeToSelection();
             ApplyFontToSelection(fontFamily, fontSize);
         }
 
         private void ApplyFontToSelection(FontFamily fontFamily, float fontSize)
         {
-            if (richTextBox.SelectionFont == null)
-            {
-                richTextBox.SelectionFont = new Font(fontFamily, fontSize);
-            }
-            else
-            {
-                richTextBox.SelectionFont = new Font(fontFamily, fontSize, richTextBox.SelectionFont.Style);
-            }
+            richTextBox.SelectionFont = richTextBox.SelectionFont == null ? new Font(fontFamily, fontSize) : new Font(fontFamily, fontSize, richTextBox.SelectionFont.Style);
         }
 
         private static FontFamily GetFontFamilyNameFromDropDownList(string selectedFontName)
@@ -357,7 +371,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
             Array.ForEach(FontFamily.Families, font =>
             {
-                if (String.Compare(selectedFontName, font.Name, true) == 0)
+                if (String.Compare(selectedFontName, font.Name, StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     fontFamily = font;
                 }
