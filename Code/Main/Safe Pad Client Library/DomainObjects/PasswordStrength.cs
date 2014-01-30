@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Globalization;
+using System.Text.RegularExpressions;
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 {
     public enum PasswordScore
@@ -9,13 +10,38 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         Medium = 3,
         Strong = 4,
         VeryStrong = 5
-    }
+    }   
 
     public sealed class PasswordStrength
     {
         private PasswordStrength()
         { }
 
+        private static string[] _weakPasswordList = {  "password", 
+                                                       "123456",
+                                                       "1234567",
+                                                       "12345678",
+                                                       "abc123",
+                                                       "qwerty",
+                                                       "monkey",
+                                                       "letmein",
+                                                       "dragon",
+                                                       "111111",
+                                                       "baseball",
+                                                       "iloveyou",
+                                                       "trustno1",
+                                                       "sunshine",
+                                                       "master",
+                                                       "123123",
+                                                       "welcome",
+                                                       "shadow",
+                                                       "ashley",
+                                                       "football",
+                                                       "jesus",
+                                                       "michael",
+                                                       "ninja",
+                                                       "mustang",
+                                                       "password1"};
         public static PasswordScore CheckStrength(string password)
         {
             int score = 0;
@@ -23,6 +49,11 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             if (string.IsNullOrEmpty(password))
             {
                 return PasswordScore.Blank;
+            }
+
+            if (IsPasswordInWeakList(password))
+            {
+                return PasswordScore.Weak;
             }
 
             if (password.Length < 1)
@@ -62,6 +93,74 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             }
 
             return (PasswordScore)score;
+        }
+
+        private static bool IsPasswordInWeakList(string password)
+        {
+            foreach (string weakPassword in _weakPasswordList)
+            {
+                if (string.Compare(password,weakPassword,System.StringComparison.OrdinalIgnoreCase) == 0)
+                {
+                    return true;
+                }
+
+                if (PerformSubstitutions(weakPassword, password))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool PerformSubstitutions(string weakPassword, string password)
+        {
+            char[] vowels =            { 'A', 'a', 'e', 'i', 'o', 's', 'S'};
+            char[] vowelSubstitution = { '4', '@', '3', '1', '0', '$', '5' };
+
+            ReplaceLettersWithSubStitutions(password,vowels, vowelSubstitution);
+
+            if (string.Compare(ReplaceLettersWithSubStitutions(weakPassword, vowels, vowelSubstitution), password, System.StringComparison.OrdinalIgnoreCase) == 0)
+            {
+                return true;
+            }
+
+            char[] qwerty = { 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P' };
+            char[] qwertySubstitution = { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+
+            if (string.Compare(ReplaceLettersWithSubStitutions(weakPassword, qwerty, qwertySubstitution), password, System.StringComparison.OrdinalIgnoreCase) == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private static string ReplaceLettersWithSubStitutions(string password, char[] vowels, char[] vowelSubstitution)
+        {
+            string newPassword = string.Empty;
+
+            foreach (char c in password)
+            {
+                bool numberAdded = false;
+
+                for (int q = 0; q < vowels.Length; q++)
+                {
+                    if (c == vowels[q])
+                    {
+                        newPassword = newPassword + vowelSubstitution[q];
+                        numberAdded = true;
+                        break;
+                    }                    
+                }
+
+                if (!numberAdded)
+                {
+                    newPassword = newPassword + c;
+                }
+            }
+            
+            return newPassword;
         }
     }
 }

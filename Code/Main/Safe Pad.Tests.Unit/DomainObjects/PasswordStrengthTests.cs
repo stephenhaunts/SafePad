@@ -54,5 +54,47 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         {
             Assert.AreEqual(PasswordScore.VeryStrong, PasswordStrength.CheckStrength("!1234HelloWorld69"));
         }
+
+        [TestMethod]
+        public void CheckStrengthReturnsWeakForPasswordOfPasswordOnTheWeakPasswordList()
+        {
+            Assert.AreEqual(PasswordScore.Weak, PasswordStrength.CheckStrength("password"));
+        }
+
+        [TestMethod]
+        public void CheckStrengthReturnsWeakForPasswordOfTrustNoOne1OnTheWeakPasswordList()
+        {
+            Assert.AreEqual(PasswordScore.Weak, PasswordStrength.CheckStrength("trustno1"));
+        }
+
+        [TestMethod]
+        public void CheckStrengthReturnsWeakForPasswordOfTRUSTNO1OnTheWeakPasswordList()
+        {
+            Assert.AreEqual(PasswordScore.Weak, PasswordStrength.CheckStrength("TRUSTNO1"));
+        }
+
+        [TestMethod]
+        public void CheckStrengthReturnsWeakForPasswordOfP455w9rdOnTheWeakPasswordList()
+        {
+            Assert.AreEqual(PasswordScore.Weak, PasswordStrength.CheckStrength("p455w0rd"));
+        }
+
+        [TestMethod]
+        public void CheckStrengthReturnsWeakForPasswordOfTrustN01TheWeakPasswordList()
+        {
+            Assert.AreEqual(PasswordScore.Weak, PasswordStrength.CheckStrength("trustn01"));
+        }
+
+        [TestMethod]
+        public void CheckStrengthReturnsWeakForPasswordOfW3lc0m3TheWeakPasswordList()
+        {
+            Assert.AreEqual(PasswordScore.Weak, PasswordStrength.CheckStrength("w3lc0m3"));
+        }
+
+        [TestMethod]
+        public void CheckStrengthReturnsWeakForPasswordOfPasswordOnTheWeakPasswordListIncludingNonCharacters()
+        {
+            Assert.AreEqual(PasswordScore.Weak, PasswordStrength.CheckStrength("p@$$w0rd"));
+        }
     }
 }
