@@ -44,6 +44,7 @@
             this._passwordOne.PasswordChar = '*';
             this._passwordOne.Size = new System.Drawing.Size(326, 20);
             this._passwordOne.TabIndex = 0;
+            this._passwordOne.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._passwordOne_KeyPress);
             // 
             // _passwordOneLabel
             // 
@@ -70,6 +71,7 @@
             this._passwordTwo.PasswordChar = '*';
             this._passwordTwo.Size = new System.Drawing.Size(326, 20);
             this._passwordTwo.TabIndex = 2;
+            this._passwordTwo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._passwordTwo_KeyPress);
             // 
             // _okButton
             // 

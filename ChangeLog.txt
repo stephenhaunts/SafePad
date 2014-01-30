@@ -6,5 +6,7 @@ Version 1.1
 
 [X] - Add a font selector and font size selector to the main toolbar.
 
+[X] - Password entry dialog box now accepts Return key on each text box.
+
 [ ] - Save window state to XML file.
 
