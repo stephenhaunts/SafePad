@@ -35,6 +35,8 @@
             this._okButton = new System.Windows.Forms.Button();
             this._passwordEntryLabel = new System.Windows.Forms.Label();
             this._cancelButton = new System.Windows.Forms.Button();
+            this.password1Strength = new System.Windows.Forms.Label();
+            this.password2Strength = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // _passwordOne
@@ -44,6 +46,8 @@
             this._passwordOne.PasswordChar = '*';
             this._passwordOne.Size = new System.Drawing.Size(326, 20);
             this._passwordOne.TabIndex = 0;
+            this._passwordOne.TextChanged += new System.EventHandler(this._passwordOne_TextChanged);
+            this._passwordOne.KeyDown += new System.Windows.Forms.KeyEventHandler(this._passwordOne_KeyDown);
             this._passwordOne.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._passwordOne_KeyPress);
             // 
             // _passwordOneLabel
@@ -58,7 +62,7 @@
             // _passwordTwoLabel
             // 
             this._passwordTwoLabel.AutoSize = true;
-            this._passwordTwoLabel.Location = new System.Drawing.Point(81, 97);
+            this._passwordTwoLabel.Location = new System.Drawing.Point(81, 110);
             this._passwordTwoLabel.Name = "_passwordTwoLabel";
             this._passwordTwoLabel.Size = new System.Drawing.Size(77, 13);
             this._passwordTwoLabel.TabIndex = 3;
@@ -66,17 +70,18 @@
             // 
             // _passwordTwo
             // 
-            this._passwordTwo.Location = new System.Drawing.Point(81, 113);
+            this._passwordTwo.Location = new System.Drawing.Point(81, 126);
             this._passwordTwo.Name = "_passwordTwo";
             this._passwordTwo.PasswordChar = '*';
             this._passwordTwo.Size = new System.Drawing.Size(326, 20);
             this._passwordTwo.TabIndex = 2;
+            this._passwordTwo.TextChanged += new System.EventHandler(this._passwordTwo_TextChanged);
             this._passwordTwo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this._passwordTwo_KeyPress);
             // 
             // _okButton
             // 
             this._okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this._okButton.Location = new System.Drawing.Point(329, 165);
+            this._okButton.Location = new System.Drawing.Point(329, 185);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(75, 23);
             this._okButton.TabIndex = 4;
@@ -96,18 +101,42 @@
             // _cancelButton
             // 
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._cancelButton.Location = new System.Drawing.Point(410, 165);
+            this._cancelButton.Location = new System.Drawing.Point(410, 185);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(75, 23);
             this._cancelButton.TabIndex = 6;
             this._cancelButton.Text = "Cancel";
             this._cancelButton.UseVisualStyleBackColor = true;
             // 
+            // password1Strength
+            // 
+            this.password1Strength.AutoSize = true;
+            this.password1Strength.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password1Strength.ForeColor = System.Drawing.Color.Red;
+            this.password1Strength.Location = new System.Drawing.Point(342, 51);
+            this.password1Strength.Name = "password1Strength";
+            this.password1Strength.Size = new System.Drawing.Size(0, 13);
+            this.password1Strength.TabIndex = 7;
+            this.password1Strength.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // password2Strength
+            // 
+            this.password2Strength.AutoSize = true;
+            this.password2Strength.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.password2Strength.ForeColor = System.Drawing.Color.Red;
+            this.password2Strength.Location = new System.Drawing.Point(342, 110);
+            this.password2Strength.Name = "password2Strength";
+            this.password2Strength.Size = new System.Drawing.Size(0, 13);
+            this.password2Strength.TabIndex = 8;
+            this.password2Strength.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // PasswordEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 200);
+            this.ClientSize = new System.Drawing.Size(497, 219);
+            this.Controls.Add(this.password2Strength);
+            this.Controls.Add(this.password1Strength);
             this.Controls.Add(this._cancelButton);
             this.Controls.Add(this._passwordEntryLabel);
             this.Controls.Add(this._okButton);
@@ -121,6 +150,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PasswordEntry";
+            this.Load += new System.EventHandler(this.PasswordEntry_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +165,7 @@
         private System.Windows.Forms.Button _okButton;
         private System.Windows.Forms.Label _passwordEntryLabel;
         private System.Windows.Forms.Button _cancelButton;
+        private System.Windows.Forms.Label password1Strength;
+        private System.Windows.Forms.Label password2Strength;
     }
 }
