@@ -136,7 +136,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             return false;
         }
 
-        private static string ReplaceLettersWithSubStitutions(string password, char[] vowels, char[] vowelSubstitution)
+        private static string ReplaceLettersWithSubStitutions(string password, char[] original, char[] substitution)
         {
             string newPassword = string.Empty;
 
@@ -144,11 +144,11 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             {
                 bool numberAdded = false;
 
-                for (int q = 0; q < vowels.Length; q++)
+                for (int q = 0; q < original.Length; q++)
                 {
-                    if (c == vowels[q])
+                    if (c == original[q])
                     {
-                        newPassword = newPassword + vowelSubstitution[q];
+                        newPassword = newPassword + substitution[q];
                         numberAdded = true;
                         break;
                     }                    
