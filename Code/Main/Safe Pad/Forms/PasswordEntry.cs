@@ -53,5 +53,24 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {          
             SetPassword(_passwordOne.Text, _passwordTwo.Text);           
         }
+
+        private void _passwordOne_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SetPasswordOnReturn(e);
+        }
+
+        private void _passwordTwo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SetPasswordOnReturn(e);
+        }
+
+        private void SetPasswordOnReturn(KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                SetPassword(_passwordOne.Text, _passwordTwo.Text);
+                this.DialogResult = DialogResult.OK;
+            }
+        }
     }
 }
