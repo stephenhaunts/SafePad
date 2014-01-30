@@ -35,12 +35,29 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void ExitToolStripMenuItemClick(object sender, EventArgs e)
         {
+            ExitApplication();
+        }
+
+        private void ExitApplication()
+        {
+            if (_documentChanged)
+            {
+                if (MessageBox.Show("You have un saved changes. Would you like to save your document?",
+                    "Save Your Changes?",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    SaveDocument();
+                }
+            }
+
+            ToolStripManager.SaveSettings(this, "SecureNotePad");            
             Application.Exit();
         }
 
         private void MainFormFormClosed(object sender, FormClosedEventArgs e)
         {
-            ToolStripManager.SaveSettings(this, "SecureNotePad");            
+            ExitApplication();            
         }
         
         private void SaveToolStripMenuItemClick(object sender, EventArgs e)

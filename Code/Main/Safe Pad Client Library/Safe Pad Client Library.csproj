@@ -64,6 +64,7 @@
     <Compile Include="DomainObjects\IFileProxy.cs" />
     <Compile Include="DomainObjects\IPassword.cs" />
     <Compile Include="DomainObjects\Password.cs" />
+    <Compile Include="DomainObjects\PasswordStrength.cs" />
     <Compile Include="DomainObjects\RichTextBoxPrinter.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

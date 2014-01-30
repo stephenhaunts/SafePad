@@ -8,5 +8,10 @@ Version 1.1
 
 [X] - Password entry dialog box now accepts Return key on each text box.
 
+[X] - Make the save button/menu item act more like a normal Save Button. Also added a "Save As" menu item that will
+      always prompt for a password and filename.
+
+[X] - If you try to exit with unsaved changes, prompt to save.
+
 [ ] - Save window state to XML file.
 
