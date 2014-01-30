@@ -54,8 +54,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 _currentDocument.EncodedData = list;
                 _currentDocument.Save(_documentName);
 
-
-                _documentName = saveFileDialog.FileName;
                 ChangeDisplayHeader();
                 _documentChanged = false;
             }

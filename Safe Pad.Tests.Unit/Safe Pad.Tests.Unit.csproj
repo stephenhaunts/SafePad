@@ -63,6 +63,7 @@
     <Compile Include="DomainObjects\GZipCompressionTests.cs" />
     <Compile Include="DomainObjects\ByteHelpersTests.cs" />
     <Compile Include="DomainObjects\FileProxyTests.cs" />
+    <Compile Include="DomainObjects\PasswordStrengthTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
