@@ -55,6 +55,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 _currentDocument.Save(_documentName);
 
                 ChangeDisplayHeader();
+                toolStripStatusLabel.Text = _documentName + " Saved...";
                 _documentChanged = false;
             }
             finally
@@ -89,6 +90,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
                 _documentName = saveFileDialog.FileName;
                 ChangeDisplayHeader();
+                toolStripStatusLabel.Text = _documentName + " Saved...";
                 _documentChanged = false;
             }
             finally
@@ -172,7 +174,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
 
             _documentName = openFileDialog.FileName;
-            LoadDocument(_documentName);            
+            LoadDocument(_documentName);
+            toolStripStatusLabel.Text = _documentName + " Loaded...";
         }
 
         private bool NewDocument(bool confirmPassword)
@@ -208,6 +211,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 catch (ArgumentNullException) {}
             }
 
+            toolStripStatusLabel.Text = "New Document Created...";
             return true;
         }
 

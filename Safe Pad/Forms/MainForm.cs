@@ -67,7 +67,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void LoadToolStripMenuItemClick(object sender, EventArgs e)
         {
-            LoadDocument();
+            LoadDocument();            
         }
 
         private void MainFormLoad(object sender, EventArgs e)
@@ -420,6 +420,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveDocumentAs();
+        }
+
+        private void richTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }
