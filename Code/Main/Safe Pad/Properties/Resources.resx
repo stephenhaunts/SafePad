@@ -190,23 +190,23 @@
   <data name="Right Justify" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Icons\Right Justify.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MainForm_LoadDocument_Error_Loading_Document">
-    <value xml:space="preserve">Error Loading Document</value>
+  <data name="MainForm_LoadDocument_Error_Loading_Document" xml:space="preserve">
+    <value>Error Loading Document</value>
   </data>
-  <data name="MainForm_AboutToolStripMenuItemClick_">
-    <value xml:space="preserve">Secure Pad by Stephen Haunts.
+  <data name="MainForm_AboutToolStripMenuItemClick_" xml:space="preserve">
+    <value>Secure Pad by Stephen Haunts (http://www.stephenhaunts.com).
 
 Released under the GNU Public License
 
-Version 1.0</value>
+Version 1.1</value>
   </data>
-  <data name="MainForm_AboutToolStripMenuItemClick_Secure_Pad">
-    <value xml:space="preserve">Secure Pad</value>
+  <data name="MainForm_AboutToolStripMenuItemClick_Secure_Pad" xml:space="preserve">
+    <value>Secure Pad</value>
   </data>
-  <data name="MainForm_ConfirmationPassword_The_passwords_do_not_match_">
-    <value xml:space="preserve">The passwords do not match.</value>
+  <data name="MainForm_ConfirmationPassword_The_passwords_do_not_match_" xml:space="preserve">
+    <value>The passwords do not match.</value>
   </data>
-  <data name="MainForm_ConfirmationPassword_Error">
-    <value xml:space="preserve">Error</value>
+  <data name="MainForm_ConfirmationPassword_Error" xml:space="preserve">
+    <value>Error</value>
   </data>
 </root>

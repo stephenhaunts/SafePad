@@ -20,31 +20,44 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private bool _boldStatus;
         private bool _italicStatus;
         private bool _underlineStatus;
-
+        private bool _documentChanged;
+        
         private const string ApplicationName = "Safe Pad";
-        private string _documentName = "Untitled";
+        private string _documentName = "";
 
         private void SaveDocument()
         {
             MemoryStream userInput = null;
 
             try
-            {                
-                if (NewDocument(true) == false)
+            {
+                if (_documentChanged == true || string.IsNullOrEmpty(_documentName))
                 {
-                    return;
-                }
+                    if (_passwordSet == false)
+                    {
+                        if (NewDocument(true) == false)
+                        {
+                            return;
+                        }
+                    }
 
-                if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
+                    if (string.IsNullOrEmpty(_documentName))
+                    {
+                        if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
+                        _documentName = saveFileDialog.FileName;
+                    }
+                }
 
                 userInput = new MemoryStream();
                 richTextBox.SaveFile(userInput, RichTextBoxStreamType.RichText);
                 byte[] list = userInput.GetBuffer();
                 _currentDocument.EncodedData = list;
-                _currentDocument.Save(saveFileDialog.FileName);
+                _currentDocument.Save(_documentName);
+
 
                 _documentName = saveFileDialog.FileName;
-                Text = String.Format("{0} : {1}", ApplicationName, _documentName);
+                ChangeDisplayHeader();
+                _documentChanged = false;
             }
             finally
             {
@@ -53,6 +66,52 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                     userInput.Dispose();
                 }
             }                       
+        }
+
+        private void SaveDocumentAs()
+        {
+            MemoryStream userInput = null;
+
+            try
+            {               
+                if (NewDocument(true) == false)
+                {
+                    return;
+                }
+                  
+                if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
+                _documentName = saveFileDialog.FileName;                                  
+
+                userInput = new MemoryStream();
+                richTextBox.SaveFile(userInput, RichTextBoxStreamType.RichText);
+                byte[] list = userInput.GetBuffer();
+                _currentDocument.EncodedData = list;
+                _currentDocument.Save(_documentName);
+
+
+                _documentName = saveFileDialog.FileName;
+                ChangeDisplayHeader();
+                _documentChanged = false;
+            }
+            finally
+            {
+                if (userInput != null)
+                {
+                    userInput.Dispose();
+                }
+            }
+        }
+
+        private void ChangeDisplayHeader()
+        {
+            if (!string.IsNullOrEmpty(_documentName))
+            {
+                Text = String.Format("{0} : {1}", ApplicationName, _documentName);
+            }
+            else
+            {
+                Text = String.Format("{0} : {1}", ApplicationName, "Untitled");
+            }
         }
 
         private void LoadDocument(string fileName)
@@ -83,7 +142,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 richTextBox.LoadFile(toLoad, RichTextBoxStreamType.RichText);                
 
                 _documentName = fileName;
-                Text = String.Format("{0} : {1}", ApplicationName, _documentName);
+                ChangeDisplayHeader();
+                _documentChanged = false;
             }
             catch (InvalidOperationException)
             {
@@ -108,8 +168,13 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void LoadDocument()
         {
-            if (openFileDialog.ShowDialog() != DialogResult.OK) return;
-            LoadDocument(openFileDialog.FileName);            
+            if (openFileDialog.ShowDialog() != DialogResult.OK)
+            {                
+                return;
+            }
+
+            _documentName = openFileDialog.FileName;
+            LoadDocument(_documentName);            
         }
 
         private bool NewDocument(bool confirmPassword)
@@ -138,6 +203,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                         }
 
                         _currentDocument = new Document(passwordEntry.Password);
+                        _documentChanged = false;
                         _passwordSet = true;
                     }
                 }

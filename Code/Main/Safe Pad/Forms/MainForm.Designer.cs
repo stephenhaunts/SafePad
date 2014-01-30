@@ -113,6 +113,7 @@
             this.centreButton = new System.Windows.Forms.ToolStripButton();
             this.rightJustifyButton = new System.Windows.Forms.ToolStripButton();
             this.insertImageDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.notifyIconContextMenu.SuspendLayout();
             this.toolStripContainer.ContentPanel.SuspendLayout();
@@ -163,6 +164,7 @@
             this.newToolStripMenuItem,
             this.loadToolStripMenuItem,
             this.saveToolStripMenuItem,
+            this.saveAsToolStripMenuItem,
             this.toolStripSeparator1,
             this.printToolStripMenuItem,
             this.printToolStripMenuItem1,
@@ -180,8 +182,9 @@
             this.newToolStripMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.New_Document;
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.Window;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // newDocumentToolStripMenuItem
             // 
@@ -206,7 +209,7 @@
             this.loadToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.Window;
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loadToolStripMenuItem.Text = "L&oad";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.LoadToolStripMenuItemClick);
             // 
@@ -216,21 +219,21 @@
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.Window;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "S&ave";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItemClick);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(140, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Print_Document;
             this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.Window;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.printToolStripMenuItem.Text = "Print Preview";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.PrintToolStripMenuItemClick);
             // 
@@ -238,19 +241,19 @@
             // 
             this.printToolStripMenuItem1.Name = "printToolStripMenuItem1";
             this.printToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printToolStripMenuItem1.Size = new System.Drawing.Size(143, 22);
+            this.printToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.printToolStripMenuItem1.Text = "Print";
             this.printToolStripMenuItem1.Click += new System.EventHandler(this.PrintToolStripMenuItem1Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(140, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
             // 
@@ -765,7 +768,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(3, 33);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(525, 33);
+            this.toolStrip1.Size = new System.Drawing.Size(494, 33);
             this.toolStrip1.TabIndex = 1;
             // 
             // toolStripFontSelector
@@ -778,7 +781,7 @@
             this.toolStripFontSelector.Name = "toolStripFontSelector";
             this.toolStripFontSelector.Size = new System.Drawing.Size(121, 33);
             this.toolStripFontSelector.DropDown += new System.EventHandler(this.toolStripFontSelector_DropDown);
-            this.toolStripFontSelector.SelectedIndexChanged += new System.EventHandler(this.toolStripFontSelector_SelectedIndexChanged);            
+            this.toolStripFontSelector.SelectedIndexChanged += new System.EventHandler(this.toolStripFontSelector_SelectedIndexChanged);
             // 
             // toolStripFontSizeSelector
             // 
@@ -917,6 +920,13 @@
             // 
             this.insertImageDialog.Filter = "JPG Files|*.jpg|Bmp Files|*.bpm|GIF Files|*.gif|PNG Files|*.png|All files|*.*";
             // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Text = "Save As";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1037,6 +1047,7 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripComboBox toolStripFontSelector;
         private System.Windows.Forms.ToolStripComboBox toolStripFontSizeSelector;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
     }
 }
 

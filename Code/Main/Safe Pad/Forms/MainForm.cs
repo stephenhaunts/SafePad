@@ -16,6 +16,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             richTextBox.Visible = true;
             PopulateFontDropDown();         
             LoadDocument(fileName);
+            ChangeDisplayHeader();
         }
 
         public override sealed string Text
@@ -29,7 +30,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             InitializeComponent();
             PopulateFontDropDown();
             UpdateFontDropDownWithFontSelection();
-            Text = String.Format("{0} : {1}", ApplicationName, _documentName);
+            ChangeDisplayHeader();
         }
 
         private void ExitToolStripMenuItemClick(object sender, EventArgs e)
@@ -82,6 +83,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 return;
             }
 
+            _documentName = string.Empty;
+            ChangeDisplayHeader();
             richTextBox.Clear();
         }
 
@@ -325,6 +328,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             UpdateFontStyleButtons();
             UpdateFontDropDownWithFontSelection();
+
+            _documentChanged = true;
         }
 
         private void NewDocumentToolStripMenuItemClick(object sender, EventArgs e)
@@ -334,6 +339,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 return;
             }
 
+            ChangeDisplayHeader();
+            _documentName = string.Empty;
             richTextBox.Clear();
         }
 
@@ -386,6 +393,16 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private void toolStripFontSizeSelector_TextChanged(object sender, EventArgs e)
         {
             UpdateFontInRichTextBox();
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveDocumentAs();
         }
 
     }
