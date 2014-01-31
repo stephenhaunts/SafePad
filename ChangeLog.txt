@@ -25,3 +25,5 @@ Version 1.1
 
 [X] - Added a new about dialog box.
 
+[X] - Remove Install Shield project. Will distribute as a zip file for the moment until I build a WIX installer.
+
