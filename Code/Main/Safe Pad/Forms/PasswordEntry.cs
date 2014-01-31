@@ -67,11 +67,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         }
 
         private void SetPasswordOnReturn(KeyPressEventArgs e)
-        {
+        {            
             if (e.KeyChar == (char)Keys.Return)
             {
                 SetPassword(_passwordOne.Text, _passwordTwo.Text);
-                this.DialogResult = DialogResult.OK;
+                DialogResult = DialogResult.OK;
             }
         }
 

@@ -208,7 +208,10 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                         _passwordSet = true;
                     }
                 }
-                catch (ArgumentNullException) {}
+                catch (ArgumentNullException) 
+                {
+                    Debug.WriteLine("Argument Null Exception Caught.");
+                }
             }
 
             toolStripStatusLabel.Text = "New Document Created...";
@@ -468,7 +471,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                     fontSize = float.Parse(toolStripFontSizeSelector.Text);
                 }
             }
-            catch (FormatException) { }
+            catch (FormatException) 
+            {
+                Debug.WriteLine("Format Exception Caught.");
+            }
+
             return fontSize;
         } 
     }
