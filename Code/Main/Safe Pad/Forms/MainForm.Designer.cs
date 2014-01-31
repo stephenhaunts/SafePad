@@ -74,6 +74,9 @@
             this.normalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lowContrastDarkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lowContrastLightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.customBackgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customeForegroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,9 +123,6 @@
             this.centreButton = new System.Windows.Forms.ToolStripButton();
             this.rightJustifyButton = new System.Windows.Forms.ToolStripButton();
             this.insertImageDialog = new System.Windows.Forms.OpenFileDialog();
-            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
-            this.customBackgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customeForegroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.themeColorDialog = new System.Windows.Forms.ColorDialog();
             this.menuStrip.SuspendLayout();
             this.notifyIconContextMenu.SuspendLayout();
@@ -141,11 +141,13 @@
             this.richTextBox.BulletIndent = 10;
             this.richTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox.EnableAutoDragDrop = true;
             this.richTextBox.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox.HideSelection = false;
             this.richTextBox.Location = new System.Drawing.Point(0, 0);
             this.richTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox.Name = "richTextBox";
+            this.richTextBox.ShowSelectionMargin = true;
             this.richTextBox.Size = new System.Drawing.Size(902, 469);
             this.richTextBox.TabIndex = 0;
             this.richTextBox.Text = "";
@@ -545,6 +547,25 @@
             this.lowContrastLightToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.lowContrastLightToolStripMenuItem.Text = "Low Contrast (Light)";
             this.lowContrastLightToolStripMenuItem.Click += new System.EventHandler(this.lowContrastLightToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(216, 6);
+            // 
+            // customBackgroundColorToolStripMenuItem
+            // 
+            this.customBackgroundColorToolStripMenuItem.Name = "customBackgroundColorToolStripMenuItem";
+            this.customBackgroundColorToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.customBackgroundColorToolStripMenuItem.Text = "Custom Background Color";
+            this.customBackgroundColorToolStripMenuItem.Click += new System.EventHandler(this.customBackgroundColorToolStripMenuItem_Click);
+            // 
+            // customeForegroundColorToolStripMenuItem
+            // 
+            this.customeForegroundColorToolStripMenuItem.Name = "customeForegroundColorToolStripMenuItem";
+            this.customeForegroundColorToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.customeForegroundColorToolStripMenuItem.Text = "Custome Foreground Color";
+            this.customeForegroundColorToolStripMenuItem.Click += new System.EventHandler(this.customeForegroundColorToolStripMenuItem_Click);
             // 
             // windowToolStripMenuItem
             // 
@@ -989,25 +1010,6 @@
             // insertImageDialog
             // 
             this.insertImageDialog.Filter = "JPG Files|*.jpg|Bmp Files|*.bpm|GIF Files|*.gif|PNG Files|*.png|All files|*.*";
-            // 
-            // toolStripSeparator13
-            // 
-            this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(216, 6);
-            // 
-            // customBackgroundColorToolStripMenuItem
-            // 
-            this.customBackgroundColorToolStripMenuItem.Name = "customBackgroundColorToolStripMenuItem";
-            this.customBackgroundColorToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.customBackgroundColorToolStripMenuItem.Text = "Custom Background Color";
-            this.customBackgroundColorToolStripMenuItem.Click += new System.EventHandler(this.customBackgroundColorToolStripMenuItem_Click);
-            // 
-            // customeForegroundColorToolStripMenuItem
-            // 
-            this.customeForegroundColorToolStripMenuItem.Name = "customeForegroundColorToolStripMenuItem";
-            this.customeForegroundColorToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.customeForegroundColorToolStripMenuItem.Text = "Custome Foreground Color";
-            this.customeForegroundColorToolStripMenuItem.Click += new System.EventHandler(this.customeForegroundColorToolStripMenuItem_Click);
             // 
             // themeColorDialog
             // 

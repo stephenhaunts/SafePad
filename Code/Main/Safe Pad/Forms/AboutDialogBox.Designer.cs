@@ -66,7 +66,7 @@
             this.aboutBoxVersionLabel.Name = "aboutBoxVersionLabel";
             this.aboutBoxVersionLabel.Size = new System.Drawing.Size(112, 22);
             this.aboutBoxVersionLabel.TabIndex = 2;
-            this.aboutBoxVersionLabel.Text = "Version 1.0";
+            this.aboutBoxVersionLabel.Text = "Version 1.1";
             // 
             // aboutBoxLicenseName
             // 
@@ -82,13 +82,13 @@
             // aboutBoxLinkLabel
             // 
             this.aboutBoxLinkLabel.AutoSize = true;
-            this.aboutBoxLinkLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aboutBoxLinkLabel.Location = new System.Drawing.Point(147, 153);
+            this.aboutBoxLinkLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aboutBoxLinkLabel.Location = new System.Drawing.Point(143, 153);
             this.aboutBoxLinkLabel.Name = "aboutBoxLinkLabel";
-            this.aboutBoxLinkLabel.Size = new System.Drawing.Size(314, 23);
+            this.aboutBoxLinkLabel.Size = new System.Drawing.Size(327, 17);
             this.aboutBoxLinkLabel.TabIndex = 4;
             this.aboutBoxLinkLabel.TabStop = true;
-            this.aboutBoxLinkLabel.Text = "http://www.stephenhaunts.com";
+            this.aboutBoxLinkLabel.Text = "http://stephenhaunts.com/projects/safe-pad/";
             this.aboutBoxLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.aboutBoxLinkLabel_LinkClicked);
             // 
             // pictureBox1

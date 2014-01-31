@@ -27,3 +27,5 @@ Version 1.1
 
 [X] - Remove Install Shield project. Will distribute as a zip file for the moment until I build a WIX installer.
 
+[X] - Allow the dragging and dropping of files into the document. The whole document is compressed before it is encrypted.
+
