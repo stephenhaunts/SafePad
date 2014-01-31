@@ -51,6 +51,7 @@
     <Compile Include="CryptoProviders\IAES.cs" />
     <Compile Include="CryptoProviders\ISecureHash.cs" />
     <Compile Include="CryptoProviders\SecureHash.cs" />
+    <Compile Include="DomainObjects\ApplicationSettings.cs" />
     <Compile Include="DomainObjects\ByteHelpers.cs" />
     <Compile Include="DomainObjects\FileFormat\IFileFormatLoader.cs" />
     <Compile Include="DomainObjects\FileFormat\ILoaderFactory.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="DomainObjects\Password.cs" />
     <Compile Include="DomainObjects\PasswordStrength.cs" />
     <Compile Include="DomainObjects\RichTextBoxPrinter.cs" />
+    <Compile Include="DomainObjects\SettingsWriter.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

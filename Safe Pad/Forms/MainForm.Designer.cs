@@ -960,7 +960,7 @@
             this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Safe Pad";
             this.Activated += new System.EventHandler(this.MainFormActivated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainFormFormClosed);
