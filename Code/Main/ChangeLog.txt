@@ -18,5 +18,5 @@ Version 1.1
 
 [X] - Add Status bar to the bottom of the window to display common prompts like new document, loaded and saved etc.
     
-[ ] - Save window state to XML file.
+[X] - Save window state to XML settings file.
 

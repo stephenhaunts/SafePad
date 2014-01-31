@@ -153,7 +153,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
             }
         }
 
-        [TestMethod]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", MessageId = "HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.DocumentTests+DocumentOverload"), TestMethod]
         [ExpectedException(typeof(ArgumentNullException), "password")]
         public void DocumentConstructorThrowsArgumentNullExceptionIfPasswordNullOnStandardConstructor()
         {            
@@ -169,14 +169,14 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
             Assert.IsNotNull(document.Password);
         }
 
-        [TestMethod]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", MessageId = "HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.DocumentTests+DocumentOverload"), TestMethod]
         [ExpectedException(typeof(ArgumentNullException), "aes")]
         public void DocumentConstructorThrowsArgumentNullExceptionIfAESProviderNullOnOverloadedConstructor()
         {
             new DocumentOverload(null, null, null, null, null);
         }
 
-        [TestMethod]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", MessageId = "HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.DocumentTests+DocumentOverload"), TestMethod]
         [ExpectedException(typeof(ArgumentNullException), "securehash")]
         public void DocumentConstructorThrowsArgumentNullExceptionIfSecureHashProviderNullOnOverloadedConstructor()
         {
@@ -185,7 +185,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
             new DocumentOverload(aes, null, null, null, null);
         }
 
-        [TestMethod]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", MessageId = "HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.DocumentTests+DocumentOverload"), TestMethod]
         [ExpectedException(typeof(ArgumentNullException), "compression")]
         public void DocumentConstructorThrowsArgumentNullExceptionIfCompressionNullOnOverloadedConstructor()
         {
@@ -195,7 +195,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
             new DocumentOverload(aes, hash, null, null, null);
         }
 
-        [TestMethod]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", MessageId = "HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.DocumentTests+DocumentOverload"), TestMethod]
         [ExpectedException(typeof(ArgumentNullException), "password")]
         public void DocumentConstructorThrowsArgumentNullExceptionIfPasswordNullOnOverloadedConstructor()
         {
@@ -206,7 +206,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
             new DocumentOverload(aes, hash, compression, null, null);
         }
 
-        [TestMethod]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", MessageId = "HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.DocumentTests+DocumentOverload"), TestMethod]
         [ExpectedException(typeof(ArgumentNullException), "password")]
         public void DocumentConstructorThrowsArgumentNullExceptionIfFileProxyNullOnOverloadedConstructor()
         {

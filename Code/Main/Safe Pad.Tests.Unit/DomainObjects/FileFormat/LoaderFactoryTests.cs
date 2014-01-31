@@ -36,7 +36,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.FileFormat
             Assert.AreEqual(typeof(Version10Loader), fileFormatLoader.GetType());
         }
 
-        [TestMethod]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1804:RemoveUnusedLocals", MessageId = "fileFormatLoader"), TestMethod]
         [ExpectedException(typeof(InvalidOperationException), "The file is not a supported file format version.")]
         public void GetFileLoaderThrowsInValidOperationExceptionForInvalifFileFormat()
         {

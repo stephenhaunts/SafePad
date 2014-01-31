@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.Diagnostics;
+using HauntedHouseSoftware.SecureNotePad.DomainObjects;
 
 namespace HauntedHouseSoftware.SecureNotePad.Forms
 {
@@ -31,6 +32,14 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             PopulateFontDropDown();
             UpdateFontDropDownWithFontSelection();
             ChangeDisplayHeader();
+
+            ApplicationSettings settings = SettingsWriter.ReadSettingsFile();
+
+            if (settings != null)
+            {
+                this.Location = new Point(settings.WindowPositionX, settings.WindowPositionY);
+                this.Size = new Size(settings.WindowWidth, settings.WindowHeight);
+            }
         }
 
         private void ExitToolStripMenuItemClick(object sender, EventArgs e)
@@ -51,7 +60,16 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 }
             }
 
-            ToolStripManager.SaveSettings(this, "SecureNotePad");            
+            ToolStripManager.SaveSettings(this, "SecureNotePad");
+
+            ApplicationSettings settings = new ApplicationSettings();
+            settings.WindowPositionX = this.Location.X;
+            settings.WindowPositionY = this.Location.Y;
+            settings.WindowHeight = this.Size.Height;
+            settings.WindowWidth = this.Size.Width;
+
+            SettingsWriter.WriteSettingsFile(settings);
+
             Application.Exit();
         }
 
@@ -429,3 +447,4 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
     }
 }
+
