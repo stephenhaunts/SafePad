@@ -18,6 +18,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             PopulateFontDropDown();         
             LoadDocument(fileName);
             ChangeDisplayHeader();
+            LoadSettings();
         }
 
         public override sealed string Text
@@ -33,6 +34,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             UpdateFontDropDownWithFontSelection();
             ChangeDisplayHeader();
 
+            LoadSettings();
+        }
+
+        private void LoadSettings()
+        {
             ApplicationSettings settings = SettingsWriter.ReadSettingsFile();
 
             if (settings != null)
@@ -40,6 +46,9 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 this.Location = new Point(settings.WindowPositionX, settings.WindowPositionY);
                 this.Size = new Size(settings.WindowWidth, settings.WindowHeight);
                 this.WindowState = settings.FormWindowState;
+
+                this.richTextBox.BackColor = Color.FromArgb(settings.BackgroundColorRed, settings.BackgroundColorGreen, settings.BackgroundColorBlue);
+                this.richTextBox.ForeColor = Color.FromArgb(settings.ForegroundColorRed, settings.ForegroundColorGreen, settings.ForegroundColorBlue);
             }
         }
 
@@ -69,6 +78,14 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             settings.WindowHeight = this.Size.Height;
             settings.WindowWidth = this.Size.Width;
             settings.FormWindowState = this.WindowState;
+
+            settings.BackgroundColorRed = this.richTextBox.BackColor.R;
+            settings.BackgroundColorGreen = this.richTextBox.BackColor.G;
+            settings.BackgroundColorBlue = this.richTextBox.BackColor.B;
+
+            settings.ForegroundColorRed = this.richTextBox.ForeColor.R;
+            settings.ForegroundColorGreen = this.richTextBox.ForeColor.G;
+            settings.ForegroundColorBlue = this.richTextBox.ForeColor.B;
 
             SettingsWriter.WriteSettingsFile(settings);
 
@@ -445,6 +462,24 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private void richTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void normalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.richTextBox.BackColor = Color.White;
+            this.richTextBox.ForeColor = Color.Black;
+        }
+
+        private void lowContrastDarkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.richTextBox.BackColor = Color.DimGray;
+            this.richTextBox.ForeColor = Color.Gray;
+        }
+
+        private void lowContrastLightToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.richTextBox.BackColor = Color.Gainsboro;
+            this.richTextBox.ForeColor = Color.Silver;
         }
 
     }

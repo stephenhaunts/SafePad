@@ -73,6 +73,10 @@
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lowContrastDarkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lowContrastLightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -153,6 +157,7 @@
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.viewToolStripMenuItem,
+            this.themeToolStripMenuItem,
             this.windowToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
@@ -527,6 +532,37 @@
             this.loadToolbarLayoutToolStripMenuItem.Text = "Load Toolbar Layout";
             this.loadToolbarLayoutToolStripMenuItem.ToolTipText = "Load Toolbar Layout";
             this.loadToolbarLayoutToolStripMenuItem.Click += new System.EventHandler(this.LoadToolbarLayoutToolStripMenuItemClick);
+            // 
+            // themeToolStripMenuItem
+            // 
+            this.themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.normalToolStripMenuItem,
+            this.lowContrastDarkToolStripMenuItem,
+            this.lowContrastLightToolStripMenuItem});
+            this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
+            this.themeToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.themeToolStripMenuItem.Text = "Theme";
+            // 
+            // normalToolStripMenuItem
+            // 
+            this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.normalToolStripMenuItem.Text = "Normal";
+            this.normalToolStripMenuItem.Click += new System.EventHandler(this.normalToolStripMenuItem_Click);
+            // 
+            // lowContrastDarkToolStripMenuItem
+            // 
+            this.lowContrastDarkToolStripMenuItem.Name = "lowContrastDarkToolStripMenuItem";
+            this.lowContrastDarkToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.lowContrastDarkToolStripMenuItem.Text = "Low Contrast (Dark)";
+            this.lowContrastDarkToolStripMenuItem.Click += new System.EventHandler(this.lowContrastDarkToolStripMenuItem_Click);
+            // 
+            // lowContrastLightToolStripMenuItem
+            // 
+            this.lowContrastLightToolStripMenuItem.Name = "lowContrastLightToolStripMenuItem";
+            this.lowContrastLightToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.lowContrastLightToolStripMenuItem.Text = "Low Contrast (Light)";
+            this.lowContrastLightToolStripMenuItem.Click += new System.EventHandler(this.lowContrastLightToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -1073,6 +1109,10 @@
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
+        private System.Windows.Forms.ToolStripMenuItem themeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem normalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lowContrastDarkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lowContrastLightToolStripMenuItem;
     }
 }
 
