@@ -53,6 +53,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NDepend) = preSolution
-		Project = ".\SecureNotePad.ndproj"
+		Project = ""
 	EndGlobalSection
 EndGlobal
