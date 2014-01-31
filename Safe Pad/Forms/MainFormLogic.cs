@@ -370,11 +370,16 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private static void AboutBox()
         {
-            MessageBox.Show(Resources.MainForm_AboutToolStripMenuItemClick_,
-                            Resources.MainForm_AboutToolStripMenuItemClick_Secure_Pad,
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information,
-                            MessageBoxDefaultButton.Button1);
+            using (AboutDialogBox about = new AboutDialogBox())
+            {
+                about.ShowDialog();
+            }
+
+            //MessageBox.Show(Resources.MainForm_AboutToolStripMenuItemClick_,
+            //                Resources.MainForm_AboutToolStripMenuItemClick_Secure_Pad,
+            //                MessageBoxButtons.OK,
+            //                MessageBoxIcon.Information,
+            //                MessageBoxDefaultButton.Button1);
         }
 
         private void UpdateFontDropDownWithFontSelection()

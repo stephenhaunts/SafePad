@@ -186,6 +186,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Properties {
         ///
         ///Version 1.1.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal static string MainForm_AboutToolStripMenuItemClick_ {
             get {
                 return ResourceManager.GetString("MainForm_AboutToolStripMenuItemClick_", resourceCulture);
@@ -195,6 +196,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Secure Pad.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal static string MainForm_AboutToolStripMenuItemClick_Secure_Pad {
             get {
                 return ResourceManager.GetString("MainForm_AboutToolStripMenuItemClick_Secure_Pad", resourceCulture);
@@ -272,6 +274,16 @@ namespace HauntedHouseSoftware.SecureNotePad.Properties {
         internal static System.Drawing.Bitmap Open_Document {
             get {
                 object obj = ResourceManager.GetObject("Open Document", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PadlockIcon {
+            get {
+                object obj = ResourceManager.GetObject("PadlockIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

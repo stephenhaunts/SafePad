@@ -23,3 +23,5 @@ Version 1.1
 [X] - Add themes menu. This allows you to select a low contrast (dark or light) theme. This is to make seeing text difficult for 
       anyone overlooking your screen. You can also pick a custom background and foreground color.
 
+[X] - Added a new about dialog box.
+
