@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Safe Pad Client Library", "Safe Pad Client Library\Safe Pad Client Library.csproj", "{2A0B09D8-ABB5-4B6C-876C-D215D568BF62}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Safe Pad", "Safe Pad\Safe Pad.csproj", "{3479FDA5-52FE-4465-8E0C-BE533E4D3B3C}"
@@ -49,5 +51,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NDepend) = preSolution
+		Project = ".\SecureNotePad.ndproj"
 	EndGlobalSection
 EndGlobal

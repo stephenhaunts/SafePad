@@ -13,5 +13,10 @@ Version 1.1
 
 [X] - If you try to exit with unsaved changes, prompt to save.
 
+[X] - Add password strength meter to password input box. This uses rules like using numbers, mixed case, punctuation symbols and 
+      length as indicators. The meter will also do a whitelist check against common password along with letter substituded versions.
+
+[X] - Add Status bar to the bottom of the window to display common prompts like new document, loaded and saved etc.
+    
 [ ] - Save window state to XML file.
 

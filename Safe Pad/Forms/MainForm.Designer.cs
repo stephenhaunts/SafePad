@@ -138,7 +138,7 @@
             this.richTextBox.Location = new System.Drawing.Point(0, 0);
             this.richTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(902, 491);
+            this.richTextBox.Size = new System.Drawing.Size(902, 469);
             this.richTextBox.TabIndex = 0;
             this.richTextBox.Text = "";
             this.richTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBoxLinkClicked);
@@ -618,8 +618,8 @@
             // toolStripContainer.ContentPanel
             // 
             this.toolStripContainer.ContentPanel.AutoScroll = true;
-            this.toolStripContainer.ContentPanel.Controls.Add(this.statusStrip);
             this.toolStripContainer.ContentPanel.Controls.Add(this.richTextBox);
+            this.toolStripContainer.ContentPanel.Controls.Add(this.statusStrip);
             this.toolStripContainer.ContentPanel.Size = new System.Drawing.Size(902, 491);
             this.toolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripContainer.Location = new System.Drawing.Point(0, 24);
