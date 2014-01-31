@@ -39,6 +39,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             {
                 this.Location = new Point(settings.WindowPositionX, settings.WindowPositionY);
                 this.Size = new Size(settings.WindowWidth, settings.WindowHeight);
+                this.WindowState = settings.FormWindowState;
             }
         }
 
@@ -67,6 +68,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             settings.WindowPositionY = this.Location.Y;
             settings.WindowHeight = this.Size.Height;
             settings.WindowWidth = this.Size.Width;
+            settings.FormWindowState = this.WindowState;
 
             SettingsWriter.WriteSettingsFile(settings);
 

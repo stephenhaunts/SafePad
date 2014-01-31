@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 {
@@ -12,5 +13,6 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         public int WindowPositionY { get; set; }
         public int WindowWidth { get; set; }
         public int WindowHeight { get; set; }
+        public FormWindowState FormWindowState { get; set; }
     }
 }
