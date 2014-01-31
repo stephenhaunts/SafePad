@@ -43,12 +43,12 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
             if (settings != null)
             {
-                this.Location = new Point(settings.WindowPositionX, settings.WindowPositionY);
-                this.Size = new Size(settings.WindowWidth, settings.WindowHeight);
-                this.WindowState = settings.FormWindowState;
+                Location = new Point(settings.WindowPositionX, settings.WindowPositionY);
+                Size = new Size(settings.WindowWidth, settings.WindowHeight);
+                WindowState = settings.FormWindowState;
 
-                this.richTextBox.BackColor = Color.FromArgb(settings.BackgroundColorRed, settings.BackgroundColorGreen, settings.BackgroundColorBlue);
-                this.richTextBox.ForeColor = Color.FromArgb(settings.ForegroundColorRed, settings.ForegroundColorGreen, settings.ForegroundColorBlue);
+                richTextBox.BackColor = Color.FromArgb(settings.BackgroundColorRed, settings.BackgroundColorGreen, settings.BackgroundColorBlue);
+                richTextBox.ForeColor = Color.FromArgb(settings.ForegroundColorRed, settings.ForegroundColorGreen, settings.ForegroundColorBlue);
             }
         }
 
@@ -73,19 +73,19 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             ToolStripManager.SaveSettings(this, "SecureNotePad");
 
             ApplicationSettings settings = new ApplicationSettings();
-            settings.WindowPositionX = this.Location.X;
-            settings.WindowPositionY = this.Location.Y;
-            settings.WindowHeight = this.Size.Height;
-            settings.WindowWidth = this.Size.Width;
-            settings.FormWindowState = this.WindowState;
+            settings.WindowPositionX = Location.X;
+            settings.WindowPositionY = Location.Y;
+            settings.WindowHeight = Size.Height;
+            settings.WindowWidth = Size.Width;
+            settings.FormWindowState = WindowState;
 
-            settings.BackgroundColorRed = this.richTextBox.BackColor.R;
-            settings.BackgroundColorGreen = this.richTextBox.BackColor.G;
-            settings.BackgroundColorBlue = this.richTextBox.BackColor.B;
+            settings.BackgroundColorRed = richTextBox.BackColor.R;
+            settings.BackgroundColorGreen = richTextBox.BackColor.G;
+            settings.BackgroundColorBlue = richTextBox.BackColor.B;
 
-            settings.ForegroundColorRed = this.richTextBox.ForeColor.R;
-            settings.ForegroundColorGreen = this.richTextBox.ForeColor.G;
-            settings.ForegroundColorBlue = this.richTextBox.ForeColor.B;
+            settings.ForegroundColorRed = richTextBox.ForeColor.R;
+            settings.ForegroundColorGreen = richTextBox.ForeColor.G;
+            settings.ForegroundColorBlue = richTextBox.ForeColor.B;
 
             SettingsWriter.WriteSettingsFile(settings);
 
@@ -466,27 +466,27 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void normalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.richTextBox.BackColor = Color.White;
-            this.richTextBox.ForeColor = Color.Black;
+            richTextBox.BackColor = Color.White;
+            richTextBox.ForeColor = Color.Black;
         }
 
         private void lowContrastDarkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.richTextBox.BackColor = Color.DimGray;
-            this.richTextBox.ForeColor = Color.Gray;
+            richTextBox.BackColor = Color.DimGray;
+            richTextBox.ForeColor = Color.Gray;
         }
 
         private void lowContrastLightToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.richTextBox.BackColor = Color.Gainsboro;
-            this.richTextBox.ForeColor = Color.Silver;
+            richTextBox.BackColor = Color.Gainsboro;
+            richTextBox.ForeColor = Color.Silver;
         }
 
         private void customBackgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (themeColorDialog.ShowDialog() == DialogResult.OK)
             {
-                this.richTextBox.BackColor = themeColorDialog.Color;
+                richTextBox.BackColor = themeColorDialog.Color;
             }
         }
 
@@ -494,7 +494,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             if (themeColorDialog.ShowDialog() == DialogResult.OK)
             {
-                this.richTextBox.ForeColor = themeColorDialog.Color;
+                richTextBox.ForeColor = themeColorDialog.Color;
             }
         }
 

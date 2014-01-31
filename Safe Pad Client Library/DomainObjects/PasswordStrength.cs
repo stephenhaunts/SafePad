@@ -1,47 +1,13 @@
-﻿using System.Globalization;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 {
-    public enum PasswordScore
-    {
-        Blank = 0,
-        VeryWeak = 1,
-        Weak = 2,
-        Medium = 3,
-        Strong = 4,
-        VeryStrong = 5
-    }   
-
     public sealed class PasswordStrength
     {
         private PasswordStrength()
         { }
 
-        private static string[] _weakPasswordList = {  "password", 
-                                                       "123456",
-                                                       "1234567",
-                                                       "12345678",
-                                                       "abc123",
-                                                       "qwerty",
-                                                       "monkey",
-                                                       "letmein",
-                                                       "dragon",
-                                                       "111111",
-                                                       "baseball",
-                                                       "iloveyou",
-                                                       "trustno1",
-                                                       "sunshine",
-                                                       "master",
-                                                       "123123",
-                                                       "welcome",
-                                                       "shadow",
-                                                       "ashley",
-                                                       "football",
-                                                       "jesus",
-                                                       "michael",
-                                                       "ninja",
-                                                       "mustang",
-                                                       "password1"};
+        private readonly static string[] _weakPasswordList = { "password", "123456", "1234567", "12345678", "abc123", "qwerty", "monkey", "letmein", "dragon", "111111", "baseball", "iloveyou", "trustno1", "sunshine", "master", "123123", "welcome", "shadow", "ashley", "football", "jesus", "michael", "ninja", "mustang", "password1" };
+
         public static PasswordScore CheckStrength(string password)
         {
             int score = 0;
