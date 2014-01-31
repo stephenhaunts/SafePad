@@ -20,5 +20,6 @@ Version 1.1
     
 [X] - Save window state to XML settings file.
 
-[X] - Add themes menu. This allows you to select a low contrast (dark or light) theme. This is to make seeing text difficult for anyone overlooking your screen. 
+[X] - Add themes menu. This allows you to select a low contrast (dark or light) theme. This is to make seeing text difficult for 
+      anyone overlooking your screen. You can also pick a custom background and foreground color.
 

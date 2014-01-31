@@ -482,6 +482,22 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             this.richTextBox.ForeColor = Color.Silver;
         }
 
+        private void customBackgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (themeColorDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.richTextBox.BackColor = themeColorDialog.Color;
+            }
+        }
+
+        private void customeForegroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (themeColorDialog.ShowDialog() == DialogResult.OK)
+            {
+                this.richTextBox.ForeColor = themeColorDialog.Color;
+            }
+        }
+
     }
 }
 
