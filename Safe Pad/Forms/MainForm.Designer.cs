@@ -70,13 +70,13 @@
             this.rightJustifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.insertImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.normalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lowContrastDarkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lowContrastLightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -120,6 +120,10 @@
             this.centreButton = new System.Windows.Forms.ToolStripButton();
             this.rightJustifyButton = new System.Windows.Forms.ToolStripButton();
             this.insertImageDialog = new System.Windows.Forms.OpenFileDialog();
+            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
+            this.customBackgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customeForegroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.themeColorDialog = new System.Windows.Forms.ColorDialog();
             this.menuStrip.SuspendLayout();
             this.notifyIconContextMenu.SuspendLayout();
             this.toolStripContainer.ContentPanel.SuspendLayout();
@@ -508,6 +512,40 @@
             this.insertImageToolStripMenuItem.Text = "Insert Image";
             this.insertImageToolStripMenuItem.Click += new System.EventHandler(this.InsertImageToolStripMenuItemClick);
             // 
+            // themeToolStripMenuItem
+            // 
+            this.themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.normalToolStripMenuItem,
+            this.lowContrastDarkToolStripMenuItem,
+            this.lowContrastLightToolStripMenuItem,
+            this.toolStripSeparator13,
+            this.customBackgroundColorToolStripMenuItem,
+            this.customeForegroundColorToolStripMenuItem});
+            this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
+            this.themeToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.themeToolStripMenuItem.Text = "Theme";
+            // 
+            // normalToolStripMenuItem
+            // 
+            this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.normalToolStripMenuItem.Text = "Normal";
+            this.normalToolStripMenuItem.Click += new System.EventHandler(this.normalToolStripMenuItem_Click);
+            // 
+            // lowContrastDarkToolStripMenuItem
+            // 
+            this.lowContrastDarkToolStripMenuItem.Name = "lowContrastDarkToolStripMenuItem";
+            this.lowContrastDarkToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.lowContrastDarkToolStripMenuItem.Text = "Low Contrast (Dark)";
+            this.lowContrastDarkToolStripMenuItem.Click += new System.EventHandler(this.lowContrastDarkToolStripMenuItem_Click);
+            // 
+            // lowContrastLightToolStripMenuItem
+            // 
+            this.lowContrastLightToolStripMenuItem.Name = "lowContrastLightToolStripMenuItem";
+            this.lowContrastLightToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.lowContrastLightToolStripMenuItem.Text = "Low Contrast (Light)";
+            this.lowContrastLightToolStripMenuItem.Click += new System.EventHandler(this.lowContrastLightToolStripMenuItem_Click);
+            // 
             // windowToolStripMenuItem
             // 
             this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -532,37 +570,6 @@
             this.loadToolbarLayoutToolStripMenuItem.Text = "Load Toolbar Layout";
             this.loadToolbarLayoutToolStripMenuItem.ToolTipText = "Load Toolbar Layout";
             this.loadToolbarLayoutToolStripMenuItem.Click += new System.EventHandler(this.LoadToolbarLayoutToolStripMenuItemClick);
-            // 
-            // themeToolStripMenuItem
-            // 
-            this.themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.normalToolStripMenuItem,
-            this.lowContrastDarkToolStripMenuItem,
-            this.lowContrastLightToolStripMenuItem});
-            this.themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            this.themeToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.themeToolStripMenuItem.Text = "Theme";
-            // 
-            // normalToolStripMenuItem
-            // 
-            this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
-            this.normalToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.normalToolStripMenuItem.Text = "Normal";
-            this.normalToolStripMenuItem.Click += new System.EventHandler(this.normalToolStripMenuItem_Click);
-            // 
-            // lowContrastDarkToolStripMenuItem
-            // 
-            this.lowContrastDarkToolStripMenuItem.Name = "lowContrastDarkToolStripMenuItem";
-            this.lowContrastDarkToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.lowContrastDarkToolStripMenuItem.Text = "Low Contrast (Dark)";
-            this.lowContrastDarkToolStripMenuItem.Click += new System.EventHandler(this.lowContrastDarkToolStripMenuItem_Click);
-            // 
-            // lowContrastLightToolStripMenuItem
-            // 
-            this.lowContrastLightToolStripMenuItem.Name = "lowContrastLightToolStripMenuItem";
-            this.lowContrastLightToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.lowContrastLightToolStripMenuItem.Text = "Low Contrast (Light)";
-            this.lowContrastLightToolStripMenuItem.Click += new System.EventHandler(this.lowContrastLightToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -983,6 +990,29 @@
             // 
             this.insertImageDialog.Filter = "JPG Files|*.jpg|Bmp Files|*.bpm|GIF Files|*.gif|PNG Files|*.png|All files|*.*";
             // 
+            // toolStripSeparator13
+            // 
+            this.toolStripSeparator13.Name = "toolStripSeparator13";
+            this.toolStripSeparator13.Size = new System.Drawing.Size(216, 6);
+            // 
+            // customBackgroundColorToolStripMenuItem
+            // 
+            this.customBackgroundColorToolStripMenuItem.Name = "customBackgroundColorToolStripMenuItem";
+            this.customBackgroundColorToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.customBackgroundColorToolStripMenuItem.Text = "Custom Background Color";
+            this.customBackgroundColorToolStripMenuItem.Click += new System.EventHandler(this.customBackgroundColorToolStripMenuItem_Click);
+            // 
+            // customeForegroundColorToolStripMenuItem
+            // 
+            this.customeForegroundColorToolStripMenuItem.Name = "customeForegroundColorToolStripMenuItem";
+            this.customeForegroundColorToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.customeForegroundColorToolStripMenuItem.Text = "Custome Foreground Color";
+            this.customeForegroundColorToolStripMenuItem.Click += new System.EventHandler(this.customeForegroundColorToolStripMenuItem_Click);
+            // 
+            // themeColorDialog
+            // 
+            this.themeColorDialog.AnyColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1113,6 +1143,10 @@
         private System.Windows.Forms.ToolStripMenuItem normalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lowContrastDarkToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lowContrastLightToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
+        private System.Windows.Forms.ToolStripMenuItem customBackgroundColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem customeForegroundColorToolStripMenuItem;
+        private System.Windows.Forms.ColorDialog themeColorDialog;
     }
 }
 
