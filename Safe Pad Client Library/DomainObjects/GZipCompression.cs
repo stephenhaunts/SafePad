@@ -7,7 +7,7 @@ using System.IO;
  * Copyright (C) 2014 Stephen Haunts
  * http://www.stephenhaunts.com
  * 
- * This file is part of MupenSafe Pad64PlusAE.
+ * This file is part of Safe Pad.
  * 
  * Safe Pad is free software: you can redistribute it and/or modify it under the terms of the
  * GNU General Public License as published by the Free Software Foundation, either version 2 of the
