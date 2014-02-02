@@ -56,60 +56,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             LoadSettings();
         }
 
-        private void LoadSettings()
-        {
-            ApplicationSettings settings = SettingsWriter.ReadSettingsFile();
-
-            if (settings != null)
-            {
-                Location = new Point(settings.WindowPositionX, settings.WindowPositionY);
-                Size = new Size(settings.WindowWidth, settings.WindowHeight);
-                WindowState = settings.FormWindowState;
-
-                richTextBox.BackColor = Color.FromArgb(settings.BackgroundColorRed, settings.BackgroundColorGreen, settings.BackgroundColorBlue);
-                richTextBox.ForeColor = Color.FromArgb(settings.ForegroundColorRed, settings.ForegroundColorGreen, settings.ForegroundColorBlue);
-            }
-        }
-
         private void ExitToolStripMenuItemClick(object sender, EventArgs e)
         {
             ExitApplication();
         }
 
-        private void ExitApplication()
-        {
-            if (_documentChanged)
-            {
-                if (MessageBox.Show("You have un saved changes. Would you like to save your document?",
-                    "Save Your Changes?",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    SaveDocument();
-                }
-            }
-
-            ToolStripManager.SaveSettings(this, "SecureNotePad");
-
-            ApplicationSettings settings = new ApplicationSettings();
-            settings.WindowPositionX = Location.X;
-            settings.WindowPositionY = Location.Y;
-            settings.WindowHeight = Size.Height;
-            settings.WindowWidth = Size.Width;
-            settings.FormWindowState = WindowState;
-
-            settings.BackgroundColorRed = richTextBox.BackColor.R;
-            settings.BackgroundColorGreen = richTextBox.BackColor.G;
-            settings.BackgroundColorBlue = richTextBox.BackColor.B;
-
-            settings.ForegroundColorRed = richTextBox.ForeColor.R;
-            settings.ForegroundColorGreen = richTextBox.ForeColor.G;
-            settings.ForegroundColorBlue = richTextBox.ForeColor.B;
-
-            SettingsWriter.WriteSettingsFile(settings);
-
-            Application.Exit();
-        }
 
         private void MainFormFormClosed(object sender, FormClosedEventArgs e)
         {
@@ -311,13 +262,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             ToggleBulletSelection();
         }
 
-        private void ToggleBulletSelection()
-        {
-            bulletButton.Checked = !bulletButton.Checked;
-            richTextBox.SelectionBullet = bulletButton.Checked;
-            bulletSelectionToolStripMenuItem.Checked = bulletButton.Checked;
-            richTextBox.SelectionIndent = 50;
-        }
 
         private void BulletSelectionToolStripMenuItemClick(object sender, EventArgs e)
         {
@@ -468,21 +412,12 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             UpdateFontInRichTextBox();
         }
 
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveDocumentAs();
         }
 
-        private void richTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+ 
         private void normalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox.BackColor = Color.White;

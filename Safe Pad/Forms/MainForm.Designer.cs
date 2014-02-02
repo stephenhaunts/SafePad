@@ -163,8 +163,7 @@
             this.richTextBox.TabIndex = 0;
             this.richTextBox.Text = "";
             this.richTextBox.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.RichTextBoxLinkClicked);
-            this.richTextBox.Click += new System.EventHandler(this.RichTextBoxClick);
-            this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
+            this.richTextBox.Click += new System.EventHandler(this.RichTextBoxClick);            
             this.richTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBoxKeyDown);
             this.richTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RichTextBoxKeyPress);
             // 
@@ -209,8 +208,7 @@
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.Window;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-            this.newToolStripMenuItem.Text = "New";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            this.newToolStripMenuItem.Text = "New";            
             // 
             // newDocumentToolStripMenuItem
             // 
