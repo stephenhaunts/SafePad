@@ -1,0 +1,33 @@
+Version 1.1
+------------
+
+[X] - Added loader factory to support older versions of the file format to make it backwards compatible. 
+      If you save a file in an older file format, it will be saved in the latest format.
+
+[X] - Add a font selector and font size selector to the main toolbar.
+
+[X] - Password entry dialog box now accepts Return key on each text box.
+
+[X] - Make the save button/menu item act more like a normal Save Button. Also added a "Save As" menu item that will
+      always prompt for a password and filename.
+
+[X] - If you try to exit with unsaved changes, prompt to save.
+
+[X] - Add password strength meter to password input box. This uses rules like using numbers, mixed case, punctuation symbols and 
+      length as indicators. The meter will also do a whitelist check against common password along with letter substituded versions.
+
+[X] - Add Status bar to the bottom of the window to display common prompts like new document, loaded and saved etc.
+    
+[X] - Save window state to XML settings file.
+
+[X] - Add themes menu. This allows you to select a low contrast (dark or light) theme. This is to make seeing text difficult for 
+      anyone overlooking your screen. You can also pick a custom background and foreground color.
+
+[X] - Added a new about dialog box.
+
+[X] - Remove Install Shield project. Will distribute as a zip file for the moment until I build a WIX installer.
+
+[X] - Allow the dragging and dropping of files into the document. The whole document is compressed before it is encrypted.
+
+[X] - Add Zoom factor menu to the status bar.
+
