@@ -29,3 +29,5 @@ Version 1.1
 
 [X] - Allow the dragging and dropping of files into the document. The whole document is compressed before it is encrypted.
 
+[X] - Add Zoom factor menu to the status bar.
+

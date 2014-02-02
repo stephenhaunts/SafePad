@@ -517,6 +517,56 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
         }
 
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            richTextBox.ZoomFactor = 1;
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            richTextBox.ZoomFactor = 2;
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            richTextBox.ZoomFactor = 3;
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            richTextBox.ZoomFactor = 4;
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            richTextBox.ZoomFactor = 5;
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            richTextBox.ZoomFactor = 6;
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            richTextBox.ZoomFactor = 7;
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            richTextBox.ZoomFactor = 8;
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            richTextBox.ZoomFactor = 9;
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            richTextBox.ZoomFactor = 10;
+        }
+
     }
 }
 
