@@ -325,19 +325,22 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void UpdateFontStyleButtons()
         {
-            var style = richTextBox.SelectionFont.Style;
+            if (richTextBox.SelectionFont != null)
+            {
+                var style = richTextBox.SelectionFont.Style;
 
-            boldButton.Checked = style.HasFlag(FontStyle.Bold);
-            italicButton.Checked = style.HasFlag(FontStyle.Italic);
-            underlineButton.Checked = style.HasFlag(FontStyle.Underline);
+                boldButton.Checked = style.HasFlag(FontStyle.Bold);
+                italicButton.Checked = style.HasFlag(FontStyle.Italic);
+                underlineButton.Checked = style.HasFlag(FontStyle.Underline);
 
-            boldToolStripMenuItem.Checked = boldButton.Checked;
-            italicToolStripMenuItem.Checked = italicButton.Checked;
-            underlineToolStripMenuItem.Checked = underlineButton.Checked;
+                boldToolStripMenuItem.Checked = boldButton.Checked;
+                italicToolStripMenuItem.Checked = italicButton.Checked;
+                underlineToolStripMenuItem.Checked = underlineButton.Checked;
 
-            _boldStatus = boldButton.Checked;
-            _italicStatus = italicButton.Checked;
-            _underlineStatus = underlineButton.Checked;
+                _boldStatus = boldButton.Checked;
+                _italicStatus = italicButton.Checked;
+                _underlineStatus = underlineButton.Checked;
+            }
         }
 
         private void DecreaseIndent()
@@ -396,49 +399,49 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             {
                 about.ShowDialog();
             }
-
-            //MessageBox.Show(Resources.MainForm_AboutToolStripMenuItemClick_,
-            //                Resources.MainForm_AboutToolStripMenuItemClick_Secure_Pad,
-            //                MessageBoxButtons.OK,
-            //                MessageBoxIcon.Information,
-            //                MessageBoxDefaultButton.Button1);
         }
 
         private void UpdateFontDropDownWithFontSelection()
         {
-            string selectedFontName = richTextBox.SelectionFont.Name;
-            toolStripFontSizeSelector.Text = richTextBox.SelectionFont.Size.ToString();
-
-            int count = 0;
-
-            foreach (string font in toolStripFontSelector.Items)
+            if (richTextBox.SelectionFont != null)
             {
-                if (String.Compare(font, selectedFontName, StringComparison.OrdinalIgnoreCase) == 0)
+                string selectedFontName = richTextBox.SelectionFont.Name;
+                toolStripFontSizeSelector.Text = richTextBox.SelectionFont.Size.ToString();
+
+                int count = 0;
+
+                foreach (string font in toolStripFontSelector.Items)
                 {
-                    toolStripFontSelector.SelectedIndex = count;
+                    if (String.Compare(font, selectedFontName, StringComparison.OrdinalIgnoreCase) == 0)
+                    {
+                        toolStripFontSelector.SelectedIndex = count;
+                    }
+                    count++;
                 }
-                count++;
             }
         }
 
         private void PopulateFontDropDown()
         {
-            toolStripFontSelector.Items.Clear();
-
-            int count = 0;
-
-            Array.ForEach(FontFamily.Families, font =>
+            if (richTextBox.SelectionFont != null)
             {
-                toolStripFontSelector.Items.Add(font.Name);
+                toolStripFontSelector.Items.Clear();
 
-                if (String.Compare(richTextBox.SelectionFont.Name, font.Name, StringComparison.OrdinalIgnoreCase) == 0)
+                int count = 0;
+
+                Array.ForEach(FontFamily.Families, font =>
                 {
-                    toolStripFontSelector.SelectedIndex = count;
-                }
-                count++;
-            });
+                    toolStripFontSelector.Items.Add(font.Name);
 
-            toolStripFontSelector.Invalidate();
+                    if (String.Compare(richTextBox.SelectionFont.Name, font.Name, StringComparison.OrdinalIgnoreCase) == 0)
+                    {
+                        toolStripFontSelector.SelectedIndex = count;
+                    }
+                    count++;
+                });
+
+                toolStripFontSelector.Invalidate();
+            }
         }
 
         private void UpdateFontInRichTextBox()
