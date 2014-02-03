@@ -31,3 +31,5 @@ Version 1.1
 
 [X] - Add Zoom factor menu to the status bar.
 
+[X] - Fixed bug where selecting text containing multiple fonts would crash the program.
+
