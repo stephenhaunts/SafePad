@@ -1,3 +1,23 @@
+Version 1.2
+------------
+
+[ ] - Use BCrypt as the internal password hash and increase the file format number to 1.1.
+
+[ ] - When entering a password, implement an on-screen keyboard so that the user can avoid typing the password on the keyboard.
+      This is to guard against key sniffers. This is a user request.
+
+[ ] - Add context menu to the rich text view to include all the standard edting features.
+
+[ ] - Implement an application properties dialog to give more customisation to the user.
+
+[ ] - Implement panic key to quickly minimize the application.
+
+[ ] - Implement screen white hot key out to change th text to the same color as the background.
+
+[ ] - Implement spell checker.
+
+
+
 Version 1.1
 ------------
 

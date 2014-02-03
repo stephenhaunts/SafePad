@@ -48,8 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CryptoProviders\AES.cs" />
+    <Compile Include="CryptoProviders\BCrypt.cs" />
     <Compile Include="CryptoProviders\IAES.cs" />
     <Compile Include="CryptoProviders\ISecureHash.cs" />
+    <Compile Include="CryptoProviders\SaltParseException.cs" />
     <Compile Include="CryptoProviders\SecureHash.cs" />
     <Compile Include="DomainObjects\ApplicationSettings.cs" />
     <Compile Include="DomainObjects\ByteHelpers.cs" />
