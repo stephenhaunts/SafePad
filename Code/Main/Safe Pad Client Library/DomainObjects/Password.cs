@@ -42,6 +42,14 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 
             _password1 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(password1));
             _password2 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(password2));
+
+            string salt = BCrypt.Net.BCrypt.GenerateSalt();
+            string bCryptPassword1 = BCrypt.Net.BCrypt.HashPassword(password1, salt);
+            string bCryptPassword2 = BCrypt.Net.BCrypt.HashPassword(password1, salt);
+
+            bool isVerify = BCrypt.Net.BCrypt.Verify("qqq", bCryptPassword1);
+            bool isVerify2 = BCrypt.Net.BCrypt.Verify("qqq", bCryptPassword2);
+
         }
 
         public byte[] Password1
