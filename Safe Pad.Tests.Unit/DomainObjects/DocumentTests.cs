@@ -414,22 +414,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
             Assert.AreEqual(1, ((TestCompression)compression).CompressCounter);
         }
 
-        [TestMethod]
-        public void SaveEncryptsDataCallsSecureHash1Times()
-        {
-            IAES aes;
-            ISecureHash hash;
-            IPassword password;
-            IFileProxy fileProxy;
-            ICompression compression;
-            TestStubsForDocument(out aes, out hash, out password, out fileProxy, out compression);
-
-            var document = new DocumentOverload(aes, hash, compression, password, fileProxy);
-            document.Save("test.scp");
-
-            Assert.AreEqual(1, ((TestSecureHash)hash).ComputeHashCounter);
-        }
-
         private static void TestStubsForDocument(out IAES aes, out ISecureHash hash, out IPassword password, out IFileProxy fileProxy, out ICompression compression)
         {
             aes = new TestAES();

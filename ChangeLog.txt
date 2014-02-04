@@ -1,7 +1,8 @@
 Version 1.2
 ------------
 
-[ ] - Use BCrypt as the internal password hash and increase the file format number to 1.1.
+[X] - Use BCrypt as the internal password hash and increase the file format number to 1.1. Old files of version 1.0
+      are backwards compatible. They will get saved automatically to version 1.1.
 
 [ ] - When entering a password, implement an on-screen keyboard so that the user can avoid typing the password on the keyboard.
       This is to guard against key sniffers. This is a user request.

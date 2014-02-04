@@ -43,6 +43,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
                 throw new ArgumentNullException("password2");
             }
 
+            // The original password hashing using SHA256 is legacy for backwards support of file format
+            // version 1.0. Over time I will phase this out.
             _password1 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(password1));
             _password2 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(password2));
 

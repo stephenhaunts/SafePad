@@ -26,7 +26,7 @@ namespace BCrypt.Net.Test
     /// BCrypt tests
     /// </summary>
     [TestClass]
-    //[Ignore]
+    [Ignore]
     public class TestBCrypt
     {
         readonly string[,] _TestVectors = {
