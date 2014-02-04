@@ -65,6 +65,17 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                         if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
                         _documentName = saveFileDialog.FileName;
                     }
+                    else
+                    {
+                        if (MessageBox.Show("Do you want to save over " + _documentName, "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                        {
+                            return;
+                        }
+                    }
+                }
+                else 
+                { 
+                    return;
                 }
 
                 userInput = new MemoryStream();
