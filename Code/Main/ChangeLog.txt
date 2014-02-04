@@ -11,6 +11,10 @@ Version 1.2
 
 [X] - Implement panic key to quickly minimize the application. This is bound to the ESC key.
 
+[X] - Use AesCryptoServiceProvider instead of ManagedAES as it is FIPS compliant.
+
+[ ] - Have the option to disable DetectURLS.
+
 [ ] - When entering a password, implement an on-screen keyboard so that the user can avoid typing the password on the keyboard.
       This is to guard against key sniffers. This is a user request.
 
