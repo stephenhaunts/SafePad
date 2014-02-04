@@ -47,8 +47,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             string bCryptPassword1 = BCrypt.Net.BCrypt.HashPassword(password1, salt);
             string bCryptPassword2 = BCrypt.Net.BCrypt.HashPassword(password1, salt);
 
-            bool isVerify = BCrypt.Net.BCrypt.Verify("qqq", bCryptPassword1);
-            bool isVerify2 = BCrypt.Net.BCrypt.Verify("qqq", bCryptPassword2);
+            BCrypt.Net.BCrypt.Verify("qqq", bCryptPassword1);
+            BCrypt.Net.BCrypt.Verify("qqq", bCryptPassword2);
 
         }
 
