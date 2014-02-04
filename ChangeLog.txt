@@ -4,6 +4,9 @@ Version 1.2
 [X] - Use BCrypt as the internal password hash and increase the file format number to 1.1. Old files of version 1.0
       are backwards compatible. They will get saved automatically to version 1.1.
 
+[X] - Enter on first field on passwords entry dialog box moves focus to second field. Enter on second
+      field is the same as clicking the OK button.
+
 [ ] - When entering a password, implement an on-screen keyboard so that the user can avoid typing the password on the keyboard.
       This is to guard against key sniffers. This is a user request.
 
@@ -54,5 +57,5 @@ Version 1.1
 
 [X] - Add Zoom factor menu to the status bar.
 
-[X] - Fixed crash bug where selecting text with multiple fonts would cause the application to crash out.
+[X] - Bug #1713 : Fixed crash bug where selecting text with multiple fonts would cause the application to crash out. 
 

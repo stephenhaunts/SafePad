@@ -76,8 +76,12 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         
         private void _passwordOne_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            SetPasswordOnReturn(e);                      
+        {         
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                e.Handled = true;
+                _passwordTwo.Focus();
+            }     
         }
 
         private void _passwordTwo_KeyPress(object sender, KeyPressEventArgs e)
