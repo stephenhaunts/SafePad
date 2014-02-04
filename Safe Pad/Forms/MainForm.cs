@@ -320,7 +320,12 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void RichTextBoxKeyPress(object sender, KeyPressEventArgs e)
         {
-            Text = String.Format("{0} : *{1}", ApplicationName, _documentName);            
+            Text = String.Format("{0} : *{1}", ApplicationName, _documentName);
+
+            if (e.KeyChar == (char)Keys.Escape)
+            {
+                WindowState = FormWindowState.Minimized;
+            }
         }
 
         private void AboutToolStripMenuItemClick(object sender, EventArgs e)
@@ -502,6 +507,13 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             richTextBox.ZoomFactor = 10;
         }
 
+        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Escape)
+            {
+                WindowState = FormWindowState.Minimized;
+            }
+        }
     }
 }
 
