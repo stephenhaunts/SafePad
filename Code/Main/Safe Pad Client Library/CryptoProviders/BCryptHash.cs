@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Safe Pad, a double encrypted note pad that uses 2 passwords to protect your documents and help you keep your privacy.
  * 
  * Copyright (C) 2014 Stephen Haunts
@@ -17,15 +17,28 @@
  * 
  * Authors: Stephen Haunts
  */
-namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
+using System;
+using System.Text;
+
+namespace HauntedHouseSoftware.SecureNotePad.CryptoProviders
 {
-    public interface IPassword
+    public class BCryptHash : ISecureHash
     {
-        byte[] Password1 { get; }
-        byte[] Password2 { get; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays")]
-        byte[] BCryptPassword1 { get; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays")]
-        byte[] BCryptPassword2 { get; }
+        private const string _salt = "$2a$10$67C.GOM1jShOBOM.f.BIAe";
+
+        public byte[] ComputeHash(byte[] toBeHashed)
+        {
+            if (toBeHashed == null)
+            {
+                throw new ArgumentNullException("toBeHashed");
+            }
+
+            if (toBeHashed.Length == 0)
+            {
+                throw new InvalidOperationException("toBeHashed");
+            }
+
+            return Encoding.ASCII.GetBytes(BCrypt.Net.BCrypt.HashPassword(ASCIIEncoding.ASCII.GetString(toBeHashed), _salt));            
+        }       
     }
 }

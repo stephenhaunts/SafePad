@@ -28,6 +28,9 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         private readonly byte[] _password1;
         private readonly byte[] _password2;
 
+        private readonly byte[] _bCryptPassword1;
+        private readonly byte[] _bCryptPassword2;
+
         public Password(string password1, string password2)
         {
             if (string.IsNullOrEmpty(password1))
@@ -60,6 +63,16 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         public byte[] Password2
         {
             get { return _password2; }
+        }
+
+        public byte[] BCryptPassword1
+        {
+            get { return _bCryptPassword1; }
+        }
+
+        public byte[] BCryptPassword2
+        {
+            get { return _bCryptPassword2; }
         }
     }
 }

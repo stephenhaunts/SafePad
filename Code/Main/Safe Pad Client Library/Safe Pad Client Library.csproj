@@ -52,6 +52,7 @@
     <Compile Include="CryptoProviders\IAES.cs" />
     <Compile Include="CryptoProviders\ISecureHash.cs" />
     <Compile Include="CryptoProviders\SaltParseException.cs" />
+    <Compile Include="CryptoProviders\BCryptHash.cs" />
     <Compile Include="CryptoProviders\SecureHash.cs" />
     <Compile Include="DomainObjects\ApplicationSettings.cs" />
     <Compile Include="DomainObjects\ByteHelpers.cs" />
