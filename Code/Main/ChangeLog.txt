@@ -16,6 +16,8 @@ Version 1.2
 
 [ ] - Implement spell checker.
 
+[ ] - Recent files list on the file menu.
+
 
 
 Version 1.1

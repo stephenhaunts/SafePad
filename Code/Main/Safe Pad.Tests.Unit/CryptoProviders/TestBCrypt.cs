@@ -26,7 +26,7 @@ namespace BCrypt.Net.Test
     /// BCrypt tests
     /// </summary>
     [TestClass]
-    [Ignore]
+    //[Ignore]
     public class TestBCrypt
     {
         readonly string[,] _TestVectors = {
@@ -77,6 +77,7 @@ namespace BCrypt.Net.Test
          * Test method for 'BCrypt.GenerateSalt(int)'
          */
         [TestMethod]
+        [Ignore]
         public void TestGenerateSaltWithWorkFactor()
         {
             Trace.Write("BCrypt.GenerateSalt(log_rounds):");
@@ -97,6 +98,8 @@ namespace BCrypt.Net.Test
         }
 
         [TestMethod]
+        [Ignore]
+
         public void TestGenerateSaltWithMaxWorkFactor()
         {
             Trace.Write("BCrypt.GenerateSalt(31):");
