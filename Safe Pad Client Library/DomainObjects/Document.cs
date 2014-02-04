@@ -32,7 +32,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         private readonly IFileProxy _fileProxy;
 
         private const byte Major = 1;
-        private const byte Minor = 0;
+        private const byte Minor = 1;
 
         public byte[] EncodedData { get; set; }        
 
@@ -44,7 +44,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             }
 
             _aes = new AES();
-            _secureHash = new SecureHash();
+            _secureHash = new BCryptHash();
             _password = password;
             _fileProxy = new FileProxy();
             _compression = new GZipCompression();
@@ -138,7 +138,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 
             var encrypted3 = EncryptData();
 
-            var hash = _secureHash.ComputeHash(encrypted3);
+            var hash = new SecureHash().ComputeHash(encrypted3);
             var versionNumber = new[] { Major, Minor };
 
             SaveFormattedFile(fileName, encrypted3, hash, versionNumber);
@@ -155,9 +155,9 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         private byte[] EncryptData()
         {
             var compressed = _compression.Compress(EncodedData);
-            var encrypted = _aes.Encrypt(compressed, Convert.ToBase64String(_password.Password1));
-            var encrypted2 = _aes.Encrypt(encrypted, Convert.ToBase64String(_password.Password2));
-            var encrypted3 = _aes.Encrypt(encrypted2, Convert.ToBase64String(_password.Password1));
+            var encrypted = _aes.Encrypt(compressed, Convert.ToBase64String(_password.BCryptPassword1));
+            var encrypted2 = _aes.Encrypt(encrypted, Convert.ToBase64String(_password.BCryptPassword2));
+            var encrypted3 = _aes.Encrypt(encrypted2, Convert.ToBase64String(_password.BCryptPassword1));
 
             return encrypted3;
         }   

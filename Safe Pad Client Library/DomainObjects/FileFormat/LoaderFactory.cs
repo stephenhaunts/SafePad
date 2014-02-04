@@ -39,6 +39,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
            {
                case "1.0":
                    return new Version10Loader(password);
+               case "1.1":
+                   return new Version11Loader(password);
                default:
                    break;                   
            }

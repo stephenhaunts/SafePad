@@ -60,7 +60,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.FileFormat
         public void GetFileLoaderThrowsInValidOperationExceptionForInvalifFileFormat()
         {
             var loader = new LoaderFactory();
-            byte[] stream = { 1, 1 };
+            byte[] stream = { 1, 2 };
             var password = new Password("password", "password2");
             var fileFormatLoader = loader.GetFileLoader(stream, password);            
         }
