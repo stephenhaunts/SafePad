@@ -44,10 +44,10 @@ namespace HauntedHouseSoftware.SecureNotePad.CryptoProviders
             }
 
             try
-            {                
+            {                        
                 using (var rfc2898 = new Rfc2898DeriveBytes(password, Encoding.ASCII.GetBytes("eryryn78ynr78yn"), 1000))
-                {                    
-                    using (var aes = new AesManaged())
+                {
+                    using (var aes = new AesCryptoServiceProvider())
                     {
                         aes.Key = rfc2898.GetBytes(32);
                         aes.IV = rfc2898.GetBytes(16);
@@ -92,7 +92,7 @@ namespace HauntedHouseSoftware.SecureNotePad.CryptoProviders
             {
                 using (var rfc2898 = new Rfc2898DeriveBytes(password, Encoding.ASCII.GetBytes("eryryn78ynr78yn"), 1000))
                 {
-                    using (var aes = new AesManaged())
+                    using (var aes = new AesCryptoServiceProvider())
                     {
                         aes.Key = rfc2898.GetBytes(32);
                         aes.IV = rfc2898.GetBytes(16);
