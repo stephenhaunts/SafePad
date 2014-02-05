@@ -1,4 +1,5 @@
-﻿/**
+﻿using HauntedHouseSoftware.SecureNotePad.DomainObjects;
+/**
  * Safe Pad, a double encrypted note pad that uses 2 passwords to protect your documents and help you keep your privacy.
  * 
  * Copyright (C) 2014 Stephen Haunts
@@ -33,6 +34,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         public KeyboardInput()
         {
             InitializeComponent();
+            _maskedPassword.Text = "";
         }
 
         public string Password
@@ -418,6 +420,60 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             {
                 _maskedPassword.Text = _maskedPassword.Text.Substring(0, _maskedPassword.Text.Length - 1);
             }
+        }
+
+
+        private static void ChangePasswordStrengthIndicator(Label label, string password)
+        {
+            PasswordScore score = PasswordStrength.CheckStrength(password);
+            Console.WriteLine(score);
+            switch (score)
+            {
+                case PasswordScore.Blank:
+                    label.ForeColor = Color.Red;
+                    label.Text = "";
+                    break;
+
+                case PasswordScore.Weak:
+                    label.ForeColor = Color.Red;
+                    label.Text = "Weak";
+                    break;
+
+                case PasswordScore.VeryWeak:
+                    label.ForeColor = Color.Red;
+                    label.Text = "Very Weak";
+                    break;
+
+                case PasswordScore.Medium:
+                    label.ForeColor = Color.Orange;
+                    label.Text = "Medium";
+                    break;
+
+                case PasswordScore.Strong:
+                    label.ForeColor = Color.Orange;
+                    label.Text = "Strong";
+                    break;
+
+                case PasswordScore.VeryStrong:
+                    label.ForeColor = Color.Green;
+                    label.Text = "Very Strong";
+                    break;
+            }
+        }
+
+        private void _maskedPassword_TextChanged(object sender, EventArgs e)
+        {
+            ChangePasswordStrengthIndicator(_passwordStrength, _maskedPassword.Text);
+        }
+
+        private void _viewPassword_MouseDown(object sender, MouseEventArgs e)
+        {
+            _maskedPassword.PasswordChar = '\0';
+        }
+
+        private void _viewPassword_MouseUp(object sender, MouseEventArgs e)
+        {
+            _maskedPassword.PasswordChar = '*';
         }
     }
 }

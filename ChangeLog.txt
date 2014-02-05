@@ -15,7 +15,7 @@ Version 1.2
 
 [X] - Have the option to disable DetectURLS.
 
-[ ] - When entering a password, implement an on-screen keyboard so that the user can avoid typing the password on the keyboard.
+[X] - When entering a password, implement an on-screen keyboard so that the user can avoid typing the password on the keyboard.
       This is to guard against key sniffers. This is a user request.
 
 [ ] - Add context menu to the rich text view to include all the standard edting features.
