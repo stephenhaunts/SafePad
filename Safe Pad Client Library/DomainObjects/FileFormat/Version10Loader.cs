@@ -29,6 +29,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
         private readonly ISecureHash _secureHash;
         private readonly IPassword _password;
         private readonly ICompression _compression;
+        private const string SALT = "eryryn78ynr78yn";
 
         public Version10Loader(IPassword password)
         {
@@ -72,9 +73,9 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
 
         private byte[] DecryptData(byte[] encrypted)
         {
-            var decrypted = _aes.Decrypt(encrypted, Convert.ToBase64String(_password.Password1), Encoding.ASCII.GetBytes("eryryn78ynr78yn"));
-            var decrypted2 = _aes.Decrypt(decrypted, Convert.ToBase64String(_password.Password2),Encoding.ASCII.GetBytes("eryryn78ynr78yn"));
-            var decrypted3 = _aes.Decrypt(decrypted2, Convert.ToBase64String(_password.Password1), Encoding.ASCII.GetBytes("eryryn78ynr78yn"));
+            var decrypted = _aes.Decrypt(encrypted, Convert.ToBase64String(_password.Password1), Encoding.ASCII.GetBytes(SALT));
+            var decrypted2 = _aes.Decrypt(decrypted, Convert.ToBase64String(_password.Password2), Encoding.ASCII.GetBytes(SALT));
+            var decrypted3 = _aes.Decrypt(decrypted2, Convert.ToBase64String(_password.Password1), Encoding.ASCII.GetBytes(SALT));
 
             var decompressed = _compression.Decompress(decrypted3);
 

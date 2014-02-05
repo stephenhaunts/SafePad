@@ -18,7 +18,7 @@ Version 1.2
 [X] - When entering a password, implement an on-screen keyboard so that the user can avoid typing the password on the keyboard.
       This is to guard against key sniffers. This is a user request.
 
-[X] - Change 1.1 file format so that it generates a new salk for each save.
+[X] - Change 1.1 file format so that it generates a new salt for each save.
 
 [ ] - Add context menu to the rich text view to include all the standard edting features.
 
