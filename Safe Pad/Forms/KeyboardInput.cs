@@ -92,6 +92,17 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             _8.Text = "8";
             _9.Text = "9";
             _0.Text = "0";
+            _underscore.Text = "-";
+            _equals.Text = "=";
+            _leftSquareBracket.Text = "[";
+            _rightSquareBracket.Text = "]";
+            _semiColon.Text = ";";
+            _apostophe.Text = "'";
+            _hash.Text = "#";
+            _comma.Text = ",";
+            _fullStop.Text = ".";
+            _forwardSlash.Text = "/";
+            _backSlash.Text = @"\";
         }
 
         private void SetCapsLock()
@@ -136,7 +147,17 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             _8.Text = "*";
             _9.Text = "(";
             _0.Text = ")";
+            _underscore.Text = "_";
+            _equals.Text = "+";
+            _leftSquareBracket.Text = "{";
+            _rightSquareBracket.Text = "}";
+            _semiColon.Text = ":";
+            _apostophe.Text = "@";
+            _hash.Text = "~";
+            _comma.Text = "<";
+            _fullStop.Text = ">";
+            _forwardSlash.Text = "?";
+            _backSlash.Text = "|";
         }
-
     }
 }
