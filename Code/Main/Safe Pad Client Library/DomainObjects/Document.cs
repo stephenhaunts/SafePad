@@ -159,11 +159,10 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         private byte[] EncryptData(byte[] salt)
         {
             var compressed = _compression.Compress(EncodedData);
-            var encrypted = _aes.Encrypt(compressed, Convert.ToBase64String(_password.BCryptPassword1), salt);
-            var encrypted2 = _aes.Encrypt(encrypted, Convert.ToBase64String(_password.BCryptPassword2), salt);
-            var encrypted3 = _aes.Encrypt(encrypted2, Convert.ToBase64String(_password.BCryptPassword1), salt);
+            var encrypted = _aes.Encrypt(compressed, Convert.ToBase64String(_password.BCryptPassword1), salt, 25000);
+            var encrypted2 = _aes.Encrypt(encrypted, Convert.ToBase64String(_password.BCryptPassword2), salt, 25000);            
 
-            return encrypted3;
+            return encrypted2;
         }
 
         public static byte[] GenerateSalt(int length)
