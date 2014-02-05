@@ -52,8 +52,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
 
             var versionNumber = ByteHelpers.CreateSpecialByteArray(2);
             var hash = ByteHelpers.CreateSpecialByteArray(32);
-            var salt = ByteHelpers.CreateSpecialByteArray(15);
-            var encrypted = ByteHelpers.CreateSpecialByteArray((byteStream.Length - 49));
+            var salt = ByteHelpers.CreateSpecialByteArray(32);
+            var encrypted = ByteHelpers.CreateSpecialByteArray((byteStream.Length - 66));
 
             SplitFileIntoChunks(byteStream, versionNumber, hash, salt, encrypted);
             CheckFileIntegrity(hash, encrypted);
@@ -89,8 +89,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
             Buffer.BlockCopy(buffer, offset, versionNumber, 0, 2);
             offset += 2;
 
-            Buffer.BlockCopy(buffer, offset, salt, 0, 15);
-            offset += 15;
+            Buffer.BlockCopy(buffer, offset, salt, 0, 32);
+            offset += 32;
 
             Buffer.BlockCopy(buffer, offset, hash, 0, 32);
             offset += 32;
