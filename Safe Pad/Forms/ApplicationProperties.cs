@@ -17,11 +17,11 @@
  * 
  * Authors: Stephen Haunts
  */
-using HauntedHouseSoftware.SecureNotePad.DomainObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using HauntedHouseSoftware.SecureNotePad.DomainObjects;
 
 namespace HauntedHouseSoftware.SecureNotePad.Forms
 {

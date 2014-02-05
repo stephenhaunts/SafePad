@@ -156,5 +156,27 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
 
         }
+
+        private void _password1Keyboard_Click(object sender, EventArgs e)
+        {
+            using (var keyboard = new KeyboardInput())
+            {
+                if (keyboard.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
+        }
+
+        private void _password2Keyboard_Click(object sender, EventArgs e)
+        {
+            using (var keyboard = new KeyboardInput())
+            {
+                if (keyboard.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
+        }
     }
 }
