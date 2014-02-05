@@ -526,6 +526,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
                 richTextBox.BackColor = Color.FromArgb(_settings.BackgroundColorRed, _settings.BackgroundColorGreen, _settings.BackgroundColorBlue);
                 richTextBox.ForeColor = Color.FromArgb(_settings.ForegroundColorRed, _settings.ForegroundColorGreen, _settings.ForegroundColorBlue);
+                richTextBox.DetectUrls = _settings.DetectURL;
             }
         }
 

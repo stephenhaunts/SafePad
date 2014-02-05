@@ -98,6 +98,7 @@
             this.detectURL.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.detectURL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.detectURL.UseVisualStyleBackColor = true;
+            this.detectURL.CheckedChanged += new System.EventHandler(this.detectURL_CheckedChanged);
             // 
             // ApplicationProperties
             // 

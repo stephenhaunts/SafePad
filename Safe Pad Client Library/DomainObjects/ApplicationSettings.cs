@@ -37,5 +37,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         public byte ForegroundColorRed { get; set; }
         public byte ForegroundColorGreen { get; set; }
         public byte ForegroundColorBlue { get; set; }
+
+        public bool DetectURL { get; set; }
     }
 }

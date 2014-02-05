@@ -516,11 +516,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           using (var appSettings = new ApplicationProperties())
+            using (var appSettings = new ApplicationProperties(_settings))
            {
                if (appSettings.ShowDialog() == DialogResult.OK)
                {
-
+                   this.richTextBox.DetectUrls = appSettings.Settings.DetectURL;
                }
            }
         }

@@ -13,14 +13,14 @@ Version 1.2
 
 [X] - Use AesCryptoServiceProvider instead of ManagedAES as it is FIPS compliant.
 
-[ ] - Have the option to disable DetectURLS.
+[X] - Have the option to disable DetectURLS.
 
 [ ] - When entering a password, implement an on-screen keyboard so that the user can avoid typing the password on the keyboard.
       This is to guard against key sniffers. This is a user request.
 
 [ ] - Add context menu to the rich text view to include all the standard edting features.
 
-[ ] - Implement an application properties dialog to give more customisation to the user.
+[X] - Implement an application properties dialog to give more customisation to the user.
 
 [ ] - Implement screen white hot key out to change th text to the same color as the background.
 
