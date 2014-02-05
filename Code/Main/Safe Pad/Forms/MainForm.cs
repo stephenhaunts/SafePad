@@ -514,6 +514,17 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 WindowState = FormWindowState.Minimized;
             }
         }
+
+        private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           using (var appSettings = new ApplicationProperties())
+           {
+               if (appSettings.ShowDialog() == DialogResult.OK)
+               {
+
+               }
+           }
+        }
     }
 }
 

@@ -78,6 +78,12 @@
     <Compile Include="Forms\AboutDialogBox.Designer.cs">
       <DependentUpon>AboutDialogBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ApplicationProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ApplicationProperties.Designer.cs">
+      <DependentUpon>ApplicationProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainFormLogic.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AboutDialogBox.resx">
       <DependentUpon>AboutDialogBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ApplicationProperties.resx">
+      <DependentUpon>ApplicationProperties.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
