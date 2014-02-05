@@ -37,6 +37,8 @@
             this._cancelButton = new System.Windows.Forms.Button();
             this.password1Strength = new System.Windows.Forms.Label();
             this.password2Strength = new System.Windows.Forms.Label();
+            this._password1Keyboard = new System.Windows.Forms.Button();
+            this._password2Keyboard = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _passwordOne
@@ -130,11 +132,37 @@
             this.password2Strength.TabIndex = 8;
             this.password2Strength.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // _password1Keyboard
+            // 
+            this._password1Keyboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._password1Keyboard.Location = new System.Drawing.Point(413, 66);
+            this._password1Keyboard.Name = "_password1Keyboard";
+            this._password1Keyboard.Size = new System.Drawing.Size(32, 24);
+            this._password1Keyboard.TabIndex = 9;
+            this._password1Keyboard.Text = "...";
+            this._password1Keyboard.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this._password1Keyboard.UseVisualStyleBackColor = true;
+            this._password1Keyboard.Click += new System.EventHandler(this._password1Keyboard_Click);
+            // 
+            // _password2Keyboard
+            // 
+            this._password2Keyboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._password2Keyboard.Location = new System.Drawing.Point(410, 122);
+            this._password2Keyboard.Name = "_password2Keyboard";
+            this._password2Keyboard.Size = new System.Drawing.Size(32, 24);
+            this._password2Keyboard.TabIndex = 10;
+            this._password2Keyboard.Text = "...";
+            this._password2Keyboard.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this._password2Keyboard.UseVisualStyleBackColor = true;
+            this._password2Keyboard.Click += new System.EventHandler(this._password2Keyboard_Click);
+            // 
             // PasswordEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(497, 219);
+            this.Controls.Add(this._password2Keyboard);
+            this.Controls.Add(this._password1Keyboard);
             this.Controls.Add(this.password2Strength);
             this.Controls.Add(this.password1Strength);
             this.Controls.Add(this._cancelButton);
@@ -167,5 +195,7 @@
         private System.Windows.Forms.Button _cancelButton;
         private System.Windows.Forms.Label password1Strength;
         private System.Windows.Forms.Label password2Strength;
+        private System.Windows.Forms.Button _password1Keyboard;
+        private System.Windows.Forms.Button _password2Keyboard;
     }
 }

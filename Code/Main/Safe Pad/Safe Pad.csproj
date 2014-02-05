@@ -84,6 +84,12 @@
     <Compile Include="Forms\ApplicationProperties.Designer.cs">
       <DependentUpon>ApplicationProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\KeyboardInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\KeyboardInput.Designer.cs">
+      <DependentUpon>KeyboardInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainFormLogic.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ApplicationProperties.resx">
       <DependentUpon>ApplicationProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\KeyboardInput.resx">
+      <DependentUpon>KeyboardInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
