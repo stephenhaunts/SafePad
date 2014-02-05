@@ -46,8 +46,6 @@ namespace HauntedHouseSoftware.SecureNotePad.CryptoProviders
 
             try
             {                        
-
-                //Encoding.ASCII.GetBytes("eryryn78ynr78yn")
                 using (var rfc2898 = new Rfc2898DeriveBytes(password, salt, 1000))
                 {
                     using (var aes = new AesCryptoServiceProvider())
