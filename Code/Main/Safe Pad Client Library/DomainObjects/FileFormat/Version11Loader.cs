@@ -38,7 +38,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
 
             _aes = new AES();
             _secureHash = new SecureHash();
-            _password = password;            
+            _password = password;
             _compression = new GZipCompression();
         }
 
@@ -56,7 +56,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
             SplitFileIntoChunks(byteStream, versionNumber, hash, encrypted);
             CheckFileIntegrity(hash, encrypted);
 
-            return DecryptData(encrypted);     
+            return DecryptData(encrypted);
         }
 
         private void CheckFileIntegrity(byte[] hash, byte[] encrypted)
