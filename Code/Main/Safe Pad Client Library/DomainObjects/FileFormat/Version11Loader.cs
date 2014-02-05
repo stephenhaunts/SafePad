@@ -19,6 +19,7 @@
  */
 using System;
 using HauntedHouseSoftware.SecureNotePad.CryptoProviders;
+using System.Text;
 
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
 {
@@ -51,12 +52,13 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
 
             var versionNumber = ByteHelpers.CreateSpecialByteArray(2);
             var hash = ByteHelpers.CreateSpecialByteArray(32);
-            var encrypted = ByteHelpers.CreateSpecialByteArray((byteStream.Length - 34));
+            var salt = ByteHelpers.CreateSpecialByteArray(15);
+            var encrypted = ByteHelpers.CreateSpecialByteArray((byteStream.Length - 49));
 
-            SplitFileIntoChunks(byteStream, versionNumber, hash, encrypted);
+            SplitFileIntoChunks(byteStream, versionNumber, hash, salt, encrypted);
             CheckFileIntegrity(hash, encrypted);
 
-            return DecryptData(encrypted);
+            return DecryptData(encrypted, salt);
         }
 
         private void CheckFileIntegrity(byte[] hash, byte[] encrypted)
@@ -69,22 +71,31 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
             }
         }
 
-        private byte[] DecryptData(byte[] encrypted)
+        private byte[] DecryptData(byte[] encrypted, byte[] salt)
         {
-            var decrypted = _aes.Decrypt(encrypted, Convert.ToBase64String(_password.BCryptPassword1));
-            var decrypted2 = _aes.Decrypt(decrypted, Convert.ToBase64String(_password.BCryptPassword2));
-            var decrypted3 = _aes.Decrypt(decrypted2, Convert.ToBase64String(_password.BCryptPassword1));
+            
+            var decrypted = _aes.Decrypt(encrypted, Convert.ToBase64String(_password.BCryptPassword1), salt);
+            var decrypted2 = _aes.Decrypt(decrypted, Convert.ToBase64String(_password.BCryptPassword2), salt);
+            var decrypted3 = _aes.Decrypt(decrypted2, Convert.ToBase64String(_password.BCryptPassword1), salt);
 
             var decompressed = _compression.Decompress(decrypted3);
 
             return decompressed;
         }
 
-        private static void SplitFileIntoChunks(byte[] buffer, byte[] versionNumber, byte[] hash, byte[] encrypted)
+        private static void SplitFileIntoChunks(byte[] buffer, byte[] versionNumber, byte[] hash, byte[] salt, byte[] encrypted)
         {
-            Buffer.BlockCopy(buffer, 0, versionNumber, 0, 2);
-            Buffer.BlockCopy(buffer, 2, hash, 0, 32);
-            Buffer.BlockCopy(buffer, 34, encrypted, 0, encrypted.Length);
+            int offset = 0;
+            Buffer.BlockCopy(buffer, offset, versionNumber, 0, 2);
+            offset += 2;
+
+            Buffer.BlockCopy(buffer, offset, salt, 0, 15);
+            offset += 15;
+
+            Buffer.BlockCopy(buffer, offset, hash, 0, 32);
+            offset += 32;
+
+            Buffer.BlockCopy(buffer, offset, encrypted, 0, encrypted.Length);
         }
     }
 }
