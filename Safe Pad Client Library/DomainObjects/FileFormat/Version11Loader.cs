@@ -73,11 +73,10 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
         private byte[] DecryptData(byte[] encrypted, byte[] salt)
         {
             
-            var decrypted = _aes.Decrypt(encrypted, Convert.ToBase64String(_password.BCryptPassword1), salt);
-            var decrypted2 = _aes.Decrypt(decrypted, Convert.ToBase64String(_password.BCryptPassword2), salt);
-            var decrypted3 = _aes.Decrypt(decrypted2, Convert.ToBase64String(_password.BCryptPassword1), salt);
+            var decrypted = _aes.Decrypt(encrypted, Convert.ToBase64String(_password.BCryptPassword1), salt, 25000);
+            var decrypted2 = _aes.Decrypt(decrypted, Convert.ToBase64String(_password.BCryptPassword2), salt, 25000);            
 
-            var decompressed = _compression.Decompress(decrypted3);
+            var decompressed = _compression.Decompress(decrypted2);
 
             return decompressed;
         }
