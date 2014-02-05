@@ -80,6 +80,7 @@
             this._forwardSlash = new System.Windows.Forms.Button();
             this._backSlash = new System.Windows.Forms.Button();
             this._maskedPassword = new System.Windows.Forms.TextBox();
+            this._backSpace = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _q
@@ -700,12 +701,26 @@
             this._maskedPassword.Size = new System.Drawing.Size(315, 20);
             this._maskedPassword.TabIndex = 51;
             // 
+            // _backSpace
+            // 
+            this._backSpace.BackColor = System.Drawing.Color.WhiteSmoke;
+            this._backSpace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._backSpace.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._backSpace.Location = new System.Drawing.Point(605, 45);
+            this._backSpace.Name = "_backSpace";
+            this._backSpace.Size = new System.Drawing.Size(75, 40);
+            this._backSpace.TabIndex = 52;
+            this._backSpace.Text = "Back Space";
+            this._backSpace.UseVisualStyleBackColor = false;
+            this._backSpace.Click += new System.EventHandler(this._backSpace_Click);
+            // 
             // KeyboardInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(689, 292);
+            this.Controls.Add(this._backSpace);
             this.Controls.Add(this._maskedPassword);
             this.Controls.Add(this._backSlash);
             this.Controls.Add(this._forwardSlash);
@@ -821,5 +836,6 @@
         private System.Windows.Forms.Button _forwardSlash;
         private System.Windows.Forms.Button _backSlash;
         private System.Windows.Forms.TextBox _maskedPassword;
+        private System.Windows.Forms.Button _backSpace;
     }
 }
