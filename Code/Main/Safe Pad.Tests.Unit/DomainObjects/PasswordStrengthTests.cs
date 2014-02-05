@@ -41,7 +41,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [TestMethod]
         public void CheckStrengthReturnsWeakForPasswordOfHello2()
         {
-            Assert.AreEqual(PasswordScore.Weak, PasswordStrength.CheckStrength("Hello2"));
+            Assert.AreEqual(PasswordScore.VeryWeak, PasswordStrength.CheckStrength("Hello2"));
         }
 
         [TestMethod]

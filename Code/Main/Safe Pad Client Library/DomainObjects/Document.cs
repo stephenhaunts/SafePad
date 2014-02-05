@@ -20,6 +20,8 @@
 using System;
 using HauntedHouseSoftware.SecureNotePad.CryptoProviders;
 using HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 {
@@ -131,34 +133,48 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 
         public void Save(string fileName)
         {
+            
             if (string.IsNullOrEmpty(fileName))
             {
                 throw new ArgumentNullException("fileName");
             }
 
-            var encrypted3 = EncryptData();
-
+            var salt = GenerateSalt(32);
+            var encrypted3 = EncryptData(salt);
+            
             var hash = new SecureHash().ComputeHash(encrypted3);
             var versionNumber = new [] { Major, Minor };
 
-            SaveFormattedFile(fileName, encrypted3, hash, versionNumber);
+            SaveFormattedFile(fileName, encrypted3, hash, salt,  versionNumber);
         }
-        private void SaveFormattedFile(string fileName, byte[] encrypted3, byte[] hash, byte[] versionNumber)
+        private void SaveFormattedFile(string fileName, byte[] encrypted3, byte[] hash, byte[] salt, byte[] versionNumber)
         {
-            var tempCombined = ByteHelpers.Combine(versionNumber, hash);
-            var combined = ByteHelpers.Combine(tempCombined, encrypted3);
+            var tempCombined = ByteHelpers.Combine(versionNumber, salt);
+            var temp2Combined = ByteHelpers.Combine(tempCombined, hash);
+            var combined = ByteHelpers.Combine(temp2Combined, encrypted3);
 
             _fileProxy.Save(fileName, combined);
         }
 
-        private byte[] EncryptData()
+        private byte[] EncryptData(byte[] salt)
         {
             var compressed = _compression.Compress(EncodedData);
-            var encrypted = _aes.Encrypt(compressed, Convert.ToBase64String(_password.BCryptPassword1));
-            var encrypted2 = _aes.Encrypt(encrypted, Convert.ToBase64String(_password.BCryptPassword2));
-            var encrypted3 = _aes.Encrypt(encrypted2, Convert.ToBase64String(_password.BCryptPassword1));
+            var encrypted = _aes.Encrypt(compressed, Convert.ToBase64String(_password.BCryptPassword1), salt);
+            var encrypted2 = _aes.Encrypt(encrypted, Convert.ToBase64String(_password.BCryptPassword2), salt);
+            var encrypted3 = _aes.Encrypt(encrypted2, Convert.ToBase64String(_password.BCryptPassword1), salt);
 
             return encrypted3;
+        }
+
+        public static byte[] GenerateSalt(int length)
+        {
+            using (RNGCryptoServiceProvider randomNumberGenerator = new RNGCryptoServiceProvider())
+            {
+                byte[] randomNumber = new byte[length];
+                randomNumberGenerator.GetBytes(randomNumber);
+
+                return randomNumber;
+            }
         }
     }
 }
