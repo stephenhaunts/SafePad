@@ -19,7 +19,6 @@
  */
 using System;
 using HauntedHouseSoftware.SecureNotePad.CryptoProviders;
-using System.Text;
 
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
 {
