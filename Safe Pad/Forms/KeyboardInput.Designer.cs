@@ -79,6 +79,7 @@
             this._fullStop = new System.Windows.Forms.Button();
             this._forwardSlash = new System.Windows.Forms.Button();
             this._backSlash = new System.Windows.Forms.Button();
+            this._maskedPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // _q
@@ -91,6 +92,7 @@
             this._q.TabIndex = 0;
             this._q.Text = "q";
             this._q.UseVisualStyleBackColor = true;
+            this._q.Click += new System.EventHandler(this._q_Click);
             // 
             // _w
             // 
@@ -102,6 +104,7 @@
             this._w.TabIndex = 1;
             this._w.Text = "w";
             this._w.UseVisualStyleBackColor = true;
+            this._w.Click += new System.EventHandler(this._w_Click);
             // 
             // _e
             // 
@@ -113,6 +116,7 @@
             this._e.TabIndex = 2;
             this._e.Text = "e";
             this._e.UseVisualStyleBackColor = true;
+            this._e.Click += new System.EventHandler(this._e_Click);
             // 
             // _r
             // 
@@ -124,6 +128,7 @@
             this._r.TabIndex = 3;
             this._r.Text = "r";
             this._r.UseVisualStyleBackColor = true;
+            this._r.Click += new System.EventHandler(this._r_Click);
             // 
             // _t
             // 
@@ -135,6 +140,7 @@
             this._t.TabIndex = 4;
             this._t.Text = "t";
             this._t.UseVisualStyleBackColor = true;
+            this._t.Click += new System.EventHandler(this._t_Click);
             // 
             // _y
             // 
@@ -146,6 +152,7 @@
             this._y.TabIndex = 5;
             this._y.Text = "y";
             this._y.UseVisualStyleBackColor = true;
+            this._y.Click += new System.EventHandler(this._y_Click);
             // 
             // _u
             // 
@@ -157,6 +164,7 @@
             this._u.TabIndex = 6;
             this._u.Text = "u";
             this._u.UseVisualStyleBackColor = true;
+            this._u.Click += new System.EventHandler(this._u_Click);
             // 
             // _i
             // 
@@ -168,6 +176,7 @@
             this._i.TabIndex = 7;
             this._i.Text = "i";
             this._i.UseVisualStyleBackColor = true;
+            this._i.Click += new System.EventHandler(this._i_Click);
             // 
             // _o
             // 
@@ -179,6 +188,7 @@
             this._o.TabIndex = 8;
             this._o.Text = "o";
             this._o.UseVisualStyleBackColor = true;
+            this._o.Click += new System.EventHandler(this._o_Click);
             // 
             // _p
             // 
@@ -190,6 +200,7 @@
             this._p.TabIndex = 9;
             this._p.Text = "p";
             this._p.UseVisualStyleBackColor = true;
+            this._p.Click += new System.EventHandler(this._p_Click);
             // 
             // _a
             // 
@@ -201,6 +212,7 @@
             this._a.TabIndex = 10;
             this._a.Text = "a";
             this._a.UseVisualStyleBackColor = true;
+            this._a.Click += new System.EventHandler(this._a_Click);
             // 
             // _s
             // 
@@ -212,6 +224,7 @@
             this._s.TabIndex = 11;
             this._s.Text = "s";
             this._s.UseVisualStyleBackColor = true;
+            this._s.Click += new System.EventHandler(this._s_Click);
             // 
             // _d
             // 
@@ -223,6 +236,7 @@
             this._d.TabIndex = 12;
             this._d.Text = "d";
             this._d.UseVisualStyleBackColor = true;
+            this._d.Click += new System.EventHandler(this._d_Click);
             // 
             // _f
             // 
@@ -234,6 +248,7 @@
             this._f.TabIndex = 13;
             this._f.Text = "f";
             this._f.UseVisualStyleBackColor = true;
+            this._f.Click += new System.EventHandler(this._f_Click);
             // 
             // _g
             // 
@@ -245,6 +260,7 @@
             this._g.TabIndex = 14;
             this._g.Text = "g";
             this._g.UseVisualStyleBackColor = true;
+            this._g.Click += new System.EventHandler(this._g_Click);
             // 
             // _h
             // 
@@ -256,6 +272,7 @@
             this._h.TabIndex = 15;
             this._h.Text = "h";
             this._h.UseVisualStyleBackColor = true;
+            this._h.Click += new System.EventHandler(this._h_Click);
             // 
             // _j
             // 
@@ -267,6 +284,7 @@
             this._j.TabIndex = 16;
             this._j.Text = "j";
             this._j.UseVisualStyleBackColor = true;
+            this._j.Click += new System.EventHandler(this._j_Click);
             // 
             // _k
             // 
@@ -278,6 +296,7 @@
             this._k.TabIndex = 17;
             this._k.Text = "k";
             this._k.UseVisualStyleBackColor = true;
+            this._k.Click += new System.EventHandler(this._k_Click);
             // 
             // _l
             // 
@@ -289,6 +308,7 @@
             this._l.TabIndex = 18;
             this._l.Text = "l";
             this._l.UseVisualStyleBackColor = true;
+            this._l.Click += new System.EventHandler(this._l_Click);
             // 
             // _z
             // 
@@ -300,6 +320,7 @@
             this._z.TabIndex = 19;
             this._z.Text = "z";
             this._z.UseVisualStyleBackColor = true;
+            this._z.Click += new System.EventHandler(this._z_Click);
             // 
             // _x
             // 
@@ -311,6 +332,7 @@
             this._x.TabIndex = 20;
             this._x.Text = "x";
             this._x.UseVisualStyleBackColor = true;
+            this._x.Click += new System.EventHandler(this._x_Click);
             // 
             // _c
             // 
@@ -322,6 +344,7 @@
             this._c.TabIndex = 21;
             this._c.Text = "c";
             this._c.UseVisualStyleBackColor = true;
+            this._c.Click += new System.EventHandler(this._c_Click);
             // 
             // _v
             // 
@@ -333,6 +356,7 @@
             this._v.TabIndex = 22;
             this._v.Text = "v";
             this._v.UseVisualStyleBackColor = true;
+            this._v.Click += new System.EventHandler(this._v_Click);
             // 
             // _b
             // 
@@ -344,6 +368,7 @@
             this._b.TabIndex = 23;
             this._b.Text = "b";
             this._b.UseVisualStyleBackColor = true;
+            this._b.Click += new System.EventHandler(this._b_Click);
             // 
             // _n
             // 
@@ -355,6 +380,7 @@
             this._n.TabIndex = 24;
             this._n.Text = "n";
             this._n.UseVisualStyleBackColor = true;
+            this._n.Click += new System.EventHandler(this._n_Click);
             // 
             // _m
             // 
@@ -366,6 +392,7 @@
             this._m.TabIndex = 25;
             this._m.Text = "m";
             this._m.UseVisualStyleBackColor = true;
+            this._m.Click += new System.EventHandler(this._m_Click);
             // 
             // _spaceBar
             // 
@@ -377,6 +404,7 @@
             this._spaceBar.TabIndex = 26;
             this._spaceBar.Text = "Space Bar";
             this._spaceBar.UseVisualStyleBackColor = true;
+            this._spaceBar.Click += new System.EventHandler(this._spaceBar_Click);
             // 
             // _1
             // 
@@ -388,6 +416,7 @@
             this._1.TabIndex = 27;
             this._1.Text = "1";
             this._1.UseVisualStyleBackColor = true;
+            this._1.Click += new System.EventHandler(this._1_Click);
             // 
             // _2
             // 
@@ -399,6 +428,7 @@
             this._2.TabIndex = 28;
             this._2.Text = "2";
             this._2.UseVisualStyleBackColor = true;
+            this._2.Click += new System.EventHandler(this._2_Click);
             // 
             // _3
             // 
@@ -410,6 +440,7 @@
             this._3.TabIndex = 29;
             this._3.Text = "3";
             this._3.UseVisualStyleBackColor = true;
+            this._3.Click += new System.EventHandler(this._3_Click);
             // 
             // _4
             // 
@@ -421,6 +452,7 @@
             this._4.TabIndex = 30;
             this._4.Text = "4";
             this._4.UseVisualStyleBackColor = true;
+            this._4.Click += new System.EventHandler(this._4_Click);
             // 
             // _5
             // 
@@ -432,6 +464,7 @@
             this._5.TabIndex = 31;
             this._5.Text = "5";
             this._5.UseVisualStyleBackColor = true;
+            this._5.Click += new System.EventHandler(this._5_Click);
             // 
             // _6
             // 
@@ -443,6 +476,7 @@
             this._6.TabIndex = 32;
             this._6.Text = "6";
             this._6.UseVisualStyleBackColor = true;
+            this._6.Click += new System.EventHandler(this._6_Click);
             // 
             // _7
             // 
@@ -454,6 +488,7 @@
             this._7.TabIndex = 33;
             this._7.Text = "7";
             this._7.UseVisualStyleBackColor = true;
+            this._7.Click += new System.EventHandler(this._7_Click);
             // 
             // _8
             // 
@@ -465,6 +500,7 @@
             this._8.TabIndex = 34;
             this._8.Text = "8";
             this._8.UseVisualStyleBackColor = true;
+            this._8.Click += new System.EventHandler(this._8_Click);
             // 
             // _9
             // 
@@ -476,6 +512,7 @@
             this._9.TabIndex = 35;
             this._9.Text = "9";
             this._9.UseVisualStyleBackColor = true;
+            this._9.Click += new System.EventHandler(this._9_Click);
             // 
             // _0
             // 
@@ -487,6 +524,7 @@
             this._0.TabIndex = 36;
             this._0.Text = "0";
             this._0.UseVisualStyleBackColor = true;
+            this._0.Click += new System.EventHandler(this._0_Click);
             // 
             // _ok
             // 
@@ -533,6 +571,7 @@
             this._underscore.TabIndex = 40;
             this._underscore.Text = "-";
             this._underscore.UseVisualStyleBackColor = true;
+            this._underscore.Click += new System.EventHandler(this._underscore_Click);
             // 
             // _equals
             // 
@@ -544,6 +583,7 @@
             this._equals.TabIndex = 41;
             this._equals.Text = "=";
             this._equals.UseVisualStyleBackColor = true;
+            this._equals.Click += new System.EventHandler(this._equals_Click);
             // 
             // _leftSquareBracket
             // 
@@ -555,6 +595,7 @@
             this._leftSquareBracket.TabIndex = 42;
             this._leftSquareBracket.Text = "[";
             this._leftSquareBracket.UseVisualStyleBackColor = true;
+            this._leftSquareBracket.Click += new System.EventHandler(this._leftSquareBracket_Click);
             // 
             // _rightSquareBracket
             // 
@@ -566,6 +607,7 @@
             this._rightSquareBracket.TabIndex = 43;
             this._rightSquareBracket.Text = "]";
             this._rightSquareBracket.UseVisualStyleBackColor = true;
+            this._rightSquareBracket.Click += new System.EventHandler(this._rightSquareBracket_Click);
             // 
             // _semiColon
             // 
@@ -577,6 +619,7 @@
             this._semiColon.TabIndex = 44;
             this._semiColon.Text = ";";
             this._semiColon.UseVisualStyleBackColor = true;
+            this._semiColon.Click += new System.EventHandler(this._semiColon_Click);
             // 
             // _apostophe
             // 
@@ -588,6 +631,7 @@
             this._apostophe.TabIndex = 45;
             this._apostophe.Text = "\'";
             this._apostophe.UseVisualStyleBackColor = true;
+            this._apostophe.Click += new System.EventHandler(this._apostophe_Click);
             // 
             // _hash
             // 
@@ -599,6 +643,7 @@
             this._hash.TabIndex = 46;
             this._hash.Text = "#";
             this._hash.UseVisualStyleBackColor = true;
+            this._hash.Click += new System.EventHandler(this._hash_Click);
             // 
             // _comma
             // 
@@ -610,6 +655,7 @@
             this._comma.TabIndex = 47;
             this._comma.Text = ",";
             this._comma.UseVisualStyleBackColor = true;
+            this._comma.Click += new System.EventHandler(this._comma_Click);
             // 
             // _fullStop
             // 
@@ -621,6 +667,7 @@
             this._fullStop.TabIndex = 48;
             this._fullStop.Text = ".";
             this._fullStop.UseVisualStyleBackColor = true;
+            this._fullStop.Click += new System.EventHandler(this._fullStop_Click);
             // 
             // _forwardSlash
             // 
@@ -632,6 +679,7 @@
             this._forwardSlash.TabIndex = 49;
             this._forwardSlash.Text = "/";
             this._forwardSlash.UseVisualStyleBackColor = true;
+            this._forwardSlash.Click += new System.EventHandler(this._forwardSlash_Click);
             // 
             // _backSlash
             // 
@@ -643,6 +691,14 @@
             this._backSlash.TabIndex = 50;
             this._backSlash.Text = "\\";
             this._backSlash.UseVisualStyleBackColor = true;
+            this._backSlash.Click += new System.EventHandler(this._backSlash_Click);
+            // 
+            // _maskedPassword
+            // 
+            this._maskedPassword.Location = new System.Drawing.Point(20, 12);
+            this._maskedPassword.Name = "_maskedPassword";
+            this._maskedPassword.Size = new System.Drawing.Size(315, 20);
+            this._maskedPassword.TabIndex = 51;
             // 
             // KeyboardInput
             // 
@@ -650,6 +706,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(689, 292);
+            this.Controls.Add(this._maskedPassword);
             this.Controls.Add(this._backSlash);
             this.Controls.Add(this._forwardSlash);
             this.Controls.Add(this._fullStop);
@@ -706,6 +763,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "KeyboardInput";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -762,5 +820,6 @@
         private System.Windows.Forms.Button _fullStop;
         private System.Windows.Forms.Button _forwardSlash;
         private System.Windows.Forms.Button _backSlash;
+        private System.Windows.Forms.TextBox _maskedPassword;
     }
 }

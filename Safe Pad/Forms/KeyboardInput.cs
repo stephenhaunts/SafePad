@@ -27,12 +27,20 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 {    
     public partial class KeyboardInput : Form
     {
-        private string _password;
+        
         private bool _capsLock = false;
 
         public KeyboardInput()
         {
             InitializeComponent();
+        }
+
+        public string Password
+        {
+            get
+            {
+                return _maskedPassword.Text;
+            }
         }
 
         private void _caps_Click(object sender, EventArgs e)
@@ -158,6 +166,250 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             _fullStop.Text = ">";
             _forwardSlash.Text = "?";
             _backSlash.Text = "|";
+        }
+        private void ApplyButtonTextToPassword(object sender)
+        {
+            _maskedPassword.Text = _maskedPassword.Text + ((Button)sender).Text;
+        }
+
+        private void _1_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _2_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _3_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _4_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _5_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _6_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _7_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _8_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _9_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _0_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _underscore_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _equals_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _q_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _w_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _e_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _r_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _t_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _y_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _u_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _i_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _o_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _p_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _leftSquareBracket_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _rightSquareBracket_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _a_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _s_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _d_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _f_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _g_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _h_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _j_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _k_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _l_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _semiColon_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _apostophe_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _hash_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _backSlash_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _z_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _x_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _c_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _v_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _b_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _n_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _m_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _comma_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _fullStop_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _forwardSlash_Click(object sender, EventArgs e)
+        {
+            ApplyButtonTextToPassword(sender);
+        }
+
+        private void _spaceBar_Click(object sender, EventArgs e)
+        {
+            _maskedPassword.Text = _maskedPassword.Text + " ";
         }
     }
 }
