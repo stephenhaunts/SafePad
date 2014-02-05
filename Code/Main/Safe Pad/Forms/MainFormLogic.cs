@@ -44,6 +44,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private const string ApplicationName = "Safe Pad";
         private string _documentName = "";
 
+        private ApplicationSettings _settings = new ApplicationSettings();
+
         private void SaveDocument()
         {
             MemoryStream userInput = null;
@@ -514,16 +516,16 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void LoadSettings()
         {
-            ApplicationSettings settings = SettingsWriter.ReadSettingsFile();
+            _settings = SettingsWriter.ReadSettingsFile();
 
-            if (settings != null)
+            if (_settings != null)
             {
-                Location = new Point(settings.WindowPositionX, settings.WindowPositionY);
-                Size = new Size(settings.WindowWidth, settings.WindowHeight);
-                WindowState = settings.FormWindowState;
+                Location = new Point(_settings.WindowPositionX, _settings.WindowPositionY);
+                Size = new Size(_settings.WindowWidth, _settings.WindowHeight);
+                WindowState = _settings.FormWindowState;
 
-                richTextBox.BackColor = Color.FromArgb(settings.BackgroundColorRed, settings.BackgroundColorGreen, settings.BackgroundColorBlue);
-                richTextBox.ForeColor = Color.FromArgb(settings.ForegroundColorRed, settings.ForegroundColorGreen, settings.ForegroundColorBlue);
+                richTextBox.BackColor = Color.FromArgb(_settings.BackgroundColorRed, _settings.BackgroundColorGreen, _settings.BackgroundColorBlue);
+                richTextBox.ForeColor = Color.FromArgb(_settings.ForegroundColorRed, _settings.ForegroundColorGreen, _settings.ForegroundColorBlue);
             }
         }
 
@@ -542,22 +544,21 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
             ToolStripManager.SaveSettings(this, "SecureNotePad");
 
-            ApplicationSettings settings = new ApplicationSettings();
-            settings.WindowPositionX = Location.X;
-            settings.WindowPositionY = Location.Y;
-            settings.WindowHeight = Size.Height;
-            settings.WindowWidth = Size.Width;
-            settings.FormWindowState = WindowState;
+            _settings.WindowPositionX = Location.X;
+            _settings.WindowPositionY = Location.Y;
+            _settings.WindowHeight = Size.Height;
+            _settings.WindowWidth = Size.Width;
+            _settings.FormWindowState = WindowState;
 
-            settings.BackgroundColorRed = richTextBox.BackColor.R;
-            settings.BackgroundColorGreen = richTextBox.BackColor.G;
-            settings.BackgroundColorBlue = richTextBox.BackColor.B;
+            _settings.BackgroundColorRed = richTextBox.BackColor.R;
+            _settings.BackgroundColorGreen = richTextBox.BackColor.G;
+            _settings.BackgroundColorBlue = richTextBox.BackColor.B;
 
-            settings.ForegroundColorRed = richTextBox.ForeColor.R;
-            settings.ForegroundColorGreen = richTextBox.ForeColor.G;
-            settings.ForegroundColorBlue = richTextBox.ForeColor.B;
+            _settings.ForegroundColorRed = richTextBox.ForeColor.R;
+            _settings.ForegroundColorGreen = richTextBox.ForeColor.G;
+            _settings.ForegroundColorBlue = richTextBox.ForeColor.B;
 
-            SettingsWriter.WriteSettingsFile(settings);
+            SettingsWriter.WriteSettingsFile(_settings);
 
             Application.Exit();
         }
