@@ -21,6 +21,7 @@ using HauntedHouseSoftware.SecureNotePad.CryptoProviders;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections;
+using System.Text;
 
 namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.CryptoProviders
 {
@@ -32,7 +33,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.CryptoProviders
         public void EncryptThrowsArgumentNullExceptionIfDataToEncryptIsNull()
         {
             IAES aes = new AES();
-            aes.Encrypt(null, null);
+            aes.Encrypt(null, null, null);
         }
 
         [TestMethod]
@@ -42,7 +43,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.CryptoProviders
             IAES aes = new AES();
             var data = new byte[0];
 
-            aes.Encrypt(data, null);
+            aes.Encrypt(data, null, null);
         }
 
         [TestMethod]
@@ -52,7 +53,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.CryptoProviders
             IAES aes = new AES();
             var data = new byte[2];
 
-            aes.Encrypt(data, null);
+            aes.Encrypt(data, null, null);
         }
 
         [TestMethod]       
@@ -60,7 +61,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.CryptoProviders
         {
             IAES aes = new AES();
             var data = new byte[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
-            var encryptedData = aes.Encrypt(data, "password");            
+            var encryptedData = aes.Encrypt(data, "password", Encoding.ASCII.GetBytes("eryryn78ynr78yn"));            
 
             Assert.IsTrue(ByteArrayCompare(data, encryptedData));
         }
@@ -70,7 +71,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.CryptoProviders
         public void DecryptThrowsArgumentNullExceptionIfDataToDecryptIsNull()
         {
             IAES aes = new AES();
-            aes.Decrypt(null, null);
+            aes.Decrypt(null, null, null);
         }
 
         [TestMethod]
@@ -80,7 +81,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.CryptoProviders
             IAES aes = new AES();
             var data = new byte[0];
 
-            aes.Decrypt(data, null);
+            aes.Decrypt(data, null, null);
         }
 
         [TestMethod]
@@ -90,7 +91,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.CryptoProviders
             IAES aes = new AES();
             var data = new byte[2];
 
-            aes.Decrypt(data, null);
+            aes.Decrypt(data, null, null);
         }
 
         [TestMethod]
@@ -98,8 +99,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.CryptoProviders
         {
             IAES aes = new AES();
             var originalData = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
-            var encryptedData = aes.Encrypt(originalData, "password");
-            var decryptedData = aes.Decrypt(encryptedData, "password");
+            var encryptedData = aes.Encrypt(originalData, "password", Encoding.ASCII.GetBytes("eryryn78ynr78yn"));
+            var decryptedData = aes.Decrypt(encryptedData, "password", Encoding.ASCII.GetBytes("eryryn78ynr78yn"));
 
             Assert.IsFalse(ByteArrayCompare(originalData, decryptedData));
         }

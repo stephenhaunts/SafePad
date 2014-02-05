@@ -25,8 +25,9 @@ using System.Text;
 namespace HauntedHouseSoftware.SecureNotePad.CryptoProviders
 {
     public class AES : IAES
-    {        
-        public byte[] Encrypt(byte[] dataToEncrypt, string password)
+    {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
+        public byte[] Encrypt(byte[] dataToEncrypt, string password, byte[] salt)
         {
             if (dataToEncrypt == null)
             {
@@ -45,7 +46,9 @@ namespace HauntedHouseSoftware.SecureNotePad.CryptoProviders
 
             try
             {                        
-                using (var rfc2898 = new Rfc2898DeriveBytes(password, Encoding.ASCII.GetBytes("eryryn78ynr78yn"), 1000))
+
+                //Encoding.ASCII.GetBytes("eryryn78ynr78yn")
+                using (var rfc2898 = new Rfc2898DeriveBytes(password, salt, 1000))
                 {
                     using (var aes = new AesCryptoServiceProvider())
                     {
@@ -71,7 +74,8 @@ namespace HauntedHouseSoftware.SecureNotePad.CryptoProviders
             }           
         }
 
-        public byte[] Decrypt(byte[] dataToDecrypt, string password)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
+        public byte[] Decrypt(byte[] dataToDecrypt, string password, byte[] salt)
         {
             if (dataToDecrypt == null)
             {
@@ -90,7 +94,7 @@ namespace HauntedHouseSoftware.SecureNotePad.CryptoProviders
         
             try
             {
-                using (var rfc2898 = new Rfc2898DeriveBytes(password, Encoding.ASCII.GetBytes("eryryn78ynr78yn"), 1000))
+                using (var rfc2898 = new Rfc2898DeriveBytes(password, salt, 1000))
                 {
                     using (var aes = new AesCryptoServiceProvider())
                     {
