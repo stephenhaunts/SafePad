@@ -411,5 +411,13 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             _maskedPassword.Text = _maskedPassword.Text + " ";
         }
+
+        private void _backSpace_Click(object sender, EventArgs e)
+        {
+            if (_maskedPassword.Text.Length > 0)
+            {
+                _maskedPassword.Text = _maskedPassword.Text.Substring(0, _maskedPassword.Text.Length - 1);
+            }
+        }
     }
 }
