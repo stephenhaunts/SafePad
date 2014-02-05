@@ -163,7 +163,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             {
                 if (keyboard.ShowDialog() == DialogResult.OK)
                 {
-
+                    _passwordOne.Text = keyboard.Password;
                 }
             }
         }
@@ -174,7 +174,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             {
                 if (keyboard.ShowDialog() == DialogResult.OK)
                 {
-
+                    _passwordTwo.Text = keyboard.Password;
                 }
             }
         }

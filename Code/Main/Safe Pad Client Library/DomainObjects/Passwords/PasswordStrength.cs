@@ -48,7 +48,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
                 return PasswordScore.Blank;
             }
 
-            if (password.Length < 4)
+            if (password.Length < 8)
             {
                 return PasswordScore.VeryWeak;
             }

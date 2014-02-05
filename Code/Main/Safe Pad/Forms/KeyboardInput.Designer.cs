@@ -81,6 +81,8 @@
             this._backSlash = new System.Windows.Forms.Button();
             this._maskedPassword = new System.Windows.Forms.TextBox();
             this._backSpace = new System.Windows.Forms.Button();
+            this._passwordStrength = new System.Windows.Forms.Label();
+            this._viewPassword = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _q
@@ -696,10 +698,13 @@
             // 
             // _maskedPassword
             // 
+            this._maskedPassword.Enabled = false;
             this._maskedPassword.Location = new System.Drawing.Point(20, 12);
             this._maskedPassword.Name = "_maskedPassword";
+            this._maskedPassword.PasswordChar = '*';
             this._maskedPassword.Size = new System.Drawing.Size(315, 20);
             this._maskedPassword.TabIndex = 51;
+            this._maskedPassword.TextChanged += new System.EventHandler(this._maskedPassword_TextChanged);
             // 
             // _backSpace
             // 
@@ -714,12 +719,35 @@
             this._backSpace.UseVisualStyleBackColor = false;
             this._backSpace.Click += new System.EventHandler(this._backSpace_Click);
             // 
+            // _passwordStrength
+            // 
+            this._passwordStrength.AutoSize = true;
+            this._passwordStrength.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._passwordStrength.Location = new System.Drawing.Point(397, 15);
+            this._passwordStrength.Name = "_passwordStrength";
+            this._passwordStrength.Size = new System.Drawing.Size(0, 13);
+            this._passwordStrength.TabIndex = 53;
+            // 
+            // _viewPassword
+            // 
+            this._viewPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._viewPassword.Location = new System.Drawing.Point(339, 10);
+            this._viewPassword.Name = "_viewPassword";
+            this._viewPassword.Size = new System.Drawing.Size(52, 23);
+            this._viewPassword.TabIndex = 54;
+            this._viewPassword.Text = "View";
+            this._viewPassword.UseVisualStyleBackColor = true;
+            this._viewPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this._viewPassword_MouseDown);
+            this._viewPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this._viewPassword_MouseUp);
+            // 
             // KeyboardInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(689, 292);
+            this.Controls.Add(this._viewPassword);
+            this.Controls.Add(this._passwordStrength);
             this.Controls.Add(this._backSpace);
             this.Controls.Add(this._maskedPassword);
             this.Controls.Add(this._backSlash);
@@ -837,5 +865,7 @@
         private System.Windows.Forms.Button _backSlash;
         private System.Windows.Forms.TextBox _maskedPassword;
         private System.Windows.Forms.Button _backSpace;
+        private System.Windows.Forms.Label _passwordStrength;
+        private System.Windows.Forms.Button _viewPassword;
     }
 }
