@@ -68,11 +68,23 @@
             this._ok = new System.Windows.Forms.Button();
             this._cancel = new System.Windows.Forms.Button();
             this._caps = new System.Windows.Forms.Button();
+            this._underscore = new System.Windows.Forms.Button();
+            this._equals = new System.Windows.Forms.Button();
+            this._leftSquareBracket = new System.Windows.Forms.Button();
+            this._rightSquareBracket = new System.Windows.Forms.Button();
+            this._semiColon = new System.Windows.Forms.Button();
+            this._apostophe = new System.Windows.Forms.Button();
+            this._hash = new System.Windows.Forms.Button();
+            this._comma = new System.Windows.Forms.Button();
+            this._fullStop = new System.Windows.Forms.Button();
+            this._forwardSlash = new System.Windows.Forms.Button();
+            this._backSlash = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _q
             // 
             this._q.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._q.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._q.Location = new System.Drawing.Point(68, 91);
             this._q.Name = "_q";
             this._q.Size = new System.Drawing.Size(40, 40);
@@ -83,6 +95,7 @@
             // _w
             // 
             this._w.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._w.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._w.Location = new System.Drawing.Point(111, 91);
             this._w.Name = "_w";
             this._w.Size = new System.Drawing.Size(40, 40);
@@ -93,6 +106,7 @@
             // _e
             // 
             this._e.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._e.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._e.Location = new System.Drawing.Point(157, 91);
             this._e.Name = "_e";
             this._e.Size = new System.Drawing.Size(40, 40);
@@ -103,6 +117,7 @@
             // _r
             // 
             this._r.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._r.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._r.Location = new System.Drawing.Point(203, 91);
             this._r.Name = "_r";
             this._r.Size = new System.Drawing.Size(40, 40);
@@ -113,6 +128,7 @@
             // _t
             // 
             this._t.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._t.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._t.Location = new System.Drawing.Point(249, 91);
             this._t.Name = "_t";
             this._t.Size = new System.Drawing.Size(40, 40);
@@ -123,6 +139,7 @@
             // _y
             // 
             this._y.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._y.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._y.Location = new System.Drawing.Point(295, 91);
             this._y.Name = "_y";
             this._y.Size = new System.Drawing.Size(40, 40);
@@ -133,6 +150,7 @@
             // _u
             // 
             this._u.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._u.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._u.Location = new System.Drawing.Point(341, 91);
             this._u.Name = "_u";
             this._u.Size = new System.Drawing.Size(40, 40);
@@ -143,6 +161,7 @@
             // _i
             // 
             this._i.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._i.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._i.Location = new System.Drawing.Point(387, 91);
             this._i.Name = "_i";
             this._i.Size = new System.Drawing.Size(40, 40);
@@ -153,6 +172,7 @@
             // _o
             // 
             this._o.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._o.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._o.Location = new System.Drawing.Point(433, 91);
             this._o.Name = "_o";
             this._o.Size = new System.Drawing.Size(40, 40);
@@ -163,6 +183,7 @@
             // _p
             // 
             this._p.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._p.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._p.Location = new System.Drawing.Point(479, 91);
             this._p.Name = "_p";
             this._p.Size = new System.Drawing.Size(40, 40);
@@ -173,6 +194,7 @@
             // _a
             // 
             this._a.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._a.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._a.Location = new System.Drawing.Point(86, 137);
             this._a.Name = "_a";
             this._a.Size = new System.Drawing.Size(40, 40);
@@ -183,6 +205,7 @@
             // _s
             // 
             this._s.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._s.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._s.Location = new System.Drawing.Point(132, 137);
             this._s.Name = "_s";
             this._s.Size = new System.Drawing.Size(40, 40);
@@ -193,6 +216,7 @@
             // _d
             // 
             this._d.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._d.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._d.Location = new System.Drawing.Point(178, 137);
             this._d.Name = "_d";
             this._d.Size = new System.Drawing.Size(40, 40);
@@ -203,6 +227,7 @@
             // _f
             // 
             this._f.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._f.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._f.Location = new System.Drawing.Point(224, 137);
             this._f.Name = "_f";
             this._f.Size = new System.Drawing.Size(40, 40);
@@ -213,6 +238,7 @@
             // _g
             // 
             this._g.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._g.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._g.Location = new System.Drawing.Point(270, 137);
             this._g.Name = "_g";
             this._g.Size = new System.Drawing.Size(40, 40);
@@ -223,6 +249,7 @@
             // _h
             // 
             this._h.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._h.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._h.Location = new System.Drawing.Point(316, 137);
             this._h.Name = "_h";
             this._h.Size = new System.Drawing.Size(40, 40);
@@ -233,6 +260,7 @@
             // _j
             // 
             this._j.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._j.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._j.Location = new System.Drawing.Point(362, 137);
             this._j.Name = "_j";
             this._j.Size = new System.Drawing.Size(40, 40);
@@ -243,6 +271,7 @@
             // _k
             // 
             this._k.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._k.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._k.Location = new System.Drawing.Point(408, 137);
             this._k.Name = "_k";
             this._k.Size = new System.Drawing.Size(40, 40);
@@ -253,6 +282,7 @@
             // _l
             // 
             this._l.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._l.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._l.Location = new System.Drawing.Point(454, 137);
             this._l.Name = "_l";
             this._l.Size = new System.Drawing.Size(40, 40);
@@ -263,6 +293,7 @@
             // _z
             // 
             this._z.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._z.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._z.Location = new System.Drawing.Point(111, 183);
             this._z.Name = "_z";
             this._z.Size = new System.Drawing.Size(40, 40);
@@ -273,6 +304,7 @@
             // _x
             // 
             this._x.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._x.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._x.Location = new System.Drawing.Point(157, 183);
             this._x.Name = "_x";
             this._x.Size = new System.Drawing.Size(40, 40);
@@ -283,6 +315,7 @@
             // _c
             // 
             this._c.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._c.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._c.Location = new System.Drawing.Point(203, 183);
             this._c.Name = "_c";
             this._c.Size = new System.Drawing.Size(40, 40);
@@ -293,6 +326,7 @@
             // _v
             // 
             this._v.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._v.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._v.Location = new System.Drawing.Point(249, 183);
             this._v.Name = "_v";
             this._v.Size = new System.Drawing.Size(40, 40);
@@ -303,6 +337,7 @@
             // _b
             // 
             this._b.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._b.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._b.Location = new System.Drawing.Point(295, 183);
             this._b.Name = "_b";
             this._b.Size = new System.Drawing.Size(40, 40);
@@ -313,6 +348,7 @@
             // _n
             // 
             this._n.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._n.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._n.Location = new System.Drawing.Point(341, 183);
             this._n.Name = "_n";
             this._n.Size = new System.Drawing.Size(40, 40);
@@ -323,6 +359,7 @@
             // _m
             // 
             this._m.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._m.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._m.Location = new System.Drawing.Point(387, 183);
             this._m.Name = "_m";
             this._m.Size = new System.Drawing.Size(40, 40);
@@ -333,6 +370,7 @@
             // _spaceBar
             // 
             this._spaceBar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._spaceBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._spaceBar.Location = new System.Drawing.Point(132, 229);
             this._spaceBar.Name = "_spaceBar";
             this._spaceBar.Size = new System.Drawing.Size(341, 40);
@@ -343,6 +381,7 @@
             // _1
             // 
             this._1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._1.Location = new System.Drawing.Point(49, 45);
             this._1.Name = "_1";
             this._1.Size = new System.Drawing.Size(40, 40);
@@ -353,6 +392,7 @@
             // _2
             // 
             this._2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._2.Location = new System.Drawing.Point(95, 45);
             this._2.Name = "_2";
             this._2.Size = new System.Drawing.Size(40, 40);
@@ -363,6 +403,7 @@
             // _3
             // 
             this._3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._3.Location = new System.Drawing.Point(141, 45);
             this._3.Name = "_3";
             this._3.Size = new System.Drawing.Size(40, 40);
@@ -373,6 +414,7 @@
             // _4
             // 
             this._4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._4.Location = new System.Drawing.Point(187, 45);
             this._4.Name = "_4";
             this._4.Size = new System.Drawing.Size(40, 40);
@@ -383,6 +425,7 @@
             // _5
             // 
             this._5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._5.Location = new System.Drawing.Point(233, 45);
             this._5.Name = "_5";
             this._5.Size = new System.Drawing.Size(40, 40);
@@ -393,6 +436,7 @@
             // _6
             // 
             this._6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._6.Location = new System.Drawing.Point(279, 45);
             this._6.Name = "_6";
             this._6.Size = new System.Drawing.Size(40, 40);
@@ -403,6 +447,7 @@
             // _7
             // 
             this._7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._7.Location = new System.Drawing.Point(325, 45);
             this._7.Name = "_7";
             this._7.Size = new System.Drawing.Size(40, 40);
@@ -413,6 +458,7 @@
             // _8
             // 
             this._8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._8.Location = new System.Drawing.Point(371, 45);
             this._8.Name = "_8";
             this._8.Size = new System.Drawing.Size(40, 40);
@@ -423,6 +469,7 @@
             // _9
             // 
             this._9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._9.Location = new System.Drawing.Point(417, 45);
             this._9.Name = "_9";
             this._9.Size = new System.Drawing.Size(40, 40);
@@ -433,6 +480,7 @@
             // _0
             // 
             this._0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._0.Location = new System.Drawing.Point(463, 45);
             this._0.Name = "_0";
             this._0.Size = new System.Drawing.Size(40, 40);
@@ -466,13 +514,135 @@
             // 
             this._caps.BackColor = System.Drawing.Color.WhiteSmoke;
             this._caps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._caps.Location = new System.Drawing.Point(37, 183);
+            this._caps.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._caps.Location = new System.Drawing.Point(20, 137);
             this._caps.Name = "_caps";
-            this._caps.Size = new System.Drawing.Size(68, 40);
+            this._caps.Size = new System.Drawing.Size(60, 40);
             this._caps.TabIndex = 39;
             this._caps.Text = "Caps Lock";
             this._caps.UseVisualStyleBackColor = false;
             this._caps.Click += new System.EventHandler(this._caps_Click);
+            // 
+            // _underscore
+            // 
+            this._underscore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._underscore.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._underscore.Location = new System.Drawing.Point(509, 45);
+            this._underscore.Name = "_underscore";
+            this._underscore.Size = new System.Drawing.Size(40, 40);
+            this._underscore.TabIndex = 40;
+            this._underscore.Text = "-";
+            this._underscore.UseVisualStyleBackColor = true;
+            // 
+            // _equals
+            // 
+            this._equals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._equals.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._equals.Location = new System.Drawing.Point(555, 45);
+            this._equals.Name = "_equals";
+            this._equals.Size = new System.Drawing.Size(40, 40);
+            this._equals.TabIndex = 41;
+            this._equals.Text = "=";
+            this._equals.UseVisualStyleBackColor = true;
+            // 
+            // _leftSquareBracket
+            // 
+            this._leftSquareBracket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._leftSquareBracket.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._leftSquareBracket.Location = new System.Drawing.Point(524, 91);
+            this._leftSquareBracket.Name = "_leftSquareBracket";
+            this._leftSquareBracket.Size = new System.Drawing.Size(40, 40);
+            this._leftSquareBracket.TabIndex = 42;
+            this._leftSquareBracket.Text = "[";
+            this._leftSquareBracket.UseVisualStyleBackColor = true;
+            // 
+            // _rightSquareBracket
+            // 
+            this._rightSquareBracket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._rightSquareBracket.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._rightSquareBracket.Location = new System.Drawing.Point(570, 91);
+            this._rightSquareBracket.Name = "_rightSquareBracket";
+            this._rightSquareBracket.Size = new System.Drawing.Size(40, 40);
+            this._rightSquareBracket.TabIndex = 43;
+            this._rightSquareBracket.Text = "]";
+            this._rightSquareBracket.UseVisualStyleBackColor = true;
+            // 
+            // _semiColon
+            // 
+            this._semiColon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._semiColon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._semiColon.Location = new System.Drawing.Point(500, 137);
+            this._semiColon.Name = "_semiColon";
+            this._semiColon.Size = new System.Drawing.Size(40, 40);
+            this._semiColon.TabIndex = 44;
+            this._semiColon.Text = ";";
+            this._semiColon.UseVisualStyleBackColor = true;
+            // 
+            // _apostophe
+            // 
+            this._apostophe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._apostophe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._apostophe.Location = new System.Drawing.Point(546, 137);
+            this._apostophe.Name = "_apostophe";
+            this._apostophe.Size = new System.Drawing.Size(40, 40);
+            this._apostophe.TabIndex = 45;
+            this._apostophe.Text = "\'";
+            this._apostophe.UseVisualStyleBackColor = true;
+            // 
+            // _hash
+            // 
+            this._hash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._hash.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._hash.Location = new System.Drawing.Point(592, 137);
+            this._hash.Name = "_hash";
+            this._hash.Size = new System.Drawing.Size(40, 40);
+            this._hash.TabIndex = 46;
+            this._hash.Text = "#";
+            this._hash.UseVisualStyleBackColor = true;
+            // 
+            // _comma
+            // 
+            this._comma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._comma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._comma.Location = new System.Drawing.Point(433, 183);
+            this._comma.Name = "_comma";
+            this._comma.Size = new System.Drawing.Size(40, 40);
+            this._comma.TabIndex = 47;
+            this._comma.Text = ",";
+            this._comma.UseVisualStyleBackColor = true;
+            // 
+            // _fullStop
+            // 
+            this._fullStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._fullStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._fullStop.Location = new System.Drawing.Point(479, 183);
+            this._fullStop.Name = "_fullStop";
+            this._fullStop.Size = new System.Drawing.Size(40, 40);
+            this._fullStop.TabIndex = 48;
+            this._fullStop.Text = ".";
+            this._fullStop.UseVisualStyleBackColor = true;
+            // 
+            // _forwardSlash
+            // 
+            this._forwardSlash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._forwardSlash.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._forwardSlash.Location = new System.Drawing.Point(524, 183);
+            this._forwardSlash.Name = "_forwardSlash";
+            this._forwardSlash.Size = new System.Drawing.Size(40, 40);
+            this._forwardSlash.TabIndex = 49;
+            this._forwardSlash.Text = "/";
+            this._forwardSlash.UseVisualStyleBackColor = true;
+            // 
+            // _backSlash
+            // 
+            this._backSlash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this._backSlash.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._backSlash.Location = new System.Drawing.Point(65, 183);
+            this._backSlash.Name = "_backSlash";
+            this._backSlash.Size = new System.Drawing.Size(40, 40);
+            this._backSlash.TabIndex = 50;
+            this._backSlash.Text = "\\";
+            this._backSlash.UseVisualStyleBackColor = true;
             // 
             // KeyboardInput
             // 
@@ -480,6 +650,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.ClientSize = new System.Drawing.Size(689, 292);
+            this.Controls.Add(this._backSlash);
+            this.Controls.Add(this._forwardSlash);
+            this.Controls.Add(this._fullStop);
+            this.Controls.Add(this._comma);
+            this.Controls.Add(this._hash);
+            this.Controls.Add(this._apostophe);
+            this.Controls.Add(this._semiColon);
+            this.Controls.Add(this._rightSquareBracket);
+            this.Controls.Add(this._leftSquareBracket);
+            this.Controls.Add(this._equals);
+            this.Controls.Add(this._underscore);
             this.Controls.Add(this._caps);
             this.Controls.Add(this._cancel);
             this.Controls.Add(this._ok);
@@ -523,8 +704,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "KeyboardInput";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "KeyboardInput";            
+            this.Text = "KeyboardInput";
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -569,5 +751,16 @@
         private System.Windows.Forms.Button _ok;
         private System.Windows.Forms.Button _cancel;
         private System.Windows.Forms.Button _caps;
+        private System.Windows.Forms.Button _underscore;
+        private System.Windows.Forms.Button _equals;
+        private System.Windows.Forms.Button _leftSquareBracket;
+        private System.Windows.Forms.Button _rightSquareBracket;
+        private System.Windows.Forms.Button _semiColon;
+        private System.Windows.Forms.Button _apostophe;
+        private System.Windows.Forms.Button _hash;
+        private System.Windows.Forms.Button _comma;
+        private System.Windows.Forms.Button _fullStop;
+        private System.Windows.Forms.Button _forwardSlash;
+        private System.Windows.Forms.Button _backSlash;
     }
 }

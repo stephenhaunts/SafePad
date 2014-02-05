@@ -147,7 +147,7 @@
             // _password2Keyboard
             // 
             this._password2Keyboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._password2Keyboard.Location = new System.Drawing.Point(410, 122);
+            this._password2Keyboard.Location = new System.Drawing.Point(413, 122);
             this._password2Keyboard.Name = "_password2Keyboard";
             this._password2Keyboard.Size = new System.Drawing.Size(32, 24);
             this._password2Keyboard.TabIndex = 10;
