@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-/**
+﻿/**
  * Safe Pad, a double encrypted note pad that uses 2 passwords to protect your documents and help you keep your privacy.
  * 
  * Copyright (C) 2014 Stephen Haunts
@@ -20,6 +17,9 @@ using System.IO;
  * 
  * Authors: Stephen Haunts
  */
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.IO.Compression;
 
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
@@ -37,12 +37,12 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             byte[] output;
 
             using (var ms = new MemoryStream())
-            {                
-                var gs = new GZipStream(ms, CompressionMode.Compress);                
+            {
+                var gs = new GZipStream(ms, CompressionMode.Compress);
                 gs.Write(input, 0, input.Length);
                 gs.Close();
 
-                output = ms.ToArray();              
+                output = ms.ToArray();
 
                 ms.Close();
             }
@@ -61,8 +61,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             var output = new List<byte>();
 
             using (var ms = new MemoryStream(input))
-            {                
-                var gs = new GZipStream(ms, CompressionMode.Decompress);                
+            {
+                var gs = new GZipStream(ms, CompressionMode.Decompress);
                 var readByte = gs.ReadByte();
 
                 while (readByte != -1)
@@ -71,11 +71,11 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
                     readByte = gs.ReadByte();
                 }
 
-                gs.Close();               
+                gs.Close();
                 ms.Close();
             }
 
             return output.ToArray();
-        }  
+        }
     }
 }

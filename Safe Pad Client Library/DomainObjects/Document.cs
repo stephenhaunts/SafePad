@@ -34,7 +34,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         private const byte Major = 1;
         private const byte Minor = 1;
 
-        public byte[] EncodedData { get; set; }        
+        public byte[] EncodedData { get; set; }
 
         public Document(IPassword password)
         {
@@ -126,7 +126,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             var buffer = _fileProxy.Load(fileName);
             var loader = new LoaderFactory();
             var fileLoader = loader.GetFileLoader(buffer, _password);
-            EncodedData = fileLoader.Load(buffer);                               
+            EncodedData = fileLoader.Load(buffer);
         }
 
         public void Save(string fileName)
@@ -139,11 +139,10 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             var encrypted3 = EncryptData();
 
             var hash = new SecureHash().ComputeHash(encrypted3);
-            var versionNumber = new[] { Major, Minor };
+            var versionNumber = new [] { Major, Minor };
 
             SaveFormattedFile(fileName, encrypted3, hash, versionNumber);
         }
-    
         private void SaveFormattedFile(string fileName, byte[] encrypted3, byte[] hash, byte[] versionNumber)
         {
             var tempCombined = ByteHelpers.Combine(versionNumber, hash);
@@ -160,6 +159,6 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             var encrypted3 = _aes.Encrypt(encrypted2, Convert.ToBase64String(_password.BCryptPassword1));
 
             return encrypted3;
-        }   
+        }
     }
 }

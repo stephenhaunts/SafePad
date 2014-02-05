@@ -31,11 +31,10 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         private SettingsWriter()
         {
         }
-        
         public static string AssemblyDirectory
         {
             get
-            { 
+            {
                 return AppDomain.CurrentDomain.BaseDirectory;
             }
         }
@@ -50,7 +49,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 
             try
             {
-                string path = Path.GetFullPath(AssemblyDirectory + "settings.xml");
+                var path = Path.GetFullPath(AssemblyDirectory + "settings.xml");
 
                 var serializer = new XmlSerializer(settings.GetType());
                 using (var writer = XmlWriter.Create(path))
@@ -60,7 +59,6 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             }
             catch
             {
-                // If this fails for any reason we don't want a crash, just bow out quetly.
                 return;
             }
         }
@@ -69,8 +67,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         public static ApplicationSettings ReadSettingsFile()
         {
             try
-            {                
-                string path = Path.GetFullPath(AssemblyDirectory + "settings.xml");
+            {
+                var path = Path.GetFullPath(AssemblyDirectory + "settings.xml");
 
                 if (File.Exists(path))
                 {
@@ -86,7 +84,6 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             }
             catch
             {
-                // If this fails for any reason we don't want a crash, just bow out quetly.
                 return null;
             }
         }

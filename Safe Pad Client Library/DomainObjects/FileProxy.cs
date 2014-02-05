@@ -34,9 +34,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             using (var fs = new FileStream(fileName, FileMode.Open, FileAccess.Read))
             {
                 var br = new BinaryReader(fs);
-                
                 var numBytes = new FileInfo(fileName).Length;
-                return br.ReadBytes((int)numBytes);                
+                return br.ReadBytes((int)numBytes);
             }
         }
 
@@ -54,7 +53,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 
             using (var fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write))
             {
-                fileStream.Write(dataToSave, 0, dataToSave.Length);             
+                fileStream.Write(dataToSave, 0, dataToSave.Length);
             }
         }
     }
