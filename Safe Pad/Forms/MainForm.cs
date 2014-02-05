@@ -22,7 +22,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.Diagnostics;
-using HauntedHouseSoftware.SecureNotePad.DomainObjects;
 
 namespace HauntedHouseSoftware.SecureNotePad.Forms
 {
