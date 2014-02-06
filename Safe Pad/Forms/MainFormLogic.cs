@@ -350,6 +350,10 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 italicToolStripMenuItem.Checked = italicButton.Checked;
                 underlineToolStripMenuItem.Checked = underlineButton.Checked;
 
+                boldContextMenuItem1.Checked = boldButton.Checked;
+                italicContextMenuItem1.Checked = italicButton.Checked;
+                underlineContextMenuItem1.Checked = underlineButton.Checked;
+
                 _boldStatus = boldButton.Checked;
                 _italicStatus = italicButton.Checked;
                 _underlineStatus = underlineButton.Checked;
@@ -564,12 +568,51 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             Application.Exit();
         }
 
+        private void SetItalic()
+        {
+            italicButton.Checked = !italicButton.Checked;
+            italicContextMenuItem1.Checked = italicButton.Checked;
+            _italicStatus = italicButton.Checked;
+
+            SetSelectionFontType();
+        }
+
+        private void SetUnderline()
+        {
+            underlineButton.Checked = !underlineButton.Checked;
+            underlineContextMenuItem1.Checked = underlineButton.Checked;
+            _underlineStatus = underlineButton.Checked;
+
+            SetSelectionFontType();
+        }
+
+        private void SetBold()
+        {
+            boldButton.Checked = !boldButton.Checked;
+            boldContextMenuItem1.Checked = boldButton.Checked;
+
+            _boldStatus = boldButton.Checked;
+
+            SetSelectionFontType();
+        }
+
         private void ToggleBulletSelection()
         {
             bulletButton.Checked = !bulletButton.Checked;
             richTextBox.SelectionBullet = bulletButton.Checked;
             bulletSelectionToolStripMenuItem.Checked = bulletButton.Checked;
             richTextBox.SelectionIndent = 50;
+        }
+
+        private void OpenPropertiesDialog()
+        {
+            using (var appSettings = new ApplicationProperties(_settings))
+            {
+                if (appSettings.ShowDialog() == DialogResult.OK)
+                {
+                    this.richTextBox.DetectUrls = appSettings.Settings.DetectURL;
+                }
+            }
         }
     }
 }

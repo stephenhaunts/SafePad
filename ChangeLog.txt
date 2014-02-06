@@ -22,7 +22,7 @@ Version 1.2
 
 [X] - Changed the PBKDF function (Rfc2898DeriveBytes) to perform 25,000 rounds when creating the encryption key.
 
-[ ] - Add context menu to the rich text view to include all the standard edting features.
+[X] - Add context menu to the rich text view to include all the standard edting features.
 
 [X] - Implement an application properties dialog to give more customisation to the user.
 
