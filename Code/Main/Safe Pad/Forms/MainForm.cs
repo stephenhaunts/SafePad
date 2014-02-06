@@ -535,6 +535,21 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             SetUnderline();
         }
+
+        private void addBulletsContextMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleBulletSelection();
+        }
+
+        private void increaseIndentContextMenuItem1_Click(object sender, EventArgs e)
+        {
+            IncreaseIndent();
+        }
+
+        private void decreaseIndentToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DecreaseIndent();
+        }
     }
 }
 

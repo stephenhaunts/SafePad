@@ -35,6 +35,10 @@
             this.undoContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.redoContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.boldContextMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.italicContextMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.underlineContextMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
             this.propertiesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -141,10 +145,10 @@
             this.rightJustifyButton = new System.Windows.Forms.ToolStripButton();
             this.insertImageDialog = new System.Windows.Forms.OpenFileDialog();
             this.themeColorDialog = new System.Windows.Forms.ColorDialog();
-            this.boldContextMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.italicContextMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.underlineContextMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
+            this.addBulletsContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.increaseIndentContextMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.decreaseIndentToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.notifyIconContextMenu.SuspendLayout();
@@ -189,16 +193,20 @@
             this.boldContextMenuItem1,
             this.italicContextMenuItem1,
             this.underlineContextMenuItem1,
+            this.toolStripSeparator16,
+            this.addBulletsContextMenuItem,
+            this.increaseIndentContextMenuItem1,
+            this.decreaseIndentToolStripMenuItem1,
             this.toolStripSeparator15,
             this.propertiesToolStripMenuItem1});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(153, 170);
+            this.contextMenuStrip.Size = new System.Drawing.Size(159, 242);
             // 
             // undoContextMenuItem
             // 
             this.undoContextMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Undo;
             this.undoContextMenuItem.Name = "undoContextMenuItem";
-            this.undoContextMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.undoContextMenuItem.Size = new System.Drawing.Size(158, 22);
             this.undoContextMenuItem.Text = "Undo";
             this.undoContextMenuItem.Click += new System.EventHandler(this.undoContextMenuItem_Click);
             // 
@@ -206,19 +214,48 @@
             // 
             this.redoContextMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Redo;
             this.redoContextMenuItem.Name = "redoContextMenuItem";
-            this.redoContextMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.redoContextMenuItem.Size = new System.Drawing.Size(158, 22);
             this.redoContextMenuItem.Text = "Redo";
             this.redoContextMenuItem.Click += new System.EventHandler(this.redoContextMenuItem_Click);
             // 
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator14.Size = new System.Drawing.Size(155, 6);
+            // 
+            // boldContextMenuItem1
+            // 
+            this.boldContextMenuItem1.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Bold;
+            this.boldContextMenuItem1.Name = "boldContextMenuItem1";
+            this.boldContextMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.boldContextMenuItem1.Text = "Bold";
+            this.boldContextMenuItem1.Click += new System.EventHandler(this.boldContextMenuItem1_Click);
+            // 
+            // italicContextMenuItem1
+            // 
+            this.italicContextMenuItem1.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Italic;
+            this.italicContextMenuItem1.Name = "italicContextMenuItem1";
+            this.italicContextMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.italicContextMenuItem1.Text = "Italic";
+            this.italicContextMenuItem1.Click += new System.EventHandler(this.italicContextMenuItem1_Click);
+            // 
+            // underlineContextMenuItem1
+            // 
+            this.underlineContextMenuItem1.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Underline;
+            this.underlineContextMenuItem1.Name = "underlineContextMenuItem1";
+            this.underlineContextMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.underlineContextMenuItem1.Text = "Underline";
+            this.underlineContextMenuItem1.Click += new System.EventHandler(this.underlineContextMenuItem1_Click);
+            // 
+            // toolStripSeparator15
+            // 
+            this.toolStripSeparator15.Name = "toolStripSeparator15";
+            this.toolStripSeparator15.Size = new System.Drawing.Size(155, 6);
             // 
             // propertiesToolStripMenuItem1
             // 
             this.propertiesToolStripMenuItem1.Name = "propertiesToolStripMenuItem1";
-            this.propertiesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.propertiesToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.propertiesToolStripMenuItem1.Text = "Properties";
             this.propertiesToolStripMenuItem1.Click += new System.EventHandler(this.propertiesToolStripMenuItem1_Click);
             // 
@@ -1132,7 +1169,7 @@
             this.increaseIndentButton.ImageTransparentColor = System.Drawing.SystemColors.Window;
             this.increaseIndentButton.Name = "increaseIndentButton";
             this.increaseIndentButton.Size = new System.Drawing.Size(30, 30);
-            this.increaseIndentButton.Text = "toolStripButton2";
+            this.increaseIndentButton.Text = "Increase Indent";
             this.increaseIndentButton.Click += new System.EventHandler(this.IncreaseIndentButtonClick);
             // 
             // toolStripSeparator8
@@ -1180,34 +1217,34 @@
             // 
             this.themeColorDialog.AnyColor = true;
             // 
-            // boldContextMenuItem1
+            // addBulletsContextMenuItem
             // 
-            this.boldContextMenuItem1.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Bold;
-            this.boldContextMenuItem1.Name = "boldContextMenuItem1";
-            this.boldContextMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.boldContextMenuItem1.Text = "Bold";
-            this.boldContextMenuItem1.Click += new System.EventHandler(this.boldContextMenuItem1_Click);
+            this.addBulletsContextMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Bullet;
+            this.addBulletsContextMenuItem.Name = "addBulletsContextMenuItem";
+            this.addBulletsContextMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.addBulletsContextMenuItem.Text = "Bullet Selection";
+            this.addBulletsContextMenuItem.Click += new System.EventHandler(this.addBulletsContextMenuItem_Click);
             // 
-            // italicContextMenuItem1
+            // increaseIndentContextMenuItem1
             // 
-            this.italicContextMenuItem1.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Italic;
-            this.italicContextMenuItem1.Name = "italicContextMenuItem1";
-            this.italicContextMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.italicContextMenuItem1.Text = "Italic";
-            this.italicContextMenuItem1.Click += new System.EventHandler(this.italicContextMenuItem1_Click);
+            this.increaseIndentContextMenuItem1.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.IncreaseIndent;
+            this.increaseIndentContextMenuItem1.Name = "increaseIndentContextMenuItem1";
+            this.increaseIndentContextMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.increaseIndentContextMenuItem1.Text = "Increase Indent";
+            this.increaseIndentContextMenuItem1.Click += new System.EventHandler(this.increaseIndentContextMenuItem1_Click);
             // 
-            // underlineContextMenuItem1
+            // decreaseIndentToolStripMenuItem1
             // 
-            this.underlineContextMenuItem1.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Underline;
-            this.underlineContextMenuItem1.Name = "underlineContextMenuItem1";
-            this.underlineContextMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.underlineContextMenuItem1.Text = "Underline";
-            this.underlineContextMenuItem1.Click += new System.EventHandler(this.underlineContextMenuItem1_Click);
+            this.decreaseIndentToolStripMenuItem1.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.DecreaseIndent;
+            this.decreaseIndentToolStripMenuItem1.Name = "decreaseIndentToolStripMenuItem1";
+            this.decreaseIndentToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.decreaseIndentToolStripMenuItem1.Text = "Decrease Indent";
+            this.decreaseIndentToolStripMenuItem1.Click += new System.EventHandler(this.decreaseIndentToolStripMenuItem1_Click);
             // 
-            // toolStripSeparator15
+            // toolStripSeparator16
             // 
-            this.toolStripSeparator15.Name = "toolStripSeparator15";
-            this.toolStripSeparator15.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator16.Name = "toolStripSeparator16";
+            this.toolStripSeparator16.Size = new System.Drawing.Size(155, 6);
             // 
             // MainForm
             // 
@@ -1366,6 +1403,10 @@
         private System.Windows.Forms.ToolStripMenuItem italicContextMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem underlineContextMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
+        private System.Windows.Forms.ToolStripMenuItem addBulletsContextMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem increaseIndentContextMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem decreaseIndentToolStripMenuItem1;
     }
 }
 
