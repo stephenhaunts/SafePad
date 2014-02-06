@@ -31,6 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.richTextBox = new System.Windows.Forms.RichTextBox();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.undoContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.redoContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
+            this.propertiesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -136,6 +141,11 @@
             this.rightJustifyButton = new System.Windows.Forms.ToolStripButton();
             this.insertImageDialog = new System.Windows.Forms.OpenFileDialog();
             this.themeColorDialog = new System.Windows.Forms.ColorDialog();
+            this.boldContextMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.italicContextMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.underlineContextMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
+            this.contextMenuStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.notifyIconContextMenu.SuspendLayout();
             this.toolStripContainer.ContentPanel.SuspendLayout();
@@ -151,6 +161,7 @@
             this.richTextBox.AutoWordSelection = true;
             this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox.BulletIndent = 10;
+            this.richTextBox.ContextMenuStrip = this.contextMenuStrip;
             this.richTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.richTextBox.DetectUrls = false;
             this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -168,6 +179,48 @@
             this.richTextBox.Click += new System.EventHandler(this.RichTextBoxClick);
             this.richTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RichTextBoxKeyDown);
             this.richTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RichTextBoxKeyPress);
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.undoContextMenuItem,
+            this.redoContextMenuItem,
+            this.toolStripSeparator14,
+            this.boldContextMenuItem1,
+            this.italicContextMenuItem1,
+            this.underlineContextMenuItem1,
+            this.toolStripSeparator15,
+            this.propertiesToolStripMenuItem1});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(153, 170);
+            // 
+            // undoContextMenuItem
+            // 
+            this.undoContextMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Undo;
+            this.undoContextMenuItem.Name = "undoContextMenuItem";
+            this.undoContextMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.undoContextMenuItem.Text = "Undo";
+            this.undoContextMenuItem.Click += new System.EventHandler(this.undoContextMenuItem_Click);
+            // 
+            // redoContextMenuItem
+            // 
+            this.redoContextMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Redo;
+            this.redoContextMenuItem.Name = "redoContextMenuItem";
+            this.redoContextMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.redoContextMenuItem.Text = "Redo";
+            this.redoContextMenuItem.Click += new System.EventHandler(this.redoContextMenuItem_Click);
+            // 
+            // toolStripSeparator14
+            // 
+            this.toolStripSeparator14.Name = "toolStripSeparator14";
+            this.toolStripSeparator14.Size = new System.Drawing.Size(149, 6);
+            // 
+            // propertiesToolStripMenuItem1
+            // 
+            this.propertiesToolStripMenuItem1.Name = "propertiesToolStripMenuItem1";
+            this.propertiesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.propertiesToolStripMenuItem1.Text = "Properties";
+            this.propertiesToolStripMenuItem1.Click += new System.EventHandler(this.propertiesToolStripMenuItem1_Click);
             // 
             // menuStrip
             // 
@@ -671,6 +724,7 @@
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "Safe Pad";
             this.notifyIcon.Visible = true;
+            this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
             // notifyIconContextMenu
             // 
@@ -1126,6 +1180,35 @@
             // 
             this.themeColorDialog.AnyColor = true;
             // 
+            // boldContextMenuItem1
+            // 
+            this.boldContextMenuItem1.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Bold;
+            this.boldContextMenuItem1.Name = "boldContextMenuItem1";
+            this.boldContextMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.boldContextMenuItem1.Text = "Bold";
+            this.boldContextMenuItem1.Click += new System.EventHandler(this.boldContextMenuItem1_Click);
+            // 
+            // italicContextMenuItem1
+            // 
+            this.italicContextMenuItem1.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Italic;
+            this.italicContextMenuItem1.Name = "italicContextMenuItem1";
+            this.italicContextMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.italicContextMenuItem1.Text = "Italic";
+            this.italicContextMenuItem1.Click += new System.EventHandler(this.italicContextMenuItem1_Click);
+            // 
+            // underlineContextMenuItem1
+            // 
+            this.underlineContextMenuItem1.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Underline;
+            this.underlineContextMenuItem1.Name = "underlineContextMenuItem1";
+            this.underlineContextMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.underlineContextMenuItem1.Text = "Underline";
+            this.underlineContextMenuItem1.Click += new System.EventHandler(this.underlineContextMenuItem1_Click);
+            // 
+            // toolStripSeparator15
+            // 
+            this.toolStripSeparator15.Name = "toolStripSeparator15";
+            this.toolStripSeparator15.Size = new System.Drawing.Size(149, 6);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1145,6 +1228,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainFormFormClosed);
             this.Load += new System.EventHandler(this.MainFormLoad);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainForm_KeyPress);
+            this.contextMenuStrip.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.notifyIconContextMenu.ResumeLayout(false);
@@ -1273,6 +1357,15 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
         private System.Windows.Forms.ToolStripMenuItem propertiesToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem propertiesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem redoContextMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem undoContextMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
+        private System.Windows.Forms.ToolStripMenuItem boldContextMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem italicContextMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem underlineContextMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
     }
 }
 

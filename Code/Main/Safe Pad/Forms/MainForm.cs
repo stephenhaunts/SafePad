@@ -200,50 +200,32 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void BoldButtonClick(object sender, EventArgs e)
         {
-            boldButton.Checked = !boldButton.Checked;
-            _boldStatus = boldButton.Checked;
-
-            SetSelectionFontType();
+            SetBold();
         }
 
         private void ItalicButtonClick(object sender, EventArgs e)
         {
-            italicButton.Checked = !italicButton.Checked;
-            _italicStatus = italicButton.Checked;
-
-            SetSelectionFontType();
+            SetItalic();
         }
 
         private void UnderlineButtonClick(object sender, EventArgs e)
         {
-            underlineButton.Checked = !underlineButton.Checked;
-            _underlineStatus = underlineButton.Checked;
-
-            SetSelectionFontType();
+            SetUnderline();
         }
 
         private void BoldToolStripMenuItemClick(object sender, EventArgs e)
         {
-            boldButton.Checked = !boldButton.Checked;
-            _boldStatus = boldButton.Checked;
-
-            SetSelectionFontType();
+            SetBold();
         }
 
         private void ItalicToolStripMenuItemClick(object sender, EventArgs e)
         {
-            italicButton.Checked = !italicButton.Checked;
-            _italicStatus = italicButton.Checked;
-
-            SetSelectionFontType();
+            SetItalic();
         }
 
         private void UnderlineToolStripMenuItemClick(object sender, EventArgs e)
         {
-            underlineButton.Checked = !underlineButton.Checked;
-            _underlineStatus = underlineButton.Checked;
-
-            SetSelectionFontType();
+            SetUnderline();
         } 
 
         private void SaveToolbarLayoutToolStripMenuItemClick(object sender, EventArgs e)
@@ -516,13 +498,42 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (var appSettings = new ApplicationProperties(_settings))
-           {
-               if (appSettings.ShowDialog() == DialogResult.OK)
-               {
-                   this.richTextBox.DetectUrls = appSettings.Settings.DetectURL;
-               }
-           }
+            OpenPropertiesDialog();
+        }
+
+        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void propertiesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenPropertiesDialog();
+        }
+
+        private void redoContextMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox.Redo();
+        }
+
+        private void undoContextMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox.Undo();
+        }
+
+        private void boldContextMenuItem1_Click(object sender, EventArgs e)
+        {
+            SetBold();
+        }
+
+        private void italicContextMenuItem1_Click(object sender, EventArgs e)
+        {
+            SetItalic();
+        }
+
+        private void underlineContextMenuItem1_Click(object sender, EventArgs e)
+        {
+            SetUnderline();
         }
     }
 }
