@@ -550,6 +550,26 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             DecreaseIndent();
         }
+
+        private void contextMenuStrip_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void leftJustifyContextMenuItem_Click(object sender, EventArgs e)
+        {
+            SetAlignment(HorizontalAlignment.Left);
+        }
+
+        private void centreJustifyContextMenuItem_Click(object sender, EventArgs e)
+        {
+            SetAlignment(HorizontalAlignment.Center);
+        }
+
+        private void rigthJustifyContextMenuItem_Click(object sender, EventArgs e)
+        {
+            SetAlignment(HorizontalAlignment.Right);
+        }
     }
 }
 
