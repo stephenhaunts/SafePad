@@ -26,6 +26,8 @@ Version 1.2
 
 [X] - Implement an application properties dialog to give more customisation to the user.
 
+[ ] - Implement Panic Purge. A feature that will securely delete files in case of emergancy.
+
 [ ] - Implement screen white hot key out to change th text to the same color as the background.
 
 [ ] - Implement spell checker.
