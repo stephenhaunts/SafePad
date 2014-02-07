@@ -27,6 +27,11 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 {
     public sealed class ApplicationSettings
     {
+        public ApplicationSettings()
+        {
+            RecentFileList = new Collection<string>();
+        }
+
         public int WindowPositionX { get; set; }
         public int WindowPositionY { get; set; }
         public int WindowWidth { get; set; }
