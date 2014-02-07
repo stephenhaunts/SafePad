@@ -584,6 +584,10 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                     AddFileToRecentFileListMenu(fileName);
                 }
             }
+            else
+            {
+                SaveSettings(); 
+            }
         }
 
         private void ExitApplication()
@@ -601,6 +605,18 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
             ToolStripManager.SaveSettings(this, "SecureNotePad");
 
+            SaveSettings();
+
+            Application.Exit();
+        }
+
+        private void SaveSettings()
+        {
+            if (_settings == null)
+            {
+                _settings = new ApplicationSettings();
+            }
+
             _settings.WindowPositionX = Location.X;
             _settings.WindowPositionY = Location.Y;
             _settings.WindowHeight = Size.Height;
@@ -616,8 +632,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             _settings.ForegroundColorBlue = richTextBox.ForeColor.B;
 
             SettingsWriter.WriteSettingsFile(_settings);
-
-            Application.Exit();
         }
 
         private void SetItalic()
