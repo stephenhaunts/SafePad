@@ -213,15 +213,17 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
         private void AddFileToRecentFileListMenu(string fileName)
         {
             ToolStripMenuItem menuItem = new ToolStripMenuItem();
+            
             menuItem.Text = fileName;
             menuItem.Tag = fileName;
             menuItem.Name = fileName;
             menuItem.Click += RecentItemsMenuItemClickHandler;
 
-            recentFilesToolStripMenuItem.DropDownItems.Add(menuItem);
+            recentFilesToolStripMenuItem.DropDownItems.Add(menuItem);            
         }
 
         private void RecentItemsMenuItemClickHandler(object sender, EventArgs e)
@@ -661,6 +663,13 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 if (appSettings.ShowDialog() == DialogResult.OK)
                 {
                     this.richTextBox.DetectUrls = appSettings.Settings.DetectURL;
+                    _settings.RecentFileList = appSettings.Settings.RecentFileList;
+
+                    recentFilesToolStripMenuItem.DropDownItems.Clear();
+                    foreach (string fileName in _settings.RecentFileList)
+                    {
+                        AddFileToRecentFileListMenu(fileName);
+                    }
                 }
             }
         }

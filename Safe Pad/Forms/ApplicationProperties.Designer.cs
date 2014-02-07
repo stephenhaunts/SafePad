@@ -33,6 +33,7 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.General = new System.Windows.Forms.TabPage();
             this.detectURL = new System.Windows.Forms.CheckBox();
+            this.clearRecentFileListButton = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.General.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +75,7 @@
             // 
             // General
             // 
+            this.General.Controls.Add(this.clearRecentFileListButton);
             this.General.Controls.Add(this.detectURL);
             this.General.Location = new System.Drawing.Point(23, 4);
             this.General.Name = "General";
@@ -99,6 +101,17 @@
             this.detectURL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.detectURL.UseVisualStyleBackColor = true;
             this.detectURL.CheckedChanged += new System.EventHandler(this.detectURL_CheckedChanged);
+            // 
+            // clearRecentFileListButton
+            // 
+            this.clearRecentFileListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearRecentFileListButton.Location = new System.Drawing.Point(16, 53);
+            this.clearRecentFileListButton.Name = "clearRecentFileListButton";
+            this.clearRecentFileListButton.Size = new System.Drawing.Size(135, 23);
+            this.clearRecentFileListButton.TabIndex = 1;
+            this.clearRecentFileListButton.Text = "Clear Recent File List";
+            this.clearRecentFileListButton.UseVisualStyleBackColor = true;
+            this.clearRecentFileListButton.Click += new System.EventHandler(this.clearRecentFileListButton_Click);
             // 
             // ApplicationProperties
             // 
@@ -128,5 +141,6 @@
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage General;
         private System.Windows.Forms.CheckBox detectURL;
+        private System.Windows.Forms.Button clearRecentFileListButton;
     }
 }

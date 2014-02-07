@@ -59,5 +59,10 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             _settings.DetectURL = detectURL.Checked;
         }
+
+        private void clearRecentFileListButton_Click(object sender, EventArgs e)
+        {
+            _settings.RecentFileList.Clear();
+        }
     }
 }
