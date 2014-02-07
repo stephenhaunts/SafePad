@@ -26,13 +26,13 @@ Version 1.2
 
 [X] - Implement an application properties dialog to give more customisation to the user.
 
+[X] - Implement screen white hot key out to change th text to the same color as the background.
+
+[X] - Recent files list on the file menu.
+
 [ ] - Implement Panic Purge. A feature that will securely delete files in case of emergancy.
 
-[ ] - Implement screen white hot key out to change th text to the same color as the background.
-
 [ ] - Implement spell checker.
-
-[ ] - Recent files list on the file menu.
 
 
 

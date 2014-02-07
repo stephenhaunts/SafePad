@@ -570,6 +570,12 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             SetAlignment(HorizontalAlignment.Right);
         }
+
+        private void invisibleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox.BackColor = Color.White;
+            richTextBox.ForeColor = Color.White;
+        }
     }
 }
 
