@@ -43,6 +43,10 @@
             this.increaseIndentContextMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.decreaseIndentToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
+            this.leftJustifyContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.centreJustifyContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rigthJustifyContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
             this.propertiesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,6 +90,7 @@
             this.insertImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.normalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.invisibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lowContrastDarkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lowContrastLightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
@@ -149,10 +154,8 @@
             this.rightJustifyButton = new System.Windows.Forms.ToolStripButton();
             this.insertImageDialog = new System.Windows.Forms.OpenFileDialog();
             this.themeColorDialog = new System.Windows.Forms.ColorDialog();
-            this.leftJustifyContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.centreJustifyContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rigthJustifyContextMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
+            this.recentFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.notifyIconContextMenu.SuspendLayout();
@@ -208,7 +211,7 @@
             this.toolStripSeparator17,
             this.propertiesToolStripMenuItem1});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(159, 314);
+            this.contextMenuStrip.Size = new System.Drawing.Size(159, 292);
             this.contextMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip_Opening);
             // 
             // undoContextMenuItem
@@ -290,6 +293,35 @@
             this.toolStripSeparator15.Name = "toolStripSeparator15";
             this.toolStripSeparator15.Size = new System.Drawing.Size(155, 6);
             // 
+            // leftJustifyContextMenuItem
+            // 
+            this.leftJustifyContextMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Left_Justify;
+            this.leftJustifyContextMenuItem.Name = "leftJustifyContextMenuItem";
+            this.leftJustifyContextMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.leftJustifyContextMenuItem.Text = "Left Justify";
+            this.leftJustifyContextMenuItem.Click += new System.EventHandler(this.leftJustifyContextMenuItem_Click);
+            // 
+            // centreJustifyContextMenuItem
+            // 
+            this.centreJustifyContextMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Centre_Justify;
+            this.centreJustifyContextMenuItem.Name = "centreJustifyContextMenuItem";
+            this.centreJustifyContextMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.centreJustifyContextMenuItem.Text = "Centre Justify";
+            this.centreJustifyContextMenuItem.Click += new System.EventHandler(this.centreJustifyContextMenuItem_Click);
+            // 
+            // rigthJustifyContextMenuItem
+            // 
+            this.rigthJustifyContextMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Right_Justify;
+            this.rigthJustifyContextMenuItem.Name = "rigthJustifyContextMenuItem";
+            this.rigthJustifyContextMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.rigthJustifyContextMenuItem.Text = "Rigth Justify";
+            this.rigthJustifyContextMenuItem.Click += new System.EventHandler(this.rigthJustifyContextMenuItem_Click);
+            // 
+            // toolStripSeparator17
+            // 
+            this.toolStripSeparator17.Name = "toolStripSeparator17";
+            this.toolStripSeparator17.Size = new System.Drawing.Size(155, 6);
+            // 
             // propertiesToolStripMenuItem1
             // 
             this.propertiesToolStripMenuItem1.Name = "propertiesToolStripMenuItem1";
@@ -323,8 +355,10 @@
             this.toolStripSeparator1,
             this.printToolStripMenuItem,
             this.printToolStripMenuItem1,
-            this.toolStripSeparator2,
             this.propertiesToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.recentFilesToolStripMenuItem,
+            this.toolStripSeparator18,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -665,6 +699,7 @@
             // 
             this.themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.normalToolStripMenuItem,
+            this.invisibleToolStripMenuItem,
             this.lowContrastDarkToolStripMenuItem,
             this.lowContrastLightToolStripMenuItem,
             this.toolStripSeparator13,
@@ -677,40 +712,51 @@
             // normalToolStripMenuItem
             // 
             this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
-            this.normalToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.normalToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.normalToolStripMenuItem.Text = "Normal";
             this.normalToolStripMenuItem.Click += new System.EventHandler(this.normalToolStripMenuItem_Click);
+            // 
+            // invisibleToolStripMenuItem
+            // 
+            this.invisibleToolStripMenuItem.Name = "invisibleToolStripMenuItem";
+            this.invisibleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F2)));
+            this.invisibleToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
+            this.invisibleToolStripMenuItem.Text = "Invisible Mode";
+            this.invisibleToolStripMenuItem.Click += new System.EventHandler(this.invisibleToolStripMenuItem_Click);
             // 
             // lowContrastDarkToolStripMenuItem
             // 
             this.lowContrastDarkToolStripMenuItem.Name = "lowContrastDarkToolStripMenuItem";
-            this.lowContrastDarkToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.lowContrastDarkToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F3)));
+            this.lowContrastDarkToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.lowContrastDarkToolStripMenuItem.Text = "Low Contrast (Dark)";
             this.lowContrastDarkToolStripMenuItem.Click += new System.EventHandler(this.lowContrastDarkToolStripMenuItem_Click);
             // 
             // lowContrastLightToolStripMenuItem
             // 
             this.lowContrastLightToolStripMenuItem.Name = "lowContrastLightToolStripMenuItem";
-            this.lowContrastLightToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.lowContrastLightToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F4)));
+            this.lowContrastLightToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.lowContrastLightToolStripMenuItem.Text = "Low Contrast (Light)";
             this.lowContrastLightToolStripMenuItem.Click += new System.EventHandler(this.lowContrastLightToolStripMenuItem_Click);
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(216, 6);
+            this.toolStripSeparator13.Size = new System.Drawing.Size(225, 6);
             // 
             // customBackgroundColorToolStripMenuItem
             // 
             this.customBackgroundColorToolStripMenuItem.Name = "customBackgroundColorToolStripMenuItem";
-            this.customBackgroundColorToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.customBackgroundColorToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.customBackgroundColorToolStripMenuItem.Text = "Custom Background Color";
             this.customBackgroundColorToolStripMenuItem.Click += new System.EventHandler(this.customBackgroundColorToolStripMenuItem_Click);
             // 
             // customeForegroundColorToolStripMenuItem
             // 
             this.customeForegroundColorToolStripMenuItem.Name = "customeForegroundColorToolStripMenuItem";
-            this.customeForegroundColorToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.customeForegroundColorToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.customeForegroundColorToolStripMenuItem.Text = "Custome Foreground Color";
             this.customeForegroundColorToolStripMenuItem.Click += new System.EventHandler(this.customeForegroundColorToolStripMenuItem_Click);
             // 
@@ -1255,34 +1301,16 @@
             // 
             this.themeColorDialog.AnyColor = true;
             // 
-            // leftJustifyContextMenuItem
+            // recentFilesToolStripMenuItem
             // 
-            this.leftJustifyContextMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Left_Justify;
-            this.leftJustifyContextMenuItem.Name = "leftJustifyContextMenuItem";
-            this.leftJustifyContextMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.leftJustifyContextMenuItem.Text = "Left Justify";
-            this.leftJustifyContextMenuItem.Click += new System.EventHandler(this.leftJustifyContextMenuItem_Click);
+            this.recentFilesToolStripMenuItem.Name = "recentFilesToolStripMenuItem";
+            this.recentFilesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.recentFilesToolStripMenuItem.Text = "Recent Files";
             // 
-            // centreJustifyContextMenuItem
+            // toolStripSeparator18
             // 
-            this.centreJustifyContextMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Centre_Justify;
-            this.centreJustifyContextMenuItem.Name = "centreJustifyContextMenuItem";
-            this.centreJustifyContextMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.centreJustifyContextMenuItem.Text = "Centre Justify";
-            this.centreJustifyContextMenuItem.Click += new System.EventHandler(this.centreJustifyContextMenuItem_Click);
-            // 
-            // rigthJustifyContextMenuItem
-            // 
-            this.rigthJustifyContextMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Right_Justify;
-            this.rigthJustifyContextMenuItem.Name = "rigthJustifyContextMenuItem";
-            this.rigthJustifyContextMenuItem.Size = new System.Drawing.Size(158, 22);
-            this.rigthJustifyContextMenuItem.Text = "Rigth Justify";
-            this.rigthJustifyContextMenuItem.Click += new System.EventHandler(this.rigthJustifyContextMenuItem_Click);
-            // 
-            // toolStripSeparator17
-            // 
-            this.toolStripSeparator17.Name = "toolStripSeparator17";
-            this.toolStripSeparator17.Size = new System.Drawing.Size(155, 6);
+            this.toolStripSeparator18.Name = "toolStripSeparator18";
+            this.toolStripSeparator18.Size = new System.Drawing.Size(149, 6);
             // 
             // MainForm
             // 
@@ -1449,6 +1477,9 @@
         private System.Windows.Forms.ToolStripMenuItem centreJustifyContextMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rigthJustifyContextMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
+        private System.Windows.Forms.ToolStripMenuItem invisibleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recentFilesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
     }
 }
 

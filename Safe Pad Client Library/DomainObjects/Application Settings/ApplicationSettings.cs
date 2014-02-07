@@ -19,6 +19,7 @@
 */
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -39,5 +40,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         public byte ForegroundColorBlue { get; set; }
 
         public bool DetectURL { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public Collection<string> RecentFileList { get; set; }
     }
 }

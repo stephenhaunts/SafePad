@@ -86,6 +86,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 _currentDocument.EncodedData = list;
                 _currentDocument.Save(_documentName);
 
+                AddFileToRecentFileList(_documentName);
+
                 ChangeDisplayHeader();
                 toolStripStatusLabel.Text = _documentName + " Saved...";
                 _documentChanged = false;
@@ -171,7 +173,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 toLoad.Write(bytesToLoad, 0, bytesToLoad.Length);
                 toLoad.Position = 0;
 
-                richTextBox.LoadFile(toLoad, RichTextBoxStreamType.RichText);                
+                richTextBox.LoadFile(toLoad, RichTextBoxStreamType.RichText);
+
+                FileExistsInRecentFileList(fileName);
+
+                AddFileToRecentFileList(fileName);
 
                 _documentName = fileName;
                 ChangeDisplayHeader();
@@ -196,6 +202,45 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                     toLoad.Dispose();                   
                 }
             }
+        }
+
+        private void AddFileToRecentFileList(string fileName)
+        {
+            if (!FileExistsInRecentFileList(fileName))
+            {
+                AddFileToRecentFileListMenu(fileName);
+                _settings.RecentFileList.Add(fileName);
+            }
+        }
+
+        private void AddFileToRecentFileListMenu(string fileName)
+        {
+            ToolStripMenuItem menuItem = new ToolStripMenuItem();
+            menuItem.Text = fileName;
+            menuItem.Tag = fileName;
+            menuItem.Name = fileName;
+            menuItem.Click += RecentItemsMenuItemClickHandler;
+
+            recentFilesToolStripMenuItem.DropDownItems.Add(menuItem);
+        }
+
+        private void RecentItemsMenuItemClickHandler(object sender, EventArgs e)
+        {
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+            LoadDocument(clickedItem.Text);
+        }
+
+        private bool FileExistsInRecentFileList(string fileName)
+        {
+            foreach (string file in _settings.RecentFileList)
+            {
+                if (String.Compare(file, fileName, StringComparison.OrdinalIgnoreCase) == 0)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private void LoadDocument()
@@ -531,6 +576,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 richTextBox.BackColor = Color.FromArgb(_settings.BackgroundColorRed, _settings.BackgroundColorGreen, _settings.BackgroundColorBlue);
                 richTextBox.ForeColor = Color.FromArgb(_settings.ForegroundColorRed, _settings.ForegroundColorGreen, _settings.ForegroundColorBlue);
                 richTextBox.DetectUrls = _settings.DetectURL;
+
+                foreach(string fileName in _settings.RecentFileList)
+                {
+                    AddFileToRecentFileListMenu(fileName);
+                }
             }
         }
 
