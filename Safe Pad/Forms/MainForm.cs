@@ -51,7 +51,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             PopulateFontDropDown();
             UpdateFontDropDownWithFontSelection();
             ChangeDisplayHeader();
-
+            
             LoadSettings();
         }
 
