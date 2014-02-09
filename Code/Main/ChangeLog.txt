@@ -30,6 +30,8 @@ Version 1.2
 
 [X] - Recent files list on the file menu.
 
+[ ] - Implement Find.
+
 [ ] - Implement Panic Purge. A feature that will securely delete files in case of emergancy.
 
 [ ] - Implement spell checker.
