@@ -159,7 +159,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void _password1Keyboard_Click(object sender, EventArgs e)
         {
-            using (var keyboard = new KeyboardInput())
+            using (var keyboard = new KeyboardInput(_passwordOne.Text))
             {
                 if (keyboard.ShowDialog() == DialogResult.OK)
                 {
@@ -170,7 +170,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void _password2Keyboard_Click(object sender, EventArgs e)
         {
-            using (var keyboard = new KeyboardInput())
+            using (var keyboard = new KeyboardInput(_passwordTwo.Text))
             {
                 if (keyboard.ShowDialog() == DialogResult.OK)
                 {

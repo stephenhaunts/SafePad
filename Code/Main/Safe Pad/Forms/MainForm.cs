@@ -27,6 +27,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 {
     public partial class MainForm : Form
     {
+        private FindAndReplaceForm _findForm = null;
+
         public MainForm(string fileName)
         {
             InitializeComponent();
@@ -36,6 +38,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             PopulateFontDropDown();         
             LoadDocument(fileName);
             ChangeDisplayHeader();
+            _findForm = new FindAndReplaceForm(richTextBox);
             LoadSettings();
         }
 
@@ -51,7 +54,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             PopulateFontDropDown();
             UpdateFontDropDownWithFontSelection();
             ChangeDisplayHeader();
-            
+            _findForm = new FindAndReplaceForm(richTextBox);
             LoadSettings();
         }
 
@@ -575,6 +578,19 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             richTextBox.BackColor = Color.White;
             richTextBox.ForeColor = Color.White;
+        }
+        
+        private void findToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_findForm == null)
+            {
+                _findForm = new FindAndReplaceForm(richTextBox);
+            }
+
+            if (!_findForm.Visible)
+            {
+                _findForm.Show();
+            }
         }
     }
 }

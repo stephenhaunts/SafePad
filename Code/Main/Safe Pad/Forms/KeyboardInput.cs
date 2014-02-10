@@ -1,5 +1,4 @@
-﻿using HauntedHouseSoftware.SecureNotePad.DomainObjects;
-/**
+﻿/**
  * Safe Pad, a double encrypted note pad that uses 2 passwords to protect your documents and help you keep your privacy.
  * 
  * Copyright (C) 2014 Stephen Haunts
@@ -23,6 +22,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using HauntedHouseSoftware.SecureNotePad.DomainObjects;
 
 namespace HauntedHouseSoftware.SecureNotePad.Forms
 {    
@@ -35,6 +35,12 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             InitializeComponent();
             _maskedPassword.Text = "";
+        }
+
+        public KeyboardInput(string password)
+        {
+            InitializeComponent();
+            _maskedPassword.Text = password;
         }
 
         public string Password
