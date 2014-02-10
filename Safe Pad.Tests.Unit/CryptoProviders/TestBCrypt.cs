@@ -83,7 +83,7 @@ namespace BCrypt.Net.Test
             Trace.Write("BCrypt.GenerateSalt(log_rounds):");
             for (int i = 4; i <= 12; i++)
             {
-                Trace.Write(" " + i + ":");
+                Trace.Write(String.Format(" {0}:", i));
                 for (int j = 0; j < _TestVectors.Length / 3; j++)
                 {
                     string plain = _TestVectors[j, 0];

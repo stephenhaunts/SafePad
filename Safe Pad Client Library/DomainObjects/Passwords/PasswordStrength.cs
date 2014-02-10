@@ -18,6 +18,7 @@
  * Authors: Stephen Haunts
  */
 using System.Text.RegularExpressions;
+using System;
 
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 {
@@ -133,7 +134,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 
                 for (var q = 0; q < original.Length; q++)
                 {
-                    if (c == original[q])
+                    if (String.Compare(c.ToString(), original[q].ToString(), StringComparison.Ordinal) == 0)
                     {
                         newPassword = newPassword + substitution[q];
                         numberAdded = true;

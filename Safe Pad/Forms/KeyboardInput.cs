@@ -28,8 +28,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 {    
     public partial class KeyboardInput : Form
     {
-        
-        private bool _capsLock = false;
+
+        private bool _capsLock;
 
         public KeyboardInput()
         {
