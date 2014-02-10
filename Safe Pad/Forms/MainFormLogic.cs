@@ -607,6 +607,12 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
             SaveSettings();
 
+            if (_findForm != null)
+            {
+                _findForm.Dispose();
+                _findForm = null;
+            }
+
             Application.Exit();
         }
 
