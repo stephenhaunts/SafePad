@@ -26,8 +26,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 {
     public partial class FindAndReplaceForm : Form
     {
-        private RichTextBox _richTextBox;
-        private int findCounter = 0;
+        private readonly RichTextBox _richTextBox;
+        private int findCounter;
 
         public FindAndReplaceForm()
         {

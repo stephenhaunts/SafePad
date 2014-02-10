@@ -38,7 +38,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             PopulateFontDropDown();         
             LoadDocument(fileName);
             ChangeDisplayHeader();
-            _findForm = new FindAndReplaceForm(richTextBox);
+
             LoadSettings();
         }
 
