@@ -229,6 +229,17 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private void RecentItemsMenuItemClickHandler(object sender, EventArgs e)
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+
+            if (!File.Exists(clickedItem.Text))
+            {
+                MessageBox.Show("Could not load the file : " + clickedItem.Text, "Could not load file.", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
+
+                _settings.RecentFileList.Remove(clickedItem.Text);
+                recentFilesToolStripMenuItem.DropDownItems.Remove(clickedItem);
+
+                return;
+            }
+
             LoadDocument(clickedItem.Text);
         }
 
