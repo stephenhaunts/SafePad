@@ -19,6 +19,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -39,8 +40,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             if (richTextBox == null)
             {
                 throw new ArgumentNullException("richTextBox");
-            }
-
+            }            
+            
             _richTextBox = richTextBox;
             InitializeComponent();
         }
@@ -50,13 +51,21 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             Hide();
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2233:OperationsShouldNotOverflow", MessageId = "parentY+70"), System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2233:OperationsShouldNotOverflow", MessageId = "parentX+150")]
+        public void SetPosition(int parentX, int parentY)
+        {
+            Location = new Point(parentX + 150, parentY + 70);
+        }
+
         public int FindMyText(string text, int start, RichTextBoxFinds options)
         {
             if (string.IsNullOrEmpty(text))
             {
                 return 0;
             }
+
             int returnValue = -1;
+
             if (text.Length > 0 && start >= 0)
             {
                 int indexToText = _richTextBox.Find(text, start, options);

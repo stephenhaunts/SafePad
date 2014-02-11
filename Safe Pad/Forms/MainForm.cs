@@ -584,12 +584,13 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             if (_findForm == null)
             {
-                _findForm = new FindAndReplaceForm(richTextBox);
+                _findForm = new FindAndReplaceForm(richTextBox);                
             }
 
             if (!_findForm.Visible)
-            {
+            {                
                 _findForm.Show();
+                _findForm.SetPosition(Location.X, Location.Y);
             }
         }
     }
