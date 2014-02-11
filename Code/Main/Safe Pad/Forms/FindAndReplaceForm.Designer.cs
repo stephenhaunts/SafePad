@@ -30,7 +30,6 @@
         {
             this.okButton = new System.Windows.Forms.Button();
             this.textToFind = new System.Windows.Forms.TextBox();
-            this.findButton = new System.Windows.Forms.Button();
             this.findNextButtton = new System.Windows.Forms.Button();
             this.findOptionsGroup = new System.Windows.Forms.GroupBox();
             this.noneRadioButton = new System.Windows.Forms.RadioButton();
@@ -59,19 +58,9 @@
             this.textToFind.Size = new System.Drawing.Size(239, 20);
             this.textToFind.TabIndex = 1;
             // 
-            // findButton
-            // 
-            this.findButton.Location = new System.Drawing.Point(258, 16);
-            this.findButton.Name = "findButton";
-            this.findButton.Size = new System.Drawing.Size(75, 23);
-            this.findButton.TabIndex = 2;
-            this.findButton.Text = "Find";
-            this.findButton.UseVisualStyleBackColor = true;
-            this.findButton.Click += new System.EventHandler(this.findButton_Click);
-            // 
             // findNextButtton
             // 
-            this.findNextButtton.Location = new System.Drawing.Point(339, 15);
+            this.findNextButtton.Location = new System.Drawing.Point(257, 16);
             this.findNextButtton.Name = "findNextButtton";
             this.findNextButtton.Size = new System.Drawing.Size(75, 23);
             this.findNextButtton.TabIndex = 3;
@@ -146,7 +135,6 @@
             this.ControlBox = false;
             this.Controls.Add(this.findOptionsGroup);
             this.Controls.Add(this.findNextButtton);
-            this.Controls.Add(this.findButton);
             this.Controls.Add(this.textToFind);
             this.Controls.Add(this.okButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -166,7 +154,6 @@
 
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.TextBox textToFind;
-        private System.Windows.Forms.Button findButton;
         private System.Windows.Forms.Button findNextButtton;
         private System.Windows.Forms.GroupBox findOptionsGroup;
         private System.Windows.Forms.RadioButton reverseRadioButton;
