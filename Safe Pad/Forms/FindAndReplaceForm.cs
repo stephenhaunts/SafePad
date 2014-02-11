@@ -83,13 +83,32 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         
         private void findNextButtton_Click(object sender, EventArgs e)
         {
-            findCounter = FindMyText(textToFind.Text, findCounter, RichTextBoxFinds.None);
+            RichTextBoxFinds options = SetFindOptions();
+            findCounter = FindMyText(textToFind.Text, findCounter, options);
         }
 
-        private void findButton_Click(object sender, EventArgs e)
+        private RichTextBoxFinds SetFindOptions()
         {
-            findCounter = 0;
-            FindMyText(textToFind.Text, 0, RichTextBoxFinds.None);
+            RichTextBoxFinds options = RichTextBoxFinds.None;
+
+            if (noneRadioButton.Checked)
+            {
+                options = RichTextBoxFinds.None;
+            }
+            else if (wholeWordRadioButton.Checked)
+            {
+                options = RichTextBoxFinds.WholeWord;
+            }
+            else if (matchCaseRadioButton.Checked)
+            {
+                options = RichTextBoxFinds.MatchCase;
+            }
+            else if (reverseRadioButton.Checked)
+            {
+                options = RichTextBoxFinds.Reverse;
+            }
+
+            return options;
         }
     }
 }

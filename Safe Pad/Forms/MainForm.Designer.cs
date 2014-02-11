@@ -81,6 +81,7 @@
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectFontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -164,7 +165,7 @@
             this.rightJustifyButton = new System.Windows.Forms.ToolStripButton();
             this.insertImageDialog = new System.Windows.Forms.OpenFileDialog();
             this.themeColorDialog = new System.Windows.Forms.ColorDialog();
-            this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.notifyIconContextMenu.SuspendLayout();
@@ -491,6 +492,7 @@
             this.pasteToolStripMenuItem,
             this.toolStripSeparator4,
             this.wordWrapToolStripMenuItem,
+            this.toolStripSeparator19,
             this.findToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
@@ -564,6 +566,14 @@
             this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.wordWrapToolStripMenuItem.Text = "Word Wrap";
             this.wordWrapToolStripMenuItem.Click += new System.EventHandler(this.WordWrapToolStripMenuItemClick);
+            // 
+            // findToolStripMenuItem
+            // 
+            this.findToolStripMenuItem.Name = "findToolStripMenuItem";
+            this.findToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.findToolStripMenuItem.Text = "Find";
+            this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -1323,12 +1333,10 @@
             // 
             this.themeColorDialog.AnyColor = true;
             // 
-            // findToolStripMenuItem
+            // toolStripSeparator19
             // 
-            this.findToolStripMenuItem.Name = "findToolStripMenuItem";
-            this.findToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.findToolStripMenuItem.Text = "Find";
-            this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
+            this.toolStripSeparator19.Name = "toolStripSeparator19";
+            this.toolStripSeparator19.Size = new System.Drawing.Size(149, 6);
             // 
             // MainForm
             // 
@@ -1499,6 +1507,7 @@
         private System.Windows.Forms.ToolStripMenuItem recentFilesToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
     }
 }
 
