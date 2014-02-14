@@ -335,7 +335,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         }
 
         [TestMethod]
-        public void SaveEncryptsDataCallsEncrypt2Times()
+        public void SaveEncryptsDataCallsEncrypt1Time()
         {
             IAES aes;
             ISecureHash hash;
@@ -347,7 +347,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
             var document = new DocumentOverload(aes, hash, compression, password, fileProxy);
             document.Save("test.scp");
 
-            Assert.AreEqual(2, ((TestAES)aes).EncryptCounter);
+            Assert.AreEqual(1, ((TestAES)aes).EncryptCounter);
         }
 
         [TestMethod]

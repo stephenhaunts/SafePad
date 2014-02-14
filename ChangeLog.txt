@@ -30,6 +30,10 @@ Version 1.2
 
 [X] - Recent files list on the file menu.
 
+[X] - Whilst getting feedback on the application from security proffessionals, the common consensus seems to be that using Cascased
+      iteration of AES offers no additional security over doign it once. I have changed the new file format to only run AES once, but the
+	  2 passwords are combined together first into a longer password.
+
 [ ] - Implement Find.
 
 [ ] - Implement Panic Purge. A feature that will securely delete files in case of emergancy.

@@ -31,6 +31,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         private readonly byte[] _bCryptPassword1;
         private readonly byte[] _bCryptPassword2;
 
+        private readonly byte[] _combinedPasswords;
+
         public Password(string password1, string password2)
         {
             if (string.IsNullOrEmpty(password1))
@@ -48,6 +50,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 
             _bCryptPassword1 = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(password1));
             _bCryptPassword2 = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(password2));
+
+            _combinedPasswords = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(password1 + password2));
         }
 
         public byte[] Password1
@@ -79,6 +83,14 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             get
             {
                 return _bCryptPassword2;
+            }
+        }
+
+        public byte[] CombinedPasswords
+        {
+            get
+            {
+                return _combinedPasswords;
             }
         }
     }
