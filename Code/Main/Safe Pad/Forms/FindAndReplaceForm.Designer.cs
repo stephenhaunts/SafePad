@@ -32,10 +32,9 @@
             this.textToFind = new System.Windows.Forms.TextBox();
             this.findNextButtton = new System.Windows.Forms.Button();
             this.findOptionsGroup = new System.Windows.Forms.GroupBox();
-            this.noneRadioButton = new System.Windows.Forms.RadioButton();
-            this.wholeWordRadioButton = new System.Windows.Forms.RadioButton();
             this.matchCaseRadioButton = new System.Windows.Forms.RadioButton();
-            this.reverseRadioButton = new System.Windows.Forms.RadioButton();
+            this.wholeWordRadioButton = new System.Windows.Forms.RadioButton();
+            this.noneRadioButton = new System.Windows.Forms.RadioButton();
             this.replaceText = new System.Windows.Forms.Button();
             this.textToReplace = new System.Windows.Forms.TextBox();
             this.findOptionsGroup.SuspendLayout();
@@ -48,7 +47,7 @@
             this.okButton.Location = new System.Drawing.Point(363, 156);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
-            this.okButton.TabIndex = 0;
+            this.okButton.TabIndex = 8;
             this.okButton.Text = "Ok";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
@@ -72,16 +71,37 @@
             // 
             // findOptionsGroup
             // 
-            this.findOptionsGroup.Controls.Add(this.reverseRadioButton);
             this.findOptionsGroup.Controls.Add(this.matchCaseRadioButton);
             this.findOptionsGroup.Controls.Add(this.wholeWordRadioButton);
             this.findOptionsGroup.Controls.Add(this.noneRadioButton);
             this.findOptionsGroup.Location = new System.Drawing.Point(12, 89);
             this.findOptionsGroup.Name = "findOptionsGroup";
-            this.findOptionsGroup.Size = new System.Drawing.Size(402, 57);
+            this.findOptionsGroup.Size = new System.Drawing.Size(426, 57);
             this.findOptionsGroup.TabIndex = 4;
             this.findOptionsGroup.TabStop = false;
             this.findOptionsGroup.Text = "Find Options";
+            // 
+            // matchCaseRadioButton
+            // 
+            this.matchCaseRadioButton.AutoSize = true;
+            this.matchCaseRadioButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.matchCaseRadioButton.Location = new System.Drawing.Point(182, 23);
+            this.matchCaseRadioButton.Name = "matchCaseRadioButton";
+            this.matchCaseRadioButton.Size = new System.Drawing.Size(81, 17);
+            this.matchCaseRadioButton.TabIndex = 7;
+            this.matchCaseRadioButton.Text = "Match Case";
+            this.matchCaseRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // wholeWordRadioButton
+            // 
+            this.wholeWordRadioButton.AutoSize = true;
+            this.wholeWordRadioButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.wholeWordRadioButton.Location = new System.Drawing.Point(80, 23);
+            this.wholeWordRadioButton.Name = "wholeWordRadioButton";
+            this.wholeWordRadioButton.Size = new System.Drawing.Size(86, 17);
+            this.wholeWordRadioButton.TabIndex = 6;
+            this.wholeWordRadioButton.Text = "Whole World";
+            this.wholeWordRadioButton.UseVisualStyleBackColor = true;
             // 
             // noneRadioButton
             // 
@@ -91,59 +111,27 @@
             this.noneRadioButton.Location = new System.Drawing.Point(12, 23);
             this.noneRadioButton.Name = "noneRadioButton";
             this.noneRadioButton.Size = new System.Drawing.Size(50, 17);
-            this.noneRadioButton.TabIndex = 0;
+            this.noneRadioButton.TabIndex = 5;
             this.noneRadioButton.TabStop = true;
             this.noneRadioButton.Text = "None";
             this.noneRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // wholeWordRadioButton
-            // 
-            this.wholeWordRadioButton.AutoSize = true;
-            this.wholeWordRadioButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.wholeWordRadioButton.Location = new System.Drawing.Point(80, 23);
-            this.wholeWordRadioButton.Name = "wholeWordRadioButton";
-            this.wholeWordRadioButton.Size = new System.Drawing.Size(86, 17);
-            this.wholeWordRadioButton.TabIndex = 1;
-            this.wholeWordRadioButton.Text = "Whole World";
-            this.wholeWordRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // matchCaseRadioButton
-            // 
-            this.matchCaseRadioButton.AutoSize = true;
-            this.matchCaseRadioButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.matchCaseRadioButton.Location = new System.Drawing.Point(182, 23);
-            this.matchCaseRadioButton.Name = "matchCaseRadioButton";
-            this.matchCaseRadioButton.Size = new System.Drawing.Size(81, 17);
-            this.matchCaseRadioButton.TabIndex = 2;
-            this.matchCaseRadioButton.Text = "Match Case";
-            this.matchCaseRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // reverseRadioButton
-            // 
-            this.reverseRadioButton.AutoSize = true;
-            this.reverseRadioButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.reverseRadioButton.Location = new System.Drawing.Point(280, 23);
-            this.reverseRadioButton.Name = "reverseRadioButton";
-            this.reverseRadioButton.Size = new System.Drawing.Size(64, 17);
-            this.reverseRadioButton.TabIndex = 3;
-            this.reverseRadioButton.Text = "Reverse";
-            this.reverseRadioButton.UseVisualStyleBackColor = true;
             // 
             // replaceText
             // 
             this.replaceText.Location = new System.Drawing.Point(257, 45);
             this.replaceText.Name = "replaceText";
             this.replaceText.Size = new System.Drawing.Size(75, 23);
-            this.replaceText.TabIndex = 6;
+            this.replaceText.TabIndex = 4;
             this.replaceText.Text = "Replace Text";
             this.replaceText.UseVisualStyleBackColor = true;
+            this.replaceText.Click += new System.EventHandler(this.replaceText_Click);
             // 
             // textToReplace
             // 
             this.textToReplace.Location = new System.Drawing.Point(12, 47);
             this.textToReplace.Name = "textToReplace";
             this.textToReplace.Size = new System.Drawing.Size(239, 20);
-            this.textToReplace.TabIndex = 5;
+            this.textToReplace.TabIndex = 2;
             // 
             // FindAndReplaceForm
             // 
@@ -176,7 +164,6 @@
         private System.Windows.Forms.TextBox textToFind;
         private System.Windows.Forms.Button findNextButtton;
         private System.Windows.Forms.GroupBox findOptionsGroup;
-        private System.Windows.Forms.RadioButton reverseRadioButton;
         private System.Windows.Forms.RadioButton matchCaseRadioButton;
         private System.Windows.Forms.RadioButton wholeWordRadioButton;
         private System.Windows.Forms.RadioButton noneRadioButton;
