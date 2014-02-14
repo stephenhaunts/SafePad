@@ -90,6 +90,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             RichTextBoxFinds options = SetFindOptions();
             findCounter = FindMyText(textToFind.Text, findCounter, options);
+            
         }
 
         private RichTextBoxFinds SetFindOptions()
@@ -107,13 +108,27 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             else if (matchCaseRadioButton.Checked)
             {
                 options = RichTextBoxFinds.MatchCase;
-            }
-            else if (reverseRadioButton.Checked)
-            {
-                options = RichTextBoxFinds.Reverse;
-            }
+            }            
 
             return options;
+        }
+
+        private void replaceText_Click(object sender, EventArgs e)
+        {
+            RichTextBoxFinds options = SetFindOptions();
+            findCounter = FindMyText(textToFind.Text, findCounter, options);
+
+            if (findCounter > 0)
+            {
+                _richTextBox.SelectedText = textToReplace.Text;
+
+                if (findCounter - textToFind.Text.Length > -1)
+                {
+                    _richTextBox.SelectionStart = findCounter - textToFind.Text.Length;
+                    _richTextBox.SelectionLength = textToReplace.Text.Length;
+                    findCounter = 0;
+                }
+            }
         }
     }
 }
