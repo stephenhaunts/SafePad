@@ -36,10 +36,9 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             Visible = true;
             richTextBox.Visible = true;
             PopulateFontDropDown();         
+            LoadSettings();           
             LoadDocument(fileName);
             ChangeDisplayHeader();
-
-            LoadSettings();
         }
 
         public override sealed string Text
