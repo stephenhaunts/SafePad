@@ -64,10 +64,15 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 return 0;
             }
 
+            if (_richTextBox.TextLength == 0)
+            {
+                return 0;
+            }
+
             int returnValue = -1;
 
             if (text.Length > 0 && start >= 0)
-            {
+            {               
                 int indexToText = _richTextBox.Find(text, start, options);
 
                 if (indexToText >= 0)

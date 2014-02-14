@@ -27,5 +27,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         byte[] BCryptPassword1 { get; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays")]
         byte[] BCryptPassword2 { get; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays")]
+        byte[] CombinedPasswords { get; }
     }
 }
