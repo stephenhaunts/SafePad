@@ -28,6 +28,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
     public partial class MainForm : Form
     {
         private FindAndReplaceForm _findForm = null;
+        private const string HELP_URL = "http://stephenhaunts.com/safe-pad-1-2-manual/";
 
         public MainForm(string fileName)
         {
@@ -318,7 +319,14 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void RichTextBoxLinkClicked(object sender, LinkClickedEventArgs e)
         {
-            Process.Start(e.LinkText);
+            try
+            {
+                Process.Start(e.LinkText);
+            }
+            catch
+            {
+                MessageBox.Show("There was an loading the specified link.", "Error loading Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void InsertImageToolStripMenuItemClick(object sender, EventArgs e)
@@ -590,6 +598,18 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             {                
                 _findForm.Show();
                 _findForm.SetPosition(Location.X, Location.Y);
+            }
+        }        
+
+        private void helpMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(HELP_URL);
+            }
+            catch
+            {
+                MessageBox.Show("There was an loading the specified link.", "Error loading Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

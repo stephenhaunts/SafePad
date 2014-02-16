@@ -40,6 +40,8 @@ Version 1.2
 
 [X] - Add the word wrap option to the application settings.
 
+[X] - Add Help link to the Help Menu. This will load up a manual page on www.stephenhaunts.com
+
 
 Version 1.1
 ------------
