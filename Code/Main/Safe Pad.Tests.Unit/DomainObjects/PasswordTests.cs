@@ -34,13 +34,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
             new Password(null, null);
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", MessageId = "HauntedHouseSoftware.SecureNotePad.DomainObjects.Password"), TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void PasswordConstructorThrowsArgumentNullExceptionIfPassword2IsNull()
-        {
-            new Password("password", null);
-        }
-
         [TestMethod]
         public void Password1ReturnsByteArray()
         {

@@ -66,9 +66,9 @@
             this._passwordTwoLabel.AutoSize = true;
             this._passwordTwoLabel.Location = new System.Drawing.Point(81, 110);
             this._passwordTwoLabel.Name = "_passwordTwoLabel";
-            this._passwordTwoLabel.Size = new System.Drawing.Size(77, 13);
+            this._passwordTwoLabel.Size = new System.Drawing.Size(125, 13);
             this._passwordTwoLabel.TabIndex = 3;
-            this._passwordTwoLabel.Text = "Password Two";
+            this._passwordTwoLabel.Text = "Password Two (Optional)";
             // 
             // _passwordTwo
             // 
@@ -160,7 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 219);
+            this.ClientSize = new System.Drawing.Size(505, 219);
             this.Controls.Add(this._password2Keyboard);
             this.Controls.Add(this._password1Keyboard);
             this.Controls.Add(this.password2Strength);

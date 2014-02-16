@@ -29,12 +29,7 @@ namespace HauntedHouseSoftware.SecureNotePad.CryptoProviders
             if (toBeHashed == null)
             {
                 throw new ArgumentNullException("toBeHashed");
-            }
-
-            if (toBeHashed.Length == 0)
-            {
-                throw new InvalidOperationException("toBeHashed");
-            }
+            }   
 
             using (var mySha256 = SHA256.Create())
             {
