@@ -589,6 +589,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 richTextBox.BackColor = Color.FromArgb(_settings.BackgroundColorRed, _settings.BackgroundColorGreen, _settings.BackgroundColorBlue);
                 richTextBox.ForeColor = Color.FromArgb(_settings.ForegroundColorRed, _settings.ForegroundColorGreen, _settings.ForegroundColorBlue);
                 richTextBox.DetectUrls = _settings.DetectURL;
+                richTextBox.WordWrap = _settings.WordWrap;
+                wordWrapToolStripMenuItem.Checked = _settings.WordWrap;
 
                 foreach(string fileName in _settings.RecentFileList)
                 {
@@ -639,6 +641,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             _settings.WindowHeight = Size.Height;
             _settings.WindowWidth = Size.Width;
             _settings.FormWindowState = WindowState;
+            _settings.DetectURL = richTextBox.DetectUrls;
+            _settings.WordWrap = richTextBox.WordWrap;
 
             _settings.BackgroundColorRed = richTextBox.BackColor.R;
             _settings.BackgroundColorGreen = richTextBox.BackColor.G;

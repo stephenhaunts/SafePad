@@ -32,8 +32,9 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.General = new System.Windows.Forms.TabPage();
-            this.detectURL = new System.Windows.Forms.CheckBox();
             this.clearRecentFileListButton = new System.Windows.Forms.Button();
+            this.detectURL = new System.Windows.Forms.CheckBox();
+            this.wordWrapCheckBox = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
             this.General.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +76,7 @@
             // 
             // General
             // 
+            this.General.Controls.Add(this.wordWrapCheckBox);
             this.General.Controls.Add(this.clearRecentFileListButton);
             this.General.Controls.Add(this.detectURL);
             this.General.Location = new System.Drawing.Point(23, 4);
@@ -86,6 +88,17 @@
             this.General.Text = "General";
             this.General.ToolTipText = "General properties";
             this.General.UseVisualStyleBackColor = true;
+            // 
+            // clearRecentFileListButton
+            // 
+            this.clearRecentFileListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearRecentFileListButton.Location = new System.Drawing.Point(16, 81);
+            this.clearRecentFileListButton.Name = "clearRecentFileListButton";
+            this.clearRecentFileListButton.Size = new System.Drawing.Size(135, 23);
+            this.clearRecentFileListButton.TabIndex = 1;
+            this.clearRecentFileListButton.Text = "Clear Recent File List";
+            this.clearRecentFileListButton.UseVisualStyleBackColor = true;
+            this.clearRecentFileListButton.Click += new System.EventHandler(this.clearRecentFileListButton_Click);
             // 
             // detectURL
             // 
@@ -102,16 +115,20 @@
             this.detectURL.UseVisualStyleBackColor = true;
             this.detectURL.CheckedChanged += new System.EventHandler(this.detectURL_CheckedChanged);
             // 
-            // clearRecentFileListButton
+            // wordWrapCheckBox
             // 
-            this.clearRecentFileListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearRecentFileListButton.Location = new System.Drawing.Point(16, 53);
-            this.clearRecentFileListButton.Name = "clearRecentFileListButton";
-            this.clearRecentFileListButton.Size = new System.Drawing.Size(135, 23);
-            this.clearRecentFileListButton.TabIndex = 1;
-            this.clearRecentFileListButton.Text = "Clear Recent File List";
-            this.clearRecentFileListButton.UseVisualStyleBackColor = true;
-            this.clearRecentFileListButton.Click += new System.EventHandler(this.clearRecentFileListButton_Click);
+            this.wordWrapCheckBox.AutoSize = true;
+            this.wordWrapCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.wordWrapCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.wordWrapCheckBox.Location = new System.Drawing.Point(16, 37);
+            this.wordWrapCheckBox.Name = "wordWrapCheckBox";
+            this.wordWrapCheckBox.Size = new System.Drawing.Size(78, 17);
+            this.wordWrapCheckBox.TabIndex = 2;
+            this.wordWrapCheckBox.Text = "Word Wrap";
+            this.wordWrapCheckBox.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.wordWrapCheckBox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.wordWrapCheckBox.UseVisualStyleBackColor = true;
+            this.wordWrapCheckBox.CheckedChanged += new System.EventHandler(this.wordWrapCheckBox_CheckedChanged);
             // 
             // ApplicationProperties
             // 
@@ -142,5 +159,6 @@
         private System.Windows.Forms.TabPage General;
         private System.Windows.Forms.CheckBox detectURL;
         private System.Windows.Forms.Button clearRecentFileListButton;
+        private System.Windows.Forms.CheckBox wordWrapCheckBox;
     }
 }
