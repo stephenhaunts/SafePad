@@ -73,6 +73,12 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
             if (text.Length > 0 && start >= 0)
             {               
+
+                if (start > _richTextBox.TextLength)
+                {
+                    return -1;
+                }
+
                 int indexToText = _richTextBox.Find(text, start, options);
 
                 if (indexToText >= 0)
@@ -88,9 +94,13 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         
         private void findNextButtton_Click(object sender, EventArgs e)
         {
+            Find();         
+        }
+
+        private void Find()
+        {
             RichTextBoxFinds options = SetFindOptions();
             findCounter = FindMyText(textToFind.Text, findCounter, options);
-            
         }
 
         private RichTextBoxFinds SetFindOptions()
@@ -115,20 +125,47 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void replaceText_Click(object sender, EventArgs e)
         {
+            Replace();
+        }
+
+        private void Replace()
+        {
             RichTextBoxFinds options = SetFindOptions();
             findCounter = FindMyText(textToFind.Text, findCounter, options);
 
             if (findCounter > 0)
             {
+                if (_richTextBox.SelectionStart == _richTextBox.TextLength)
+                {
+                    return;
+                }
+
                 _richTextBox.SelectedText = textToReplace.Text;
 
                 if (findCounter - textToFind.Text.Length > -1)
                 {
                     _richTextBox.SelectionStart = findCounter - textToFind.Text.Length;
                     _richTextBox.SelectionLength = textToReplace.Text.Length;
-                    findCounter = 0;
                 }
             }
+        }
+
+        private void textToFind_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                e.Handled = true;
+                Find();
+            }  
+        }
+
+        private void textToReplace_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                e.Handled = true;
+                Replace();
+            }  
         }
     }
 }

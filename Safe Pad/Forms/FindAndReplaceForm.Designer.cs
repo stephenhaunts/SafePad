@@ -58,6 +58,7 @@
             this.textToFind.Name = "textToFind";
             this.textToFind.Size = new System.Drawing.Size(239, 20);
             this.textToFind.TabIndex = 1;
+            this.textToFind.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textToFind_KeyPress);
             // 
             // findNextButtton
             // 
@@ -132,6 +133,7 @@
             this.textToReplace.Name = "textToReplace";
             this.textToReplace.Size = new System.Drawing.Size(239, 20);
             this.textToReplace.TabIndex = 2;
+            this.textToReplace.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textToReplace_KeyPress);
             // 
             // FindAndReplaceForm
             // 
