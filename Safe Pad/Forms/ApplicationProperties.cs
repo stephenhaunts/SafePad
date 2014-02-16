@@ -64,5 +64,10 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             _settings.RecentFileList.Clear();
         }
+
+        private void wordWrapCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            _settings.WordWrap = wordWrapCheckBox.Checked;
+        }
     }
 }

@@ -46,6 +46,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 
         public bool DetectURL { get; set; }
 
+        public bool WordWrap { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public Collection<string> RecentFileList { get; set; }
     }
