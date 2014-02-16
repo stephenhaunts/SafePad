@@ -33,11 +33,6 @@ namespace HauntedHouseSoftware.SecureNotePad.CryptoProviders
                 throw new ArgumentNullException("toBeHashed");
             }
 
-            if (toBeHashed.Length == 0)
-            {
-                throw new InvalidOperationException("toBeHashed");
-            }
-
             return Encoding.ASCII.GetBytes(BCrypt.Net.BCrypt.HashPassword(ASCIIEncoding.ASCII.GetString(toBeHashed), _salt));            
         }       
     }

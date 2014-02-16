@@ -40,18 +40,24 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
                 throw new ArgumentNullException("password1");
             }
 
-            if (string.IsNullOrEmpty(password2))
+            string optionalPassword2;
+
+            if (password2 == null)
             {
-                throw new ArgumentNullException("password2");
+                optionalPassword2 = string.Empty;
+            }
+            else
+            {
+                optionalPassword2 = password2;
             }
 
             _password1 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(password1));
-            _password2 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(password2));
+            _password2 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(optionalPassword2));
 
             _bCryptPassword1 = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(password1));
-            _bCryptPassword2 = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(password2));
+            _bCryptPassword2 = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(optionalPassword2));
 
-            _combinedPasswords = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(password1 + password2));
+            _combinedPasswords = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(password1 + optionalPassword2));
         }
 
         public byte[] Password1

@@ -35,16 +35,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.CryptoProviders
             hash.ComputeHash(null);
         }
 
-        [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException), "toBeHashed")]
-        public void ComputeHashThrowsArgumentNullExceptionIfDataToHashedIsEmpty()
-        {            
-            var data = new byte[0];
-
-            ISecureHash hash = new BCryptHash();
-            hash.ComputeHash(data);            
-        }
-
         [TestMethod]        
         public void ComputeHashCreatesHashOfSomeInputData()
         {

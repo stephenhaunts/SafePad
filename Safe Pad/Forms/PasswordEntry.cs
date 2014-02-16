@@ -61,11 +61,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 throw new ArgumentNullException("password1");
             }
 
-            if (string.IsNullOrEmpty(password2))
-            {
-                throw new ArgumentNullException("password2");
-            }
-
             _password = new Password(password1, password2);
         }
 
