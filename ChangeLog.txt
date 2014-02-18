@@ -22,7 +22,7 @@ Version 1.2
 
 [X] - Change 1.1 file format so that it generates a new salt for each save.
 
-[X] - Changed the PBKDF function (Rfc2898DeriveBytes) to perform 25,000 rounds when creating the encryption key.
+[X] - Changed the PBKDF function (Rfc2898DeriveBytes) to perform 40,000 rounds when creating the encryption key.
 
 [X] - Add context menu to the rich text view to include all the standard edting features.
 
