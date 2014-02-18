@@ -216,11 +216,9 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
         private void AddFileToRecentFileListMenu(string fileName)
         {
-            ToolStripMenuItem menuItem = new ToolStripMenuItem();
-            
-            menuItem.Text = fileName;
-            menuItem.Tag = fileName;
-            menuItem.Name = fileName;
+            ToolStripMenuItem menuItem = new ToolStripMenuItem() 
+                    { Text = fileName, Tag = fileName, Name = fileName };
+
             menuItem.Click += RecentItemsMenuItemClickHandler;
 
             recentFilesToolStripMenuItem.DropDownItems.Add(menuItem);            
@@ -392,6 +390,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
 
             richTextBox.SelectionFont = new Font(richTextBox.SelectionFont, style);
+            _documentChanged = true;
         }
 
         private void UpdateFontStyleButtons()
@@ -428,6 +427,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
 
             richTextBox.SelectionIndent = _indent;
+            _documentChanged = true;
         }
 
         private void IncreaseIndent()
@@ -440,11 +440,13 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
 
             richTextBox.SelectionIndent = _indent;
+            _documentChanged = true;
         }
 
         private void SetAlignment(HorizontalAlignment alignment)
         {
             richTextBox.SelectionAlignment = alignment;
+            _documentChanged = true;
         }
 
         private void NewDocumentWindow()
@@ -536,6 +538,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private void ApplyFontToSelection(FontFamily fontFamily, float fontSize)
         {
             richTextBox.SelectionFont = richTextBox.SelectionFont == null ? new Font(fontFamily, fontSize) : new Font(fontFamily, fontSize, richTextBox.SelectionFont.Style);
+            _documentChanged = true;
         }
 
         private static FontFamily GetFontFamilyNameFromDropDownList(string selectedFontName)
@@ -567,6 +570,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 {
                     fontSize = float.Parse(toolStripFontSizeSelector.Text);
                 }
+
+                _documentChanged = true;
             }
             catch (FormatException) 
             {
@@ -661,6 +666,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             italicContextMenuItem1.Checked = italicButton.Checked;
             _italicStatus = italicButton.Checked;
 
+            _documentChanged = true;
             SetSelectionFontType();
         }
 
@@ -670,6 +676,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             underlineContextMenuItem1.Checked = underlineButton.Checked;
             _underlineStatus = underlineButton.Checked;
 
+            _documentChanged = true;
             SetSelectionFontType();
         }
 
@@ -677,9 +684,9 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             boldButton.Checked = !boldButton.Checked;
             boldContextMenuItem1.Checked = boldButton.Checked;
-
             _boldStatus = boldButton.Checked;
 
+            _documentChanged = true;
             SetSelectionFontType();
         }
 
