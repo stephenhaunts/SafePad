@@ -44,7 +44,7 @@ Version 1.2
 
 [X] - Add Cut / Copy / Paste to context menu.
 
-[ ] - If link selected in document, add a 'Browse to Link' option to the context menu.
+[X] - If link selected in document, add a 'Browse to Link' option to the context menu.
 
 
 Version 1.1

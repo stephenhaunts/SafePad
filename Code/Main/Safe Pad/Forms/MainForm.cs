@@ -563,7 +563,18 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void contextMenuStrip_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
+            if (IsUrlValid(richTextBox.SelectedText))
+            {
+                browseContextMenuItem.Enabled = true;
+                browseContextMenuItem.Visible = true;
+                toolStripSeparator21.Visible = true;
+            }
+            else
+            {
+                browseContextMenuItem.Enabled = false;
+                browseContextMenuItem.Visible = false;
+                toolStripSeparator21.Visible = false;
+            }
         }
 
         private void leftJustifyContextMenuItem_Click(object sender, EventArgs e)
@@ -626,6 +637,19 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private void pasteContextMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox.Paste();
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
+        private void browseContextMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(richTextBox.SelectedText);
+            }
+            catch
+            {
+                MessageBox.Show("There was an loading the specified link.", "Error loading Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
