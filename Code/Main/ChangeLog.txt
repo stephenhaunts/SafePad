@@ -46,6 +46,8 @@ Version 1.2
 
 [X] - If link selected in document, add a 'Browse to Link' option to the context menu.
 
+[X] - Export file to RTF.
+
 
 Version 1.1
 ------------
