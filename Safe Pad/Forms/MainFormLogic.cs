@@ -27,6 +27,7 @@ using System.Drawing;
 using System.Reflection;
 using System.Diagnostics;
 using HauntedHouseSoftware.SecureNotePad.DomainObjects;
+using System.Text.RegularExpressions;
 
 namespace HauntedHouseSoftware.SecureNotePad.Forms
 {
@@ -43,6 +44,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         
         private const string ApplicationName = "Safe Pad";
         private string _documentName = "";
+        const string URL_REGEX = @"^(http|https|ftp|)\://|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*[^\.\,\)\(\s]$";
 
         private ApplicationSettings _settings = new ApplicationSettings();
 
@@ -714,6 +716,12 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                     }
                 }
             }
+        }
+
+        private static bool IsUrlValid(string url)
+        {            
+            Regex reg = new Regex(URL_REGEX, RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            return reg.IsMatch(url);
         }
     }
 }
