@@ -22,6 +22,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.Diagnostics;
+using System.IO;
 
 namespace HauntedHouseSoftware.SecureNotePad.Forms
 {
@@ -650,6 +651,21 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             {
                 MessageBox.Show("There was an loading the specified link.", "Error loading Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void exportFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (exportFileDialog.ShowDialog() != DialogResult.OK) return;
+
+            try
+            {
+                richTextBox.SaveFile(exportFileDialog.FileName);
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("There was an error exporting the document to a Rich Text File", "Error Saving File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }
