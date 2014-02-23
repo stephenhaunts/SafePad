@@ -42,6 +42,10 @@ Version 1.2
 
 [X] - Add Help link to the Help Menu. This will load up a manual page on www.stephenhaunts.com
 
+[X] - Add Cut / Copy / Paste to context menu.
+
+[ ] - If link selected in document, add a 'Browse to Link' option to the context menu.
+
 
 Version 1.1
 ------------

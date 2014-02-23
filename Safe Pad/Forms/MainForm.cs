@@ -612,6 +612,21 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 MessageBox.Show("There was an loading the specified link.", "Error loading Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void cutContextMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox.Cut();
+        }
+
+        private void copyContextMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox.Copy();
+        }
+
+        private void pasteContextMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox.Paste();
+        }
     }
 }
 
