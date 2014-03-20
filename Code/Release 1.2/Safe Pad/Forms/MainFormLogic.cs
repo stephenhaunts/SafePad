@@ -540,7 +540,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private void ApplyFontToSelection(FontFamily fontFamily, float fontSize)
         {
             richTextBox.SelectionFont = richTextBox.SelectionFont == null ? new Font(fontFamily, fontSize) : new Font(fontFamily, fontSize, richTextBox.SelectionFont.Style);
-            _documentChanged = true;
         }
 
         private static FontFamily GetFontFamilyNameFromDropDownList(string selectedFontName)
