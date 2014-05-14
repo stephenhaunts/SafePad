@@ -390,8 +390,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 style = FontStyle.Bold | FontStyle.Underline | FontStyle.Italic;
             }
 
-            richTextBox.SelectionFont = new Font(richTextBox.SelectionFont, style);
-            _documentChanged = true;
+            richTextBox.SelectionFont = new Font(richTextBox.SelectionFont, style);           
         }
 
         private void UpdateFontStyleButtons()
@@ -538,8 +537,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void ApplyFontToSelection(FontFamily fontFamily, float fontSize)
         {
-            richTextBox.SelectionFont = richTextBox.SelectionFont == null ? new Font(fontFamily, fontSize) : new Font(fontFamily, fontSize, richTextBox.SelectionFont.Style);
-            _documentChanged = true;
+            richTextBox.SelectionFont = richTextBox.SelectionFont == null ? new Font(fontFamily, fontSize) : new Font(fontFamily, fontSize, richTextBox.SelectionFont.Style);            
         }
 
         private static FontFamily GetFontFamilyNameFromDropDownList(string selectedFontName)
@@ -570,9 +568,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 else
                 {
                     fontSize = float.Parse(toolStripFontSizeSelector.Text);
-                }
-
-                _documentChanged = true;
+                }             
             }
             catch (FormatException) 
             {
