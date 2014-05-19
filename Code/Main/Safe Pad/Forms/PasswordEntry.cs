@@ -31,6 +31,23 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         public PasswordEntry()
         {
             InitializeComponent();
+
+            _cachePasswordForSession.Visible = true;
+        }
+
+        public PasswordEntry(bool cachePassword)
+        {
+            InitializeComponent();
+
+            _cachePasswordForSession.Visible = cachePassword;
+        }
+
+        public bool IsPasswordCached
+        {
+            get
+            {
+                return _cachePasswordForSession.Checked;
+            }
         }
 
         public Password Password
@@ -173,5 +190,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 }
             }
         }
+
     }
 }

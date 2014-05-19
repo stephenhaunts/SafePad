@@ -305,6 +305,34 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException), "fileName")]
+        public void LoadOverloadThrowsArgumentNullExceptionIfFileNameIsNull()
+        {
+            IAES aes = new AES();
+            ISecureHash hash = new SecureHash();
+            IPassword password = new Password("password1", "password2");
+            IFileProxy fileProxy = new FileProxy();
+            ICompression compression = new GZipCompression();
+
+            var document = new DocumentOverload(aes, hash, compression, password, fileProxy);
+            document.Load(null, null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException), "cachedPassword")]
+        public void LoadOverloadThrowsArgumentNullExceptionIfPasswordIsNull()
+        {
+            IAES aes = new AES();
+            ISecureHash hash = new SecureHash();
+            IPassword password = new Password("password1", "password2");
+            IFileProxy fileProxy = new FileProxy();
+            ICompression compression = new GZipCompression();
+
+            var document = new DocumentOverload(aes, hash, compression, password, fileProxy);
+            document.Load("filename.scp", null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException), "fileName")]
         public void SaveThrowsArgumentNullExceptionIfFileNameIsNull()
         {
             IAES aes = new AES();
@@ -330,8 +358,23 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
             hash = new TestSecureHashInvalidHash();
 
             var document = new DocumentOverload(aes, hash, compression, password, fileProxy);
-            document.Load("test.scp");
+            document.Load("test.scp");            
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void LoadOverloadDecryptsDataAndThrowsInvalidOperationExceptionIfHashDoesNotMatch()
+        {
+            IAES aes;
+            ISecureHash hash;
+            IPassword password;
+            IFileProxy fileProxy;
+            ICompression compression;
+            TestStubsForDocument(out aes, out hash, out password, out fileProxy, out compression);
+            hash = new TestSecureHashInvalidHash();
             
+            var document = new DocumentOverload(aes, hash, compression, password, fileProxy);
+            document.Load("test.scp", password);
         }
 
         [TestMethod]

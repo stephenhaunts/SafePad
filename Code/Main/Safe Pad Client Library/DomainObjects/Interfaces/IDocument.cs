@@ -23,6 +23,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
     {
         byte[] EncodedData { get; set; }
         void Load(string fileName);
+        void Load(string fileName, IPassword cachedPassword);
         void Save(string fileName);
     }
 }

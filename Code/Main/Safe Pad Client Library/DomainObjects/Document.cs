@@ -29,7 +29,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
     {
         private readonly IAES _aes;
         private readonly ISecureHash _secureHash;
-        private readonly IPassword _password;
+        private IPassword _password;
         private readonly ICompression _compression;
         private readonly IFileProxy _fileProxy;
 
@@ -125,10 +125,31 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
                 throw new ArgumentNullException("fileName");
             }
 
+            LoadDocument(fileName, _password);
+        }
+
+        private void LoadDocument(string fileName, IPassword password)
+        {
             var buffer = _fileProxy.Load(fileName);
             var loader = new LoaderFactory();
-            var fileLoader = loader.GetFileLoader(buffer, _password);
+            var fileLoader = loader.GetFileLoader(buffer, password);
             EncodedData = fileLoader.Load(buffer);
+        }
+
+        public void Load(string fileName, IPassword cachedPassword)
+        {
+            if (string.IsNullOrEmpty(fileName))
+            {
+                throw new ArgumentNullException("fileName");
+            }
+
+            if (cachedPassword == null)
+            {
+                throw new ArgumentNullException("cachedPassword");
+            }
+
+            LoadDocument(fileName, cachedPassword);
+            _password = cachedPassword;
         }
 
         public void Save(string fileName)
