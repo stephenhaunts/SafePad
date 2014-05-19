@@ -41,6 +41,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private bool _italicStatus;
         private bool _underlineStatus;
         private bool _documentChanged;
+        private IPassword _cachedPassword = null;
+
         
         private const string ApplicationName = "Safe Pad";
         private string _documentName = "";
@@ -155,14 +157,22 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
             try
             {
-                if (NewDocument(false) == false)
+                if (_cachedPassword == null)
                 {
-                    return;
+                    if (NewDocument(false) == false)
+                    {
+                        return;
+                    }
+
+                    richTextBox.Clear();
+                    _currentDocument.Load(fileName);
                 }
-
-                richTextBox.Clear();
-                _currentDocument.Load(fileName);
-
+                else
+                {
+                    richTextBox.Clear();
+                    _currentDocument.Load(fileName, _cachedPassword);                    
+                }
+              
                 if (_currentDocument.EncodedData == null)
                 {
                     MessageBox.Show(Resources.MainForm_LoadDocument_Could_not_load_the_document__Did_you_enter_the_password_incorrectly_, Resources.MainForm_LoadDocument_Could_not_load_document, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -295,12 +305,17 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                         _currentDocument = new Document(passwordEntry.Password);
                         _documentChanged = false;
                         _passwordSet = true;
+
+                        if (passwordEntry.IsPasswordCached)
+                        {
+                            _cachedPassword = passwordEntry.Password;
+                        }
                     }
                 }
                 catch (ArgumentNullException) 
                 {
                     Debug.WriteLine("Argument Null Exception Caught.");
-                }
+                }            
             }
 
             toolStripStatusLabel.Text = "New Document Created...";
@@ -309,7 +324,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private static bool ConfirmationPassword(PasswordEntry passwordEntry)
         {
-            using (var passwordEntry2 = new PasswordEntry())
+            using (var passwordEntry2 = new PasswordEntry(false))
             {
                 passwordEntry2.LabelText = "Stage 2 : Please confirm your document passwords.";
 

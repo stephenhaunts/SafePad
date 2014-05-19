@@ -39,6 +39,7 @@
             this.password2Strength = new System.Windows.Forms.Label();
             this._password1Keyboard = new System.Windows.Forms.Button();
             this._password2Keyboard = new System.Windows.Forms.Button();
+            this._cachePasswordForSession = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // _passwordOne
@@ -156,11 +157,22 @@
             this._password2Keyboard.UseVisualStyleBackColor = true;
             this._password2Keyboard.Click += new System.EventHandler(this._password2Keyboard_Click);
             // 
+            // _cachePasswordForSession
+            // 
+            this._cachePasswordForSession.AutoSize = true;
+            this._cachePasswordForSession.Location = new System.Drawing.Point(81, 155);
+            this._cachePasswordForSession.Name = "_cachePasswordForSession";
+            this._cachePasswordForSession.Size = new System.Drawing.Size(161, 17);
+            this._cachePasswordForSession.TabIndex = 11;
+            this._cachePasswordForSession.Text = "Cache Password for Session";
+            this._cachePasswordForSession.UseVisualStyleBackColor = true;            
+            // 
             // PasswordEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 219);
+            this.Controls.Add(this._cachePasswordForSession);
             this.Controls.Add(this._password2Keyboard);
             this.Controls.Add(this._password1Keyboard);
             this.Controls.Add(this.password2Strength);
@@ -197,5 +209,6 @@
         private System.Windows.Forms.Label password2Strength;
         private System.Windows.Forms.Button _password1Keyboard;
         private System.Windows.Forms.Button _password2Keyboard;
+        private System.Windows.Forms.CheckBox _cachePasswordForSession;
     }
 }
