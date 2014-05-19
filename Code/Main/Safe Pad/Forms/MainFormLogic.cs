@@ -176,6 +176,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 if (_currentDocument.EncodedData == null)
                 {
                     MessageBox.Show(Resources.MainForm_LoadDocument_Could_not_load_the_document__Did_you_enter_the_password_incorrectly_, Resources.MainForm_LoadDocument_Could_not_load_document, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   
                     return;
                 }
 
@@ -197,14 +198,17 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             catch (InvalidOperationException)
             {
                 MessageBox.Show(Resources.Decryption_Error, Resources.Decryption_Error_Heading, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ClearPasswordCacheAndLoadAgain(fileName);
             }
             catch (InvalidDataException)
             {
                 MessageBox.Show(Resources.Decryption_Error, Resources.Decryption_Error_Heading, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ClearPasswordCacheAndLoadAgain(fileName);
             }
             catch (ArgumentNullException)
             {
                 MessageBox.Show(Resources.MainForm_LoadDocument_Error_Loading_Document, Resources.MainForm_LoadDocument_Error_Loading_Document, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ClearPasswordCacheAndLoadAgain(fileName);
             }
             finally
             {
@@ -213,6 +217,12 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                     toLoad.Dispose();                   
                 }
             }
+        }
+
+        private void ClearPasswordCacheAndLoadAgain(string fileName)
+        {
+            _cachedPassword = null;
+            LoadDocument(fileName);
         }
 
         private void AddFileToRecentFileList(string fileName)
