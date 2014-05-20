@@ -51,30 +51,30 @@
             // aboutBoxNameLabel
             // 
             this.aboutBoxNameLabel.AutoSize = true;
-            this.aboutBoxNameLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aboutBoxNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aboutBoxNameLabel.Location = new System.Drawing.Point(152, 19);
             this.aboutBoxNameLabel.Name = "aboutBoxNameLabel";
-            this.aboutBoxNameLabel.Size = new System.Drawing.Size(309, 75);
+            this.aboutBoxNameLabel.Size = new System.Drawing.Size(297, 73);
             this.aboutBoxNameLabel.TabIndex = 1;
             this.aboutBoxNameLabel.Text = "Safe Pad";
             // 
             // aboutBoxVersionLabel
             // 
             this.aboutBoxVersionLabel.AutoSize = true;
-            this.aboutBoxVersionLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aboutBoxVersionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aboutBoxVersionLabel.Location = new System.Drawing.Point(241, 94);
             this.aboutBoxVersionLabel.Name = "aboutBoxVersionLabel";
-            this.aboutBoxVersionLabel.Size = new System.Drawing.Size(112, 22);
+            this.aboutBoxVersionLabel.Size = new System.Drawing.Size(105, 24);
             this.aboutBoxVersionLabel.TabIndex = 2;
-            this.aboutBoxVersionLabel.Text = "Version 1.2";
+            this.aboutBoxVersionLabel.Text = "Version 1.3";
             // 
             // aboutBoxLicenseName
             // 
             this.aboutBoxLicenseName.AutoSize = true;
-            this.aboutBoxLicenseName.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aboutBoxLicenseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aboutBoxLicenseName.Location = new System.Drawing.Point(121, 191);
             this.aboutBoxLicenseName.Name = "aboutBoxLicenseName";
-            this.aboutBoxLicenseName.Size = new System.Drawing.Size(361, 23);
+            this.aboutBoxLicenseName.Size = new System.Drawing.Size(328, 25);
             this.aboutBoxLicenseName.TabIndex = 3;
             this.aboutBoxLicenseName.Text = "Released under GNU Public License";
             this.aboutBoxLicenseName.Click += new System.EventHandler(this.aboutBoxLicenseName_Click);
@@ -82,10 +82,10 @@
             // aboutBoxLinkLabel
             // 
             this.aboutBoxLinkLabel.AutoSize = true;
-            this.aboutBoxLinkLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.aboutBoxLinkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aboutBoxLinkLabel.Location = new System.Drawing.Point(143, 153);
             this.aboutBoxLinkLabel.Name = "aboutBoxLinkLabel";
-            this.aboutBoxLinkLabel.Size = new System.Drawing.Size(327, 17);
+            this.aboutBoxLinkLabel.Size = new System.Drawing.Size(296, 18);
             this.aboutBoxLinkLabel.TabIndex = 4;
             this.aboutBoxLinkLabel.TabStop = true;
             this.aboutBoxLinkLabel.Text = "http://stephenhaunts.com/projects/safe-pad/";

@@ -724,16 +724,15 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             using (var appSettings = new ApplicationProperties(_settings))
             {
-                if (appSettings.ShowDialog() == DialogResult.OK)
-                {
-                    this.richTextBox.DetectUrls = appSettings.Settings.DetectURL;
-                    _settings.RecentFileList = appSettings.Settings.RecentFileList;
+                if (appSettings.ShowDialog() != DialogResult.OK) return;
 
-                    recentFilesToolStripMenuItem.DropDownItems.Clear();
-                    foreach (string fileName in _settings.RecentFileList)
-                    {
-                        AddFileToRecentFileListMenu(fileName);
-                    }
+                this.richTextBox.DetectUrls = appSettings.Settings.DetectURL;
+                _settings.RecentFileList = appSettings.Settings.RecentFileList;
+
+                recentFilesToolStripMenuItem.DropDownItems.Clear();
+                foreach (string fileName in _settings.RecentFileList)
+                {
+                    AddFileToRecentFileListMenu(fileName);
                 }
             }
         }
