@@ -110,6 +110,7 @@
             this._cancelButton.TabIndex = 4;
             this._cancelButton.Text = "Cancel";
             this._cancelButton.UseVisualStyleBackColor = true;
+            
             // 
             // password1Strength
             // 
