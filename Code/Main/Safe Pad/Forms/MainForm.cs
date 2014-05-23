@@ -667,6 +667,16 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
             
         }
+
+        private void removeCachedPasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_cachedPassword != null)
+            {
+                MessageBox.Show("Cached Passwords Removed", "Cached Passwords Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            _cachedPassword = null;
+        }
     }
 }
 

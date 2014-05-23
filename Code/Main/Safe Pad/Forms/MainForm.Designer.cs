@@ -70,9 +70,11 @@
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeCachedPasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.recentFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -173,7 +175,6 @@
             this.rightJustifyButton = new System.Windows.Forms.ToolStripButton();
             this.insertImageDialog = new System.Windows.Forms.OpenFileDialog();
             this.themeColorDialog = new System.Windows.Forms.ColorDialog();
-            this.exportFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.contextMenuStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -422,6 +423,7 @@
             this.toolStripSeparator1,
             this.printToolStripMenuItem,
             this.printToolStripMenuItem1,
+            this.removeCachedPasswordToolStripMenuItem,
             this.propertiesToolStripMenuItem,
             this.toolStripSeparator2,
             this.recentFilesToolStripMenuItem,
@@ -429,7 +431,7 @@
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "&File";
+            this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
             // 
@@ -439,7 +441,7 @@
             this.newToolStripMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.New_Document;
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.Window;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // newDocumentToolStripMenuItem
@@ -465,7 +467,7 @@
             this.loadToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.Window;
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.loadToolStripMenuItem.Text = "L&oad";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.LoadToolStripMenuItemClick);
             // 
@@ -475,28 +477,35 @@
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.Window;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.saveToolStripMenuItem.Text = "S&ave";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItemClick);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            // 
+            // exportFileToolStripMenuItem
+            // 
+            this.exportFileToolStripMenuItem.Name = "exportFileToolStripMenuItem";
+            this.exportFileToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.exportFileToolStripMenuItem.Text = "Export File";
+            this.exportFileToolStripMenuItem.Click += new System.EventHandler(this.exportFileToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(210, 6);
             // 
             // printToolStripMenuItem
             // 
             this.printToolStripMenuItem.Image = global::HauntedHouseSoftware.SecureNotePad.Properties.Resources.Print_Document;
             this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.SystemColors.Window;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.printToolStripMenuItem.Text = "Print Preview";
             this.printToolStripMenuItem.Click += new System.EventHandler(this.PrintToolStripMenuItemClick);
             // 
@@ -504,37 +513,44 @@
             // 
             this.printToolStripMenuItem1.Name = "printToolStripMenuItem1";
             this.printToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.printToolStripMenuItem1.Size = new System.Drawing.Size(213, 22);
             this.printToolStripMenuItem1.Text = "Print";
             this.printToolStripMenuItem1.Click += new System.EventHandler(this.PrintToolStripMenuItem1Click);
+            // 
+            // removeCachedPasswordToolStripMenuItem
+            // 
+            this.removeCachedPasswordToolStripMenuItem.Name = "removeCachedPasswordToolStripMenuItem";
+            this.removeCachedPasswordToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.removeCachedPasswordToolStripMenuItem.Text = "Remove Cached Password";
+            this.removeCachedPasswordToolStripMenuItem.Click += new System.EventHandler(this.removeCachedPasswordToolStripMenuItem_Click);
             // 
             // propertiesToolStripMenuItem
             // 
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
-            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.propertiesToolStripMenuItem.Text = "Properties";
             this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.propertiesToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(210, 6);
             // 
             // recentFilesToolStripMenuItem
             // 
             this.recentFilesToolStripMenuItem.Name = "recentFilesToolStripMenuItem";
-            this.recentFilesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.recentFilesToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.recentFilesToolStripMenuItem.Text = "Recent Files";
             // 
             // toolStripSeparator18
             // 
             this.toolStripSeparator18.Name = "toolStripSeparator18";
-            this.toolStripSeparator18.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator18.Size = new System.Drawing.Size(210, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
             // 
@@ -1404,13 +1420,6 @@
             // 
             this.themeColorDialog.AnyColor = true;
             // 
-            // exportFileToolStripMenuItem
-            // 
-            this.exportFileToolStripMenuItem.Name = "exportFileToolStripMenuItem";
-            this.exportFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exportFileToolStripMenuItem.Text = "Export File";
-            this.exportFileToolStripMenuItem.Click += new System.EventHandler(this.exportFileToolStripMenuItem_Click);
-            // 
             // exportFileDialog
             // 
             this.exportFileDialog.Filter = "Rich Text File |*.rtf|All Files|*.*";
@@ -1594,6 +1603,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator21;
         private System.Windows.Forms.ToolStripMenuItem exportFileToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog exportFileDialog;
+        private System.Windows.Forms.ToolStripMenuItem removeCachedPasswordToolStripMenuItem;
     }
 }
 
