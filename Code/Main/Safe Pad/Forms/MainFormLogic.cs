@@ -194,6 +194,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 _documentName = fileName;
                 ChangeDisplayHeader();
                 _documentChanged = false;
+                toolStripStatusLabel.Text = _documentName + " Loaded...";
             }
             catch (InvalidOperationException)
             {
@@ -277,14 +278,10 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void LoadDocument()
         {
-            if (openFileDialog.ShowDialog() != DialogResult.OK)
-            {                
-                return;
-            }
+            if (openFileDialog.ShowDialog() == DialogResult.Cancel) return;
 
             _documentName = openFileDialog.FileName;
-            LoadDocument(_documentName);
-            toolStripStatusLabel.Text = _documentName + " Loaded...";
+            LoadDocument(_documentName);            
         }
 
         private bool NewDocument(bool confirmPassword)
