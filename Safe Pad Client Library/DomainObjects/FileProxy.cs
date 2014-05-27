@@ -59,7 +59,12 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 
         public bool FileExists(string fileName)
         {
-            return true;
+            if (string.IsNullOrEmpty(fileName))
+            {
+                throw new ArgumentNullException("fileName");
+            }
+
+            return File.Exists(fileName);            
         }
     }
 }
