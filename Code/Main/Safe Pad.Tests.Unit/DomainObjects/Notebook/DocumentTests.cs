@@ -62,7 +62,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.Notebook
         [ExpectedException(typeof(ArgumentNullException), "documentName")]
         public void ConstructorThrowsArgumentNullExceptionIfDocumentNameIsNull()
         {
-            new Document(@"c:\filename.scp", null);
+            new Document(@"c:\fileExists.scp", null);
         }
 
         [TestMethod]
@@ -75,21 +75,31 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.Notebook
         [TestMethod]
         public void FilenamePropertyReturnsFileNameSetInTheConstructor()
         {
-            const string fileName = @"c:\filename.scp";
+            const string fileName = @"c:\fileExists.scp";
             const string documentName = @"Filename";
 
-            var document = new Document(fileName, documentName);
+            var document = new Document(fileName, documentName, new TestFileProxy());
             Assert.AreEqual(fileName, document.Filename);
         }
 
         [TestMethod]
         public void DocumentNamePropertyReturnsDocumentNameSetInTheConstructor()
         {
-            const string fileName = @"c:\filename.scp";
+            const string fileName = @"c:\fileExists.scp";
             const string documentName = @"Filename";
 
-            var document = new Document(fileName, documentName);
+            var document = new Document(fileName, documentName, new TestFileProxy());
             Assert.AreEqual(documentName, document.DocumentName);
+        }
+
+        [TestMethod]
+        public void FileExistsReturnsTrueIfTheFileExists()
+        {
+            const string fileName = @"c:\fileExists.scp";
+            const string documentName = @"Filename";
+
+            var document = new Document(fileName, documentName, new TestFileProxy());
+            Assert.IsTrue(document.FileExists());
         }
     }
 }

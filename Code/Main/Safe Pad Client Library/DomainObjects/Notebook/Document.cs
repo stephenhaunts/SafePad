@@ -41,7 +41,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
                 throw new ArgumentNullException("fileProxy");    
             }
 
-            _fileProxy = new FileProxy();
+            _fileProxy = fileProxy;
             SetFileProperties(fileName, documentName);            
         }
 
@@ -74,6 +74,11 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
         public string DocumentName
         {
             get { return _documentName; }
+        }
+
+        public bool FileExists()
+        {
+            return _fileProxy.FileExists(_fileName);
         }
 
     }

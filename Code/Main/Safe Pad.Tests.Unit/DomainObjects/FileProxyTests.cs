@@ -49,5 +49,13 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
             IFileProxy proxy = new FileProxy();
             proxy.Save("file.txt", null);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException), "fileName")]
+        public void FileExistsThrowsArgumentNullExceptionIfFilenameIsNull()
+        {
+            IFileProxy proxy = new FileProxy();
+            proxy.FileExists(null);
+        }
     }
 }
