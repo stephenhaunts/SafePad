@@ -61,6 +61,8 @@
     <Compile Include="CryptoProviders\TestBCrypt.cs" />
     <Compile Include="DomainObjects\DocumentTests.cs" />
     <Compile Include="DomainObjects\FileFormat\LoaderFactoryTests.cs" />
+    <Compile Include="DomainObjects\Notebook\NotebookCollectionTetsts.cs" />
+    <Compile Include="DomainObjects\Notebook\DocumentTests.cs" />
     <Compile Include="DomainObjects\PasswordTests.cs" />
     <Compile Include="DomainObjects\GZipCompressionTests.cs" />
     <Compile Include="DomainObjects\ByteHelpersTests.cs" />

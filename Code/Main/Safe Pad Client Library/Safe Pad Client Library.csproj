@@ -68,6 +68,8 @@
     <Compile Include="DomainObjects\Interfaces\IDocument.cs" />
     <Compile Include="DomainObjects\Interfaces\IFileProxy.cs" />
     <Compile Include="DomainObjects\Interfaces\IPassword.cs" />
+    <Compile Include="DomainObjects\Notebook\Document.cs" />
+    <Compile Include="DomainObjects\Notebook\NotebookCollection.cs" />
     <Compile Include="DomainObjects\Passwords\Password.cs" />
     <Compile Include="DomainObjects\Passwords\PasswordScore.cs" />
     <Compile Include="DomainObjects\Passwords\PasswordStrength.cs" />
