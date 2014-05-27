@@ -56,5 +56,10 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
                 fileStream.Write(dataToSave, 0, dataToSave.Length);
             }
         }
+
+        public bool FileExists(string fileName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

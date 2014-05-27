@@ -59,6 +59,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
             {
                 
             }
+
+            public bool FileExists(string fileName)
+            {
+                throw new NotImplementedException();
+            }
         }
 
         private class TestAES : IAES

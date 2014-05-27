@@ -18,22 +18,63 @@
  * Authors: Stephen Haunts
  */
 using System;
+using System.IO;
 
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
 {
     public class Document
     {
+        private string _fileName;
+        private string _documentName;
+        private readonly IFileProxy _fileProxy;
+
         public Document(string fileName, string documentName)
+        {           
+            SetFileProperties(fileName, documentName);
+            _fileProxy = new FileProxy();
+        }
+
+        public Document(string fileName, string documentName, IFileProxy fileProxy)
+        {
+            if (fileProxy == null)
+            {
+                throw new ArgumentNullException("fileProxy");    
+            }
+
+            SetFileProperties(fileName, documentName);
+            _fileProxy = new FileProxy();
+        }
+
+        private void SetFileProperties(string fileName, string documentName)
         {
             if (string.IsNullOrEmpty(fileName))
             {
-                throw new ArgumentNullException("fileName");   
+                throw new ArgumentNullException("fileName");
             }
 
             if (string.IsNullOrEmpty(documentName))
             {
                 throw new ArgumentNullException("documentName");
             }
+
+            if (!_fileProxy.FileExists(fileName))
+            {
+                throw new FileNotFoundException(fileName);
+            }
+
+            _fileName = fileName;
+            _documentName = documentName;
         }
+
+        public string Filename
+        {
+            get { return _fileName; }
+        }
+
+        public string DocumentName
+        {
+            get { return _documentName; }
+        }
+
     }
 }
