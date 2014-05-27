@@ -29,9 +29,9 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
         private readonly IFileProxy _fileProxy;
 
         public Document(string fileName, string documentName)
-        {           
-            SetFileProperties(fileName, documentName);
+        {
             _fileProxy = new FileProxy();
+            SetFileProperties(fileName, documentName);            
         }
 
         public Document(string fileName, string documentName, IFileProxy fileProxy)
@@ -41,8 +41,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
                 throw new ArgumentNullException("fileProxy");    
             }
 
-            SetFileProperties(fileName, documentName);
             _fileProxy = new FileProxy();
+            SetFileProperties(fileName, documentName);            
         }
 
         private void SetFileProperties(string fileName, string documentName)
