@@ -23,5 +23,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
     {
         byte[] Load(string fileName);
         void Save(string fileName, byte[] dataToSave);
+
+        bool FileExists(string fileName);
     }
 }

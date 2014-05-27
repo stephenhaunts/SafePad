@@ -19,26 +19,77 @@
  */
 
 using System;
-using HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook;
+using HauntedHouseSoftware.SecureNotePad.DomainObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Document = HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook.Document;
 
 namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.Notebook
 {
     [TestClass]
     public class DocumentTests
     {
+        private class TestFileProxy : IFileProxy
+        {
+            public byte[] Load(string fileName)
+            {
+                return null;
+            }
+
+            public void Save(string fileName, byte[] dataToSave)
+            {
+
+            }
+
+            public bool FileExists(string fileName)
+            {
+                if (fileName == @"c:\fileExists.scp")
+                {
+                    return true;
+                }
+
+                return false;
+            }
+        }
+
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException), "fileName")]
         public void ConstructorThrowsArgumentNullExceptionIfFileNameIsNull()
         {
-            var document = new Document(null, null);
+            new Document(null, null);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException), "documentName")]
         public void ConstructorThrowsArgumentNullExceptionIfDocumentNameIsNull()
         {
-            var document = new Document(@"c:\filename.scp", null);
+            new Document(@"c:\filename.scp", null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException), "fileProxy")]
+        public void ConstructorThrowsArgumentNullExceptionIfFileProxyIsNull()
+        {
+            new Document(@"c:\filename.scp", "Filename", null);
+        }
+
+        [TestMethod]
+        public void FilenamePropertyReturnsFileNameSetInTheConstructor()
+        {
+            const string fileName = @"c:\filename.scp";
+            const string documentName = @"Filename";
+
+            var document = new Document(fileName, documentName);
+            Assert.AreEqual(fileName, document.Filename);
+        }
+
+        [TestMethod]
+        public void DocumentNamePropertyReturnsDocumentNameSetInTheConstructor()
+        {
+            const string fileName = @"c:\filename.scp";
+            const string documentName = @"Filename";
+
+            var document = new Document(fileName, documentName);
+            Assert.AreEqual(documentName, document.DocumentName);
         }
     }
 }
