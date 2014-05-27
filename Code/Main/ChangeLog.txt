@@ -3,9 +3,7 @@ Version 1.3
 
 [X] - Fixed Issue #1968 - Document Saved Flag incorrectly getting set.
 [X] - Added check box to the password entry screen to allow you to cache a password for the currently loaded session.
-[ ] - Add plug-in architecture.
-[ ] - Password generator plug-in.
-[ ] - Spell checker plug-in.
+[ ] - Password generator.
 [ ] - Notebook functionality. Allows you to group documents together into logical groups of documents / favourites.
 
 Version 1.2
