@@ -59,7 +59,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 
         public bool FileExists(string fileName)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }
