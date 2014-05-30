@@ -28,8 +28,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 {
     public partial class MainForm : Form
     {
-        private FindAndReplaceForm _findForm = null;
-        private const string HELP_URL = "http://stephenhaunts.com/safe-pad-1-2-manual/";
+        private FindAndReplaceForm _findForm;
+        private const string HelpUrl = "http://stephenhaunts.com/safe-pad-1-2-manual/";
 
         public MainForm(string fileName)
         {
@@ -37,10 +37,13 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             Text = String.Format("{0} : {1}", ApplicationName, _documentName);
             Visible = true;
             richTextBox.Visible = true;
-            PopulateFontDropDown();         
+            PopulateFontDropDown();
+            _findForm = new FindAndReplaceForm(richTextBox);
             LoadSettings();           
             LoadDocument(fileName);
             ChangeDisplayHeader();
+            ResizeRedraw = true;
+            Invalidate(true);
         }
 
         public override sealed string Text
@@ -57,6 +60,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             ChangeDisplayHeader();
             _findForm = new FindAndReplaceForm(richTextBox);
             LoadSettings();
+            ResizeRedraw = true;
+            richTextBox.Width = richTextBox.Width + 1;                        
         }
 
         private void ExitToolStripMenuItemClick(object sender, EventArgs e)
@@ -326,7 +331,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
             catch
             {
-                MessageBox.Show("There was an loading the specified link.", "Error loading Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"There was an loading the specified link.", @"Error loading Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -617,11 +622,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             try
             {
-                Process.Start(HELP_URL);
+                Process.Start(HelpUrl);
             }
             catch
             {
-                MessageBox.Show("There was an loading the specified link.", "Error loading Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"There was an loading the specified link.", @"Error loading Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -649,7 +654,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
             catch
             {
-                MessageBox.Show("There was an loading the specified link.", "Error loading Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"There was an loading the specified link.", @"Error loading Link", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -663,7 +668,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
             catch (IOException)
             {
-                MessageBox.Show("There was an error exporting the document to a Rich Text File", "Error Saving File", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(@"There was an error exporting the document to a Rich Text File", @"Error Saving File", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
@@ -672,7 +677,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             if (_cachedPassword != null)
             {
-                MessageBox.Show("Cached Passwords Removed", "Cached Passwords Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(@"Cached Passwords Removed", @"Cached Passwords Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             _cachedPassword = null;
