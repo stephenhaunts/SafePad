@@ -116,6 +116,12 @@
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.customBackgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customeForegroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notebookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNotebookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeNotebookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearAllNotebooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
+            this.notebooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -404,6 +410,7 @@
             this.viewToolStripMenuItem,
             this.themeToolStripMenuItem,
             this.windowToolStripMenuItem,
+            this.notebookToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -868,6 +875,47 @@
             this.customeForegroundColorToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.customeForegroundColorToolStripMenuItem.Text = "Custome Foreground Color";
             this.customeForegroundColorToolStripMenuItem.Click += new System.EventHandler(this.customeForegroundColorToolStripMenuItem_Click);
+            // 
+            // notebookToolStripMenuItem
+            // 
+            this.notebookToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNotebookToolStripMenuItem,
+            this.removeNotebookToolStripMenuItem,
+            this.clearAllNotebooksToolStripMenuItem,
+            this.toolStripSeparator22,
+            this.notebooksToolStripMenuItem});
+            this.notebookToolStripMenuItem.Name = "notebookToolStripMenuItem";
+            this.notebookToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.notebookToolStripMenuItem.Text = "Notebook";
+            // 
+            // addNotebookToolStripMenuItem
+            // 
+            this.addNotebookToolStripMenuItem.Name = "addNotebookToolStripMenuItem";
+            this.addNotebookToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.addNotebookToolStripMenuItem.Text = "Add Notebook";
+            // 
+            // removeNotebookToolStripMenuItem
+            // 
+            this.removeNotebookToolStripMenuItem.Name = "removeNotebookToolStripMenuItem";
+            this.removeNotebookToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.removeNotebookToolStripMenuItem.Text = "Remove Notebook";
+            // 
+            // clearAllNotebooksToolStripMenuItem
+            // 
+            this.clearAllNotebooksToolStripMenuItem.Name = "clearAllNotebooksToolStripMenuItem";
+            this.clearAllNotebooksToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.clearAllNotebooksToolStripMenuItem.Text = "Clear All Notebooks";
+            // 
+            // toolStripSeparator22
+            // 
+            this.toolStripSeparator22.Name = "toolStripSeparator22";
+            this.toolStripSeparator22.Size = new System.Drawing.Size(176, 6);
+            // 
+            // notebooksToolStripMenuItem
+            // 
+            this.notebooksToolStripMenuItem.Name = "notebooksToolStripMenuItem";
+            this.notebooksToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.notebooksToolStripMenuItem.Text = "Notebooks";
             // 
             // windowToolStripMenuItem
             // 
@@ -1604,6 +1652,12 @@
         private System.Windows.Forms.ToolStripMenuItem exportFileToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog exportFileDialog;
         private System.Windows.Forms.ToolStripMenuItem removeCachedPasswordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem notebookToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNotebookToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeNotebookToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearAllNotebooksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator22;
+        private System.Windows.Forms.ToolStripMenuItem notebooksToolStripMenuItem;
     }
 }
 

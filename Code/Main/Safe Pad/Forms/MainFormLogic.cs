@@ -18,6 +18,7 @@
  * Authors: Stephen Haunts
  */
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -41,12 +42,12 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private bool _italicStatus;
         private bool _underlineStatus;
         private bool _documentChanged;
-        private IPassword _cachedPassword = null;
+        private IPassword _cachedPassword;
 
         
         private const string ApplicationName = "Safe Pad";
         private string _documentName = "";
-        const string URL_REGEX = @"^(http|https|ftp|)\://|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*[^\.\,\)\(\s]$";
+        const string UrlRegex = @"^(http|https|ftp|)\://|[a-zA-Z0-9\-\.]+\.[a-zA-Z](:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;%\$#\=~])*[^\.\,\)\(\s]$";
 
         private ApplicationSettings _settings = new ApplicationSettings();
 
@@ -56,7 +57,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
             try
             {
-                if (_documentChanged == true || string.IsNullOrEmpty(_documentName))
+                if (_documentChanged || string.IsNullOrEmpty(_documentName))
                 {
                     if (_passwordSet == false)
                     {
@@ -73,7 +74,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                     }
                     else
                     {
-                        if (MessageBox.Show("Do you want to save over " + _documentName, "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                        if (MessageBox.Show(@"Do you want to save over " + _documentName, @"Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                         {
                             return;
                         }
@@ -93,7 +94,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 AddFileToRecentFileList(_documentName);
 
                 ChangeDisplayHeader();
-                toolStripStatusLabel.Text = _documentName + " Saved...";
+                toolStripStatusLabel.Text = _documentName + @" Saved...";
                 _documentChanged = false;
             }
             finally
@@ -121,13 +122,13 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
                 userInput = new MemoryStream();
                 richTextBox.SaveFile(userInput, RichTextBoxStreamType.RichText);
-                byte[] list = userInput.GetBuffer();
+                var list = userInput.GetBuffer();
                 _currentDocument.EncodedData = list;
                 _currentDocument.Save(_documentName);
 
                 _documentName = saveFileDialog.FileName;
                 ChangeDisplayHeader();
-                toolStripStatusLabel.Text = _documentName + " Saved...";
+                toolStripStatusLabel.Text = _documentName + @" Saved...";
                 _documentChanged = false;
             }
             finally
@@ -141,14 +142,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void ChangeDisplayHeader()
         {
-            if (!string.IsNullOrEmpty(_documentName))
-            {
-                Text = String.Format("{0} : {1}", ApplicationName, _documentName);
-            }
-            else
-            {
-                Text = String.Format("{0} : {1}", ApplicationName, "Untitled");
-            }
+            Text = String.Format("{0} : {1}", ApplicationName, !string.IsNullOrEmpty(_documentName) ? _documentName : "Untitled");
         }
 
         private void LoadDocument(string fileName)
@@ -194,7 +188,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 _documentName = fileName;
                 ChangeDisplayHeader();
                 _documentChanged = false;
-                toolStripStatusLabel.Text = _documentName + " Loaded...";
+                toolStripStatusLabel.Text = _documentName + @" Loaded...";
             }
             catch (InvalidOperationException)
             {
@@ -228,18 +222,16 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void AddFileToRecentFileList(string fileName)
         {
-            if (!FileExistsInRecentFileList(fileName))
-            {
-                AddFileToRecentFileListMenu(fileName);
-                _settings.RecentFileList.Add(fileName);
-            }
+            if (FileExistsInRecentFileList(fileName)) return;
+
+            AddFileToRecentFileListMenu(fileName);
+            _settings.RecentFileList.Add(fileName);
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
         private void AddFileToRecentFileListMenu(string fileName)
         {
-            ToolStripMenuItem menuItem = new ToolStripMenuItem() 
-                    { Text = fileName, Tag = fileName, Name = fileName };
+            var menuItem = new ToolStripMenuItem { Text = fileName, Tag = fileName, Name = fileName };
 
             menuItem.Click += RecentItemsMenuItemClickHandler;
 
@@ -248,11 +240,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void RecentItemsMenuItemClickHandler(object sender, EventArgs e)
         {
-            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+            var clickedItem = (ToolStripMenuItem)sender;
 
             if (!File.Exists(clickedItem.Text))
             {
-                MessageBox.Show("Could not load the file : " + clickedItem.Text, "Could not load file.", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
+                MessageBox.Show(@"Could not load the file : " + clickedItem.Text, @"Could not load file.", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
 
                 _settings.RecentFileList.Remove(clickedItem.Text);
                 recentFilesToolStripMenuItem.DropDownItems.Remove(clickedItem);
@@ -265,15 +257,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private bool FileExistsInRecentFileList(string fileName)
         {
-            foreach (string file in _settings.RecentFileList)
-            {
-                if (String.Compare(file, fileName, StringComparison.OrdinalIgnoreCase) == 0)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return _settings.RecentFileList.Any(file => String.Compare(file, fileName, StringComparison.OrdinalIgnoreCase) == 0);
         }
 
         private void LoadDocument()
@@ -325,7 +309,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 }            
             }
 
-            toolStripStatusLabel.Text = "New Document Created...";
+            toolStripStatusLabel.Text = @"New Document Created...";
             return true;
         }
 
@@ -494,7 +478,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private static void AboutBox()
         {
-            using (AboutDialogBox about = new AboutDialogBox())
+            using (var about = new AboutDialogBox())
             {
                 about.ShowDialog();
             }
@@ -502,21 +486,21 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void UpdateFontDropDownWithFontSelection()
         {
-            if (richTextBox.SelectionFont != null)
+            if (richTextBox.SelectionFont == null) return;
+
+            var selectedFontName = richTextBox.SelectionFont.Name;
+            toolStripFontSizeSelector.Text = richTextBox.SelectionFont.Size.ToString(CultureInfo.InvariantCulture);
+
+            var count = 0;
+
+            foreach (string font in toolStripFontSelector.Items)
             {
-                string selectedFontName = richTextBox.SelectionFont.Name;
-                toolStripFontSizeSelector.Text = richTextBox.SelectionFont.Size.ToString();
-
-                int count = 0;
-
-                foreach (string font in toolStripFontSelector.Items)
+                if (String.Compare(font, selectedFontName, StringComparison.OrdinalIgnoreCase) == 0)
                 {
-                    if (String.Compare(font, selectedFontName, StringComparison.OrdinalIgnoreCase) == 0)
-                    {
-                        toolStripFontSelector.SelectedIndex = count;
-                    }
-                    count++;
+                    toolStripFontSelector.SelectedIndex = count;
                 }
+
+                count++;
             }
         }
 
@@ -526,7 +510,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             {
                 toolStripFontSelector.Items.Clear();
 
-                int count = 0;
+                var count = 0;
 
                 Array.ForEach(FontFamily.Families, font =>
                 {
@@ -583,14 +567,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
             try
             {
-                if (toolStripFontSizeSelector.SelectedIndex > 0)
-                {
-                    fontSize = float.Parse((string)toolStripFontSizeSelector.Items[toolStripFontSizeSelector.SelectedIndex]);
-                }
-                else
-                {
-                    fontSize = float.Parse(toolStripFontSizeSelector.Text);
-                }             
+                fontSize = toolStripFontSizeSelector.SelectedIndex > 0 ? float.Parse((string)toolStripFontSizeSelector.Items[toolStripFontSizeSelector.SelectedIndex]) : float.Parse(toolStripFontSizeSelector.Text);             
             }
             catch (FormatException) 
             {
@@ -631,8 +608,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             if (_documentChanged)
             {
-                if (MessageBox.Show("You have un saved changes. Would you like to save your document?",
-                    "Save Your Changes?",
+                if (MessageBox.Show(@"You have un saved changes. Would you like to save your document?",
+                    @"Save Your Changes?",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -723,10 +700,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             {
                 if (appSettings.ShowDialog() != DialogResult.OK) return;
 
-                this.richTextBox.DetectUrls = appSettings.Settings.DetectURL;
+                richTextBox.DetectUrls = appSettings.Settings.DetectURL;
                 _settings.RecentFileList = appSettings.Settings.RecentFileList;
 
                 recentFilesToolStripMenuItem.DropDownItems.Clear();
+
                 foreach (string fileName in _settings.RecentFileList)
                 {
                     AddFileToRecentFileListMenu(fileName);
@@ -736,7 +714,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private static bool IsUrlValid(string url)
         {            
-            Regex reg = new Regex(URL_REGEX, RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            var reg = new Regex(UrlRegex, RegexOptions.Compiled | RegexOptions.IgnoreCase);
             return reg.IsMatch(url);
         }
     }
