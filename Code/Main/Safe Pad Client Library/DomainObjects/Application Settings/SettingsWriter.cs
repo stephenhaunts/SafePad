@@ -70,17 +70,14 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             {
                 var path = Path.GetFullPath(AssemblyDirectory + "settings.xml");
 
-                if (File.Exists(path))
-                {
-                    var serializer = new XmlSerializer(typeof(ApplicationSettings));
-                    using (var reader = XmlReader.Create(path))
-                    {
-                        var settings = (ApplicationSettings)serializer.Deserialize(reader);
-                        return settings;
-                    }
-                }
+                if (!File.Exists(path)) return null;
 
-                return null;
+                var serializer = new XmlSerializer(typeof(ApplicationSettings));
+                using (var reader = XmlReader.Create(path))
+                {
+                    var settings = (ApplicationSettings)serializer.Deserialize(reader);
+                    return settings;
+                }
             }
             catch
             {
