@@ -19,6 +19,7 @@
  */
 
 using System;
+using System.IO;
 using HauntedHouseSoftware.SecureNotePad.DomainObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Document = HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook.Document;
@@ -83,6 +84,16 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.Notebook
         }
 
         [TestMethod]
+        [ExpectedException(typeof(FileNotFoundException), "c:\fileNostExists.scp")]
+        public void COnstructorThrowsFileNotFoundExceptionIfFileNotFound()
+        {
+            const string fileName = @"c:\fileNostExists.scp";
+            const string documentName = @"Filename";
+
+            var document = new Document(fileName, documentName, new TestFileProxy());            
+        }
+
+        [TestMethod]
         public void DocumentNamePropertyReturnsDocumentNameSetInTheConstructor()
         {
             const string fileName = @"c:\fileExists.scp";
@@ -100,6 +111,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.Notebook
 
             var document = new Document(fileName, documentName, new TestFileProxy());
             Assert.IsTrue(document.FileExists());
-        }
+        }      
     }
 }

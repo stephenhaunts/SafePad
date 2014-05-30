@@ -18,10 +18,102 @@
  * Authors: Stephen Haunts
  */
 
+using System;
+using System.Collections.Generic;
+
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
 {
     public class NotebookCollection
     {
+        private Dictionary<string, List<Document>> _notebooks;
 
+        public NotebookCollection()
+        {
+            _notebooks = new Dictionary<string, List<Document>>(StringComparer.OrdinalIgnoreCase);  
+        }
+
+        public int CountNoteBooks
+        {
+            get
+            {
+                return _notebooks.Count;
+                
+            }
+        }
+
+        private bool IsExists(string noteBookName)
+        {
+            return _notebooks.ContainsKey(noteBookName);
+        }
+
+        public void CreateNotebook(string noteBookName)
+        {
+            if (string.IsNullOrEmpty(noteBookName))
+            {
+                throw new ArgumentNullException("noteBookName");
+            }
+
+            if (IsExists(noteBookName))
+            {
+                throw new InvalidOperationException("noteBookName");
+            }
+
+            _notebooks.Add(noteBookName, new List<Document>());            
+        }
+
+        public void RemoveNotebook(string noteBookName)
+        {
+            if (string.IsNullOrEmpty(noteBookName))
+            {
+                throw new ArgumentNullException("noteBookName");
+            }
+
+            if (!IsExists(noteBookName))
+            {
+                throw new InvalidOperationException("noteBookName");
+            }
+
+            _notebooks.Remove(noteBookName);
+        }
+
+        public void AddDocumentToNotebook(string noteBookName, Document document)
+        {
+            if (string.IsNullOrEmpty(noteBookName))
+            {
+                throw new ArgumentNullException("noteBookName");
+            }
+
+            if (document == null)
+            {
+                throw new ArgumentNullException("document");
+            }
+
+            _notebooks[noteBookName].Add(document);
+        }
+
+        public bool DocumentExists(string noteBookName, Document document)
+        {
+            if (string.IsNullOrEmpty(noteBookName))
+            {
+                throw new ArgumentNullException("noteBookName");
+            }
+
+            if (document == null)
+            {
+                throw new ArgumentNullException("document");
+            }
+
+            return _notebooks[noteBookName].Contains(document);            
+        }
+
+        public int DocumentCount(string noteBookName)
+        {
+            if (string.IsNullOrEmpty(noteBookName))
+            {
+                throw new ArgumentNullException("noteBookName");
+            }
+        
+            return _notebooks[noteBookName].Count;
+        }
     }
 }
