@@ -25,7 +25,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
 {
     public class NotebookCollection
     {
-        private Dictionary<string, List<Document>> _notebooks;
+        private readonly Dictionary<string, List<Document>> _notebooks;
 
         public NotebookCollection()
         {
@@ -114,6 +114,36 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
             }
         
             return _notebooks[noteBookName].Count;
+        }
+
+        public void RemoveDocument(string noteBookName, Document document)
+        {
+            if (string.IsNullOrEmpty(noteBookName))
+            {
+                throw new ArgumentNullException("noteBookName");
+            }
+
+            if (document == null)
+            {
+                throw new ArgumentNullException("document");
+            }
+
+            if (!DocumentExists(noteBookName, document))
+            {
+                throw new InvalidOperationException("document");
+            }
+
+            _notebooks[noteBookName].Remove(document);
+        }
+
+        public void RemoveAllDocuments(string noteBookName)
+        {
+            if (string.IsNullOrEmpty(noteBookName))
+            {
+                throw new ArgumentNullException("noteBookName");
+            }
+
+            _notebooks[noteBookName].Clear();
         }
     }
 }

@@ -194,6 +194,15 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.Notebook
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException), "noteBookName")]
+        public void DocumenCountThrowsArgumentNullExceptionIfNotebookNameIsNull()
+        {
+            var noteBookCollection = new NotebookCollection();
+            noteBookCollection.CreateNotebook("notebook");
+            noteBookCollection.DocumentCount(null);
+        }
+
+        [TestMethod]
         public void DocumentCountToNotebookAddsDocumentToNoteBook()
         {
             var noteBookCollection = new NotebookCollection();
@@ -203,6 +212,91 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.Notebook
             noteBookCollection.AddDocumentToNotebook("notebook", document);
 
             Assert.AreEqual(1, noteBookCollection.DocumentCount("notebook"));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException), "noteBookName")]
+        public void RemoveDocumentThrowsArgumentNullExceptionIfNotebookNameIsNull()
+        {
+            var noteBookCollection = new NotebookCollection();
+            noteBookCollection.CreateNotebook("notebook");
+            noteBookCollection.RemoveDocument(null, null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException), "document")]
+        public void RemoveDocumentThrowsArgumentNullExceptionIfDocumentIsNull()
+        {
+            var noteBookCollection = new NotebookCollection();
+            noteBookCollection.CreateNotebook("notebook");
+            noteBookCollection.RemoveDocument("notebook", null);
+        }
+
+        [TestMethod]
+        public void RemoveDocumentFromNotebookRemovesDocuments()
+        {
+            var noteBookCollection = new NotebookCollection();
+            noteBookCollection.CreateNotebook("notebook");
+
+            var document = new Document(@"c:\fileExists.scp", "myDocument1", new TestFileProxy());
+            var document2 = new Document(@"c:\fileExists.scp", "myDocument2", new TestFileProxy());
+
+            noteBookCollection.AddDocumentToNotebook("notebook", document);
+            noteBookCollection.AddDocumentToNotebook("notebook", document2);
+
+            Assert.AreEqual(2, noteBookCollection.DocumentCount("notebook"));
+
+            noteBookCollection.RemoveDocument("notebook", document);
+
+            Assert.AreEqual(1, noteBookCollection.DocumentCount("notebook"));
+        }
+
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "document")]
+        public void RemoveDocumentFromNotebookThrowsInvalidOperationExceptionIfDocumentDoesntExist()
+        {
+            var noteBookCollection = new NotebookCollection();
+            noteBookCollection.CreateNotebook("notebook");
+
+            var document = new Document(@"c:\fileExists.scp", "myDocument1", new TestFileProxy());
+            var document2 = new Document(@"c:\fileExists.scp", "myDocument2", new TestFileProxy());
+            var document3 = new Document(@"c:\fileExists.scp", "DoesNotExist", new TestFileProxy());
+
+            noteBookCollection.AddDocumentToNotebook("notebook", document);
+            noteBookCollection.AddDocumentToNotebook("notebook", document2);
+
+            Assert.AreEqual(2, noteBookCollection.DocumentCount("notebook"));
+
+            noteBookCollection.RemoveDocument("notebook", document3);            
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException), "noteBookName")]
+        public void RemoveAllDocumentsThrowsArgumentNullExceptionIfNotebookNameIsNull()
+        {
+            var noteBookCollection = new NotebookCollection();
+            noteBookCollection.CreateNotebook("notebook");
+            noteBookCollection.RemoveAllDocuments(null);
+        }
+
+        [TestMethod]
+        public void RemoveAllDocumentsFromNotebookRemovesAllDocuments()
+        {
+            var noteBookCollection = new NotebookCollection();
+            noteBookCollection.CreateNotebook("notebook");
+
+            var document = new Document(@"c:\fileExists.scp", "myDocument1", new TestFileProxy());
+            var document2 = new Document(@"c:\fileExists.scp", "myDocument2", new TestFileProxy());
+
+            noteBookCollection.AddDocumentToNotebook("notebook", document);
+            noteBookCollection.AddDocumentToNotebook("notebook", document2);
+
+            Assert.AreEqual(2, noteBookCollection.DocumentCount("notebook"));
+
+            noteBookCollection.RemoveAllDocuments("notebook");
+
+            Assert.AreEqual(0, noteBookCollection.DocumentCount("notebook"));
         }
     }
 }
