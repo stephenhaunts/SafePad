@@ -110,7 +110,6 @@
             this._cancelButton.TabIndex = 4;
             this._cancelButton.Text = "Cancel";
             this._cancelButton.UseVisualStyleBackColor = true;
-            
             // 
             // password1Strength
             // 
@@ -190,7 +189,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "PasswordEntry";
+            this.Text = "Password Entry";
             this.Load += new System.EventHandler(this.PasswordEntry_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

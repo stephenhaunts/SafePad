@@ -1,4 +1,23 @@
-﻿namespace HauntedHouseSoftware.SecureNotePad.Forms
+﻿/**
+ * Safe Pad, a double encrypted note pad that uses 2 passwords to protect your documents and help you keep your privacy.
+ * 
+ * Copyright (C) 2014 Stephen Haunts
+ * http://www.stephenhaunts.com
+ * 
+ * This file is part of Safe Pad.
+ * 
+ * Safe Pad is free software: you can redistribute it and/or modify it under the terms of the
+ * GNU General Public License as published by the Free Software Foundation, either version 2 of the
+ * License, or (at your option) any later version.
+ * 
+ * Safe Pad is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * 
+ * See the GNU General Public License for more details <http://www.gnu.org/licenses/>.
+ * 
+ * Authors: Stephen Haunts
+ */
+namespace HauntedHouseSoftware.SecureNotePad.Forms
 {
     partial class ApplicationProperties
     {
@@ -32,9 +51,9 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.General = new System.Windows.Forms.TabPage();
+            this.wordWrapCheckBox = new System.Windows.Forms.CheckBox();
             this.clearRecentFileListButton = new System.Windows.Forms.Button();
             this.detectURL = new System.Windows.Forms.CheckBox();
-            this.wordWrapCheckBox = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
             this.General.SuspendLayout();
             this.SuspendLayout();
@@ -89,6 +108,21 @@
             this.General.ToolTipText = "General properties";
             this.General.UseVisualStyleBackColor = true;
             // 
+            // wordWrapCheckBox
+            // 
+            this.wordWrapCheckBox.AutoSize = true;
+            this.wordWrapCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.wordWrapCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.wordWrapCheckBox.Location = new System.Drawing.Point(16, 37);
+            this.wordWrapCheckBox.Name = "wordWrapCheckBox";
+            this.wordWrapCheckBox.Size = new System.Drawing.Size(78, 17);
+            this.wordWrapCheckBox.TabIndex = 2;
+            this.wordWrapCheckBox.Text = "Word Wrap";
+            this.wordWrapCheckBox.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.wordWrapCheckBox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.wordWrapCheckBox.UseVisualStyleBackColor = true;
+            this.wordWrapCheckBox.CheckedChanged += new System.EventHandler(this.wordWrapCheckBox_CheckedChanged);
+            // 
             // clearRecentFileListButton
             // 
             this.clearRecentFileListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -115,21 +149,6 @@
             this.detectURL.UseVisualStyleBackColor = true;
             this.detectURL.CheckedChanged += new System.EventHandler(this.detectURL_CheckedChanged);
             // 
-            // wordWrapCheckBox
-            // 
-            this.wordWrapCheckBox.AutoSize = true;
-            this.wordWrapCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.wordWrapCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.wordWrapCheckBox.Location = new System.Drawing.Point(16, 37);
-            this.wordWrapCheckBox.Name = "wordWrapCheckBox";
-            this.wordWrapCheckBox.Size = new System.Drawing.Size(78, 17);
-            this.wordWrapCheckBox.TabIndex = 2;
-            this.wordWrapCheckBox.Text = "Word Wrap";
-            this.wordWrapCheckBox.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.wordWrapCheckBox.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.wordWrapCheckBox.UseVisualStyleBackColor = true;
-            this.wordWrapCheckBox.CheckedChanged += new System.EventHandler(this.wordWrapCheckBox_CheckedChanged);
-            // 
             // ApplicationProperties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,7 +162,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "ApplicationProperties";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ApplicationProperties";
+            this.Text = "Application Properties";
             this.tabControl.ResumeLayout(false);
             this.General.ResumeLayout(false);
             this.General.PerformLayout();

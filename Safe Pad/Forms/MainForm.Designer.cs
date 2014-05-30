@@ -1,4 +1,23 @@
-﻿namespace HauntedHouseSoftware.SecureNotePad.Forms
+﻿/**
+ * Safe Pad, a double encrypted note pad that uses 2 passwords to protect your documents and help you keep your privacy.
+ * 
+ * Copyright (C) 2014 Stephen Haunts
+ * http://www.stephenhaunts.com
+ * 
+ * This file is part of Safe Pad.
+ * 
+ * Safe Pad is free software: you can redistribute it and/or modify it under the terms of the
+ * GNU General Public License as published by the Free Software Foundation, either version 2 of the
+ * License, or (at your option) any later version.
+ * 
+ * Safe Pad is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * 
+ * See the GNU General Public License for more details <http://www.gnu.org/licenses/>.
+ * 
+ * Authors: Stephen Haunts
+ */
+namespace HauntedHouseSoftware.SecureNotePad.Forms
 {
     partial class MainForm
     {
@@ -116,15 +135,15 @@
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.customBackgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customeForegroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notebookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNotebookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeNotebookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearAllNotebooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
             this.notebooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -876,47 +895,6 @@
             this.customeForegroundColorToolStripMenuItem.Text = "Custome Foreground Color";
             this.customeForegroundColorToolStripMenuItem.Click += new System.EventHandler(this.customeForegroundColorToolStripMenuItem_Click);
             // 
-            // notebookToolStripMenuItem
-            // 
-            this.notebookToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addNotebookToolStripMenuItem,
-            this.removeNotebookToolStripMenuItem,
-            this.clearAllNotebooksToolStripMenuItem,
-            this.toolStripSeparator22,
-            this.notebooksToolStripMenuItem});
-            this.notebookToolStripMenuItem.Name = "notebookToolStripMenuItem";
-            this.notebookToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.notebookToolStripMenuItem.Text = "Notebook";
-            // 
-            // addNotebookToolStripMenuItem
-            // 
-            this.addNotebookToolStripMenuItem.Name = "addNotebookToolStripMenuItem";
-            this.addNotebookToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.addNotebookToolStripMenuItem.Text = "Add Notebook";
-            // 
-            // removeNotebookToolStripMenuItem
-            // 
-            this.removeNotebookToolStripMenuItem.Name = "removeNotebookToolStripMenuItem";
-            this.removeNotebookToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.removeNotebookToolStripMenuItem.Text = "Remove Notebook";
-            // 
-            // clearAllNotebooksToolStripMenuItem
-            // 
-            this.clearAllNotebooksToolStripMenuItem.Name = "clearAllNotebooksToolStripMenuItem";
-            this.clearAllNotebooksToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.clearAllNotebooksToolStripMenuItem.Text = "Clear All Notebooks";
-            // 
-            // toolStripSeparator22
-            // 
-            this.toolStripSeparator22.Name = "toolStripSeparator22";
-            this.toolStripSeparator22.Size = new System.Drawing.Size(176, 6);
-            // 
-            // notebooksToolStripMenuItem
-            // 
-            this.notebooksToolStripMenuItem.Name = "notebooksToolStripMenuItem";
-            this.notebooksToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.notebooksToolStripMenuItem.Text = "Notebooks";
-            // 
             // windowToolStripMenuItem
             // 
             this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -941,6 +919,48 @@
             this.loadToolbarLayoutToolStripMenuItem.Text = "Load Toolbar Layout";
             this.loadToolbarLayoutToolStripMenuItem.ToolTipText = "Load Toolbar Layout";
             this.loadToolbarLayoutToolStripMenuItem.Click += new System.EventHandler(this.LoadToolbarLayoutToolStripMenuItemClick);
+            // 
+            // notebookToolStripMenuItem
+            // 
+            this.notebookToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNotebookToolStripMenuItem,
+            this.removeNotebookToolStripMenuItem,
+            this.clearAllNotebooksToolStripMenuItem,
+            this.toolStripSeparator22,
+            this.notebooksToolStripMenuItem});
+            this.notebookToolStripMenuItem.Name = "notebookToolStripMenuItem";
+            this.notebookToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.notebookToolStripMenuItem.Text = "Notebook";
+            // 
+            // addNotebookToolStripMenuItem
+            // 
+            this.addNotebookToolStripMenuItem.Name = "addNotebookToolStripMenuItem";
+            this.addNotebookToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.addNotebookToolStripMenuItem.Text = "Add Notebook";
+            this.addNotebookToolStripMenuItem.Click += new System.EventHandler(this.addNotebookToolStripMenuItem_Click);
+            // 
+            // removeNotebookToolStripMenuItem
+            // 
+            this.removeNotebookToolStripMenuItem.Name = "removeNotebookToolStripMenuItem";
+            this.removeNotebookToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.removeNotebookToolStripMenuItem.Text = "Remove Notebook";
+            // 
+            // clearAllNotebooksToolStripMenuItem
+            // 
+            this.clearAllNotebooksToolStripMenuItem.Name = "clearAllNotebooksToolStripMenuItem";
+            this.clearAllNotebooksToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.clearAllNotebooksToolStripMenuItem.Text = "Clear All Notebooks";
+            // 
+            // toolStripSeparator22
+            // 
+            this.toolStripSeparator22.Name = "toolStripSeparator22";
+            this.toolStripSeparator22.Size = new System.Drawing.Size(176, 6);
+            // 
+            // notebooksToolStripMenuItem
+            // 
+            this.notebooksToolStripMenuItem.Name = "notebooksToolStripMenuItem";
+            this.notebooksToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.notebooksToolStripMenuItem.Text = "Notebooks";
             // 
             // helpToolStripMenuItem
             // 

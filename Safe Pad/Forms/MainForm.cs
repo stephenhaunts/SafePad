@@ -23,6 +23,7 @@ using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.Diagnostics;
 using System.IO;
+using HauntedHouseSoftware.SecureNotePad.Forms.Notebook;
 
 namespace HauntedHouseSoftware.SecureNotePad.Forms
 {
@@ -681,6 +682,14 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
 
             _cachedPassword = null;
+        }
+
+        private void addNotebookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var addNoteBook = new AddNotebook())
+            {
+                addNoteBook.ShowDialog();
+            }
         }
     }
 }
