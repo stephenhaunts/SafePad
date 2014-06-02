@@ -730,6 +730,15 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             //LoadDocument(clickedItem.Text);
         }
 
+        private void clearAllNotebooksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(@"Are you sure you want to delete all the notebooks?", @"Clear notebooks?",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                notebooksToolStripMenuItem.DropDownItems.Clear();
+            }
+        }
+
 
     }
 }

@@ -925,6 +925,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             this.clearAllNotebooksToolStripMenuItem.Name = "clearAllNotebooksToolStripMenuItem";
             this.clearAllNotebooksToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.clearAllNotebooksToolStripMenuItem.Text = "Clear All Notebooks";
+            this.clearAllNotebooksToolStripMenuItem.Click += new System.EventHandler(this.clearAllNotebooksToolStripMenuItem_Click);
             // 
             // toolStripSeparator22
             // 
