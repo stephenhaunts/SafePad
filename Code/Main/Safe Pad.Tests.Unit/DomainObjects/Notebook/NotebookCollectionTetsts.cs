@@ -118,6 +118,29 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.Notebook
         }
 
         [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException), "noteBookName")]
+        public void RetrieveNotebookThrowsArgumentNullExceptionIfNotebookNameIsNull()
+        {
+            var noteBookCollection = new NotebookCollection();
+
+            noteBookCollection.CreateNotebook("myNoteBook1");
+            noteBookCollection.CreateNotebook("myNoteBook2");
+
+            noteBookCollection.RetrieveNoteBook("myNoteBook3");
+        }
+  
+        [TestMethod]        
+        public void RetrieveNotebookReturnsNamesNotebook()
+        {
+            var noteBookCollection = new NotebookCollection();
+
+            noteBookCollection.CreateNotebook("myNoteBook1");
+            noteBookCollection.CreateNotebook("myNoteBook2");
+
+            Assert.IsNotNull(noteBookCollection.RetrieveNoteBook("myNoteBook1"));
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(ArgumentNullException), "noteBookName")]
         public void AddDocumentToNotebookThrowsArgumentNullExceptionIfNotebookNameIsNull()
         {

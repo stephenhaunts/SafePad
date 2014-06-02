@@ -701,8 +701,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                         Tag = addNoteBook.NoteBookName,
                         Name = addNoteBook.NoteBookName
                     };
-                    notebooksToolStripMenuItem.Click += NotebookMenuItemClickHandler;
 
+                    notebooksToolStripMenuItem.Click += NotebookMenuItemClickHandler;
                     notebooksToolStripMenuItem.DropDownItems.Add(menuItem);
                 }
                 else
