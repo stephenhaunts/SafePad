@@ -20,6 +20,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
 {
@@ -36,8 +37,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
         {
             get
             {
-                return _notebooks.Count;
-                
+                return _notebooks.Count;                
             }
         }
 
@@ -75,6 +75,21 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
             }
 
             _notebooks.Remove(noteBookName);
+        }
+
+        public ReadOnlyCollection<Document> RetrieveNoteBook(string noteBookName)
+        {
+            if (string.IsNullOrEmpty(noteBookName))
+            {
+                throw new ArgumentNullException("noteBookName");
+            }
+
+            if (!IsExists(noteBookName))
+            {
+                throw new InvalidOperationException(noteBookName);
+            }
+
+            return new ReadOnlyCollection<Document>(_notebooks[noteBookName]);
         }
 
         public void AddDocumentToNotebook(string noteBookName, Document document)
