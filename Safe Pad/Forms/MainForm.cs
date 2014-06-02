@@ -739,6 +739,17 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
         }
 
+        private void removeNotebookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var removeNotebook = new RemoveNotebook())
+            {
+                if (removeNotebook.ShowDialog() == DialogResult.OK)
+                {
+                    
+                }
+            }
+        }
+
 
     }
 }

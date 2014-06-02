@@ -256,6 +256,17 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects.Notebook
         }
 
         [TestMethod]
+        public void RetrieveNotebookNamesReturnsListofNotebookNames()
+        {
+            var noteBookCollection = new NotebookCollection();
+            noteBookCollection.CreateNotebook("notebook");
+            noteBookCollection.CreateNotebook("notebook2");
+            noteBookCollection.CreateNotebook("notebook3");
+
+            Assert.AreEqual(3, noteBookCollection.RetrieveNotebookNames().Count);            
+        }
+
+        [TestMethod]
         public void RemoveDocumentFromNotebookRemovesDocuments()
         {
             var noteBookCollection = new NotebookCollection();
