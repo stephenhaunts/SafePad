@@ -41,7 +41,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
             }
         }
 
-        private bool IsExists(string noteBookName)
+        public bool IsExists(string noteBookName)
         {
             return _notebooks.ContainsKey(noteBookName);
         }
@@ -58,7 +58,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
                 throw new InvalidOperationException("noteBookName");
             }
 
-            _notebooks.Add(noteBookName, new List<Document>());            
+            var notebook = new List<Document>();
+            _notebooks.Add(noteBookName, notebook);            
         }
 
         public void RemoveNotebook(string noteBookName)
