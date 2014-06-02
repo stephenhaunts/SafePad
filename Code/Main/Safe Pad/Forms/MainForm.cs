@@ -684,13 +684,53 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             _cachedPassword = null;
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
         private void addNotebookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var addNoteBook = new AddNotebook())
             {
-                addNoteBook.ShowDialog();
+                if (addNoteBook.ShowDialog() != DialogResult.OK) return;
+
+                if (!_settings.NotebookCollection.IsExists(addNoteBook.NoteBookName))
+                {
+                    _settings.NotebookCollection.CreateNotebook(addNoteBook.NoteBookName);
+
+                    var menuItem = new ToolStripMenuItem
+                    {
+                        Text = addNoteBook.NoteBookName,
+                        Tag = addNoteBook.NoteBookName,
+                        Name = addNoteBook.NoteBookName
+                    };
+                    notebooksToolStripMenuItem.Click += NotebookMenuItemClickHandler;
+
+                    notebooksToolStripMenuItem.DropDownItems.Add(menuItem);
+                }
+                else
+                {
+                    MessageBox.Show(@"A notebook with this name already exists.", @"Notebook Already Exists",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
+
+        private void NotebookMenuItemClickHandler(object sender, EventArgs e)
+        {
+            //var clickedItem = (ToolStripMenuItem)sender;
+
+            //if (!File.Exists(clickedItem.Text))
+            //{
+            //    MessageBox.Show(@"Could not load the file : " + clickedItem.Text, @"Could not load file.", MessageBoxButtons.OK, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button1);
+
+            //    _settings.RecentFileList.Remove(clickedItem.Text);
+            //    recentFilesToolStripMenuItem.DropDownItems.Remove(clickedItem);
+
+            //    return;
+            //}
+
+            //LoadDocument(clickedItem.Text);
+        }
+
+
     }
 }
 

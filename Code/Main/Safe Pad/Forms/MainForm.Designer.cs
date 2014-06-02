@@ -135,15 +135,15 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.customBackgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customeForegroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notebookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNotebookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeNotebookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearAllNotebooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
             this.notebooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -428,8 +428,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             this.editToolStripMenuItem,
             this.viewToolStripMenuItem,
             this.themeToolStripMenuItem,
-            this.windowToolStripMenuItem,
             this.notebookToolStripMenuItem,
+            this.windowToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -895,31 +895,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             this.customeForegroundColorToolStripMenuItem.Text = "Custome Foreground Color";
             this.customeForegroundColorToolStripMenuItem.Click += new System.EventHandler(this.customeForegroundColorToolStripMenuItem_Click);
             // 
-            // windowToolStripMenuItem
-            // 
-            this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToolbarLayoutToolStripMenuItem,
-            this.loadToolbarLayoutToolStripMenuItem});
-            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
-            this.windowToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.windowToolStripMenuItem.Text = "Window";
-            // 
-            // saveToolbarLayoutToolStripMenuItem
-            // 
-            this.saveToolbarLayoutToolStripMenuItem.Name = "saveToolbarLayoutToolStripMenuItem";
-            this.saveToolbarLayoutToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.saveToolbarLayoutToolStripMenuItem.Text = "Save Toolbar Layout";
-            this.saveToolbarLayoutToolStripMenuItem.ToolTipText = "Save Toolbar Layout";
-            this.saveToolbarLayoutToolStripMenuItem.Click += new System.EventHandler(this.SaveToolbarLayoutToolStripMenuItemClick);
-            // 
-            // loadToolbarLayoutToolStripMenuItem
-            // 
-            this.loadToolbarLayoutToolStripMenuItem.Name = "loadToolbarLayoutToolStripMenuItem";
-            this.loadToolbarLayoutToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.loadToolbarLayoutToolStripMenuItem.Text = "Load Toolbar Layout";
-            this.loadToolbarLayoutToolStripMenuItem.ToolTipText = "Load Toolbar Layout";
-            this.loadToolbarLayoutToolStripMenuItem.Click += new System.EventHandler(this.LoadToolbarLayoutToolStripMenuItemClick);
-            // 
             // notebookToolStripMenuItem
             // 
             this.notebookToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -961,6 +936,31 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             this.notebooksToolStripMenuItem.Name = "notebooksToolStripMenuItem";
             this.notebooksToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.notebooksToolStripMenuItem.Text = "Notebooks";
+            // 
+            // windowToolStripMenuItem
+            // 
+            this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolbarLayoutToolStripMenuItem,
+            this.loadToolbarLayoutToolStripMenuItem});
+            this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
+            this.windowToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.windowToolStripMenuItem.Text = "Window";
+            // 
+            // saveToolbarLayoutToolStripMenuItem
+            // 
+            this.saveToolbarLayoutToolStripMenuItem.Name = "saveToolbarLayoutToolStripMenuItem";
+            this.saveToolbarLayoutToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.saveToolbarLayoutToolStripMenuItem.Text = "Save Toolbar Layout";
+            this.saveToolbarLayoutToolStripMenuItem.ToolTipText = "Save Toolbar Layout";
+            this.saveToolbarLayoutToolStripMenuItem.Click += new System.EventHandler(this.SaveToolbarLayoutToolStripMenuItemClick);
+            // 
+            // loadToolbarLayoutToolStripMenuItem
+            // 
+            this.loadToolbarLayoutToolStripMenuItem.Name = "loadToolbarLayoutToolStripMenuItem";
+            this.loadToolbarLayoutToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.loadToolbarLayoutToolStripMenuItem.Text = "Load Toolbar Layout";
+            this.loadToolbarLayoutToolStripMenuItem.ToolTipText = "Load Toolbar Layout";
+            this.loadToolbarLayoutToolStripMenuItem.Click += new System.EventHandler(this.LoadToolbarLayoutToolStripMenuItemClick);
             // 
             // helpToolStripMenuItem
             // 

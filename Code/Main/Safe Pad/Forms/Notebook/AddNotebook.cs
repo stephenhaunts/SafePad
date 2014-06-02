@@ -18,13 +18,12 @@
  * Authors: Stephen Haunts
  */
 using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace HauntedHouseSoftware.SecureNotePad.Forms.Notebook
 {
     public partial class AddNotebook : Form
-    {
+    {        
         public AddNotebook()
         {
             InitializeComponent();
@@ -33,6 +32,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms.Notebook
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             okButton.Enabled = textBox.Text.Length >= 1;
+        }
+
+        public string NoteBookName
+        {
+            get { return textBox.Text; }
         }
     }
 }
