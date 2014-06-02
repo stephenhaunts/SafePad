@@ -74,6 +74,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms.Notebook
             this.okButton.TabIndex = 4;
             this.okButton.Text = "Ok";
             this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // notepadListBox
             // 

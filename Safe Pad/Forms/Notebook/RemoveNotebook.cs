@@ -19,14 +19,16 @@
  */
 
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace HauntedHouseSoftware.SecureNotePad.Forms.Notebook
 {
     public partial class RemoveNotebook : Form
-    {
-        public RemoveNotebook(ReadOnlyCollection<string> notebooks )
+    {        
+        public RemoveNotebook(IEnumerable<string> notebooks )
         {
             if (notebooks == null)
             {
@@ -41,6 +43,16 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms.Notebook
             }            
         }
 
+        public ReadOnlyCollection<string> SelectedItems
+        {
+            get
+            {
+                var selectedItems = notepadListBox.SelectedItems.Cast<object>().Cast<string>().ToList();
+
+                return new ReadOnlyCollection<string>(selectedItems);
+            }
+        }
+
         private void notepadListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             okButton.Enabled = notepadListBox.SelectedItems.Count != 0;   
@@ -49,6 +61,11 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms.Notebook
         private void notepadListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {            
             okButton.Enabled = notepadListBox.SelectedItems.Count != 0;
+        }
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
