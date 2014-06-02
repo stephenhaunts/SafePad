@@ -110,6 +110,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms.Notebook
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddNotebook";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Note Book";
             this.ResumeLayout(false);

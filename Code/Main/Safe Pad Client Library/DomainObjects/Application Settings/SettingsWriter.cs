@@ -18,9 +18,7 @@
  * Authors: Stephen Haunts
  */
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -52,6 +50,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
                 var path = Path.GetFullPath(AssemblyDirectory + "settings.xml");
 
                 var serializer = new XmlSerializer(settings.GetType());
+
                 using (var writer = XmlWriter.Create(path))
                 {
                     serializer.Serialize(writer, settings);
@@ -73,9 +72,11 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
                 if (!File.Exists(path)) return null;
 
                 var serializer = new XmlSerializer(typeof(ApplicationSettings));
+
                 using (var reader = XmlReader.Create(path))
                 {
                     var settings = (ApplicationSettings)serializer.Deserialize(reader);
+                
                     return settings;
                 }
             }

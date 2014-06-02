@@ -21,12 +21,13 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
 {
     public class NotebookCollection
     {
-        private readonly Dictionary<string, List<Document>> _notebooks;
+        private Dictionary<string, List<Document>> _notebooks;
 
         public NotebookCollection()
         {
@@ -39,6 +40,13 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
             {
                 return _notebooks.Count;                
             }
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures"), System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public Dictionary<string, List<Document>> Notebooks
+        {
+            get { return _notebooks; }
+            set { _notebooks = value; }
         }
 
         public bool IsExists(string noteBookName)
@@ -75,6 +83,13 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
             }
 
             _notebooks.Remove(noteBookName);
+        }
+
+        public ReadOnlyCollection<string> RetrieveNotebookNames()
+        {
+            var notebooks = _notebooks.Select(entry => entry.Key).ToList();
+
+            return new ReadOnlyCollection<string>(notebooks);
         }
 
         public ReadOnlyCollection<Document> RetrieveNoteBook(string noteBookName)
