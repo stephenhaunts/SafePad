@@ -739,18 +739,36 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
         private void removeNotebookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var removeNotebook = new RemoveNotebook(_settings.NotebookCollection.RetrieveNotebookNames()))
             {
-                if (removeNotebook.ShowDialog() == DialogResult.OK)
+                if (removeNotebook.ShowDialog() != DialogResult.OK) return;
+
+                var selected = removeNotebook.SelectedItems;
+
+                notebooksToolStripMenuItem.DropDownItems.Clear();
+
+                foreach (var item in selected)
                 {
-                    
+                    _settings.NotebookCollection.RemoveNotebook(item);                   
+                }
+
+                foreach (var newList in _settings.NotebookCollection.RetrieveNotebookNames())
+                {
+                    var menuItem = new ToolStripMenuItem
+                    {
+                        Text = newList,
+                        Tag = newList,
+                        Name = newList
+                    };
+
+                    notebooksToolStripMenuItem.Click += NotebookMenuItemClickHandler;
+                    notebooksToolStripMenuItem.DropDownItems.Add(menuItem);
                 }
             }
         }
-
-
     }
 }
 
