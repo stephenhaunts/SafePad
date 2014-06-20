@@ -85,7 +85,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             this.aboutBoxVersionLabel.Name = "aboutBoxVersionLabel";
             this.aboutBoxVersionLabel.Size = new System.Drawing.Size(105, 24);
             this.aboutBoxVersionLabel.TabIndex = 2;
-            this.aboutBoxVersionLabel.Text = "Version 1.4";
+            this.aboutBoxVersionLabel.Text = "Version 1.3";
             // 
             // aboutBoxLicenseName
             // 
