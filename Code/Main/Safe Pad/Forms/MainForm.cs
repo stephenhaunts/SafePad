@@ -30,7 +30,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
     public partial class MainForm : Form
     {
         private FindAndReplaceForm _findForm;
-        private const string HelpUrl = "http://stephenhaunts.com/safe-pad-1-2-manual/";
+        private const string HelpUrl = "http://stephenhaunts.com/projects/safe-pad/safe-pad-1-4-manual/";
 
         public MainForm(string fileName)
         {
