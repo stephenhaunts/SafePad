@@ -59,9 +59,9 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms.PasswordGenerator
             GeneratePassword();
         }
 
-        private void insertButton_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            GeneratePassword();
         }
     }
 }

@@ -35,6 +35,7 @@
             this.passwordLengthLabel = new System.Windows.Forms.Label();
             this.passwordLengthIndicator = new System.Windows.Forms.TextBox();
             this.singleCase = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.passwordLengthTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,8 +48,7 @@
             this.insertButton.Size = new System.Drawing.Size(75, 23);
             this.insertButton.TabIndex = 0;
             this.insertButton.Text = "Insert";
-            this.insertButton.UseVisualStyleBackColor = true;
-            this.insertButton.Click += new System.EventHandler(this.insertButton_Click);
+            this.insertButton.UseVisualStyleBackColor = true;            
             // 
             // cancelButton
             // 
@@ -112,11 +112,23 @@
             this.singleCase.UseVisualStyleBackColor = true;
             this.singleCase.CheckedChanged += new System.EventHandler(this.singleCase_CheckedChanged);
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(30, 136);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Generate";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // PasswordGeneratorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 171);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.singleCase);
             this.Controls.Add(this.passwordLengthIndicator);
             this.Controls.Add(this.passwordLengthLabel);
@@ -147,5 +159,6 @@
         private System.Windows.Forms.Label passwordLengthLabel;
         private System.Windows.Forms.TextBox passwordLengthIndicator;
         private System.Windows.Forms.CheckBox singleCase;
+        private System.Windows.Forms.Button button1;
     }
 }
