@@ -1,0 +1,99 @@
+Version 1.3
+------------
+
+[X] - Fixed Issue #1968 - Document Saved Flag incorrectly getting set.
+
+[X] - Added check box to the password entry screen to allow you to cache a password for the currently loaded session.
+
+[X] - Password generator.
+
+[X] - Fix bug where closing the app when minimised causes the application to restore minimised, which makes it 
+      hard to get the window back. If the app is minimised when closed, it will save the state as maximised.
+
+
+Version 1.2
+------------
+
+[X] - Use BCrypt as the internal password hash and increase the file format number to 1.1. Old files of version 1.0
+      are backwards compatible. They will get saved automatically to version 1.1.
+
+[X] - Made password 2 optional. I still recommend using 2 passwords, but you don't have too.
+
+[X] - Enter on first field on passwords entry dialog box moves focus to second field. Enter on second
+      field is the same as clicking the OK button.
+
+[X] - When doing a normal save over the top of a file, prompt the user if they want to overwrite the file.
+
+[X] - Implement panic key to quickly minimize the application. This is bound to the ESC key.
+
+[X] - Use AesCryptoServiceProvider instead of ManagedAES as it is FIPS compliant.
+
+[X] - Have the option to disable DetectURLS.
+
+[X] - When entering a password, implement an on-screen keyboard so that the user can avoid typing the password on the keyboard.
+      This is to guard against key sniffers. This is a user request.
+
+[X] - Change 1.1 file format so that it generates a new salt for each save.
+
+[X] - Changed the PBKDF function (Rfc2898DeriveBytes) to perform 40,000 rounds when creating the encryption key.
+
+[X] - Add context menu to the rich text view to include all the standard edting features.
+
+[X] - Implement an application properties dialog to give more customisation to the user.
+
+[X] - Implement screen white hot key out to change th text to the same color as the background.
+
+[X] - Recent files list on the file menu.
+
+[X] - Whilst getting feedback on the application from security proffessionals, the common consensus seems to be that using Cascased
+      iteration of AES offers no additional security over doing it once. I have changed the new file format to only run AES once, but the
+	  2 passwords are combined together first into a longer password.
+
+[X] - Implement Find and Replace.
+
+[X] - Add the word wrap option to the application settings.
+
+[X] - Add Help link to the Help Menu. This will load up a manual page on www.stephenhaunts.com
+
+[X] - Add Cut / Copy / Paste to context menu.
+
+[X] - If link selected in document, add a 'Browse to Link' option to the context menu.
+
+[X] - Export file to RTF.
+
+
+Version 1.1
+------------
+
+[X] - Added loader factory to support older versions of the file format to make it backwards compatible. 
+      If you save a file in an older file format, it will be saved in the latest format.
+
+[X] - Add a font selector and font size selector to the main toolbar.
+
+[X] - Password entry dialog box now accepts Return key on each text box.
+
+[X] - Make the save button/menu item act more like a normal Save Button. Also added a "Save As" menu item that will
+      always prompt for a password and filename.
+
+[X] - If you try to exit with unsaved changes, prompt to save.
+
+[X] - Add password strength meter to password input box. This uses rules like using numbers, mixed case, punctuation symbols and 
+      length as indicators. The meter will also do a whitelist check against common password along with letter substituded versions.
+
+[X] - Add Status bar to the bottom of the window to display common prompts like new document, loaded and saved etc.
+    
+[X] - Save window state to XML settings file.
+
+[X] - Add themes menu. This allows you to select a low contrast (dark or light) theme. This is to make seeing text difficult for 
+      anyone overlooking your screen. You can also pick a custom background and foreground color.
+
+[X] - Added a new about dialog box.
+
+[X] - Remove Install Shield project. Will distribute as a zip file for the moment until I build a WIX installer.
+
+[X] - Allow the dragging and dropping of files into the document. The whole document is compressed before it is encrypted.
+
+[X] - Add Zoom factor menu to the status bar.
+
+[X] - Bug #1713 : Fixed crash bug where selecting text with multiple fonts would cause the application to crash out. 
+
