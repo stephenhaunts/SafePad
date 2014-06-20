@@ -201,6 +201,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             this.insertImageDialog = new System.Windows.Forms.OpenFileDialog();
             this.themeColorDialog = new System.Windows.Forms.ColorDialog();
             this.exportFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generatePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.notifyIconContextMenu.SuspendLayout();
@@ -429,6 +431,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             this.viewToolStripMenuItem,
             this.themeToolStripMenuItem,
             this.notebookToolStripMenuItem,
+            this.toolsToolStripMenuItem,
             this.windowToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
@@ -906,6 +909,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             this.notebookToolStripMenuItem.Name = "notebookToolStripMenuItem";
             this.notebookToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.notebookToolStripMenuItem.Text = "Notebook";
+            this.notebookToolStripMenuItem.Visible = false;
             // 
             // addNotebookToolStripMenuItem
             // 
@@ -1494,6 +1498,20 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             // 
             this.exportFileDialog.Filter = "Rich Text File |*.rtf|All Files|*.*";
             // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generatePasswordToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // generatePasswordToolStripMenuItem
+            // 
+            this.generatePasswordToolStripMenuItem.Name = "generatePasswordToolStripMenuItem";
+            this.generatePasswordToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.generatePasswordToolStripMenuItem.Text = "Generate Password";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1680,6 +1698,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private System.Windows.Forms.ToolStripMenuItem clearAllNotebooksToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator22;
         private System.Windows.Forms.ToolStripMenuItem notebooksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generatePasswordToolStripMenuItem;
     }
 }
 
