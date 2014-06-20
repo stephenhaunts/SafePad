@@ -17,31 +17,33 @@
  * 
  * Authors: Stephen Haunts
  */
+
 using System;
-using System.Globalization;
-using System.Windows.Forms;
+using System.Security.Cryptography;
+using System.Text;
 
-namespace HauntedHouseSoftware.SecureNotePad.Forms.PasswordGenerator
+namespace HauntedHouseSoftware.SecureNotePad.Tools
 {
-    public partial class PasswordGeneratorForm : Form
-    {        
-        public PasswordGeneratorForm()
+    public static class PasswordGenerator
+    {
+        public static string Generate(int passwordLength)
         {
-            InitializeComponent();
-            passwordLengthIndicator.Text = passwordLengthTrackBar.Value.ToString(CultureInfo.InvariantCulture);
-            GeneratePassword();
-        }
+            if (passwordLength == 0)
+            {
+                throw new InvalidOperationException("passwordLength");
+            }
 
-        private void passwordLengthTrackBar_ValueChanged(object sender, EventArgs e)
-        {
-            passwordLengthIndicator.Text = passwordLengthTrackBar.Value.ToString(CultureInfo.InvariantCulture);
+            string password;
 
-            GeneratePassword();
-        } 
+            using (var randomNumberGenerator = new RNGCryptoServiceProvider())
+            {                
+                byte[] randomNumber = new byte[64];
+                randomNumberGenerator.GetBytes(randomNumber);
 
-        private void GeneratePassword()
-        {
-            Tools.PasswordGenerator.Generate(passwordLengthTrackBar.Value);
+                password = Convert.ToBase64String(randomNumber);
+            }
+
+            return password;
         }
     }
 }
