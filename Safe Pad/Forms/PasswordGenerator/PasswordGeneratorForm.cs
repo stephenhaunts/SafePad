@@ -29,7 +29,17 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms.PasswordGenerator
         {
             InitializeComponent();
             passwordLengthIndicator.Text = passwordLengthTrackBar.Value.ToString(CultureInfo.InvariantCulture);
+            singleCase.Checked = false;
+
             GeneratePassword();
+        }
+
+        public string Password
+        {
+            get
+            {
+                return generatedPassword.Text;
+            }
         }
 
         private void passwordLengthTrackBar_ValueChanged(object sender, EventArgs e)
@@ -41,7 +51,17 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms.PasswordGenerator
 
         private void GeneratePassword()
         {
-            Tools.PasswordGenerator.Generate(passwordLengthTrackBar.Value);
+            generatedPassword.Text = Tools.PasswordGenerator.Generate(passwordLengthTrackBar.Value, singleCase.Checked);
+        }
+
+        private void singleCase_CheckedChanged(object sender, EventArgs e)
+        {
+            GeneratePassword();
+        }
+
+        private void insertButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
