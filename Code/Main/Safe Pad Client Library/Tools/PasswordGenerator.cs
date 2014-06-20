@@ -17,16 +17,14 @@
  * 
  * Authors: Stephen Haunts
  */
-
 using System;
 using System.Security.Cryptography;
-using System.Text;
 
 namespace HauntedHouseSoftware.SecureNotePad.Tools
 {
     public static class PasswordGenerator
     {
-        public static string Generate(int passwordLength)
+        public static string Generate(int passwordLength, bool singleCase)
         {
             if (passwordLength == 0)
             {
@@ -37,10 +35,17 @@ namespace HauntedHouseSoftware.SecureNotePad.Tools
 
             using (var randomNumberGenerator = new RNGCryptoServiceProvider())
             {                
-                byte[] randomNumber = new byte[64];
+                var randomNumber = new byte[64];
                 randomNumberGenerator.GetBytes(randomNumber);
 
                 password = Convert.ToBase64String(randomNumber);
+            }
+
+            password = password.Substring(0, passwordLength);
+
+            if (singleCase)
+            {
+                password = password.ToLower();
             }
 
             return password;
