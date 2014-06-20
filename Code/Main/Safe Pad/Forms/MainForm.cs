@@ -24,6 +24,7 @@ using System.Drawing.Printing;
 using System.Diagnostics;
 using System.IO;
 using HauntedHouseSoftware.SecureNotePad.Forms.Notebook;
+using HauntedHouseSoftware.SecureNotePad.Forms.PasswordGenerator;
 
 namespace HauntedHouseSoftware.SecureNotePad.Forms
 {
@@ -767,6 +768,14 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                     notebooksToolStripMenuItem.Click += NotebookMenuItemClickHandler;
                     notebooksToolStripMenuItem.DropDownItems.Add(menuItem);
                 }
+            }
+        }
+
+        private void generatePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var passwordGenerator = new PasswordGeneratorForm())
+            {
+                passwordGenerator.ShowDialog();
             }
         }
     }

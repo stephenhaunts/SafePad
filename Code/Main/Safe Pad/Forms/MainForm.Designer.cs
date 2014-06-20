@@ -141,6 +141,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             this.clearAllNotebooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
             this.notebooksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generatePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolbarLayoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -201,8 +203,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             this.insertImageDialog = new System.Windows.Forms.OpenFileDialog();
             this.themeColorDialog = new System.Windows.Forms.ColorDialog();
             this.exportFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.generatePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.notifyIconContextMenu.SuspendLayout();
@@ -943,6 +943,21 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             this.notebooksToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.notebooksToolStripMenuItem.Text = "Notebooks";
             // 
+            // toolsToolStripMenuItem
+            // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generatePasswordToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // generatePasswordToolStripMenuItem
+            // 
+            this.generatePasswordToolStripMenuItem.Name = "generatePasswordToolStripMenuItem";
+            this.generatePasswordToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.generatePasswordToolStripMenuItem.Text = "Generate Password";
+            this.generatePasswordToolStripMenuItem.Click += new System.EventHandler(this.generatePasswordToolStripMenuItem_Click);
+            // 
             // windowToolStripMenuItem
             // 
             this.windowToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1497,20 +1512,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             // exportFileDialog
             // 
             this.exportFileDialog.Filter = "Rich Text File |*.rtf|All Files|*.*";
-            // 
-            // toolsToolStripMenuItem
-            // 
-            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.generatePasswordToolStripMenuItem});
-            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.toolsToolStripMenuItem.Text = "Tools";
-            // 
-            // generatePasswordToolStripMenuItem
-            // 
-            this.generatePasswordToolStripMenuItem.Name = "generatePasswordToolStripMenuItem";
-            this.generatePasswordToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
-            this.generatePasswordToolStripMenuItem.Text = "Generate Password";
             // 
             // MainForm
             // 
