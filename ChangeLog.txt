@@ -2,8 +2,13 @@ Version 1.3
 ------------
 
 [X] - Fixed Issue #1968 - Document Saved Flag incorrectly getting set.
+
 [X] - Added check box to the password entry screen to allow you to cache a password for the currently loaded session.
+
 [X] - Password generator.
+
+[X] - Fix bug where closing the app when minimised causes the application to restore minimised, which makes it 
+      hard to get the window back. If the app is minimised when closed, it will save the state as maximised.
 
 
 Version 1.2

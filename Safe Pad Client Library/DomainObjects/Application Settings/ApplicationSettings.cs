@@ -17,6 +17,8 @@
 * 
 * Authors: Stephen Haunts
 */
+
+using System;
 using System.Collections.ObjectModel;
 using System.Windows.Forms;
 using HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook;
@@ -28,7 +30,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         public ApplicationSettings()
         {
             RecentFileList = new Collection<string>();
-            NotebookCollection = new NotebookCollection();
+           // NotebookCollection = new NotebookCollection();
         }
 
         public int WindowPositionX { get; set; }
@@ -49,7 +51,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public Collection<string> RecentFileList { get; set; }
-
-        public NotebookCollection NotebookCollection { get; set; }
+        
+        //public NotebookCollection NotebookCollection { get; set; }
     }
 }

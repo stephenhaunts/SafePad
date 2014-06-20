@@ -642,6 +642,14 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             _settings.WindowHeight = Size.Height;
             _settings.WindowWidth = Size.Width;
             _settings.FormWindowState = WindowState;
+
+            if (_settings.FormWindowState == FormWindowState.Minimized)
+            {
+                _settings.FormWindowState = FormWindowState.Maximized;
+                _settings.WindowWidth = Screen.PrimaryScreen.Bounds.Width;
+                _settings.WindowHeight =Screen.PrimaryScreen.Bounds.Height;
+            }
+            
             _settings.DetectURL = richTextBox.DetectUrls;
             _settings.WordWrap = richTextBox.WordWrap;
 

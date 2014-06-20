@@ -688,30 +688,30 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
         private void addNotebookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (var addNoteBook = new AddNotebook())
-            {
-                if (addNoteBook.ShowDialog() != DialogResult.OK) return;
+            //using (var addNoteBook = new AddNotebook())
+            //{
+            //    if (addNoteBook.ShowDialog() != DialogResult.OK) return;
 
-                if (!_settings.NotebookCollection.IsExists(addNoteBook.NoteBookName))
-                {
-                    _settings.NotebookCollection.CreateNotebook(addNoteBook.NoteBookName);
+            //    if (!_settings.NotebookCollection.IsExists(addNoteBook.NoteBookName))
+            //    {
+            //        _settings.NotebookCollection.CreateNotebook(addNoteBook.NoteBookName);
 
-                    var menuItem = new ToolStripMenuItem
-                    {
-                        Text = addNoteBook.NoteBookName,
-                        Tag = addNoteBook.NoteBookName,
-                        Name = addNoteBook.NoteBookName
-                    };
+            //        var menuItem = new ToolStripMenuItem
+            //        {
+            //            Text = addNoteBook.NoteBookName,
+            //            Tag = addNoteBook.NoteBookName,
+            //            Name = addNoteBook.NoteBookName
+            //        };
 
-                    notebooksToolStripMenuItem.Click += NotebookMenuItemClickHandler;
-                    notebooksToolStripMenuItem.DropDownItems.Add(menuItem);
-                }
-                else
-                {
-                    MessageBox.Show(@"A notebook with this name already exists.", @"Notebook Already Exists",
-                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
+            //        notebooksToolStripMenuItem.Click += NotebookMenuItemClickHandler;
+            //        notebooksToolStripMenuItem.DropDownItems.Add(menuItem);
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show(@"A notebook with this name already exists.", @"Notebook Already Exists",
+            //            MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    }
+            //}
         }
 
         private void NotebookMenuItemClickHandler(object sender, EventArgs e)
@@ -743,32 +743,32 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
         private void removeNotebookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (var removeNotebook = new RemoveNotebook(_settings.NotebookCollection.RetrieveNotebookNames()))
-            {
-                if (removeNotebook.ShowDialog() != DialogResult.OK) return;
+            //using (var removeNotebook = new RemoveNotebook(_settings.NotebookCollection.RetrieveNotebookNames()))
+            //{
+            //    if (removeNotebook.ShowDialog() != DialogResult.OK) return;
 
-                var selected = removeNotebook.SelectedItems;
+            //    var selected = removeNotebook.SelectedItems;
 
-                notebooksToolStripMenuItem.DropDownItems.Clear();
+            //    notebooksToolStripMenuItem.DropDownItems.Clear();
 
-                foreach (var item in selected)
-                {
-                    _settings.NotebookCollection.RemoveNotebook(item);                   
-                }
+            //    foreach (var item in selected)
+            //    {
+            //        _settings.NotebookCollection.RemoveNotebook(item);                   
+            //    }
 
-                foreach (var newList in _settings.NotebookCollection.RetrieveNotebookNames())
-                {
-                    var menuItem = new ToolStripMenuItem
-                    {
-                        Text = newList,
-                        Tag = newList,
-                        Name = newList
-                    };
+            //    foreach (var newList in _settings.NotebookCollection.RetrieveNotebookNames())
+            //    {
+            //        var menuItem = new ToolStripMenuItem
+            //        {
+            //            Text = newList,
+            //            Tag = newList,
+            //            Name = newList
+            //        };
 
-                    notebooksToolStripMenuItem.Click += NotebookMenuItemClickHandler;
-                    notebooksToolStripMenuItem.DropDownItems.Add(menuItem);
-                }
-            }
+            //        notebooksToolStripMenuItem.Click += NotebookMenuItemClickHandler;
+            //        notebooksToolStripMenuItem.DropDownItems.Add(menuItem);
+            //    }
+            //}
         }
 
         private void generatePasswordToolStripMenuItem_Click(object sender, EventArgs e)
