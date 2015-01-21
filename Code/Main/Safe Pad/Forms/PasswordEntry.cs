@@ -33,6 +33,13 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             InitializeComponent();
 
             _cachePasswordForSession.Visible = true;
+
+            if (!passwordTabControl.TabPages.Contains(keyFileTabPage))
+            {
+                passwordTabControl.TabPages.Add(keyFileTabPage);
+            }
+
+            passwordTabControl.SelectTab(keyFileTabPage);
         }
 
         public PasswordEntry(bool cachePassword)
@@ -40,6 +47,12 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             InitializeComponent();
 
             _cachePasswordForSession.Visible = cachePassword;
+
+            if (passwordTabControl.TabPages.Contains(keyFileTabPage))
+            {
+                passwordTabControl.TabPages.Remove(keyFileTabPage);
+            }
+
         }
 
         public bool IsPasswordCached
