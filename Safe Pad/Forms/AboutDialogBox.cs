@@ -42,5 +42,10 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             ProcessStartInfo sInfo = new ProcessStartInfo(aboutBoxLinkLabel.Text);
             Process.Start(sInfo);
         }
+
+        private void aboutBoxVersionLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

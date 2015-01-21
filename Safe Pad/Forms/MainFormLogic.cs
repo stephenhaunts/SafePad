@@ -185,6 +185,9 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
                 AddFileToRecentFileList(fileName);
 
+                Height = Height + 1;
+                Height = Height - 1;
+                
                 _documentName = fileName;
                 ChangeDisplayHeader();
                 _documentChanged = false;
