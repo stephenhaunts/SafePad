@@ -40,11 +40,16 @@
             this._password1Keyboard = new System.Windows.Forms.Button();
             this._password2Keyboard = new System.Windows.Forms.Button();
             this._cachePasswordForSession = new System.Windows.Forms.CheckBox();
+            this.passwordTabControl = new System.Windows.Forms.TabControl();
+            this.passwordTabPage = new System.Windows.Forms.TabPage();
+            this.keyFileTabPage = new System.Windows.Forms.TabPage();
+            this.passwordTabControl.SuspendLayout();
+            this.passwordTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // _passwordOne
             // 
-            this._passwordOne.Location = new System.Drawing.Point(81, 70);
+            this._passwordOne.Location = new System.Drawing.Point(6, 26);
             this._passwordOne.Name = "_passwordOne";
             this._passwordOne.PasswordChar = '*';
             this._passwordOne.Size = new System.Drawing.Size(326, 20);
@@ -56,7 +61,7 @@
             // _passwordOneLabel
             // 
             this._passwordOneLabel.AutoSize = true;
-            this._passwordOneLabel.Location = new System.Drawing.Point(81, 51);
+            this._passwordOneLabel.Location = new System.Drawing.Point(6, 7);
             this._passwordOneLabel.Name = "_passwordOneLabel";
             this._passwordOneLabel.Size = new System.Drawing.Size(76, 13);
             this._passwordOneLabel.TabIndex = 4;
@@ -65,7 +70,7 @@
             // _passwordTwoLabel
             // 
             this._passwordTwoLabel.AutoSize = true;
-            this._passwordTwoLabel.Location = new System.Drawing.Point(81, 110);
+            this._passwordTwoLabel.Location = new System.Drawing.Point(6, 66);
             this._passwordTwoLabel.Name = "_passwordTwoLabel";
             this._passwordTwoLabel.Size = new System.Drawing.Size(125, 13);
             this._passwordTwoLabel.TabIndex = 3;
@@ -73,7 +78,7 @@
             // 
             // _passwordTwo
             // 
-            this._passwordTwo.Location = new System.Drawing.Point(81, 126);
+            this._passwordTwo.Location = new System.Drawing.Point(6, 82);
             this._passwordTwo.Name = "_passwordTwo";
             this._passwordTwo.PasswordChar = '*';
             this._passwordTwo.Size = new System.Drawing.Size(326, 20);
@@ -83,8 +88,9 @@
             // 
             // _okButton
             // 
+            this._okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this._okButton.Location = new System.Drawing.Point(329, 185);
+            this._okButton.Location = new System.Drawing.Point(288, 241);
             this._okButton.Name = "_okButton";
             this._okButton.Size = new System.Drawing.Size(75, 23);
             this._okButton.TabIndex = 3;
@@ -103,8 +109,9 @@
             // 
             // _cancelButton
             // 
+            this._cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this._cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._cancelButton.Location = new System.Drawing.Point(410, 185);
+            this._cancelButton.Location = new System.Drawing.Point(369, 241);
             this._cancelButton.Name = "_cancelButton";
             this._cancelButton.Size = new System.Drawing.Size(75, 23);
             this._cancelButton.TabIndex = 4;
@@ -116,7 +123,7 @@
             this.password1Strength.AutoSize = true;
             this.password1Strength.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password1Strength.ForeColor = System.Drawing.Color.Red;
-            this.password1Strength.Location = new System.Drawing.Point(342, 51);
+            this.password1Strength.Location = new System.Drawing.Point(267, 7);
             this.password1Strength.Name = "password1Strength";
             this.password1Strength.Size = new System.Drawing.Size(0, 13);
             this.password1Strength.TabIndex = 7;
@@ -127,7 +134,7 @@
             this.password2Strength.AutoSize = true;
             this.password2Strength.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.password2Strength.ForeColor = System.Drawing.Color.Red;
-            this.password2Strength.Location = new System.Drawing.Point(342, 110);
+            this.password2Strength.Location = new System.Drawing.Point(267, 66);
             this.password2Strength.Name = "password2Strength";
             this.password2Strength.Size = new System.Drawing.Size(0, 13);
             this.password2Strength.TabIndex = 8;
@@ -136,7 +143,7 @@
             // _password1Keyboard
             // 
             this._password1Keyboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._password1Keyboard.Location = new System.Drawing.Point(413, 66);
+            this._password1Keyboard.Location = new System.Drawing.Point(338, 22);
             this._password1Keyboard.Name = "_password1Keyboard";
             this._password1Keyboard.Size = new System.Drawing.Size(32, 24);
             this._password1Keyboard.TabIndex = 9;
@@ -148,7 +155,7 @@
             // _password2Keyboard
             // 
             this._password2Keyboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._password2Keyboard.Location = new System.Drawing.Point(413, 122);
+            this._password2Keyboard.Location = new System.Drawing.Point(338, 78);
             this._password2Keyboard.Name = "_password2Keyboard";
             this._password2Keyboard.Size = new System.Drawing.Size(32, 24);
             this._password2Keyboard.TabIndex = 10;
@@ -160,30 +167,61 @@
             // _cachePasswordForSession
             // 
             this._cachePasswordForSession.AutoSize = true;
-            this._cachePasswordForSession.Location = new System.Drawing.Point(81, 155);
+            this._cachePasswordForSession.Location = new System.Drawing.Point(6, 111);
             this._cachePasswordForSession.Name = "_cachePasswordForSession";
             this._cachePasswordForSession.Size = new System.Drawing.Size(161, 17);
             this._cachePasswordForSession.TabIndex = 2;
             this._cachePasswordForSession.Text = "Cache Password for Session";
             this._cachePasswordForSession.UseVisualStyleBackColor = true;
             // 
+            // passwordTabControl
+            // 
+            this.passwordTabControl.Controls.Add(this.passwordTabPage);
+            this.passwordTabControl.Controls.Add(this.keyFileTabPage);
+            this.passwordTabControl.Location = new System.Drawing.Point(22, 47);
+            this.passwordTabControl.Name = "passwordTabControl";
+            this.passwordTabControl.SelectedIndex = 0;
+            this.passwordTabControl.Size = new System.Drawing.Size(425, 181);
+            this.passwordTabControl.TabIndex = 11;
+            // 
+            // passwordTabPage
+            // 
+            this.passwordTabPage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.passwordTabPage.Controls.Add(this._passwordOne);
+            this.passwordTabPage.Controls.Add(this._cachePasswordForSession);
+            this.passwordTabPage.Controls.Add(this._passwordOneLabel);
+            this.passwordTabPage.Controls.Add(this._password2Keyboard);
+            this.passwordTabPage.Controls.Add(this._passwordTwo);
+            this.passwordTabPage.Controls.Add(this._password1Keyboard);
+            this.passwordTabPage.Controls.Add(this._passwordTwoLabel);
+            this.passwordTabPage.Controls.Add(this.password2Strength);
+            this.passwordTabPage.Controls.Add(this.password1Strength);
+            this.passwordTabPage.Location = new System.Drawing.Point(4, 22);
+            this.passwordTabPage.Name = "passwordTabPage";
+            this.passwordTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.passwordTabPage.Size = new System.Drawing.Size(417, 155);
+            this.passwordTabPage.TabIndex = 0;
+            this.passwordTabPage.Text = "Password";
+            // 
+            // keyFileTabPage
+            // 
+            this.keyFileTabPage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.keyFileTabPage.Location = new System.Drawing.Point(4, 22);
+            this.keyFileTabPage.Name = "keyFileTabPage";
+            this.keyFileTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.keyFileTabPage.Size = new System.Drawing.Size(417, 155);
+            this.keyFileTabPage.TabIndex = 1;
+            this.keyFileTabPage.Text = "KeyFile";
+            // 
             // PasswordEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 219);
-            this.Controls.Add(this._cachePasswordForSession);
-            this.Controls.Add(this._password2Keyboard);
-            this.Controls.Add(this._password1Keyboard);
-            this.Controls.Add(this.password2Strength);
-            this.Controls.Add(this.password1Strength);
+            this.ClientSize = new System.Drawing.Size(461, 276);
+            this.Controls.Add(this.passwordTabControl);
             this.Controls.Add(this._cancelButton);
             this.Controls.Add(this._passwordEntryLabel);
             this.Controls.Add(this._okButton);
-            this.Controls.Add(this._passwordTwoLabel);
-            this.Controls.Add(this._passwordTwo);
-            this.Controls.Add(this._passwordOneLabel);
-            this.Controls.Add(this._passwordOne);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "PasswordEntry";
             this.ShowIcon = false;
@@ -191,6 +229,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Password Entry";
             this.Load += new System.EventHandler(this.PasswordEntry_Load);
+            this.passwordTabControl.ResumeLayout(false);
+            this.passwordTabPage.ResumeLayout(false);
+            this.passwordTabPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,5 +251,8 @@
         private System.Windows.Forms.Button _password1Keyboard;
         private System.Windows.Forms.Button _password2Keyboard;
         private System.Windows.Forms.CheckBox _cachePasswordForSession;
+        private System.Windows.Forms.TabControl passwordTabControl;
+        private System.Windows.Forms.TabPage passwordTabPage;
+        private System.Windows.Forms.TabPage keyFileTabPage;
     }
 }

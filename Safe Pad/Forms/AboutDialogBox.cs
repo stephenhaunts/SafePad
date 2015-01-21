@@ -18,9 +18,7 @@
  * Authors: Stephen Haunts
  */
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace HauntedHouseSoftware.SecureNotePad.Forms
@@ -39,13 +37,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void aboutBoxLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ProcessStartInfo sInfo = new ProcessStartInfo(aboutBoxLinkLabel.Text);
+            var sInfo = new ProcessStartInfo(aboutBoxLinkLabel.Text);
             Process.Start(sInfo);
-        }
-
-        private void aboutBoxVersionLabel_Click(object sender, EventArgs e)
-        {
-
-        }
+        }    
     }
 }

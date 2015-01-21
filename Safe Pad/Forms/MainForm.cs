@@ -779,6 +779,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 richTextBox.SelectedText = passwordGenerator.Password;
             }
         }
+
+        
     }
 }
 
