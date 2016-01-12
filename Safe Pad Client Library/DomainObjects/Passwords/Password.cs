@@ -42,14 +42,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 
             string optionalPassword2;
 
-            if (password2 == null)
-            {
-                optionalPassword2 = string.Empty;
-            }
-            else
-            {
-                optionalPassword2 = password2;
-            }
+            optionalPassword2 = password2 ?? string.Empty;
 
             _password1 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(password1));
             _password2 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(optionalPassword2));

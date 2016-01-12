@@ -33,13 +33,9 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             InitializeComponent();
 
             _cachePasswordForSession.Visible = true;
-
-            if (!passwordTabControl.TabPages.Contains(keyFileTabPage))
-            {
-                passwordTabControl.TabPages.Add(keyFileTabPage);
-            }
-
-            passwordTabControl.SelectTab(keyFileTabPage);
+          
+            passwordTabControl.TabPages.Remove(keyFileTabPage);
+            passwordTabControl.SelectTab(passwordTabPage);
         }
 
         public PasswordEntry(bool cachePassword)
@@ -47,12 +43,9 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             InitializeComponent();
 
             _cachePasswordForSession.Visible = cachePassword;
-
-            if (passwordTabControl.TabPages.Contains(keyFileTabPage))
-            {
-                passwordTabControl.TabPages.Remove(keyFileTabPage);
-            }
-
+          
+            passwordTabControl.TabPages.Remove(keyFileTabPage);
+            passwordTabControl.SelectTab(passwordTabPage);
         }
 
         public bool IsPasswordCached
@@ -98,7 +91,6 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {          
             SetPassword(_passwordOne.Text, _passwordTwo.Text);           
         }
-
         
         private void _passwordOne_KeyPress(object sender, KeyPressEventArgs e)
         {         
@@ -204,5 +196,24 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
         }
 
+        private void useKeyFile_CheckedChanged(object sender, EventArgs e)
+        {
+            if (useKeyFile.Checked)
+            {
+                passwordTabControl.TabPages.Add(keyFileTabPage);
+            }
+            else
+            {            
+                passwordTabControl.TabPages.Remove(keyFileTabPage);                
+            }
+        }
+
+        private void selectKeyFile_Click(object sender, EventArgs e)
+        {
+            if (selectKeyFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
+        }
     }
 }
