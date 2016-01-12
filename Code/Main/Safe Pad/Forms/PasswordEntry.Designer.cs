@@ -43,8 +43,14 @@
             this.passwordTabControl = new System.Windows.Forms.TabControl();
             this.passwordTabPage = new System.Windows.Forms.TabPage();
             this.keyFileTabPage = new System.Windows.Forms.TabPage();
+            this.useKeyFile = new System.Windows.Forms.CheckBox();
+            this.keyfileName = new System.Windows.Forms.TextBox();
+            this.keyFileLabel = new System.Windows.Forms.Label();
+            this.selectKeyFile = new System.Windows.Forms.Button();
+            this.selectKeyFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.passwordTabControl.SuspendLayout();
             this.passwordTabPage.SuspendLayout();
+            this.keyFileTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // _passwordOne
@@ -187,6 +193,7 @@
             // passwordTabPage
             // 
             this.passwordTabPage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.passwordTabPage.Controls.Add(this.useKeyFile);
             this.passwordTabPage.Controls.Add(this._passwordOne);
             this.passwordTabPage.Controls.Add(this._cachePasswordForSession);
             this.passwordTabPage.Controls.Add(this._passwordOneLabel);
@@ -206,12 +213,61 @@
             // keyFileTabPage
             // 
             this.keyFileTabPage.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.keyFileTabPage.Controls.Add(this.keyfileName);
+            this.keyFileTabPage.Controls.Add(this.keyFileLabel);
+            this.keyFileTabPage.Controls.Add(this.selectKeyFile);
             this.keyFileTabPage.Location = new System.Drawing.Point(4, 22);
             this.keyFileTabPage.Name = "keyFileTabPage";
             this.keyFileTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.keyFileTabPage.Size = new System.Drawing.Size(417, 155);
             this.keyFileTabPage.TabIndex = 1;
             this.keyFileTabPage.Text = "KeyFile";
+            // 
+            // useKeyFile
+            // 
+            this.useKeyFile.AutoSize = true;
+            this.useKeyFile.Location = new System.Drawing.Point(6, 132);
+            this.useKeyFile.Name = "useKeyFile";
+            this.useKeyFile.Size = new System.Drawing.Size(85, 17);
+            this.useKeyFile.TabIndex = 11;
+            this.useKeyFile.Text = "Use Key File";
+            this.useKeyFile.UseVisualStyleBackColor = true;
+            this.useKeyFile.CheckedChanged += new System.EventHandler(this.useKeyFile_CheckedChanged);
+            // 
+            // keyfileName
+            // 
+            this.keyfileName.Location = new System.Drawing.Point(16, 31);
+            this.keyfileName.Name = "keyfileName";
+            this.keyfileName.PasswordChar = '*';
+            this.keyfileName.ReadOnly = true;
+            this.keyfileName.Size = new System.Drawing.Size(326, 20);
+            this.keyfileName.TabIndex = 10;
+            // 
+            // keyFileLabel
+            // 
+            this.keyFileLabel.AutoSize = true;
+            this.keyFileLabel.Location = new System.Drawing.Point(16, 12);
+            this.keyFileLabel.Name = "keyFileLabel";
+            this.keyFileLabel.Size = new System.Drawing.Size(44, 13);
+            this.keyFileLabel.TabIndex = 11;
+            this.keyFileLabel.Text = "Key File";
+            // 
+            // selectKeyFile
+            // 
+            this.selectKeyFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.selectKeyFile.Location = new System.Drawing.Point(348, 27);
+            this.selectKeyFile.Name = "selectKeyFile";
+            this.selectKeyFile.Size = new System.Drawing.Size(32, 24);
+            this.selectKeyFile.TabIndex = 12;
+            this.selectKeyFile.Text = "...";
+            this.selectKeyFile.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.selectKeyFile.UseVisualStyleBackColor = true;
+            this.selectKeyFile.Click += new System.EventHandler(this.selectKeyFile_Click);
+            // 
+            // selectKeyFileDialog
+            // 
+            this.selectKeyFileDialog.Filter = "All Files|*.*";
+            this.selectKeyFileDialog.Title = "Select Key File";
             // 
             // PasswordEntry
             // 
@@ -232,6 +288,8 @@
             this.passwordTabControl.ResumeLayout(false);
             this.passwordTabPage.ResumeLayout(false);
             this.passwordTabPage.PerformLayout();
+            this.keyFileTabPage.ResumeLayout(false);
+            this.keyFileTabPage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,5 +312,10 @@
         private System.Windows.Forms.TabControl passwordTabControl;
         private System.Windows.Forms.TabPage passwordTabPage;
         private System.Windows.Forms.TabPage keyFileTabPage;
+        private System.Windows.Forms.CheckBox useKeyFile;
+        private System.Windows.Forms.TextBox keyfileName;
+        private System.Windows.Forms.Label keyFileLabel;
+        private System.Windows.Forms.Button selectKeyFile;
+        private System.Windows.Forms.OpenFileDialog selectKeyFileDialog;
     }
 }

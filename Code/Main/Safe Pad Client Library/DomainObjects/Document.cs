@@ -168,6 +168,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 
             SaveFormattedFile(fileName, encrypted3, hash, salt,  versionNumber);
         }
+
         private void SaveFormattedFile(string fileName, byte[] encrypted3, byte[] hash, byte[] salt, byte[] versionNumber)
         {
             var tempCombined = ByteHelpers.Combine(versionNumber, salt);
