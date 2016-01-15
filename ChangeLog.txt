@@ -5,6 +5,8 @@ Version 1.4
 
 [X] - Add feature to generate a key file and append a hash of the key file to the passwords before encrypting / decrypting.
 
+[X] - Upgraded standard document version number to 1.2. The document now saves with a default Password hashing work factor of 100,000 instead of 40,000
+
 
 
 Version 1.3
