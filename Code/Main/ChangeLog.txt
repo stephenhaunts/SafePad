@@ -7,7 +7,7 @@ Version 1.4
 
 [X] - Upgraded standard document version number to 1.2. The document now saves with a default Password hashing work factor of 100,000 instead of 40,000
 
-
+[X] - Refactored common code from the 1.1 and 1.2 file loader classes into a separate base class.
 
 Version 1.3
 ------------
