@@ -22,18 +22,18 @@ using HauntedHouseSoftware.SecureNotePad.CryptoProviders;
 
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
 {
-    public class Version11Loader : IFileFormatLoader
+    public class Version12Loader : IFileFormatLoader
     {
         private readonly IAES _aes;
         private readonly ISecureHash _secureHash;
         private readonly IPassword _password;
         private readonly ICompression _compression;
 
-        public Version11Loader(IPassword password)
+        public Version12Loader(IPassword password)
         {
             if (password == null)
             {
-                throw new ArgumentNullException(nameof(password));
+                throw new ArgumentNullException("password");
             }
 
             _aes = new AES();
@@ -46,7 +46,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
         {
             if (byteStream == null)
             {
-                throw new ArgumentNullException(nameof(byteStream));
+                throw new ArgumentNullException("byteStream");
             }
 
             var versionNumber = ByteHelpers.CreateSpecialByteArray(2);
@@ -57,7 +57,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
             SplitFileIntoChunks(byteStream, versionNumber, hash, salt, encrypted);
             CheckFileIntegrity(hash, encrypted);
 
-            return DecryptData(encrypted, salt, 40000);
+            return DecryptData(encrypted, salt, 100000);
         }
 
         private void CheckFileIntegrity(byte[] hash, byte[] encrypted)

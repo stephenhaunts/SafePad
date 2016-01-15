@@ -41,8 +41,8 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
                     return new Version10Loader(password);
                 case "1.1":
                     return new Version11Loader(password);
-                default:
-                    break;
+                case "1.2":
+                    return new Version11Loader(password);
             }
 
             throw new InvalidOperationException("The file is not a supported file format version.");

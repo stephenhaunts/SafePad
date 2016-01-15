@@ -56,6 +56,7 @@
     <Compile Include="CryptoProviders\SecureHash.cs" />
     <Compile Include="DomainObjects\Application Settings\ApplicationSettings.cs" />
     <Compile Include="DomainObjects\ByteHelpers.cs" />
+    <Compile Include="DomainObjects\FileFormat\Version12Loader.cs" />
     <Compile Include="DomainObjects\Interfaces\IFileFormatLoader.cs" />
     <Compile Include="DomainObjects\Interfaces\ILoaderFactory.cs" />
     <Compile Include="DomainObjects\FileFormat\LoaderFactory.cs" />
