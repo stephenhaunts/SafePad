@@ -34,7 +34,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         private readonly IFileProxy _fileProxy;
 
         private const byte Major = 1;
-        private const byte Minor = 1;
+        private const byte Minor = 2;
 
         public byte[] EncodedData { get; set; }
 
@@ -42,7 +42,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         {
             if (password == null)
             {
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException(nameof(password));
             }
 
             _aes = new AES();
@@ -56,27 +56,27 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         {
             if (aes == null)
             {
-                throw new ArgumentNullException("aes");
+                throw new ArgumentNullException(nameof(aes));
             }
 
             if (hash == null)
             {
-                throw new ArgumentNullException("hash");
+                throw new ArgumentNullException(nameof(hash));
             }
 
             if (compression == null)
             {
-                throw new ArgumentNullException("compression");
+                throw new ArgumentNullException(nameof(compression));
             }
 
             if (password == null)
             {
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException(nameof(password));
             }
 
             if (fileProxy == null)
             {
-                throw new ArgumentNullException("fileProxy");
+                throw new ArgumentNullException(nameof(fileProxy));
             }
 
             _aes = aes;
@@ -181,7 +181,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         private byte[] EncryptData(byte[] salt)
         {
             var compressed = _compression.Compress(EncodedData);
-            var encrypted = _aes.Encrypt(compressed, Convert.ToBase64String(_password.CombinedPasswords), salt, 40000);
+            var encrypted = _aes.Encrypt(compressed, Convert.ToBase64String(_password.CombinedPasswords), salt, 100000);
             
             return encrypted;
         }
