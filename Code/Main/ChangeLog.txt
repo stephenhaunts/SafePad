@@ -1,3 +1,12 @@
+Version 1.4
+-----------
+
+[X] - Fix issue where the scroll bars will not be enabled after a document is loaded. 
+
+[X] - Add feature to generate a key file and append a hash of the key file to the passwords before encrypting / decrypting.
+
+
+
 Version 1.3
 ------------
 
