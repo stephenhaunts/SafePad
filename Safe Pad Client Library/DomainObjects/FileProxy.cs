@@ -28,7 +28,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         {
             if (string.IsNullOrEmpty(fileName))
             {
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
             }
 
             using (var fs = new FileStream(fileName, FileMode.Open, FileAccess.Read))
@@ -43,12 +43,12 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         {
             if (string.IsNullOrEmpty(fileName))
             {
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
             }
 
             if (dataToSave == null)
             {
-                throw new ArgumentNullException("dataToSave");
+                throw new ArgumentNullException(nameof(dataToSave));
             }
 
             using (var fileStream = new FileStream(fileName, FileMode.Create, FileAccess.Write))
@@ -61,7 +61,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         {
             if (string.IsNullOrEmpty(fileName))
             {
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
             }
 
             return File.Exists(fileName);            

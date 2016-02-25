@@ -18,10 +18,8 @@
 * Authors: Stephen Haunts
 */
 
-using System;
 using System.Collections.ObjectModel;
 using System.Windows.Forms;
-using HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook;
 
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 {
@@ -45,7 +43,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         public byte ForegroundColorGreen { get; set; }
         public byte ForegroundColorBlue { get; set; }
 
-        public bool DetectURL { get; set; }
+        public bool DetectUrl { get; set; }
 
         public bool WordWrap { get; set; }
 

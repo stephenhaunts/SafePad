@@ -20,17 +20,15 @@
 using System;
 using HauntedHouseSoftware.SecureNotePad.CryptoProviders;
 using HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat;
-using System.Text;
 using System.Security.Cryptography;
+using Aes = HauntedHouseSoftware.SecureNotePad.CryptoProviders.Aes;
 
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 {
     public class Document : IDocument
     {
-        private readonly IAES _aes;
-        private readonly ISecureHash _secureHash;
+        private readonly IAes _aes;
         private IPassword _password;
-        private readonly ICompression _compression;
         private readonly IFileProxy _fileProxy;
 
         private const byte Major = 1;
@@ -45,14 +43,14 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
                 throw new ArgumentNullException(nameof(password));
             }
 
-            _aes = new AES();
-            _secureHash = new BCryptHash();
+            _aes = new Aes();
+            SecureHashProvider = new BCryptHash();
             _password = password;
             _fileProxy = new FileProxy();
-            _compression = new GZipCompression();
+            CompressionProvider = new GZipCompression();
         }
 
-        public Document(IAES aes, ISecureHash hash, ICompression compression, IPassword password, IFileProxy fileProxy)
+        public Document(IAes aes, ISecureHash hash, ICompression compression, IPassword password, IFileProxy fileProxy)
         {
             if (aes == null)
             {
@@ -80,49 +78,25 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             }
 
             _aes = aes;
-            _secureHash = hash;
-            _compression = compression;
+            SecureHashProvider = hash;
+            CompressionProvider = compression;
             _password = password;
             _fileProxy = fileProxy;
         }
 
-        protected IAES AesProvider
-        {
-            get
-            {
-                return _aes;
-            }
-        }
+        protected IAes AesProvider => _aes;
 
-        protected ISecureHash SecureHashProvider
-        {
-            get
-            {
-                return _secureHash;
-            }
-        }
+        protected ISecureHash SecureHashProvider { get; }
 
-        protected ICompression CompressionProvider
-        {
-            get
-            {
-                return _compression;
-            }
-        }
+        protected ICompression CompressionProvider { get; }
 
-        protected IPassword Password
-        {
-            get
-            {
-                return _password;
-            }
-        }
+        protected IPassword Password => _password;
 
         public void Load(string fileName)
         {
             if (string.IsNullOrEmpty(fileName))
             {
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
             }
 
             LoadDocument(fileName, _password);
@@ -140,12 +114,12 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         {
             if (string.IsNullOrEmpty(fileName))
             {
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
             }
 
             if (cachedPassword == null)
             {
-                throw new ArgumentNullException("cachedPassword");
+                throw new ArgumentNullException(nameof(cachedPassword));
             }
 
             LoadDocument(fileName, cachedPassword);
@@ -157,7 +131,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             
             if (string.IsNullOrEmpty(fileName))
             {
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
             }
 
             var salt = GenerateSalt(32);
@@ -180,7 +154,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 
         private byte[] EncryptData(byte[] salt)
         {
-            var compressed = _compression.Compress(EncodedData);
+            var compressed = CompressionProvider.Compress(EncodedData);
             var encrypted = _aes.Encrypt(compressed, Convert.ToBase64String(_password.CombinedPasswords), salt, 100000);
             
             return encrypted;

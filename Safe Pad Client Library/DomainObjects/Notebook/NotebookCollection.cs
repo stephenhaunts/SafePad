@@ -27,38 +27,26 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
 {
     public class NotebookCollection
     {
-        private Dictionary<string, List<Document>> _notebooks;
-
         public NotebookCollection()
         {
-            _notebooks = new Dictionary<string, List<Document>>(StringComparer.OrdinalIgnoreCase);  
+            Notebooks = new Dictionary<string, List<Document>>(StringComparer.OrdinalIgnoreCase);  
         }
 
-        public int CountNoteBooks
-        {
-            get
-            {
-                return _notebooks.Count;                
-            }
-        }
+        public int CountNoteBooks => Notebooks.Count;
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1006:DoNotNestGenericTypesInMemberSignatures"), System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public Dictionary<string, List<Document>> Notebooks
-        {
-            get { return _notebooks; }
-            set { _notebooks = value; }
-        }
+        public Dictionary<string, List<Document>> Notebooks { get; set; }
 
         public bool IsExists(string noteBookName)
         {
-            return _notebooks.ContainsKey(noteBookName);
+            return Notebooks.ContainsKey(noteBookName);
         }
 
         public void CreateNotebook(string noteBookName)
         {
             if (string.IsNullOrEmpty(noteBookName))
             {
-                throw new ArgumentNullException("noteBookName");
+                throw new ArgumentNullException(nameof(noteBookName));
             }
 
             if (IsExists(noteBookName))
@@ -67,14 +55,14 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
             }
 
             var notebook = new List<Document>();
-            _notebooks.Add(noteBookName, notebook);            
+            Notebooks.Add(noteBookName, notebook);            
         }
 
         public void RemoveNotebook(string noteBookName)
         {
             if (string.IsNullOrEmpty(noteBookName))
             {
-                throw new ArgumentNullException("noteBookName");
+                throw new ArgumentNullException(nameof(noteBookName));
             }
 
             if (!IsExists(noteBookName))
@@ -82,12 +70,12 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
                 throw new InvalidOperationException("noteBookName");
             }
 
-            _notebooks.Remove(noteBookName);
+            Notebooks.Remove(noteBookName);
         }
 
         public ReadOnlyCollection<string> RetrieveNotebookNames()
         {
-            var notebooks = _notebooks.Select(entry => entry.Key).ToList();
+            var notebooks = Notebooks.Select(entry => entry.Key).ToList();
 
             return new ReadOnlyCollection<string>(notebooks);
         }
@@ -96,7 +84,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
         {
             if (string.IsNullOrEmpty(noteBookName))
             {
-                throw new ArgumentNullException("noteBookName");
+                throw new ArgumentNullException(nameof(noteBookName));
             }
 
             if (!IsExists(noteBookName))
@@ -104,59 +92,59 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
                 throw new InvalidOperationException(noteBookName);
             }
 
-            return new ReadOnlyCollection<Document>(_notebooks[noteBookName]);
+            return new ReadOnlyCollection<Document>(Notebooks[noteBookName]);
         }
 
         public void AddDocumentToNotebook(string noteBookName, Document document)
         {
             if (string.IsNullOrEmpty(noteBookName))
             {
-                throw new ArgumentNullException("noteBookName");
+                throw new ArgumentNullException(nameof(noteBookName));
             }
 
             if (document == null)
             {
-                throw new ArgumentNullException("document");
+                throw new ArgumentNullException(nameof(document));
             }
 
-            _notebooks[noteBookName].Add(document);
+            Notebooks[noteBookName].Add(document);
         }
 
         public bool DocumentExists(string noteBookName, Document document)
         {
             if (string.IsNullOrEmpty(noteBookName))
             {
-                throw new ArgumentNullException("noteBookName");
+                throw new ArgumentNullException(nameof(noteBookName));
             }
 
             if (document == null)
             {
-                throw new ArgumentNullException("document");
+                throw new ArgumentNullException(nameof(document));
             }
 
-            return _notebooks[noteBookName].Contains(document);            
+            return Notebooks[noteBookName].Contains(document);            
         }
 
         public int DocumentCount(string noteBookName)
         {
             if (string.IsNullOrEmpty(noteBookName))
             {
-                throw new ArgumentNullException("noteBookName");
+                throw new ArgumentNullException(nameof(noteBookName));
             }
         
-            return _notebooks[noteBookName].Count;
+            return Notebooks[noteBookName].Count;
         }
 
         public void RemoveDocument(string noteBookName, Document document)
         {
             if (string.IsNullOrEmpty(noteBookName))
             {
-                throw new ArgumentNullException("noteBookName");
+                throw new ArgumentNullException(nameof(noteBookName));
             }
 
             if (document == null)
             {
-                throw new ArgumentNullException("document");
+                throw new ArgumentNullException(nameof(document));
             }
 
             if (!DocumentExists(noteBookName, document))
@@ -164,17 +152,17 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
                 throw new InvalidOperationException("document");
             }
 
-            _notebooks[noteBookName].Remove(document);
+            Notebooks[noteBookName].Remove(document);
         }
 
         public void RemoveAllDocuments(string noteBookName)
         {
             if (string.IsNullOrEmpty(noteBookName))
             {
-                throw new ArgumentNullException("noteBookName");
+                throw new ArgumentNullException(nameof(noteBookName));
             }
 
-            _notebooks[noteBookName].Clear();
+            Notebooks[noteBookName].Clear();
         }
     }
 }

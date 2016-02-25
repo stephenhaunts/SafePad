@@ -48,21 +48,9 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             passwordTabControl.SelectTab(passwordTabPage);
         }
 
-        public bool IsPasswordCached
-        {
-            get
-            {
-                return _cachePasswordForSession.Checked;
-            }
-        }
+        public bool IsPasswordCached => _cachePasswordForSession.Checked;
 
-        public Password Password
-        {
-            get
-            {
-                return _password;
-            }
-        }
+        public Password Password => _password;
 
         public string LabelText
         {
@@ -81,7 +69,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             if (string.IsNullOrEmpty(password1))
             {
-                throw new ArgumentNullException("password1");
+                throw new ArgumentNullException(nameof(password1));
             }
 
             _password = new Password(password1, password2);
@@ -144,27 +132,27 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
                 case PasswordScore.Weak:
                     label.ForeColor = Color.Red;
-                    label.Text = "Weak";
+                    label.Text = @"Weak";
                     break;
 
                 case PasswordScore.VeryWeak:
                     label.ForeColor = Color.Red;
-                    label.Text = "Very Weak";
+                    label.Text = @"Very Weak";
                     break;
 
                 case PasswordScore.Medium:
                     label.ForeColor = Color.Orange;
-                    label.Text = "Medium";
+                    label.Text = @"Medium";
                     break;
 
                 case PasswordScore.Strong:
                     label.ForeColor = Color.Orange;
-                    label.Text = "Strong";
+                    label.Text = @"Strong";
                     break;
 
                 case PasswordScore.VeryStrong:
                     label.ForeColor = Color.Green;
-                    label.Text = "Very Strong";
+                    label.Text = @"Very Strong";
                     break;
             }
         }

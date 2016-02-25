@@ -18,8 +18,6 @@
  * Authors: Stephen Haunts
  */
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 using HauntedHouseSoftware.SecureNotePad.DomainObjects;
 
@@ -37,27 +35,21 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             if (settings == null)
             {
-                throw new ArgumentNullException("settings");
+                throw new ArgumentNullException(nameof(settings));
             }
 
             _settings = settings;
 
             InitializeComponent();
 
-            detectURL.Checked = _settings.DetectURL;
+            detectURL.Checked = _settings.DetectUrl;
         }
 
-        public ApplicationSettings Settings
-        {
-            get
-            {
-                return _settings;
-            }
-        }
+        public ApplicationSettings Settings => _settings;
 
         private void detectURL_CheckedChanged(object sender, EventArgs e)
         {
-            _settings.DetectURL = detectURL.Checked;
+            _settings.DetectUrl = detectURL.Checked;
         }
 
         private void clearRecentFileListButton_Click(object sender, EventArgs e)

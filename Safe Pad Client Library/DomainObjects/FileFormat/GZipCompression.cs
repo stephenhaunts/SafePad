@@ -31,7 +31,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         {
             if (input == null)
             {
-                throw new ArgumentNullException("input");
+                throw new ArgumentNullException(nameof(input));
             }
 
             byte[] output;
@@ -55,7 +55,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         {
             if (input == null)
             {
-                throw new ArgumentNullException("input");
+                throw new ArgumentNullException(nameof(input));
             }
 
             var output = new List<byte>();

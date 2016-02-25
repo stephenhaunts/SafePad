@@ -99,11 +99,8 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
             finally
             {
-                if (userInput != null)
-                {
-                    userInput.Dispose();
-                }
-            }                       
+                userInput?.Dispose();
+            }
         }
 
         private void SaveDocumentAs()
@@ -133,16 +130,13 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
             finally
             {
-                if (userInput != null)
-                {
-                    userInput.Dispose();
-                }
+                userInput?.Dispose();
             }
         }
 
         private void ChangeDisplayHeader()
         {
-            Text = String.Format("{0} : {1}", ApplicationName, !string.IsNullOrEmpty(_documentName) ? _documentName : "Untitled");
+            Text = $"{ApplicationName} : {(!string.IsNullOrEmpty(_documentName) ? _documentName : "Untitled")}";
         }
 
         private void LoadDocument(string fileName)
@@ -210,10 +204,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             }
             finally
             {
-                if (toLoad != null)
-                {
-                    toLoad.Dispose();                   
-                }
+                toLoad?.Dispose();
             }
         }
 
@@ -592,7 +583,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
                 richTextBox.BackColor = Color.FromArgb(_settings.BackgroundColorRed, _settings.BackgroundColorGreen, _settings.BackgroundColorBlue);
                 richTextBox.ForeColor = Color.FromArgb(_settings.ForegroundColorRed, _settings.ForegroundColorGreen, _settings.ForegroundColorBlue);
-                richTextBox.DetectUrls = _settings.DetectURL;
+                richTextBox.DetectUrls = _settings.DetectUrl;
                 richTextBox.WordWrap = _settings.WordWrap;
                 wordWrapToolStripMenuItem.Checked = _settings.WordWrap;
 
@@ -653,7 +644,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
                 _settings.WindowHeight =Screen.PrimaryScreen.Bounds.Height;
             }
             
-            _settings.DetectURL = richTextBox.DetectUrls;
+            _settings.DetectUrl = richTextBox.DetectUrls;
             _settings.WordWrap = richTextBox.WordWrap;
 
             _settings.BackgroundColorRed = richTextBox.BackColor.R;
@@ -711,7 +702,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             {
                 if (appSettings.ShowDialog() != DialogResult.OK) return;
 
-                richTextBox.DetectUrls = appSettings.Settings.DetectURL;
+                richTextBox.DetectUrls = appSettings.Settings.DetectUrl;
                 _settings.RecentFileList = appSettings.Settings.RecentFileList;
 
                 recentFilesToolStripMenuItem.DropDownItems.Clear();

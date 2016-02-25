@@ -23,14 +23,14 @@ using System.Security.Cryptography;
 
 namespace HauntedHouseSoftware.SecureNotePad.CryptoProviders
 {
-    public class AES : IAES
+    public class Aes : IAes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
         public byte[] Encrypt(byte[] dataToEncrypt, string password, byte[] salt, int pbkdfRounds)
         {
             if (dataToEncrypt == null)
             {
-                throw new ArgumentNullException("dataToEncrypt");
+                throw new ArgumentNullException(nameof(dataToEncrypt));
             }
 
             if (dataToEncrypt.Length == 0)
@@ -40,7 +40,7 @@ namespace HauntedHouseSoftware.SecureNotePad.CryptoProviders
 
             if (string.IsNullOrEmpty(password))
             {
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException(nameof(password));
             }
 
             try
@@ -76,7 +76,7 @@ namespace HauntedHouseSoftware.SecureNotePad.CryptoProviders
         {
             if (dataToDecrypt == null)
             {
-                throw new ArgumentNullException("dataToDecrypt");
+                throw new ArgumentNullException(nameof(dataToDecrypt));
             }
 
             if (dataToDecrypt.Length == 0)
@@ -86,7 +86,7 @@ namespace HauntedHouseSoftware.SecureNotePad.CryptoProviders
 
             if (string.IsNullOrEmpty(password))
             {
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException(nameof(password));
             }
         
             try

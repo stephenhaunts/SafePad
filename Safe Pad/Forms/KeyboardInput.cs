@@ -18,9 +18,7 @@
  * Authors: Stephen Haunts
  */
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using HauntedHouseSoftware.SecureNotePad.DomainObjects;
 
@@ -43,13 +41,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             _maskedPassword.Text = password;
         }
 
-        public string Password
-        {
-            get
-            {
-                return _maskedPassword.Text;
-            }
-        }
+        public string Password => _maskedPassword.Text;
 
         private void _caps_Click(object sender, EventArgs e)
         {
@@ -69,111 +61,111 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private void UnsetCapsLock()
         {
             _caps.BackColor = Color.WhiteSmoke;
-            _q.Text = "q";
-            _w.Text = "w";
-            _e.Text = "e";
-            _r.Text = "r";
-            _t.Text = "t";
-            _y.Text = "y";
-            _u.Text = "u";
-            _i.Text = "i";
-            _o.Text = "o";
-            _p.Text = "p";
+            _q.Text = @"q";
+            _w.Text = @"w";
+            _e.Text = @"e";
+            _r.Text = @"r";
+            _t.Text = @"t";
+            _y.Text = @"y";
+            _u.Text = @"u";
+            _i.Text = @"i";
+            _o.Text = @"o";
+            _p.Text = @"p";
 
-            _a.Text = "a";
-            _s.Text = "s";
-            _d.Text = "d";
-            _f.Text = "f";
-            _g.Text = "g";
-            _h.Text = "h";
-            _j.Text = "j";
-            _k.Text = "k";
-            _l.Text = "l";
+            _a.Text = @"a";
+            _s.Text = @"s";
+            _d.Text = @"d";
+            _f.Text = @"f";
+            _g.Text = @"g";
+            _h.Text = @"h";
+            _j.Text = @"j";
+            _k.Text = @"k";
+            _l.Text = @"l";
+            
+            _z.Text = @"z";
+            _x.Text = @"x";
+            _c.Text = @"c";
+            _v.Text = @"v";
+            _b.Text = @"b";
+            _n.Text = @"n";
+            _m.Text = @"m";
 
-            _z.Text = "z";
-            _x.Text = "x";
-            _c.Text = "c";
-            _v.Text = "v";
-            _b.Text = "b";
-            _n.Text = "n";
-            _m.Text = "m";
-
-            _1.Text = "1";
-            _2.Text = "2";
-            _3.Text = "3";
-            _4.Text = "4";
-            _5.Text = "5";
-            _6.Text = "6";
-            _7.Text = "7";
-            _8.Text = "8";
-            _9.Text = "9";
-            _0.Text = "0";
-            _underscore.Text = "-";
-            _equals.Text = "=";
-            _leftSquareBracket.Text = "[";
-            _rightSquareBracket.Text = "]";
-            _semiColon.Text = ";";
-            _apostophe.Text = "'";
-            _hash.Text = "#";
-            _comma.Text = ",";
-            _fullStop.Text = ".";
-            _forwardSlash.Text = "/";
+            _1.Text = @"1";
+            _2.Text = @"2";
+            _3.Text = @"3";
+            _4.Text = @"4";
+            _5.Text = @"5";
+            _6.Text = @"6";
+            _7.Text = @"7";
+            _8.Text = @"8";
+            _9.Text = @"9";
+            _0.Text = @"0";
+            _underscore.Text = @"-";
+            _equals.Text = @"=";
+            _leftSquareBracket.Text = @"[";
+            _rightSquareBracket.Text = @"]";
+            _semiColon.Text = @";";
+            _apostophe.Text = @"'";
+            _hash.Text = @"#";
+            _comma.Text = @",";
+            _fullStop.Text = @".";
+            _forwardSlash.Text = @"/";
             _backSlash.Text = @"\";
         }
 
         private void SetCapsLock()
         {
             _caps.BackColor = Color.DarkGray;
-            _q.Text = "Q";
-            _w.Text = "W";
-            _e.Text = "E";
-            _r.Text = "R";
-            _t.Text = "T";
-            _y.Text = "Y";
-            _u.Text = "U";
-            _i.Text = "I";
-            _o.Text = "O";
-            _p.Text = "P";
+            _q.Text = @"Q";
+            _w.Text = @"W";
+            _e.Text = @"E";
+            _r.Text = @"R";
+            _t.Text = @"T";
+            _y.Text = @"Y";
+            _u.Text = @"U";
+            _i.Text = @"I";
+            _o.Text = @"O";
+            _p.Text = @"P";
 
-            _a.Text = "A";
-            _s.Text = "S";
-            _d.Text = "D";
-            _f.Text = "F";
-            _g.Text = "G";
-            _h.Text = "H";
-            _j.Text = "J";
-            _k.Text = "K";
-            _l.Text = "L";
+            _a.Text = @"A";
+            _s.Text = @"S";
+            _d.Text = @"D";
+            _f.Text = @"F";
+            _g.Text = @"G";
+            _h.Text = @"H";
+            _j.Text = @"J";
+            _k.Text = @"K";
+            _l.Text = @"L";
 
-            _z.Text = "Z";
-            _x.Text = "X";
-            _c.Text = "C";
-            _v.Text = "V";
-            _b.Text = "B";
-            _n.Text = "N";
-            _m.Text = "M";
+            _z.Text = @"Z";
+            _x.Text = @"X";
+            _c.Text = @"C";
+            _v.Text = @"V";
+            _b.Text = @"B";
+            _n.Text = @"N";
+            _m.Text = @"M";
 
-            _1.Text = "!";
+            _1.Text = @"!";
             _2.Text = @"""";
-            _3.Text = "£";
-            _4.Text = "$";
-            _5.Text = "%";
-            _6.Text = "^";
-            _7.Text = "&&";
-            _8.Text = "*";
-            _9.Text = "(";
-            _0.Text = ")";
-            _underscore.Text = "_";
-            _equals.Text = "+";
-            _leftSquareBracket.Text = "{";
-            _rightSquareBracket.Text = "}";
-            _semiColon.Text = ":";
-            _apostophe.Text = "@";
-            _hash.Text = "~";
-            _comma.Text = "<";
-            _fullStop.Text = ">";
-            _forwardSlash.Text = "?";
-            _backSlash.Text = "|";
+            _3.Text = @"£";
+            _4.Text = @"$";
+            _5.Text = @"%";
+            _6.Text = @"^";
+            _7.Text = @"&&";
+            _8.Text = @"*";
+            _9.Text = @"(";
+            _0.Text = @")";
+            _underscore.Text = @"_";
+            _equals.Text = @"+";
+            _leftSquareBracket.Text = @"{";
+            _rightSquareBracket.Text = @"}";
+            _semiColon.Text = @":";
+            _apostophe.Text = @"@";
+            _hash.Text = @"~";
+            _comma.Text = @"<";
+            _fullStop.Text = @">";
+            _forwardSlash.Text = @"?";
+            _backSlash.Text = @"|";
         }
         private void ApplyButtonTextToPassword(object sender)
         {
@@ -417,7 +409,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void _spaceBar_Click(object sender, EventArgs e)
         {
-            _maskedPassword.Text = _maskedPassword.Text + " ";
+            _maskedPassword.Text = _maskedPassword.Text + @" ";
         }
 
         private void _backSpace_Click(object sender, EventArgs e)
@@ -442,27 +434,27 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
                 case PasswordScore.Weak:
                     label.ForeColor = Color.Red;
-                    label.Text = "Weak";
+                    label.Text = @"Weak";
                     break;
 
                 case PasswordScore.VeryWeak:
                     label.ForeColor = Color.Red;
-                    label.Text = "Very Weak";
+                    label.Text = @"Very Weak";
                     break;
 
                 case PasswordScore.Medium:
                     label.ForeColor = Color.Orange;
-                    label.Text = "Medium";
+                    label.Text = @"Medium";
                     break;
 
                 case PasswordScore.Strong:
                     label.ForeColor = Color.Orange;
-                    label.Text = "Strong";
+                    label.Text = @"Strong";
                     break;
 
                 case PasswordScore.VeryStrong:
                     label.ForeColor = Color.Green;
-                    label.Text = "Very Strong";
+                    label.Text = @"Very Strong";
                     break;
             }
         }

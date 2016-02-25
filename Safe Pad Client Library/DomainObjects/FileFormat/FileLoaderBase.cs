@@ -1,9 +1,4 @@
-﻿
-
-using System;
-using HauntedHouseSoftware.SecureNotePad.CryptoProviders;
-
-/**
+﻿/**
 * Safe Pad, a double encrypted note pad that uses 2 passwords to protect your documents and help you keep your privacy.
 * 
 * Copyright (C) 2016 Stephen Haunts
@@ -22,33 +17,37 @@ using HauntedHouseSoftware.SecureNotePad.CryptoProviders;
 * 
 * Authors: Stephen Haunts
 */
+
+using System;
+using HauntedHouseSoftware.SecureNotePad.CryptoProviders;
+
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
 {
     public class FileLoaderBase
     {
-        protected IAES _aes;
-        protected ISecureHash _secureHash;
-        protected IPassword _password;
-        protected ICompression _compression;
+        protected IAes Aes;
+        protected ISecureHash SecureHash;
+        protected IPassword Password;
+        protected ICompression Compression;
 
         public FileLoaderBase(IPassword password)
         {
             if (password == null)
             {
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException(nameof(password));
             }
 
-            _aes = new AES();
-            _secureHash = new SecureHash();
-            _password = password;
-            _compression = new GZipCompression();
+            Aes = new Aes();
+            SecureHash = new SecureHash();
+            Password = password;
+            Compression = new GZipCompression();
         }
 
         public byte[] Load(byte[] byteStream, int workFactor)
         {
             if (byteStream == null)
             {
-                throw new ArgumentNullException("byteStream");
+                throw new ArgumentNullException(nameof(byteStream));
             }
 
             var versionNumber = ByteHelpers.CreateSpecialByteArray(2);
@@ -64,7 +63,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
 
         private void CheckFileIntegrity(byte[] hash, byte[] encrypted)
         {
-            var computedhash = _secureHash.ComputeHash(encrypted);
+            var computedhash = SecureHash.ComputeHash(encrypted);
 
             if (!ByteHelpers.ByteArrayCompare(computedhash, hash))
             {
@@ -75,9 +74,9 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
         private byte[] DecryptData(byte[] encrypted, byte[] salt, int workFactor)
         {
 
-            var decrypted = _aes.Decrypt(encrypted, Convert.ToBase64String(_password.CombinedPasswords), salt, workFactor);
+            var decrypted = Aes.Decrypt(encrypted, Convert.ToBase64String(Password.CombinedPasswords), salt, workFactor);
 
-            var decompressed = _compression.Decompress(decrypted);
+            var decompressed = Compression.Decompress(decrypted);
 
             return decompressed;
         }
