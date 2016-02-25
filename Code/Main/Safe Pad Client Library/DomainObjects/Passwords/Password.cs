@@ -25,72 +25,32 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 {
     public class Password : IPassword
     {
-        private readonly byte[] _password1;
-        private readonly byte[] _password2;
-
-        private readonly byte[] _bCryptPassword1;
-        private readonly byte[] _bCryptPassword2;
-
-        private readonly byte[] _combinedPasswords;
-
         public Password(string password1, string password2)
         {
             if (string.IsNullOrEmpty(password1))
             {
-                throw new ArgumentNullException("password1");
+                throw new ArgumentNullException(nameof(password1));
             }
 
-            string optionalPassword2;
+            var optionalPassword2 = password2 ?? string.Empty;
 
-            optionalPassword2 = password2 ?? string.Empty;
+            Password1 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(password1));
+            Password2 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(optionalPassword2));
 
-            _password1 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(password1));
-            _password2 = new SecureHash().ComputeHash(Encoding.ASCII.GetBytes(optionalPassword2));
+            BCryptPassword1 = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(password1));
+            BCryptPassword2 = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(optionalPassword2));
 
-            _bCryptPassword1 = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(password1));
-            _bCryptPassword2 = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(optionalPassword2));
-
-            _combinedPasswords = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(password1 + optionalPassword2));
+            CombinedPasswords = new BCryptHash().ComputeHash(Encoding.ASCII.GetBytes(password1 + optionalPassword2));
         }
 
-        public byte[] Password1
-        {
-            get
-            {
-                return _password1;
-            }
-        }
+        public byte[] Password1 { get; }
 
-        public byte[] Password2
-        {
-            get
-            {
-                return _password2;
-            }
-        }
+        public byte[] Password2 { get; }
 
-        public byte[] BCryptPassword1
-        {
-            get
-            {
-                return _bCryptPassword1;
-            }
-        }
+        public byte[] BCryptPassword1 { get; }
 
-        public byte[] BCryptPassword2
-        {
-            get
-            {
-                return _bCryptPassword2;
-            }
-        }
+        public byte[] BCryptPassword2 { get; }
 
-        public byte[] CombinedPasswords
-        {
-            get
-            {
-                return _combinedPasswords;
-            }
-        }
+        public byte[] CombinedPasswords { get; }
     }
 }

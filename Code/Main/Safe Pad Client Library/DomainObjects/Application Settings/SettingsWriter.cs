@@ -24,18 +24,9 @@ using System.Xml.Serialization;
 
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 {
-    public sealed class SettingsWriter
+    public static class SettingsWriter
     {
-        private SettingsWriter()
-        {
-        }
-        public static string AssemblyDirectory
-        {
-            get
-            {
-                return AppDomain.CurrentDomain.BaseDirectory;
-            }
-        }
+        public static string AssemblyDirectory => AppDomain.CurrentDomain.BaseDirectory;
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
         public static void WriteSettingsFile(ApplicationSettings settings)
@@ -58,7 +49,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             }
             catch
             {
-                return;
+                // ignored
             }
         }
 

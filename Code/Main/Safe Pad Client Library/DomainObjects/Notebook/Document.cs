@@ -38,7 +38,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
         {
             if (fileProxy == null)
             {
-                throw new ArgumentNullException("fileProxy");    
+                throw new ArgumentNullException(nameof(fileProxy));    
             }
 
             _fileProxy = fileProxy;
@@ -49,12 +49,12 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
         {
             if (string.IsNullOrEmpty(fileName))
             {
-                throw new ArgumentNullException("fileName");
+                throw new ArgumentNullException(nameof(fileName));
             }
 
             if (string.IsNullOrEmpty(documentName))
             {
-                throw new ArgumentNullException("documentName");
+                throw new ArgumentNullException(nameof(documentName));
             }
 
             if (!_fileProxy.FileExists(fileName))
@@ -66,15 +66,9 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.Notebook
             _documentName = documentName;
         }
 
-        public string Filename
-        {
-            get { return _fileName; }
-        }
+        public string Filename => _fileName;
 
-        public string DocumentName
-        {
-            get { return _documentName; }
-        }
+        public string DocumentName => _documentName;
 
         public bool FileExists()
         {

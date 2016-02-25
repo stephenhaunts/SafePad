@@ -27,12 +27,12 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
         {
             if (byteStream == null)
             {
-                throw new ArgumentNullException("byteStream");
+                throw new ArgumentNullException(nameof(byteStream));
             }
 
             if (password == null)
             {
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException(nameof(password));
             }
 
             switch (GetVersionNumber(byteStream))
@@ -53,7 +53,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
             var versionNumber = ByteHelpers.CreateSpecialByteArray(2);
             Buffer.BlockCopy(byteStream, 0, versionNumber, 0, 2);
 
-            var version = String.Format("{0}.{1}", versionNumber[0], versionNumber[1]);
+            var version = $"{versionNumber[0]}.{versionNumber[1]}";
             return version;
         }
     }

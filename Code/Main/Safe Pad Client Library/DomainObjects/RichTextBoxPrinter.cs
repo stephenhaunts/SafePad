@@ -64,12 +64,12 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         {
             if (box == null)
             {
-                throw new ArgumentNullException("box");
+                throw new ArgumentNullException(nameof(box));
             }
 
             if (e == null)
             {
-                throw new ArgumentNullException("e");
+                throw new ArgumentNullException(nameof(e));
             }
 
             Formatrange fmtRange;
@@ -95,7 +95,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
             e.Graphics.ReleaseHdc(hdc);
             if (res == IntPtr.Zero)
             {
-                throw new InvalidOperationException(string.Format("Printing failed, error code={0}", err));
+                throw new InvalidOperationException($"Printing failed, error code={err}");
             }
             charFrom = res.ToInt32();
             return charFrom < box.TextLength;

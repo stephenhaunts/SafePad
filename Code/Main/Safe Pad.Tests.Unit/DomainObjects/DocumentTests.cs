@@ -66,7 +66,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
             }
         }
 
-        private class TestAES : IAES
+        private class TestAES : IAes
         {
             public int EncryptCounter;
             public int DecryptCounter;
@@ -139,12 +139,12 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
             {
             }
 
-            public DocumentOverload(IAES aes, ISecureHash secureHash, ICompression compression, IPassword password, IFileProxy fileProxy)
+            public DocumentOverload(IAes aes, ISecureHash secureHash, ICompression compression, IPassword password, IFileProxy fileProxy)
                 : base(aes, secureHash, compression, password, fileProxy)
             {
             }
 
-            public new IAES AesProvider
+            public new IAes AesProvider
             {
                 get
                 {
@@ -204,7 +204,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [ExpectedException(typeof(ArgumentNullException), "securehash")]
         public void DocumentConstructorThrowsArgumentNullExceptionIfSecureHashProviderNullOnOverloadedConstructor()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
 
             new DocumentOverload(aes, null, null, null, null);
         }
@@ -213,7 +213,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [ExpectedException(typeof(ArgumentNullException), "compression")]
         public void DocumentConstructorThrowsArgumentNullExceptionIfCompressionNullOnOverloadedConstructor()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             ISecureHash hash = new SecureHash();
 
             new DocumentOverload(aes, hash, null, null, null);
@@ -223,7 +223,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [ExpectedException(typeof(ArgumentNullException), "password")]
         public void DocumentConstructorThrowsArgumentNullExceptionIfPasswordNullOnOverloadedConstructor()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             ISecureHash hash = new SecureHash();
             ICompression compression = new GZipCompression();
 
@@ -234,7 +234,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [ExpectedException(typeof(ArgumentNullException), "password")]
         public void DocumentConstructorThrowsArgumentNullExceptionIfFileProxyNullOnOverloadedConstructor()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             ISecureHash hash = new SecureHash();
             ICompression compression = new GZipCompression();
             IPassword password = new Password("password1", "password2");
@@ -245,7 +245,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [TestMethod]
         public void DocumentConstructorAssignsAESFromTheOverloadedConstructor()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             ISecureHash hash = new SecureHash();
             IPassword password = new Password("password1", "password2");
             IFileProxy fileProxy = new FileProxy();
@@ -258,7 +258,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [TestMethod]
         public void DocumentConstructorAssignsSecureHashFromTheOverloadedConstructor()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             ISecureHash hash = new SecureHash();
             IPassword password = new Password("password1", "password2");
             IFileProxy fileProxy = new FileProxy();
@@ -271,7 +271,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [TestMethod]
         public void DocumentConstructorAssignsCompressionFromTheOverloadedConstructor()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             ISecureHash hash = new SecureHash();
             IPassword password = new Password("password1", "password2");
             IFileProxy fileProxy = new FileProxy();
@@ -284,7 +284,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [TestMethod]
         public void DocumentConstructorAssignsPasswordFromTheOverloadedConstructor()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             ISecureHash hash = new SecureHash();
             IPassword password = new Password("password1", "password2");
             IFileProxy fileProxy = new FileProxy();
@@ -298,7 +298,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [ExpectedException(typeof(ArgumentNullException), "fileName")]
         public void LoadThrowsArgumentNullExceptionIfFileNameIsNull()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             ISecureHash hash = new SecureHash();
             IPassword password = new Password("password1", "password2");
             IFileProxy fileProxy = new FileProxy();
@@ -312,7 +312,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [ExpectedException(typeof(ArgumentNullException), "fileName")]
         public void LoadOverloadThrowsArgumentNullExceptionIfFileNameIsNull()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             ISecureHash hash = new SecureHash();
             IPassword password = new Password("password1", "password2");
             IFileProxy fileProxy = new FileProxy();
@@ -326,7 +326,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [ExpectedException(typeof(ArgumentNullException), "cachedPassword")]
         public void LoadOverloadThrowsArgumentNullExceptionIfPasswordIsNull()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             ISecureHash hash = new SecureHash();
             IPassword password = new Password("password1", "password2");
             IFileProxy fileProxy = new FileProxy();
@@ -340,7 +340,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [ExpectedException(typeof(ArgumentNullException), "fileName")]
         public void SaveThrowsArgumentNullExceptionIfFileNameIsNull()
         {
-            IAES aes = new AES();
+            IAes aes = new Aes();
             ISecureHash hash = new SecureHash();
             IPassword password = new Password("password1", "password2");
             IFileProxy fileProxy = new FileProxy();
@@ -354,7 +354,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [ExpectedException(typeof(InvalidOperationException))]
         public void LoadDecryptsDataAndThrowsInvalidOperationExceptionIfHashDoesNotMatch()
         {
-            IAES aes;
+            IAes aes;
             ISecureHash hash;
             IPassword password;
             IFileProxy fileProxy;
@@ -370,7 +370,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [ExpectedException(typeof(InvalidOperationException))]
         public void LoadOverloadDecryptsDataAndThrowsInvalidOperationExceptionIfHashDoesNotMatch()
         {
-            IAES aes;
+            IAes aes;
             ISecureHash hash;
             IPassword password;
             IFileProxy fileProxy;
@@ -385,7 +385,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [TestMethod]
         public void SaveEncryptsDataCallsEncrypt1Time()
         {
-            IAES aes;
+            IAes aes;
             ISecureHash hash;
             IPassword password;
             IFileProxy fileProxy;
@@ -401,7 +401,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
         [TestMethod]
         public void SaveEncryptsDataCallsCompress1Times()
         {
-            IAES aes;
+            IAes aes;
             ISecureHash hash;
             IPassword password;
             IFileProxy fileProxy;
@@ -414,7 +414,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Tests.Unit.DomainObjects
             Assert.AreEqual(1, ((TestCompression)compression).CompressCounter);
         }
 
-        private static void TestStubsForDocument(out IAES aes, out ISecureHash hash, out IPassword password, out IFileProxy fileProxy, out ICompression compression)
+        private static void TestStubsForDocument(out IAes aes, out ISecureHash hash, out IPassword password, out IFileProxy fileProxy, out ICompression compression)
         {
             aes = new TestAES();
             hash = new TestSecureHash();

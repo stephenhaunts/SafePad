@@ -25,20 +25,20 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
 {
     public class Version10Loader : IFileFormatLoader
     {
-        private readonly IAES _aes;
+        private readonly IAes _aes;
         private readonly ISecureHash _secureHash;
         private readonly IPassword _password;
         private readonly ICompression _compression;
-        private const string SALT = "eryryn78ynr78yn";
+        private const string Salt = "eryryn78ynr78yn";
 
         public Version10Loader(IPassword password)
         {
             if (password == null)
             {
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException(nameof(password));
             }
 
-            _aes = new AES();
+            _aes = new Aes();
             _secureHash = new SecureHash();
             _password = password;
             _compression = new GZipCompression();
@@ -48,7 +48,7 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
         {
             if (byteStream == null)
             {
-                throw new ArgumentNullException("byteStream");
+                throw new ArgumentNullException(nameof(byteStream));
             }
 
             var versionNumber = ByteHelpers.CreateSpecialByteArray(2);
@@ -73,9 +73,9 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects.FileFormat
 
         private byte[] DecryptData(byte[] encrypted)
         {
-            var decrypted = _aes.Decrypt(encrypted, Convert.ToBase64String(_password.Password1), Encoding.ASCII.GetBytes(SALT), 1000);
-            var decrypted2 = _aes.Decrypt(decrypted, Convert.ToBase64String(_password.Password2), Encoding.ASCII.GetBytes(SALT), 1000);
-            var decrypted3 = _aes.Decrypt(decrypted2, Convert.ToBase64String(_password.Password1), Encoding.ASCII.GetBytes(SALT), 1000);
+            var decrypted = _aes.Decrypt(encrypted, Convert.ToBase64String(_password.Password1), Encoding.ASCII.GetBytes(Salt), 1000);
+            var decrypted2 = _aes.Decrypt(decrypted, Convert.ToBase64String(_password.Password2), Encoding.ASCII.GetBytes(Salt), 1000);
+            var decrypted3 = _aes.Decrypt(decrypted2, Convert.ToBase64String(_password.Password1), Encoding.ASCII.GetBytes(Salt), 1000);
 
             var decompressed = _compression.Decompress(decrypted3);
 

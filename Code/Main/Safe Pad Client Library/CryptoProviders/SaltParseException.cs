@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 
+// ReSharper disable once CheckNamespace
 namespace BCrypt.Net
 {
     /// <summary>Exception for signalling parse errors. </summary>

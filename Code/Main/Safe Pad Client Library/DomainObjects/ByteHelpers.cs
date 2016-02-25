@@ -22,22 +22,18 @@ using System.Collections;
 
 namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
 {
-    public sealed class ByteHelpers
+    public static class ByteHelpers
     {
-        private ByteHelpers()
-        {
-        }
-
         public static bool ByteArrayCompare(byte[] a1, byte[] a2)
         {
             if (a1 == null)
             {
-                throw new ArgumentNullException("a1");
+                throw new ArgumentNullException(nameof(a1));
             }
 
             if (a2 == null)
             {
-                throw new ArgumentNullException("a2");
+                throw new ArgumentNullException(nameof(a2));
             }
 
             IStructuralEquatable eqa1 = a1;
@@ -65,12 +61,12 @@ namespace HauntedHouseSoftware.SecureNotePad.DomainObjects
         {
             if (first == null)
             {
-                throw new ArgumentNullException("first");
+                throw new ArgumentNullException(nameof(first));
             }
 
             if (second == null)
             {
-                throw new ArgumentNullException("second");
+                throw new ArgumentNullException(nameof(second));
             }
 
             var ret = new byte[first.Length + second.Length];

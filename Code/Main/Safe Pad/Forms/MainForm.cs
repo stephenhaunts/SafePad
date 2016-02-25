@@ -23,7 +23,6 @@ using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.Diagnostics;
 using System.IO;
-using HauntedHouseSoftware.SecureNotePad.Forms.Notebook;
 using HauntedHouseSoftware.SecureNotePad.Forms.PasswordGenerator;
 
 namespace HauntedHouseSoftware.SecureNotePad.Forms
@@ -36,7 +35,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         public MainForm(string fileName)
         {
             InitializeComponent();
-            Text = String.Format("{0} : {1}", ApplicationName, _documentName);
+            Text = $"{ApplicationName} : {_documentName}";
             Visible = true;
             richTextBox.Visible = true;
             PopulateFontDropDown();
@@ -48,7 +47,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
             Invalidate(true);
         }
 
-        public override sealed string Text
+        public sealed override string Text
         {
             get { return base.Text; }
             set { base.Text = value; }
@@ -312,7 +311,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
         private void RichTextBoxKeyPress(object sender, KeyPressEventArgs e)
         {
-            Text = String.Format("{0} : *{1}", ApplicationName, _documentName);
+            Text = $"{ApplicationName} : *{_documentName}";
 
             if (e.KeyChar == (char)Keys.Escape)
             {

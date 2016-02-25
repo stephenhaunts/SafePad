@@ -26,7 +26,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
     public partial class FindAndReplaceForm : Form
     {
         private readonly RichTextBox _richTextBox;
-        private int findCounter;
+        private int _findCounter;
 
         public FindAndReplaceForm()
         {
@@ -37,7 +37,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         {
             if (richTextBox == null)
             {
-                throw new ArgumentNullException("richTextBox");
+                throw new ArgumentNullException(nameof(richTextBox));
             }            
             
             _richTextBox = richTextBox;
@@ -98,7 +98,7 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private void Find()
         {
             RichTextBoxFinds options = SetFindOptions();
-            findCounter = FindMyText(textToFind.Text, findCounter, options);
+            _findCounter = FindMyText(textToFind.Text, _findCounter, options);
         }
 
         private RichTextBoxFinds SetFindOptions()
@@ -129,9 +129,9 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
         private void Replace()
         {
             RichTextBoxFinds options = SetFindOptions();
-            findCounter = FindMyText(textToFind.Text, findCounter, options);
+            _findCounter = FindMyText(textToFind.Text, _findCounter, options);
 
-            if (findCounter > 0)
+            if (_findCounter > 0)
             {
                 if (_richTextBox.SelectionStart == _richTextBox.TextLength)
                 {
@@ -140,9 +140,9 @@ namespace HauntedHouseSoftware.SecureNotePad.Forms
 
                 _richTextBox.SelectedText = textToReplace.Text;
 
-                if (findCounter - textToFind.Text.Length > -1)
+                if (_findCounter - textToFind.Text.Length > -1)
                 {
-                    _richTextBox.SelectionStart = findCounter - textToFind.Text.Length;
+                    _richTextBox.SelectionStart = _findCounter - textToFind.Text.Length;
                     _richTextBox.SelectionLength = textToReplace.Text.Length;
                 }
             }
