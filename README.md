@@ -1,5 +1,7 @@
 # SafePad
-SafePad : Encrypted Text Editor
+
+![alt text](https://github.com/stephenhaunts/SafePad/blob/master/Home_SafePad1.PNG "SafePad : Encrypted Text Editor")
+
 
 ## What is SafePad
 
